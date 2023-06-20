@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #22254b;
+  --secondary-color: #373b69 ; 
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--primary-color);
+}
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--secondary-color);
+}
+.search {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: white
+}
+.search::placeholder {
+  color: #7378c5;
+}
+.search:focus {
+  outline: none;
+  background-image: var(--primary-color);
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.movie {
+  width: 300px;
+  margin: 1rem;
+  background-color: var(--secondary-color);
+  box-sizing: 0px 4px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.movie img {
+  width: 100%;
+}
+.movie-info {
+  color: white; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem 1rem;
+  letter-spacing: 0.5px;
+}
+.movie-info h3 {
+  margin: 0 ;
+}
+.movie-info span {
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+}
+.movie-info span.green {
+  color: lightgreen;
+}
+.movie-info span.orange {
+  color: orange;
+}
+.movie-info span.red {
+  color: red;
+}
+.overview {
+  background-color: white;
+  padding: 2rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 100%;
+  transform: translateY(101%);
+  transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
