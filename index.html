@@ -5,71 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/media.css">
+    <link
+      rel="stylesheet"
+      href="fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="bootstrap.min.css" />
   </head>
   <body>
-    <header>
-      <form action="" id="form">
-        <input
-          type="search"
-          id="search"
-          class="search"
-          placeholder="Search..."
-        />
-      </form>
-    </header>
+    <main>
+      <header id="header">
+        <section class="w-100">
+          <nav
+            class="navbar navbar-expand-lg nav nav-container align-items-center w-100"
+          >
+            <a href="" class="order-md-0 order-1">
+              <img class="navbar-brand ms-9" width="160" src="img/logo.png"
+            /></a>
 
-    <main id="main">
-      <div class="movie">
-        <img
-          src="https://images.unsplash.com/photo-1687204209659-3bded6aecd79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-          alt=""
-        />
-        <div class="movie-info">
-          <h3>Movie Title</h3>
-          <span class="green">9.8</span>
-        </div>
-        <div class="overview">
-          <h3>Overview</h3>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex
-          cupiditate odio ullam suscipit amet corrupti quisquam soluta, officiis
-          eum temporibus.
-        </div>
-      </div>
-      <div class="movie">
-        <img
-          src="https://images.unsplash.com/photo-1687204209659-3bded6aecd79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-          alt=""
-        />
-        <div class="movie-info">
-          <h3>Movie Title</h3>
-          <span class="green">9.8</span>
-        </div>
-        <div class="overview">
-          <h3>Overview</h3>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex
-          cupiditate odio ullam suscipit amet corrupti quisquam soluta, officiis
-          eum temporibus.
-        </div>
-      </div>
-      <div class="movie">
-        <img
-          src="https://images.unsplash.com/photo-1687204209659-3bded6aecd79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-          alt=""
-        />
-        <div class="movie-info">
-          <h3>Movie Title</h3>
-          <span class="green">9.8</span>
-        </div>
-        <div class="overview">
-          <h3>Overview</h3>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex
-          cupiditate odio ullam suscipit amet corrupti quisquam soluta, officiis
-          eum temporibus.
-        </div>
-      </div>
+            <i class="fas fa-bars d-md-none d-flex order-md-0 order-"></i>
+            <ul class="nav-links nav d-md-flex d-none align-items-center gap-4 order-md-0">
+              <li>
+                <a
+                  class="text-uppercase text-decoration-none text-white"
+                  href="home.html"
+                  >Home
+                  <i class="fas fa-angle-down"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-uppercase text-decoration-none text-white"
+                  href="genres.html"
+                  >Genres
+                  <i class="fas fa-angle-down"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-uppercase text-decoration-none text-white"
+                  href="pages.html"
+                  >Pages
+                  <i class="fas fa-angle-down"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-uppercase text-decoration-none text-white"
+                  href="tv-shows.html"
+                  >Tv Shows
+                  <i class="fas fa-angle-down"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-uppercase text-decoration-none text-white"
+                  href="movies.html"
+                  >Movies</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-uppercase text-decoration-none text-white"
+                  href="news.html"
+                  >News
+                  <i class="fas fa-angle-down"></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-uppercase text-decoration-none text-white"
+                  href="contact.html"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+
+            <ul class="nav-icons nav gap-3 align-items-center order-md-3 order-3">
+              <li>
+                <a href=""><i class="fas fa-search text-white"></i></a>
+              </li>
+              <li>
+                <a href=""><i class="fas fa-bell text-white"></i></a>
+              </li>
+              <li>
+                <a href=""><img src="user.png" width="30" alt="user" /></a>
+              </li>
+            </ul>
+          </nav>
+
+          <section id="moviesHeader" class="info-mov d-flex align-items-center">
+            <div
+              class="container-mov content-container m-auto"
+              id="content-info"
+            ></div>
+            <img src="" alt="" />
+          </section>
+        </section>
+      </header>
     </main>
-  </body>
 
-  <script src="./script.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

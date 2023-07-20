@@ -1,0 +1,67 @@
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+  :root {}
+
+  body {
+    font-family: "Lexend", sans-serif !important;
+  }
+
+  a {
+    cursor: pointer !important;
+    /* color: white; */
+    transition: all 0.3s ease-in;
+  }
+
+  nav a:hover {
+    opacity: 0.8;
+    scale: 1.05;
+  }
+
+  .nav-container {
+    height: 90px;
+    padding: 0 90px;
+    justify-content: space-between !important;
+  }
+
+  .ms-9 {
+    margin-left: 90px;
+  }
+  .mt-10 {
+    margin-top: 170px;
+  }
+  .fw-200 {
+    font-weight: 200;
+  }
+  .br-30 {
+    border-radius: 30px;
+  }
+  .shd {
+    box-shadow: 3px 3px 3px 0px #000;
+  }
+
+  header {
+    height: 90vh;
+    background-size: cover !important;
+    /* background-position: center !important; */
+    /* background-position: center; */
+    background-repeat: no-repeat !important;
+    transition: all 1s ease;
+  }
+
+  .content-container .content .logo-header {
+    border-left: 6px solid red;
+    border-right: 6px solid red;
+    cursor: pointer;
+    background-color: rgba(230, 24, 24, 0.3);
+  }
+
+  .container-mov {
+    max-width: 1180px;
+  }
+  .container-mov .content .mov-info h1 {
+    -webkit-background-clip: text;
+    color: white;
+    /* background-image: url(../fire-hell-fire.gif); */
+    font-size: 70px;
+  }
