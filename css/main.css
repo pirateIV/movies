@@ -39,6 +39,9 @@
   .shd {
     box-shadow: 3px 3px 3px 0px #000;
   }
+  .border {
+    border: 2px solid white;
+  }
 
   header {
     height: 90vh;

@@ -1,15 +1,15 @@
 const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url =
-  `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=20"`;
+  `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}&page=1"`;
 
 // const api_url_genres = "https://api.themoviedb.org/3/genre/movie/list";
 const api_url_movies =
   `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&page=1"`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
 const SEARCH_API =
-  'https://api.themoviedb.org/3/search/movie?api_key=cdbfc8803073dbfaf418825d7b632341&query="';
+  `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query="war`;
+  // `https://api.themoviedb.org/3/search/movie?api_key=5e750355564957a2353604d8a9344e94&query="war`;
 
-// const search = document.getElementById('')
 const contentInfo = document.getElementById("content-info");
 const moviesHeader = document.getElementById("moviesHeader");
 
@@ -45,25 +45,32 @@ const genreMap = {
   37: "Western"
 }
 
-getMovies(api_url, api_url_genres);
+getMovies(api_url);
+getGenres(api_url_genres)
 setInterval(() => {
   getMovies(api_url, api_url_genres);
 }, 10000);
 let genreName;
 
-async function getMovies(url, api_url_genres) {
-  const res = await fetch(url + api_url_genres);
+async function getMovies(url) {
+  const res = await fetch(url);
+
   const data = await res.json();
-  genres.push(data.results)
-  console.log(genres)
 
   // console.log(data.results);
   updateHeader(data.results);
 }
+let mainData = []
+async function getGenres(api_url_genres){
+  const genreRes = await fetch(api_url_genres)
+  const genreData = await genreRes.json()
+  return genreData
+
+}
 
 let currentIndex = 0;
 let random = Math.floor(Math.random() * 1)
-function updateHeader(contents) {
+async function updateHeader(contents) {
   currentIndex++;
   if (currentIndex >= contents.length) {
     currentIndex = 0;
@@ -71,18 +78,28 @@ function updateHeader(contents) {
   contentInfo.innerHTML = "";
   const content = contents[currentIndex];
   const { id, title, vote_average, overview, poster_path, genre_ids } = content;
-  // const genreId = genre_ids.map((items) => {
-    // if(im)
+ const data  = await getGenres(api_url_genres)
+  console.log(genre_ids)
 
-    genreName = genre_ids.map(id  => {
-      const genre = genreMap.find(g => g.id === id)
-      return genre ? genre.name : ""
-    }).join(", ")
-    console.log(genreName)
-  // })
+  // votes count
+  
+  // else if(vote_average <)
+
+  // Genre List
+  let result = []
+  let genreName = []
+  const res = genre_ids.forEach(element => {
+    data.genres.filter((dat)=>{
+      result.push(dat.id === element)
+      if (dat.id === element) {
+        genreName.push(dat.name)
+      }
+    })
+  });
+
   
   moviesHeader.innerHTML = `
-    <div class="container-mov content-container m-auto  position-relative" id="content-info">
+    <div class="container-mov content-container m-auto position-relative" id="content-info">
       <div class="content mt-5" style="width: 50%">
       <div class="logo-header py-2 px-4" style="width: 200px">
         <img class="img-fluid" src="img/logo.png" alt="" />
@@ -93,9 +110,9 @@ function updateHeader(contents) {
           <h1 class="fw-200">${title}</h1>
         </div>
         <div class="movie-info nav align-items-center gap-3">
-          <small id="rating" class="rating badge bg-light text-danger">${vote_average}</small>
-          <h6>${genreName}</p>
-          <h5 class="mov-type text-white" id="mov-type"></h5>
+          <small id="rating" class="rating badge bg-light ${getRatings(vote_average)}">${vote_average}</small>
+          <a class="genre text-white text-decoration-none">${genreName.join(", ")}</a>
+          <a class="mov-type text-white" id="mov-type"></a>
         </div>
         <div class="info mt-3">
           <p class="mov-info text-white">${overview}</p>
@@ -113,18 +130,24 @@ function updateHeader(contents) {
     rgba(${0}, ${0}, ${0}, ${0.2}),
     rgba(${0}, ${0}, ${0}, ${0.8})),
     url(${img_path + poster_path})`;
+    
+    
 }
 
-// Genre type
-// Action
-// Adventure
-// Animation
-// Comedy
-// Crime
-// Documentary
+function getRatings(vote) {
+  if (vote >= 8) {
+    return 'text-success'
+  }
+  else if(vote >= 5) {
+    return 'text-warning'
+  }
+  else {
+    return 'text-danger'
+  }
+}
 
 
 
-// "genres":[
-//   {"id":28,"name":"Action"},
+
+
 
