@@ -22,6 +22,8 @@ async function getGenres() {
   const genreData = await res.json()
 }
 
+let genres = []
+
 const genreMap = {
   12: "Adventure",
   16: "Animation",
@@ -47,11 +49,13 @@ getMovies(api_url, api_url_genres);
 setInterval(() => {
   getMovies(api_url, api_url_genres);
 }, 10000);
-
+let genreName;
 
 async function getMovies(url, api_url_genres) {
   const res = await fetch(url + api_url_genres);
   const data = await res.json();
+  genres.push(data.results)
+  console.log(genres)
 
   // console.log(data.results);
   updateHeader(data.results);
@@ -67,12 +71,15 @@ function updateHeader(contents) {
   contentInfo.innerHTML = "";
   const content = contents[currentIndex];
   const { id, title, vote_average, overview, poster_path, genre_ids } = content;
-  const genreId = genre_ids.map((items) => {
+  // const genreId = genre_ids.map((items) => {
     // if(im)
-    const genreName = genre_ids.map((ids) => {
-      const genre = api_url_genres.find((id) => ids.id)
-    })
-  })
+
+    genreName = genre_ids.map(id  => {
+      const genre = genreMap.find(g => g.id === id)
+      return genre ? genre.name : ""
+    }).join(", ")
+    console.log(genreName)
+  // })
   
   moviesHeader.innerHTML = `
     <div class="container-mov content-container m-auto  position-relative" id="content-info">
@@ -87,7 +94,7 @@ function updateHeader(contents) {
         </div>
         <div class="movie-info nav align-items-center gap-3">
           <small id="rating" class="rating badge bg-light text-danger">${vote_average}</small>
-          <h6>${genreMap[genre_id]}</p>
+          <h6>${genreName}</p>
           <h5 class="mov-type text-white" id="mov-type"></h5>
         </div>
         <div class="info mt-3">
