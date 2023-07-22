@@ -45,9 +45,9 @@ const genreMap = {
 
 getMovies(api_url);
 getGenres(api_url_genres);
-// setInterval(() => {
-//   getMovies(api_url);
-// }, 10000);
+setInterval(() => {
+  getMovies(api_url);
+}, 10000);
 let genreName;
 
 async function getMovies(url) {
