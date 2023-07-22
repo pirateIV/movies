@@ -28,8 +28,8 @@
             <ul class="nav-links nav d-md-flex d-none align-items-center gap-4 order-md-0">
               <li>
                 <a
-                  class="text-uppercase text-decoration-none text-white"
-                  href="home.html"
+                  class="text-uppercase text-decoration-none text-danger"
+                  href="index.html"
                   >Home
                   <i class="fas fa-angle-down"></i>
                 </a>
@@ -83,10 +83,10 @@
             </ul>
 
             <ul class="nav-icons nav gap-3 align-items-center order-md-3 order-3">
-              <li>
+              <li class="position-relative">
                 <a href=""><i class="fas fa-search text-white"></i></a>
 
-                <div class="search-bar bg-white">
+                <div class="search-bar bg-white br-30 position-absolute p-5" style="z-index: 40">
 
                 </div>
               </li>
@@ -108,6 +108,11 @@
           </section>
         </section>
       </header>
+
+      <div class="bg-danger vh-100 position-fixed  w-100"></div>
+      <div class="main-body vh-100">
+
+      </div>
     </main>
 
     <script src="js/main.js"></script>

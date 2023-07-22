@@ -42,9 +42,16 @@
   .border {
     border: 2px solid white;
   }
+  .vh-100 {
+    height: 100vh;
+  }
+  .bg-red {
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 3px solid rgb(247, 39, 39) !important;
+  }
 
   header {
-    height: 90vh;
+    height: 100vh;
     background-size: cover !important;
     /* background-position: center !important; */
     /* background-position: center; */
@@ -67,4 +74,15 @@
     color: white;
     /* background-image: url(../fire-hell-fire.gif); */
     font-size: 70px;
+  }
+  .nav-icons .search-bar{
+    width: 400px;
+    height: 80vh;
+    /* left: -210px; */
+    right: -100px;
+  }
+
+  .main-body {
+    background-color: #000;
+    margin-top: 100vh;
   }
