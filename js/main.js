@@ -12,7 +12,12 @@ const moviesHeader = document.getElementById("moviesHeader");
 
 // const video_url = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api_key}`33333333333333
 // const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key="${api_key}&page=2"`
+
+// Get Genre list
 const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=5e750355564957a2353604d8a9344e94&page=2"`;
+
+// Popular movies list
+const api_popular_list = `https://api.themoviedb.org/3/movie/popular?api_key=5e750355564957a2353604d8a9344e94`;
 async function getGenres() {
   const res = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list" + "?api_key=" + api_key
@@ -44,6 +49,7 @@ const genreMap = {
 };
 
 getMovies(api_url);
+getPopular(api_popular_list)
 getGenres(api_url_genres);
 setInterval(() => {
   getMovies(api_url);
@@ -67,6 +73,7 @@ async function getGenres(api_url_genres) {
 
 let currentIndex = 0;
 let random = Math.floor(Math.random() * 1);
+
 async function updateHeader(contents) {
   currentIndex++;
   if (currentIndex >= contents.length) {
@@ -97,14 +104,21 @@ async function updateHeader(contents) {
   });
 
   // Update button
-  const button = document.createElement("button")
-  button.innerText = "Movie Details"
-  button.classList.add("px-5", "py-3", "rounded-pill", "shadow", "text-white", "bg-red")
-  button.addEventListener("click", ()=> {
+  const button = document.createElement("button");
+  button.innerText = "Movie Details";
+  button.classList.add(
+    "px-5",
+    "py-3",
+    "rounded-pill",
+    "shadow",
+    "text-white",
+    "bg-red"
+  );
+  button.addEventListener("click", () => {
     // getMovieDetails(content)
-    console.log(content)
+    console.log(content);
     // console.log(content)
-  })
+  });
 
   moviesHeader.innerHTML = `
     <div class="container-mov content-container m-auto position-relative" id="content-info">
@@ -134,7 +148,7 @@ async function updateHeader(contents) {
         </div>
       </div>
     </div>
-    <img class="mov-img btn position-absolute br-30 shd" style="right: 60px; top: 90px" src="${
+    <img class="mov-img br-30 shd btn position-absolute" style="right: 60px; top: 90px" src="${
       img_path + poster_path
     }" width="450" alt="" />
     `;
@@ -145,8 +159,6 @@ async function updateHeader(contents) {
     rgba(${0}, ${0}, ${0}, ${0.2}),
     rgba(${0}, ${0}, ${0}, ${0.8})),
     url(${img_path + poster_path})`;
-
- 
 }
 
 function getRatings(vote) {
@@ -159,10 +171,31 @@ function getRatings(vote) {
   }
 }
 
-function getMovieDetails(movie) {
-  // console.log(movie);
+// function getMovieDetails(movie) {
+//   // console.log(movie);
 
-  // const movies = JSON.parse(movie);
-  console.log(movie);
-}
+//   // const movies = JSON.parse(movie);
+//   console.log(movie);
+// }
 // getMovieDetails()
+
+async function getPopular(list_content) {
+  const res = await fetch(list_content);
+  const data = await res.json();
+
+  getPopularList(data.results);
+}
+
+function getPopularList(pop_List) {
+  // console.log(data.results);
+  const topRatedMovies = document.getElementById("topRatedMovies");
+  const { id, title, vote_average, overview, poster_path, genre_ids } = pop_List;
+
+  topRatedMovies.innerHTML = "";
+  pop_List.forEach((mov) => {
+    topRatedMovies.innerHTML += `
+    <div class="list"></div>
+    `;
+    topRatedMovies.style.backgroundImage = `url(${mov.poster_path})`;
+  });
+}

@@ -45,9 +45,15 @@
   .vh-100 {
     height: 100vh;
   }
+  .bg-000 {
+    background-color: #000;
+  }
   .bg-red {
     background-color: rgba(255, 0, 0, 0.3);
     border: 3px solid rgb(247, 39, 39) !important;
+  }
+  .fs-90 {
+    font-size: 5rem;
   }
 
   header {
@@ -88,7 +94,19 @@
 
   .main-body {
     background-color: #000;
-    margin-top: 100vh;
+    /* margin-top: 100vh; */
+  }
+
+  /* Top Rated */
+  .top_rated_mov .top-rated .mov-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .top_rated_mov .top-rated .mov-list .list{
+    width: 150px;
+    height: 300px;
+    background: #333;
   }
 
 
