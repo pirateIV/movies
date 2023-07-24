@@ -218,16 +218,16 @@ function checkLength(text) {
 // get Popular movies
 async function getPopular() {
   let popularMoviesLength = 100;
-  const movList = document.querySelector('.mov-list')
-  movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`
+  const movList = document.querySelector(".mov-list");
+  movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
   let movieContents = await getMovies(api_popular_list, popularMoviesLength);
   try {
     console.log(movieContents);
 
     const movieContent = movieContents;
-    console.log(movieContent)
-    
-    topRatedMovies.innerHTML = ''
+    console.log(movieContent);
+
+    topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
       const { id, vote_average, poster_path } = movieContent[i];
       topRatedMovies.innerHTML += `
@@ -235,7 +235,6 @@ async function getPopular() {
           <img class="border" src="${img_path + poster_path}" alt="">
         </div>
       `;
-      
     }
   } catch (error) {}
 }

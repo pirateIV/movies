@@ -3,6 +3,7 @@
   * {
     scroll-behavior: smooth !important;
   }
+
   :root {}
 
   body {
@@ -11,7 +12,6 @@
 
   a {
     cursor: pointer !important;
-    /* color: white; */
     transition: all 0.3s ease-in;
   }
 
@@ -70,8 +70,6 @@
   header {
     height: 100vh;
     background-size: cover !important;
-    /* background-position: center !important; */
-    /* background-position: center; */
     background-repeat: no-repeat !important;
   }
 
@@ -88,28 +86,23 @@
   }
 
   #moviesHeader {
-    /* max-width: 1180px; */
-    /* margin: auto; */
     margin-left: 90px;
   }
 
   .container-mov .content .mov-info h1 {
     -webkit-background-clip: text;
     color: white;
-    /* background-image: url(../fire-hell-fire.gif); */
     font-size: 64px;
   }
 
   .nav-icons .search-bar {
     width: 400px;
     height: 80vh;
-    /* left: -210px; */
     right: -100px;
   }
 
   .main-body {
     background-color: #000;
-    /* margin-top: 100vh; */
   }
 
   /* Top Rated */
@@ -117,25 +110,26 @@
     gap: 10px;
     display: grid;
     height: 60vh;
-    overflow:auto !important;
+    overflow: auto !important;
   }
+
   .top_rated_mov .top-rated .mov-list::-webkit-scrollbar {
     display: none !important;
   }
-  
-  
+
+
   .top_rated_mov .top-rated .mov-list .list {
     width: 220px;
     border: 1px solid #333;
     height: 300px;
     background: #333;
-    /* overflow:; */
   }
 
   .top_rated_mov .top-rated .mov-list .list img {
     width: 240px;
     transition: all 0.3s ease;
   }
+
   .top_rated_mov .top-rated .mov-list .list img:hover {
     scale: 1.03;
   }
@@ -150,6 +144,7 @@
     #moviesHeader .mov-img {
       display: none;
     }
+
     .content-container .content {
       width: 65%;
     }
@@ -172,7 +167,6 @@
 
     .content-container .content {
       width: 90%;
-      /* text-align: center; */
     }
 
     .container-mov .content .mov-info h1 {
@@ -190,6 +184,7 @@
       align-items: center;
       text-align: center;
     }
+
     .container-mov .content .mov-info h1 {
       font-size: 60px;
     }
@@ -203,6 +198,7 @@
     .content-container .content {
       width: 93%;
     }
+
     .container-mov .content .mov-info h1 {
       font-size: 50px;
     }
