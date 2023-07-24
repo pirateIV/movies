@@ -75,6 +75,7 @@
 
   .content-container .content {
     width: 53%;
+    justify-content: center;
   }
 
   .content-container .content .logo-header {
@@ -158,11 +159,8 @@
 
     .content-container .content {
       width: 90%;
-      justify-content: center;
-      text-align: center;
+      /* text-align: center; */
     }
-
-  
 
     .container-mov .content .mov-info h1 {
       font-size: 60px;
@@ -176,9 +174,8 @@
 
     .content-container .content {
       width: 90%;
-      justify-content: center;
-      text-align: center;
       align-items: center;
+      text-align: center;
     }
     .container-mov .content .mov-info h1 {
       font-size: 60px;

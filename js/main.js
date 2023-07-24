@@ -154,7 +154,7 @@ async function updateHeader() {
 
           <div class="mov-info">
             <div class="movie-info-header-text">
-              <h1 class="fw-900">${title.slice(0, 36)}</h1>
+              <h1 class="fw-900 ${checkLength(title)}">${title.slice(0, 36)}</h1>
             </div>
             <div class="movie-info nav align-items-center gap-3">
               <small id="rating" class="rating badge bg-light ${getRatings(
@@ -196,6 +196,12 @@ function getRatings(vote) {
     return "text-warning";
   } else {
     return "text-danger";
+  }
+}
+
+function checkLength(text){
+  if(text.length > 36) {
+    text.style.fontSize = `${30}px`
   }
 }
 
