@@ -108,20 +108,20 @@ async function updateHeader(contents) {
 
   moviesHeader.innerHTML = `
     <div class="container-mov content-container m-auto position-relative" id="content-info">
-      <div class="content mt-5" style="width: 50%">
-        <div class="logo-header py-2 px-4" style="width: 200px">
+      <div class="content mt-5">
+        <div class="logo-header py-2 px-4 " style="width: 200px">
           <img class="img-fluid" src="img/logo.png" alt="" />
         </div>
 
         <div class="mov-info">
           <div class="movie-info-header-text mt-3">
-            <h1 class="fw-200">${title}</h1>
+            <h1 class="fw-900">${title}</h1>
           </div>
           <div class="movie-info nav align-items-center gap-3">
             <small id="rating" class="rating badge bg-light ${getRatings(
               vote_average
-            )}">${vote_average}</small>
-            <a class="genre text-white text-decoration-none">${genreName.join(
+            )}">${vote_average.toFixed(1)}</small>
+            <a class="genre d-none d-md-block text-white text-decoration-none">${genreName.join(
               ", "
             )}</a>
             <a class="mov-type text-white" id="mov-type"></a>
@@ -134,7 +134,7 @@ async function updateHeader(contents) {
         </div>
       </div>
     </div>
-    <img class="btn position-absolute br-30 shd" style="right: 60px; top: 90px" src="${
+    <img class="mov-img btn position-absolute br-30 shd" style="right: 60px; top: 90px" src="${
       img_path + poster_path
     }" width="450" alt="" />
     `;
