@@ -50,13 +50,12 @@ const genreMap = {
 
 // getMovies(api_url);
 
-
 getPopular(api_popular_list);
 getGenres(api_url_genres);
-setInterval(()=> {
-  updateHeader()
-}, 10000)
-updateHeader()
+setInterval(() => {
+  updateHeader();
+}, 10000);
+updateHeader();
 let genreName;
 
 let mainData = [];
@@ -154,7 +153,10 @@ async function updateHeader() {
 
           <div class="mov-info">
             <div class="movie-info-header-text">
-              <h1 class="fw-900 ${checkLength(title)}">${title.slice(0, 36)}</h1>
+              <h1 class="fw-900 ${checkLength(title)}">${title.slice(
+      0,
+      36
+    )}</h1>
             </div>
             <div class="movie-info nav align-items-center gap-3">
               <small id="rating" class="rating badge bg-light ${getRatings(
@@ -199,9 +201,9 @@ function getRatings(vote) {
   }
 }
 
-function checkLength(text){
-  if(text.length > 36) {
-    text.style.fontSize = `${30}px`
+function checkLength(text) {
+  if (text.length > 36) {
+    text.style.fontSize = `${30}px`;
   }
 }
 
@@ -211,42 +213,30 @@ function checkLength(text){
 //   // const movies = JSON.parse(movie);
 //   console.log(movie);
 // }
-// getMovieDetails()
+// getMovieDetails();
 
-// async function getPopular(list_content) {
-//   const res = await fetch(list_content);
-//   const data = await res.json();
+// get Popular movies
+async function getPopular() {
+  let popularMoviesLength = 100;
+  const movList = document.querySelector('.mov-list')
+  movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`
+  let movieContents = await getMovies(api_popular_list, popularMoviesLength);
+  try {
+    console.log(movieContents);
 
-//   topRatedMovies.innerHTML = "";
-
-//   data.results.forEach((movList) => {
-//     const { id, poster_path, overview, vote_average } = movList;
-
-//   });
-
-// }
-
-// function displayCards(startIndex, count) {
-//   for (let i = startIndex; i <= count; i++) {
-//     topRatedMovies.innerHTML += `
-//       <div class="list me-5" id="list">
-//         <img src="${img_path + poster_path}" alt=""
-//       </div>
-
-//     `;
-//   }
-// }
-// displayCards(0, 5)
-
-async function getPopular(api_popular_list) {
-  const res = await fetch(api_popular_list);
-  const data = await res.json();
-
-  console.log(data);
-  let listData = data.results;
+    const movieContent = movieContents;
+    console.log(movieContent)
+    
+    topRatedMovies.innerHTML = ''
+    for (let i = 0; i <= popularMoviesLength; i++) {
+      const { id, vote_average, poster_path } = movieContent[i];
+      topRatedMovies.innerHTML += `
+        <div class="list mx-3 rounded-2" id="list">
+          <img class="border" src="${img_path + poster_path}" alt="">
+        </div>
+      `;
+      
+    }
+  } catch (error) {}
 }
-function displayCards(startIndex, count) {
-  for (let i = startIndex; i <= count; i++) {}
-}
-
-displayCards(0, 5);
+// getPopular(api_popular_list)

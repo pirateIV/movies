@@ -1,6 +1,8 @@
   @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-
+  * {
+    scroll-behavior: smooth !important;
+  }
   :root {}
 
   body {
@@ -49,7 +51,7 @@
   }
 
   .vh-100 {
-    height: 100vh;
+    height: 800px !important;
   }
 
   .bg-000 {
@@ -112,19 +114,30 @@
 
   /* Top Rated */
   .top_rated_mov .top-rated .mov-list {
-    display: flex;
-    align-items: center;
     gap: 10px;
+    display: grid;
+    height: 60vh;
+    overflow:auto !important;
   }
-
+  .top_rated_mov .top-rated .mov-list::-webkit-scrollbar {
+    display: none !important;
+  }
+  
+  
   .top_rated_mov .top-rated .mov-list .list {
-    width: 150px;
+    width: 220px;
+    border: 1px solid #333;
     height: 300px;
-    /* background: #333; */
+    background: #333;
+    /* overflow:; */
   }
 
   .top_rated_mov .top-rated .mov-list .list img {
-    width: 200px;
+    width: 240px;
+    transition: all 0.3s ease;
+  }
+  .top_rated_mov .top-rated .mov-list .list img:hover {
+    scale: 1.03;
   }
 
 
