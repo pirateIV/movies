@@ -49,7 +49,7 @@ const genreMap = {
 };
 
 getMovies(api_url);
-getPopular(api_popular_list)
+getPopular(api_popular_list);
 getGenres(api_url_genres);
 setInterval(() => {
   getMovies(api_url);
@@ -183,19 +183,14 @@ async function getPopular(list_content) {
   const res = await fetch(list_content);
   const data = await res.json();
 
-  getPopularList(data.results);
-}
-
-function getPopularList(pop_List) {
-  // console.log(data.results);
-  const topRatedMovies = document.getElementById("topRatedMovies");
-  const { id, title, vote_average, overview, poster_path, genre_ids } = pop_List;
-
   topRatedMovies.innerHTML = "";
-  pop_List.forEach((mov) => {
+  data.results.forEach((movList) => {
+    const { id, poster_path, overview, vote_average} = movList
     topRatedMovies.innerHTML += `
-    <div class="list"></div>
+      <div class="list me-5" id="list">
+        <img src="${img_path + poster_path}" alt=""
+      </div>
+
     `;
-    topRatedMovies.style.backgroundImage = `url(${mov.poster_path})`;
   });
 }

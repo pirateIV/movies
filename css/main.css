@@ -106,7 +106,10 @@
   .top_rated_mov .top-rated .mov-list .list{
     width: 150px;
     height: 300px;
-    background: #333;
+    /* background: #333; */
+  }
+  .top_rated_mov .top-rated .mov-list .list img {
+    width: 200px;
   }
 
 
