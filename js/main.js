@@ -53,9 +53,10 @@ const genreMap = {
 
 getPopular(api_popular_list);
 getGenres(api_url_genres);
-// setInterval(() => {
-//   getMovies(api_url);
-// }, 10000);
+setInterval(()=> {
+  updateHeader()
+}, 10000)
+updateHeader()
 let genreName;
 
 let mainData = [];
@@ -105,7 +106,7 @@ async function updateHeader() {
 
   currentIndex++;
   if (currentIndex >= movies.length) {
-    currentIndex = 22;
+    currentIndex = 20;
   }
   try {
     // object to display movies
@@ -243,5 +244,3 @@ function displayCards(startIndex, count) {
 }
 
 displayCards(0, 5);
-
-updateHeader();
