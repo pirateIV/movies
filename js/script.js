@@ -1,3 +1,4 @@
+const movContainer = document.getElementById("movContainer")
 const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 
@@ -65,7 +66,7 @@ async function getMovieDetails(movieContent, index) {
 
   selectedMovieDisplay.innerHTML = `
    <div class="d-flex text-white gap-5">
-   <i class="fas fa-times text-danger position-absolute fs-3"></i>
+   <i class="fas fa-times text-danger position-absolute fs-3 close-btn"></i>  
     <img src="${
       img_path + poster_path
     }" alt="" class="img-fluid" style="width: 31%"> 
@@ -107,13 +108,16 @@ async function getMovieDetails(movieContent, index) {
           </div>
   </div> 
   `;
+  const closeIcon = document.querySelector(".close-btn");
+  closeIcon.addEventListener("click", closeMovieDetails);
+
   movContainer.style.transform = `scale(${1})`;
  
 }
 
 // getMovieDetails(mov)
 
-// function closeMovieDetails() {
-//   movContainer.style.transform = `scale(${0})`
-//   console.log(e.target)
-// }
+function closeMovieDetails() {
+  movContainer.style.transform = `scale(${0})`
+  // console.log(e.target)
+}
