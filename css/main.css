@@ -120,13 +120,18 @@
 
 
   .top_rated_mov .top-rated .mov-list .list {
-    width: 160px;
+    width: 220px;
     height: 300px;
     position: relative;
+    transition: all 0.3s ease;
   }
   .top_rated_mov .top-rated .mov-list .list .item{
-    width: 160px;
+    width: 220px;
     height: 300px;
+  }
+  .top_rated_mov .top-rated .mov-list .list .item svg{
+    bottom: -50px;
+    right: 20px;
   }
   .top_rated_mov .top-rated .mov-list .list .item .vote{
    background: #000;
@@ -142,13 +147,12 @@
 
   .top_rated_mov .top-rated .mov-list .list img {
     /* width: 190px; */
-    width: 200px;
+    width: 220px;
     /* margin: 10px 15px; */
-    transition: all 0.3s ease;
     border-radius: 10px;
   }
 
-  .top_rated_mov .top-rated .mov-list .list img:hover {
+  .top_rated_mov .top-rated .mov-list .list:hover {
     scale: 1.03;
   }
 

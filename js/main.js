@@ -17,7 +17,7 @@ const moviesHeader = document.getElementById("moviesHeader");
 const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=5e750355564957a2353604d8a9344e94&page=1"`;
 
 // Popular movies list
-const api_popular_list = `https://api.themoviedb.org/3/movie/popular?api_key=5e750355564957a2353604d8a9344e94&page=1  `;
+const api_popular_list = `https://api.themoviedb.org/3/discover/movie?api_key=5e750355564957a2353604d8a9344e94&sort_by=popularity.desc&page=1  `;
 async function getGenres() {
   const res = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list" + "?api_key=" + api_key
@@ -230,15 +230,25 @@ async function getPopular() {
 
     topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
-      const { id, vote_average, poster_path } = movieContent[i];
+      const { id, vote_average, poster_path,title, release_date } = movieContent[i];
       topRatedMovies.innerHTML += `
         <div class="list mx-3 rounded-5" id="list">
           <img class="border border-dark rounded-5" src="${img_path + poster_path}" alt="">
           <div class="item position-absolute top-0 ">
+            <svg width="40" height="40" class="position-absolute">
+              <circle id="borderCircle" cx="20" cy="20" r="16" fill="none" stroke="blue" stroke-width="3"></circle>
+              <circle cx="20" cy="20" r="16" fill="white"></circle>
+              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="black" font-weight="bold">
+                ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
+              </text>
+            </svg>
 
-            <div class="vote nav text-white justify-content-center align-items-center bottom-0 rounded-circle end-0 ${updateVotesAverage(vote_average * 10)}">${vote_average * 10}<sup>%</sup></div>
-          </div>
+            </div>
+            <p class="text-muted">${release_date}</p>
+            <h6 class="text-center text-light mb-5">${title}</h4>
         </div>
+    
+    
       `;
     }
   } catch (error) {}
@@ -256,3 +266,9 @@ function updateVotesAverage(vote) {
     return "border-danger"
   }
 }
+
+// functionVotesPercentage(percentage){
+//   const   
+// }
+
+{/* <div class="vote nav text-white justify-content-center align-items-center bottom-0 rounded-circle end-0 ${updateVotesAverage(vote_average * 10)}">${vote_average * 10}<sup>%</sup></div> */}
