@@ -20,7 +20,7 @@ const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=5e
 const api_popular_list = `https://api.themoviedb.org/3/discover/movie?api_key=5e750355564957a2353604d8a9344e94&sort_by=popularity.desc&page=1  `;
 
 // airing today movies
-const api_air_today = `https://api.themoviedb.org/3/tv/airing_today?api_key=${api_key}`
+const api_air_today = `https://api.themoviedb.org/3/tv/airing_today?api_key=${api_key}`;
 
 async function getGenres() {
   const res = await fetch(
@@ -234,13 +234,20 @@ async function getPopular() {
 
     topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
-      const { id, vote_average, poster_path,title, release_date } = movieContent[i];
+      const { id, vote_average, poster_path, title, release_date } =
+        movieContent[i];
       topRatedMovies.innerHTML += `
         <div class="list mx-3 rounded-5" id="list">
-          <img class="border border-dark rounded-5 " src="${img_path + poster_path}" alt="">
+          <img class="border border-dark rounded-5 " src="${
+            img_path + poster_path
+          }" alt="">
           <div class="item position-absolute top-0 ">
             <svg width="40" height="40" class="position-absolute">
-              <circle id="borderCircle" class="${votesPercentage(vote_average * 10)}" cx="20" cy="20" r="16" fill="none" stroke="${updateVotesAverage(vote_average * 10)}" stroke-width="5"></circle>
+              <circle id="borderCircle" class="${votesPercentage(
+                vote_average * 10
+              )}" cx="20" cy="20" r="16" fill="none" stroke="${updateVotesAverage(
+        vote_average * 10
+      )}" stroke-width="5"></circle>
               <circle cx="20" cy="20" r="16" fill="white"></circle>
               <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="black" font-weight="bold">
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
@@ -256,32 +263,34 @@ async function getPopular() {
       `;
     }
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 }
 // getPopular(api_popular_list)
 
 function updateVotesAverage(vote) {
-  if(vote >= 75) {
-    return "green"
-  }
-  else if (vote >= 60) {
-    return "yellow"
-  }
-  else {
-    return "red"
+  if (vote >= 75) {
+    return "green";
+  } else if (vote >= 60) {
+    return "yellow";
+  } else {
+    return "red";
   }
 }
 
-function votesPercentage(percentage){
+function votesPercentage(percentage) {
   const circleRadius = 16;
   const circumference = 2 * Math.PI * circleRadius;
-  const borderLength = (circumference * percentage) / 100
+  const borderLength = (circumference * percentage) / 100;
 
-  return circle.setAttribute('stroke-dasharray', `${borderLength} ${circumference - borderLength}`);
-
+  return circle.setAttribute(
+    "stroke-dasharray",
+    `${borderLength} ${circumference - borderLength}`
+  );
 
   // const percentageOfBorder = percentage;
 }
 
-{/* <div class="vote nav text-white justify-content-center align-items-center bottom-0 rounded-circle end-0 ${updateVotesAverage(vote_average * 10)}">${vote_average * 10}<sup>%</sup></div> */}
+{
+  /* <div class="vote nav text-white justify-content-center align-items-center bottom-0 rounded-circle end-0 ${updateVotesAverage(vote_average * 10)}">${vote_average * 10}<sup>%</sup></div> */
+}
