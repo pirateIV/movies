@@ -1,5 +1,18 @@
 /* Selected Movie Detail */
 
+.movContainer {
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+.movContainer .fas.fa-times{
+  right: -13px;
+  top: -15px;
+  background-color: #333;
+  padding: 5px 10px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  cursor: pointer;
+}
 .selected-mov-detail {
   height: 80vh;
   width: 85vw;

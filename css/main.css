@@ -126,6 +126,7 @@
     height: 300px;
     position: relative;
     transition: all 0.3s ease;
+    cursor: pointer;
   }
   .top_rated_mov .top-rated .mov-list .list .item{
     width: 220px;

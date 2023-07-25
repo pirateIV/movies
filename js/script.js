@@ -28,9 +28,65 @@ async function getGenres() {
   );
   const genreData = await res.json();
 }
+{
+}
 
+const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 function getMovieDetails(movieContent, index) {
-  console.log(movieContent[index])
+  // console.log(movieContent[index])
+  console.log(selectedMovieDisplay.innerHTML);
+  const movContent = movieContent[index];
+  console.log(movContent);
+  const {
+    title,
+    adults,
+    vote_average,
+    vote_count,
+    original_language,
+    overview,
+    poster_path,
+    genre_ids,
+  } = movContent;
 
+  selectedMovieDisplay.innerHTML = `
+   <div class="d-flex text-white gap-5">
+   <i class="fas fa-times text-danger position-absolute fs-1 "></i>
+    <img src="${
+      img_path + poster_path
+    }" alt="" class="img-fluid" style="width: 31%"> 
+    <div>
+      <h1 class="text-white">${title}</h1>
+    </div>
+
+    <div class="item position-absolute top-0 ">
+            <svg width="40" height="40" class="position-absolute">
+              <circle id="circle" stroke="${updateVotesAverage(
+                vote_average * 10
+              )}" stroke-dasharray="${votesPercentage(
+    vote_average * 10
+  )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
+                      <circle cx="20" cy="20" r="16"  fill="black"></circle>
+              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
+                ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
+              </text>
+            </svg>
+
+          </div>
+  </div> 
+  `;
+  movContainer.style.transform = `scale(${1})`;
+  movContainer.focus()
+  
+ 
   
 }
+document.body.addEventListener('keypress', (e) => {
+  if(e.key === 'esc') {
+    movContainer.style.transform = `scale(${0})`
+    console.log(true)
+  }
+  else {
+    console.log(false)
+  }
+})
+// getMovieDetails(mov)
