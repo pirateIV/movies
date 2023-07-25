@@ -24,9 +24,10 @@
   border-radius: 20px;
 }
 .genre-item{
-  background-color: rgba(255, 255, 255, 0.4);
+  /* background-color: rgba(255, 255, 255, 0.4); */
   padding: 6px 10px;
   border-radius: 20px;
+  color: white !important;
   border: 5px solid #222;
   text-decoration: none;
   font-weight: 500;

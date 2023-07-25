@@ -14,7 +14,7 @@ const moviesHeader = document.getElementById("moviesHeader");
 // const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key="${api_key}&page=2"`
 
 // Get Genre list
-const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=5e750355564957a2353604d8a9344e94&page=1"`;
+const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=5e750355564957a2353604d8a9344e94&page=1`;
 
 // Popular movies list
 const api_popular_list = `https://api.themoviedb.org/3/discover/movie?api_key=5e750355564957a2353604d8a9344e94&sort_by=popularity.desc&page=1  `;
@@ -28,8 +28,7 @@ async function getGenres() {
   );
   const genreData = await res.json();
 }
-{
-}
+
 
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 async function getMovieDetails(movieContent, index) {
@@ -78,7 +77,7 @@ async function getMovieDetails(movieContent, index) {
         </div>
         <div class="d-flex genre align-items-center gap-2">
             <h4 class="text-warning">Genre: </h4>
-            <a class="genre-a">${results.map(res => `<a class="genre-item text-dark">${res}</a>`).join(' ')}</a>
+            <a class="genre-a">${results.map(res => `<a class="genre-item">${res}</a>`).join(' ')}</a>
         </div>
         <div class="overview">
             <h4 class="text-warning">Overview: </h4>
