@@ -46,6 +46,7 @@ async function getMovieDetails(movieContent, index) {
     overview,
     poster_path,
     genre_ids,
+    release_date
   } = movContent;
 
   let results = []
@@ -65,13 +66,16 @@ async function getMovieDetails(movieContent, index) {
 
   selectedMovieDisplay.innerHTML = `
    <div class="d-flex text-white gap-5">
-   <i class="fas fa-times text-danger position-absolute fs-3 onclick="${closeMovieDetails}"></i>
+   <i class="fas fa-times text-danger position-absolute fs-3"></i>
     <img src="${
       img_path + poster_path
     }" alt="" class="img-fluid" style="width: 31%"> 
     <div>
       <h1 class="text-white">${title}</h1>
-      <section class="mt-5">
+      <section class="mt-5 d-flex justify-content-center flex-column">
+        <div>
+          <small class="text-muted fw-bold">Language: <span class="badge bg-primary">${original_language}</span></small>
+        </div>
         <div class="d-flex genre align-items-center gap-2">
             <h4 class="text-warning">Genre: </h4>
             <a class="genre-a">${results.map(res => `<a class="genre-item text-dark">${res}</a>`).join(' ')}</a>
@@ -80,6 +84,11 @@ async function getMovieDetails(movieContent, index) {
             <h4 class="text-warning">Overview: </h4>
             <p>${overview}</p>
         </div>
+        <div class="release">
+            <h4 class="text-warning">Release Date: </h4>
+            <p>${release_date}</p>
+        </div>
+        
       </section>
     </div>
 
@@ -100,19 +109,12 @@ async function getMovieDetails(movieContent, index) {
   </div> 
   `;
   movContainer.style.transform = `scale(${1})`;
-  movContainer.focus();
+ 
 }
-document.body.addEventListener("keypress", (e) => {
-  if (e.key === "esc") {
-    movContainer.style.transform = `scale(${0})`;
-    console.log(true);
-  } else {
-    console.log(false);
-  }
-});
+
 // getMovieDetails(mov)
 
-function closeMovieDetails() {
-  movContainer.style.transform = `scale(${0})`
-  console.log(e.target)
-}
+// function closeMovieDetails() {
+//   movContainer.style.transform = `scale(${0})`
+//   console.log(e.target)
+// }
