@@ -226,11 +226,13 @@ async function getPopular() {
   movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
   let movieContents = await getMovies(api_popular_list, popularMoviesLength);
   try {
-    console.log(movieContents);
+    // console.log(movieContents);
 
     const movieContent = movieContents;
 
     console.log(movieContent);
+    // movieContent.forEach((content) => {
+    // })
 
     topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
@@ -243,13 +245,13 @@ async function getPopular() {
           }" alt="">
           <div class="item position-absolute top-0 ">
             <svg width="40" height="40" class="position-absolute">
-              <circle id="borderCircle" class="${votesPercentage(
+              <circle id="circle" stroke="${updateVotesAverage(
                 vote_average * 10
-              )}" cx="20" cy="20" r="16" fill="none" stroke="${updateVotesAverage(
+              )}" stroke-dasharray="${votesPercentage(
         vote_average * 10
-      )}" stroke-width="5"></circle>
-              <circle cx="20" cy="20" r="16" fill="white"></circle>
-              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="black" font-weight="bold">
+      )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
+              <circle cx="20" cy="20" r="16"  fill="black"></circle>
+              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
               </text>
             </svg>
@@ -261,6 +263,13 @@ async function getPopular() {
     
     
       `;
+      // console.log(topRatedMovies.length)
+      const lists = document.querySelectorAll("#list");
+      lists.forEach((list, index) => {
+        list.addEventListener("click", (e) => {
+          console.log(movieContent[index]);
+        });
+      });
     }
   } catch (error) {
     console.log(error.message);
@@ -283,10 +292,11 @@ function votesPercentage(percentage) {
   const circumference = 2 * Math.PI * circleRadius;
   const borderLength = (circumference * percentage) / 100;
 
-  return circle.setAttribute(
-    "stroke-dasharray",
-    `${borderLength} ${circumference - borderLength}`
-  );
+  // return circle.setAttribute(
+  //   "stroke-dasharray",
+  //   `${borderLength} ${circumference - borderLength}`
+  // );
+  return `${borderLength} ${circumference - borderLength}`;
 
   // const percentageOfBorder = percentage;
 }
