@@ -72,7 +72,9 @@
     background-size: cover !important;
     background-repeat: no-repeat !important;
   }
-
+  header nav li a {
+    font-size: 12px !important;
+  }
   .content-container .content {
     width: 53%;
     justify-content: center;

@@ -31,4 +31,6 @@ async function getGenres() {
 
 function getMovieDetails(movieContent, index) {
   console.log(movieContent[index])
+
+  
 }
