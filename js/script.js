@@ -32,7 +32,7 @@ async function getGenres() {
 }
 
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
-function getMovieDetails(movieContent, index) {
+async function getMovieDetails(movieContent, index) {
   // console.log(movieContent[index])
   console.log(selectedMovieDisplay.innerHTML);
   const movContent = movieContent[index];
@@ -48,14 +48,39 @@ function getMovieDetails(movieContent, index) {
     genre_ids,
   } = movContent;
 
+  let results = []
+  let res;
+ 
+  const datas = await getGenres(api_url_genres)
+  genre_ids.forEach(item => {
+    console.log(item)
+   
+    datas.genres.filter(data => {
+      if(data.id === item) {
+        results.push(data.name)
+        
+      }
+    })
+  })
+
   selectedMovieDisplay.innerHTML = `
    <div class="d-flex text-white gap-5">
-   <i class="fas fa-times text-danger position-absolute fs-1 "></i>
+   <i class="fas fa-times text-danger position-absolute fs-3 onclick="${closeMovieDetails}"></i>
     <img src="${
       img_path + poster_path
     }" alt="" class="img-fluid" style="width: 31%"> 
     <div>
       <h1 class="text-white">${title}</h1>
+      <section class="mt-5">
+        <div class="d-flex genre align-items-center gap-2">
+            <h4 class="text-warning">Genre: </h4>
+            <a class="genre-a">${results.map(res => `<a class="genre-item text-dark">${res}</a>`).join(' ')}</a>
+        </div>
+        <div class="overview">
+            <h4 class="text-warning">Overview: </h4>
+            <p>${overview}</p>
+        </div>
+      </section>
     </div>
 
     <div class="item position-absolute top-0 ">
@@ -75,18 +100,19 @@ function getMovieDetails(movieContent, index) {
   </div> 
   `;
   movContainer.style.transform = `scale(${1})`;
-  movContainer.focus()
-  
- 
-  
+  movContainer.focus();
 }
-document.body.addEventListener('keypress', (e) => {
-  if(e.key === 'esc') {
-    movContainer.style.transform = `scale(${0})`
-    console.log(true)
+document.body.addEventListener("keypress", (e) => {
+  if (e.key === "esc") {
+    movContainer.style.transform = `scale(${0})`;
+    console.log(true);
+  } else {
+    console.log(false);
   }
-  else {
-    console.log(false)
-  }
-})
+});
 // getMovieDetails(mov)
+
+function closeMovieDetails() {
+  movContainer.style.transform = `scale(${0})`
+  console.log(e.target)
+}

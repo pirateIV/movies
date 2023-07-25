@@ -8,7 +8,7 @@
   right: -13px;
   top: -15px;
   background-color: #333;
-  padding: 5px 10px;
+  padding: 7px 10px;
   border-radius: 50%;
   border: 3px solid #000;
   cursor: pointer;
@@ -22,4 +22,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 20px;
+}
+.genre-item{
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 5px solid #222;
+  text-decoration: none;
+  font-weight: 500;
 }
