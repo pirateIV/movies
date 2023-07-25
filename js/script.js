@@ -28,3 +28,7 @@ async function getGenres() {
   );
   const genreData = await res.json();
 }
+
+function getMovieDetails(movieContent, index) {
+  console.log(movieContent[index])
+}

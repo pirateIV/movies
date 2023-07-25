@@ -1,5 +1,6 @@
 let genres = [];
 
+// id as used by api for genre list
 const genreMap = {
   12: "Adventure",
   16: "Animation",
@@ -200,17 +201,15 @@ async function getPopular() {
         movieContent[i];
       topRatedMovies.innerHTML += `
         <div class="list mx-3 rounded-5" id="list">
-          <img class="border border-dark rounded-5 " src="${
-            img_path + poster_path
-          }" alt="">
+          <img class="border border-dark rounded-5 " src="${ img_path + poster_path }" alt="">
           <div class="item position-absolute top-0 ">
             <svg width="40" height="40" class="position-absolute">
               <circle id="circle" stroke="${updateVotesAverage(
                 vote_average * 10
               )}" stroke-dasharray="${votesPercentage(
-        vote_average * 10
-      )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
-              <circle cx="20" cy="20" r="16"  fill="black"></circle>
+                vote_average * 10
+              )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
+                      <circle cx="20" cy="20" r="16"  fill="black"></circle>
               <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
               </text>
@@ -226,7 +225,7 @@ async function getPopular() {
       // console.log(topRatedMovies.length)
       const lists = document.querySelectorAll("#list");
       lists.forEach((list, index) => {
-        list.addEventListener("click", (e) => getMovieDetails(index));
+        list.addEventListener("click", (e) => getMovieDetails(movieContent, index));
       });
     }
   } catch (error) {
