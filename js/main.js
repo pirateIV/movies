@@ -225,17 +225,34 @@ async function getPopular() {
     console.log(movieContents);
 
     const movieContent = movieContents;
+
     console.log(movieContent);
 
     topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
       const { id, vote_average, poster_path } = movieContent[i];
       topRatedMovies.innerHTML += `
-        <div class="list mx-3 rounded-2" id="list">
-          <img class="border" src="${img_path + poster_path}" alt="">
+        <div class="list mx-3 rounded-5" id="list">
+          <img class="border border-dark rounded-5" src="${img_path + poster_path}" alt="">
+          <div class="item position-absolute top-0 ">
+
+            <div class="vote nav text-white justify-content-center align-items-center bottom-0 rounded-circle end-0 ${updateVotesAverage(vote_average * 10)}">${vote_average * 10}<sup>%</sup></div>
+          </div>
         </div>
       `;
     }
   } catch (error) {}
 }
 // getPopular(api_popular_list)
+
+function updateVotesAverage(vote) {
+  if(vote >= 80) {
+    return "border-success"
+  }
+  else if (vote >= 70) {
+    return "border-warning"
+  }
+  else {
+    return "border-danger"
+  }
+}

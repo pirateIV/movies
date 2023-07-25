@@ -109,6 +109,7 @@
   .top_rated_mov .top-rated .mov-list {
     gap: 10px;
     display: grid;
+    grid-gap: 30px !important;
     height: 60vh;
     overflow: auto !important;
   }
@@ -119,15 +120,32 @@
 
 
   .top_rated_mov .top-rated .mov-list .list {
-    width: 220px;
-    border: 1px solid #333;
+    width: 160px;
     height: 300px;
-    background: #333;
+    position: relative;
+  }
+  .top_rated_mov .top-rated .mov-list .list .item{
+    width: 160px;
+    height: 300px;
+  }
+  .top_rated_mov .top-rated .mov-list .list .item .vote{
+   background: #000;
+   position: absolute;
+   border: 3px solid gray;
+   bottom: -25px !important;
+   right: -10px !important;
+   font-size: 14px !important;
+   outline: 4px solid #000;
+   width: 40px;
+   height: 40px;
   }
 
   .top_rated_mov .top-rated .mov-list .list img {
-    width: 240px;
+    /* width: 190px; */
+    width: 200px;
+    /* margin: 10px 15px; */
     transition: all 0.3s ease;
+    border-radius: 10px;
   }
 
   .top_rated_mov .top-rated .mov-list .list img:hover {
