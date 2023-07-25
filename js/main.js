@@ -191,7 +191,7 @@ async function updateHeader() {
       rgba(${0}, ${0}, ${0}, ${0.8})),
       url(${img_path + poster_path})`;
   } catch (error) {
-    // console.log(error);
+    console.log(error.message);
   }
 }
 
@@ -211,20 +211,12 @@ function checkLength(text) {
   }
 }
 
-// function getMovieDetails(movie) {
-//   // console.log(movie);
 
-//   // const movies = JSON.parse(movie);
-//   console.log(movie);
-// }
-// getMovieDetails();
-
-// get Popular movies
 async function getPopular() {
   let popularMoviesLength = 100;
   const movList = document.querySelector(".mov-list");
   movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
-  let movieContents = await getMovies(api_popular_list, popularMoviesLength);
+  let movieContents = await getMovies(api_popular_list, popularMoviesLength)
   try {
     // console.log(movieContents);
 
@@ -266,9 +258,8 @@ async function getPopular() {
       // console.log(topRatedMovies.length)
       const lists = document.querySelectorAll("#list");
       lists.forEach((list, index) => {
-        list.addEventListener("click", (e) => {
-          console.log(movieContent[index]);
-        });
+        
+        list.addEventListener('click', (e) => getMovieDetails(index))
       });
     }
   } catch (error) {
@@ -292,10 +283,6 @@ function votesPercentage(percentage) {
   const circumference = 2 * Math.PI * circleRadius;
   const borderLength = (circumference * percentage) / 100;
 
-  // return circle.setAttribute(
-  //   "stroke-dasharray",
-  //   `${borderLength} ${circumference - borderLength}`
-  // );
   return `${borderLength} ${circumference - borderLength}`;
 
   // const percentageOfBorder = percentage;
