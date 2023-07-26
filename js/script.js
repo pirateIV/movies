@@ -37,6 +37,7 @@ async function getMovieDetails(movieContent, index) {
   const movContent = movieContent[index];
   console.log(movContent);
   const {
+    id,
     title,
     adults,
     vote_average,
@@ -112,6 +113,8 @@ async function getMovieDetails(movieContent, index) {
   closeIcon.addEventListener("click", closeMovieDetails);
 
   movContainer.style.transform = `scale(${1})`;
+
+  getFullDetails(id)
 }
 
 // getMovieDetails(mov)
