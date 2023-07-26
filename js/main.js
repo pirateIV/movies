@@ -224,23 +224,13 @@ async function getPopular() {
       lists.forEach((list, index) => {
         list.addEventListener('click', (e) => {
           getMovieDetails(movieContent, index)
-          // getFullDetails(id)
-
-          // function getFullDetails(movie_id) {
-          //   fetch(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`)
-          //     .then((response) => response.json())
-          //     .then((response) => console.log(response))
-          //     .catch((err) => console.error(err.message));
-          // }
         })
       });
-      // lists.addEventListener('click', getFullDetails(id))
     }
   } catch (error) {
     console.log(error.message);
   }
 }
-// getPopular(api_popular_list)
 
 function updateVotesAverage(vote) {
   if (vote >= 75) {

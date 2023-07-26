@@ -11,7 +11,7 @@ const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}
 const contentInfo = document.getElementById("content-info");
 const moviesHeader = document.getElementById("moviesHeader");
 
-// const video_url = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api_key}`33333333333333
+// const video_url = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api_key}`
 // const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key="${api_key}&page=2"`
 
 // Get Genre list
@@ -117,11 +117,9 @@ async function getMovieDetails(movieContent, index) {
   getFullDetails(id)
 }
 
-// getMovieDetails(mov)
 
 function closeMovieDetails() {
   movContainer.style.transform = `scale(${0})`;
-  // console.log(e.target)
 }
 
 function getFullDetails(movie_id) {
