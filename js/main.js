@@ -44,6 +44,7 @@ async function getGenres(api_url_genres) {
 let currentIndex = 0;
 let random = Math.floor(Math.random() * 1);
 
+// get Movies URL and Minimum Results for fetch
 async function getMovies(url, minResults) {
   try {
     let totalResults = 0;
@@ -242,6 +243,7 @@ function updateVotesAverage(vote) {
   }
 }
 
+// Update Votes Rating
 function votesPercentage(percentage) {
   const circleRadius = 16;
   const circumference = 2 * Math.PI * circleRadius;

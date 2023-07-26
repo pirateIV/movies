@@ -31,6 +31,8 @@ async function getGenres() {
 }
 
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
+
+// Get Movie Details
 async function getMovieDetails(movieContent, index) {
   // console.log(movieContent[index])
   console.log(selectedMovieDisplay.innerHTML);
@@ -52,6 +54,7 @@ async function getMovieDetails(movieContent, index) {
   let results = [];
   let res;
 
+  // Get genres according to specific id
   const datas = await getGenres(api_url_genres);
   genre_ids.forEach((item) => {
     console.log(item);
@@ -63,6 +66,7 @@ async function getMovieDetails(movieContent, index) {
     });
   });
 
+  // Update Movie Details
   selectedMovieDisplay.innerHTML = `
    <div class="d-flex text-white gap-5">
    <i class="fas fa-times text-danger position-absolute fs-3 close-btn"></i>  
@@ -109,20 +113,24 @@ async function getMovieDetails(movieContent, index) {
           </div>
   </div> 
   `;
+  // Close Movie Detiails Icon
   const closeIcon = document.querySelector(".close-btn");
   closeIcon.addEventListener("click", closeMovieDetails);
 
+  // Show Movie Details
   movContainer.style.transform = `scale(${1})`;
 
-  getFullDetails(id)
+  // get movie trailers - called here to get the particular movie
+  getMovieTrailer(id)
 }
 
-
+// Exit Movie Details
 function closeMovieDetails() {
   movContainer.style.transform = `scale(${0})`;
 }
 
-function getFullDetails(movie_id) {
+// get Movie Trailers
+function getMovieTrailer(movie_id) {
   fetch(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`)
     .then((response) => response.json())
     .then((response) => console.log(response))
