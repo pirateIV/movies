@@ -136,9 +136,7 @@ async function updateHeader() {
               <small id="rating" class="rating badge bg-light ${getRatings(
                 vote_average
               )}">${vote_average.toFixed(1)}</small>
-              <a class="genre d-none d-md-block text-white text-decoration-none">${genreName.join(
-                ", "
-              )}</a>
+              <a class="genre d-none d-md-block text-white text-decoration-none">${genreName.map((genre) => `<a class="text-light text-decoration-none">${genre}</a>`).join('|')}</a>
               <a class="mov-type text-white" id="mov-type"></a>
             </div>
             <div class="info mt-3">
