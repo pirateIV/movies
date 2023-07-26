@@ -1,4 +1,4 @@
-const movContainer = document.getElementById("movContainer")
+const movContainer = document.getElementById("movContainer");
 const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 
@@ -30,7 +30,6 @@ async function getGenres() {
   const genreData = await res.json();
 }
 
-
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 async function getMovieDetails(movieContent, index) {
   // console.log(movieContent[index])
@@ -46,23 +45,22 @@ async function getMovieDetails(movieContent, index) {
     overview,
     poster_path,
     genre_ids,
-    release_date
+    release_date,
   } = movContent;
 
-  let results = []
+  let results = [];
   let res;
- 
-  const datas = await getGenres(api_url_genres)
-  genre_ids.forEach(item => {
-    console.log(item)
-   
-    datas.genres.filter(data => {
-      if(data.id === item) {
-        results.push(data.name)
-        
+
+  const datas = await getGenres(api_url_genres);
+  genre_ids.forEach((item) => {
+    console.log(item);
+
+    datas.genres.filter((data) => {
+      if (data.id === item) {
+        results.push(data.name);
       }
-    })
-  })
+    });
+  });
 
   selectedMovieDisplay.innerHTML = `
    <div class="d-flex text-white gap-5">
@@ -78,7 +76,9 @@ async function getMovieDetails(movieContent, index) {
         </div>
         <div class="d-flex genre align-items-center gap-2">
             <h4 class="text-warning">Genre: </h4>
-            <a class="genre-a">${results.map(res => `<a class="genre-item">${res}</a>`).join(' | ')}</a>
+            <a class="genre-a">${results
+              .map((res) => `<a class="genre-item">${res}</a>`)
+              .join(" | ")}</a>
         </div>
         <div class="overview">
             <h4 class="text-warning">Overview: </h4>
@@ -112,12 +112,18 @@ async function getMovieDetails(movieContent, index) {
   closeIcon.addEventListener("click", closeMovieDetails);
 
   movContainer.style.transform = `scale(${1})`;
- 
 }
 
 // getMovieDetails(mov)
 
 function closeMovieDetails() {
-  movContainer.style.transform = `scale(${0})`
+  movContainer.style.transform = `scale(${0})`;
   // console.log(e.target)
+}
+
+function getFullDetails(movie_id) {
+  fetch(`https://api.themoviedb.org/3/movie/${movie_id}/videos`)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err.message))
 }

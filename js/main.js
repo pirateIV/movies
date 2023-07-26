@@ -220,10 +220,12 @@ async function getPopular() {
     
     
       `;
-      // console.log(topRatedMovies.length)
       const lists = document.querySelectorAll("#list");
       lists.forEach((list, index) => {
-        list.addEventListener("click", (e) => getMovieDetails(movieContent, index));
+        list.addEventListener('click', (e) => {
+          getMovieDetails(movieContent, index)
+          getFullDetails(id)
+        })
       });
     }
   } catch (error) {
