@@ -1,4 +1,5 @@
 let genres = [];
+const button = document.createElement("button");
 
 // id as used by api for genre list
 const genreMap = {
@@ -75,9 +76,10 @@ async function getMovies(url, minResults) {
 
 // function for header / first page
 async function updateHeader() {
+  // Update button
+
   const minMoviesToFetch = 100;
   const movies = await getMovies(api_url, minMoviesToFetch);
-
   currentIndex++;
   if (currentIndex >= movies.length) {
     currentIndex = 20;
@@ -88,6 +90,7 @@ async function updateHeader() {
 
     const movie = movies[currentIndex];
     const { id, title, vote_average, overview, poster_path, genre_ids } = movie;
+
     const data = await getGenres(api_url_genres);
 
     // Genre List
@@ -100,23 +103,6 @@ async function updateHeader() {
           genreName.push(dat.name);
         }
       });
-    });
-
-    // Update button
-    const button = document.createElement("button");
-    button.innerText = "Movie Details";
-    button.classList.add(
-      "px-5",
-      "py-3",
-      "rounded-pill",
-      "shadow",
-      "text-white",
-      "bg-red"
-    );
-    button.addEventListener("click", () => {
-      // getMovieDetails(content)
-      console.log(content);
-      // console.log(content)
     });
 
     moviesHeader.innerHTML = `
@@ -137,14 +123,21 @@ async function updateHeader() {
               <small id="rating" class="rating badge bg-light ${getRatings(
                 vote_average
               )}">${vote_average.toFixed(1)}</small>
-              <a class="genre d-none d-md-block text-white text-decoration-none">${genreName.map((genre) => `<a class="text-light text-decoration-none">${genre}</a>`).join('|')}</a>
+              <a class="genre d-none d-md-block text-white text-decoration-none">${genreName
+                .map(
+                  (genre) =>
+                    `<a class="text-light text-decoration-none">${genre}</a>`
+                )
+                .join("|")}</a>
               <a class="mov-type text-white" id="mov-type"></a>
             </div>
             <div class="info mt-3">
               <p class="mov-info text-white">${overview.slice(0, 240)}...</p>
             </div>
 
-            <div>${button.outerHTML}</div>
+            <div onclick="${getDetails(movie, button)}">${
+      button.outerHTML
+    }</div>
           </div>
         </div>
       </div>
@@ -200,14 +193,16 @@ async function getPopular() {
         movieContent[i];
       topRatedMovies.innerHTML += `
         <div class="list mx-3 rounded-5" id="list">
-          <img class="border border-dark rounded-5 " src="${ img_path + poster_path }" alt="">
+          <img class="border border-dark rounded-5 " src="${
+            img_path + poster_path
+          }" alt="">
           <div class="item position-absolute top-0 ">
             <svg width="40" height="40" class="position-absolute">
               <circle id="circle" stroke="${updateVotesAverage(
                 vote_average * 10
               )}" stroke-dasharray="${votesPercentage(
-                vote_average * 10
-              )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
+        vote_average * 10
+      )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
                       <circle cx="20" cy="20" r="16"  fill="black"></circle>
               <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
@@ -223,9 +218,9 @@ async function getPopular() {
       `;
       const lists = document.querySelectorAll("#list");
       lists.forEach((list, index) => {
-        list.addEventListener('click', (e) => {
-          getMovieDetails(movieContent, index)
-        })
+        list.addEventListener("click", (e) => {
+          getMovieDetails(movieContent, index);
+        });
       });
     }
   } catch (error) {
@@ -250,4 +245,19 @@ function votesPercentage(percentage) {
   const borderLength = (circumference * percentage) / 100;
 
   return `${borderLength} ${circumference - borderLength}`;
+}
+
+function getDetails(movie, button) {
+  button.innerText = "Movie Details";
+  button.classList.add(
+    "px-5",
+    "py-3",
+    "rounded-pill",
+    "shadow",
+    "text-white",
+    "bg-red",
+    "btn-mov-details"
+  );
+
+  console.log(movie);
 }
