@@ -227,6 +227,7 @@ async function getPopular() {
           getFullDetails(id)
         })
       });
+      // lists.addEventListener('click', getFullDetails(id))
     }
   } catch (error) {
     console.log(error.message);
