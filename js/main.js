@@ -73,6 +73,7 @@ async function getMovies(url, minResults) {
     console.log(error.message);
   }
 }
+button.onclick()
 
 // function for header / first page
 async function updateHeader() {
@@ -135,7 +136,7 @@ async function updateHeader() {
               <p class="mov-info text-white">${overview.slice(0, 240)}...</p>
             </div>
 
-            <div onclick="${getDetails(movie, button)}">${
+            <div>${
       button.outerHTML
     }</div>
           </div>
@@ -238,7 +239,7 @@ function updateVotesAverage(vote) {
   }
 }
 
-// Update Votes Rating
+// Update Votes Rating  
 function votesPercentage(percentage) {
   const circleRadius = 16;
   const circumference = 2 * Math.PI * circleRadius;
