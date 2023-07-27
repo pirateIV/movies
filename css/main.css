@@ -10,6 +10,7 @@
 
   body {
     font-family: "Lexend", sans-serif !important;
+    overflow-x: hidden;
   }
 
   a {
@@ -67,6 +68,9 @@
 
   .fs-90 {
     font-size: 5rem;
+  }
+  .active{
+    color: red;
   }
 
   header {
@@ -207,6 +211,28 @@
       font-size: 65px;
     }
   }
+   @media screen and (max-width: 992px) {
+    nav ul:first-of-type {
+      display: block !important;
+      position: absolute;
+      top: 90px;
+      width: 100%;
+    }
+    nav ul:first-of-type li {
+      width: 100%;
+    }
+    nav ul:first-of-type a{
+      background-color: #eee;
+      width: 100% !important;
+      display: block;
+      padding: 10px 40px;
+      color: #000 !important;
+      font-weight: 500;
+    }
+    nav ul:first-of-type a.active{
+      color: red !important;
+    }
+   }
 
   @media screen and (max-width: 750px) {
     #moviesHeader {
