@@ -4,7 +4,9 @@
     scroll-behavior: smooth !important;
   }
 
-  :root {}
+  :root { 
+    --transition-03s: 0.3s;
+  }
 
   body {
     font-family: "Lexend", sans-serif !important;
@@ -126,7 +128,7 @@
     height: 300px;
     position: relative;
     transition: all 0.3s ease;
-    cursor: pointer;
+    /* cursor: pointer; */
   }
   .top_rated_mov .top-rated .mov-list .list .item{
     width: 220px;
@@ -155,13 +157,29 @@
     border-radius: 10px;
   }
 
-
   .top_rated_mov .top-rated .mov-list .list .img-details {
-    background: linear-gradient(transparent, 30%, rgba(0, 0, 0, 0.9));
+    background: linear-gradient(transparent, 40%, rgba(0, 0, 0, 0.9));
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  .top_rated_mov .top-rated .mov-list .list p {
+    position: relative;
+    top: 300px;
+    left: 15%;
+    transition: all var(--transition-03s) ease-in;
+    opacity: 0;
+    transform: translateY(30px);
   }
 
-  .top_rated_mov .top-rated .mov-list .list:hover {
-    scale: 1.03;
+  .top_rated_mov .top-rated .mov-list .list:hover p{
+    /* scale: 1.01; */
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .top_rated_mov .top-rated .mov-list .list:hover .img-details{
+    background: linear-gradient(transparent, 40%, rgba(0, 0, 0, 0.9));
+    opacity: 1;
+    display: block;
   }
 
 

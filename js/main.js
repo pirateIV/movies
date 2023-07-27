@@ -206,7 +206,7 @@ async function getPopular() {
               img_path + poster_path
             }" alt="">
             <div class="img-details position-absolute top-0 text-white h-100 w-100" style="border-radius: 5px">
-              lorem
+              <p>View Movie Details</p>
             </div>
           </div>
           <div class="item position-absolute top-0 ">
