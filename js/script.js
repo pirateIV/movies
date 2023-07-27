@@ -37,7 +37,6 @@ async function getMovieDetails(movieContent, index) {
   // console.log(movieContent[index])
   console.log(selectedMovieDisplay.innerHTML);
   const movContent = movieContent[index];
-  console.log(movContent);
   const {
     id,
     title,
@@ -94,6 +93,7 @@ async function getMovieDetails(movieContent, index) {
             <p>${release_date}</p>
         </div>
         
+        <button>Full Movie Details</button>
       </section>
     </div>
 
@@ -121,7 +121,7 @@ async function getMovieDetails(movieContent, index) {
   movContainer.style.transform = `scale(${1})`;
 
   // get movie trailers - called here to get the particular movie
-  getMovieFullDetails(id);
+  // getMovieFullDetails(id);
 }
 
 // Exit Movie Details
@@ -133,6 +133,22 @@ function closeMovieDetails() {
 function getMovieFullDetails(movie_id) {
   fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}`)
     .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err.message));
+    .then((response) => {
+      let mov_detail = response;
+      const { budget, revenue, tagline, homepage, runtime } =
+        mov_detail;
+        // console.log(mov_detail)
+    })
+    .catch((err) => console.warn(err.message));
+
+  fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
+  )
+    .then((vidResponse) => vidResponse.json())
+    .then((vidResponse) => {
+      console.log(vidResponse)
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 }
