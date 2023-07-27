@@ -120,8 +120,6 @@ async function getMovieDetails(movieContent, index) {
   // Show Movie Details
   movContainer.style.transform = `scale(${1})`;
 
-  // get movie trailers - called here to get the particular movie
-  // getMovieFullDetails(id);
 }
 
 // Exit Movie Details

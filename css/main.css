@@ -165,7 +165,7 @@
     opacity: 0.7;
     transition: opacity 0.3s ease;
   }
-  .top_rated_mov .top-rated .mov-list .list p {
+  .top_rated_mov .top-rated .mov-list .list .img-details p {
     position: relative;
     top: 300px;
     left: 15%;
@@ -174,7 +174,7 @@
     transform: translateY(30px);
   }
 
-  .top_rated_mov .top-rated .mov-list .list:hover p{
+  .top_rated_mov .top-rated .mov-list .list:hover .img-details p{
     /* scale: 1.01; */
     opacity: 1;
     transform: translateY(0);

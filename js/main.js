@@ -233,9 +233,7 @@ async function getPopular() {
       lists.forEach((list, index) => {
         list.addEventListener("click", (e) => {
           getMovieDetails(movieContent, index);
-        });
-        list.addEventListener("mouseover", (e) => {
-          console.log(123);
+          getMovieFullDetails(id)
         });
       });
     }
