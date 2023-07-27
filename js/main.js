@@ -148,10 +148,11 @@ async function updateHeader() {
             <a href="./movies.html">${button.outerHTML}</a>
           </div>
         </div>
-      </div>
-      <img class="mov-img br-30 shd btn position-absolute" style="right: 60px; top: 90px" src="${
-        img_path + poster_path
-      }" width="450" alt="" />
+        </div>
+        <img class="mov-img br-30 shd btn position-absolute" style="right: 60px; top: 90px" src="${
+          img_path + poster_path
+        }" width="450" alt="" />
+      
       `;
 
     header.style.background = `
