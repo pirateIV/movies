@@ -82,7 +82,7 @@ async function getMovieDetails(movieContent, index) {
         <div class="d-flex genre align-items-center gap-2">
             <h4 class="text-warning">Genre: </h4>
             <a class="genre-a">${results
-              .map((res) => `<a class="genre-item">${res}</a>`)
+              .map((result) => `<a class="genre-item">${result}</a>`)
               .join(" | ")}</a>
         </div>
         <div class="overview">

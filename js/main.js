@@ -177,7 +177,7 @@ function getRatings(vote) {
 
 function checkLength(text) {
   if (text.length > 36) {
-    text.style.fontSize = `${30}px`;
+    // text.style.fontSize = `${30}px`;
   }
 }
 
