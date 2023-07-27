@@ -1,5 +1,4 @@
 let genres = [];
-const button = document.createElement("button");
 
 // id as used by api for genre list
 const genreMap = {
@@ -73,7 +72,6 @@ async function getMovies(url, minResults) {
     console.log(error.message);
   }
 }
-button.onclick();
 
 // function for header / first page
 async function updateHeader() {
@@ -105,8 +103,17 @@ async function updateHeader() {
         }
       });
     });
-    updateButton(movie, button)
-    button.addEventListener('click', (e) => console.log(movie))
+    const button = document.createElement("button");
+    button.innerText = "Movie Details";
+    button.classList.add(
+      "px-5",
+      "py-3",
+      "rounded-pill",
+      "shadow",
+      "text-white",
+      "bg-red",
+      "btn-mov-details"
+    );
 
     moviesHeader.innerHTML = `
       <div class="container-mov content-container m-auto position-relative" style="height: 70vh" id="content-info">
@@ -137,8 +144,8 @@ async function updateHeader() {
             <div class="info mt-3">
               <p class="mov-info text-white">${overview.slice(0, 240)}...</p>
             </div>
-
-            <div>${button.outerHTML}</div>
+            
+            ${button.outerHTML}
           </div>
         </div>
       </div>
@@ -154,7 +161,7 @@ async function updateHeader() {
       rgba(${0}, ${0}, ${0}, ${0.8})),
       url(${img_path + poster_path})`;
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
   }
 }
 
@@ -248,17 +255,3 @@ function votesPercentage(percentage) {
   return `${borderLength} ${circumference - borderLength}`;
 }
 
-function updateButton(movie, button) {
-  button.innerText = "Movie Details";
-  button.classList.add(
-    "px-5",
-    "py-3",
-    "rounded-pill",
-    "shadow",
-    "text-white",
-    "bg-red",
-    "btn-mov-details"
-  );
-
-  // console.log(movie);
-}
