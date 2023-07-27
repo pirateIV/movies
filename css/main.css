@@ -32,7 +32,6 @@
   .ms-9 {
     margin-left: 90px;
   }
-
   .mt-10 {
     margin-top: 170px;
   }
@@ -214,9 +213,10 @@
    @media screen and (max-width: 992px) {
     nav ul:first-of-type {
       display: block !important;
-      position: absolute;
+      position: fixed;
       top: 90px;
       width: 100%;
+      z-index: 3;
     }
     nav ul:first-of-type li {
       width: 100%;
@@ -227,7 +227,11 @@
       display: block;
       padding: 10px 40px;
       color: #000 !important;
-      font-weight: 500;
+      border: 0.5px solid #000;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     nav ul:first-of-type a.active{
       color: red !important;

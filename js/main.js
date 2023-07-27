@@ -104,7 +104,7 @@ async function updateHeader() {
       });
     });
     const button = document.createElement("button");
-    button.innerText = "Movie Details";
+    button.innerText = "Go to Movies";
     button.classList.add(
       "px-5",
       "py-3",
@@ -145,7 +145,7 @@ async function updateHeader() {
               <p class="mov-info text-white">${overview.slice(0, 240)}...</p>
             </div>
             
-            ${button.outerHTML}
+            <a href="./movies.html">${button.outerHTML}</a>
           </div>
         </div>
       </div>
