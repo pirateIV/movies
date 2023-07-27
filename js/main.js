@@ -73,7 +73,7 @@ async function getMovies(url, minResults) {
     console.log(error.message);
   }
 }
-button.onclick()
+button.onclick();
 
 // function for header / first page
 async function updateHeader() {
@@ -105,6 +105,8 @@ async function updateHeader() {
         }
       });
     });
+    updateButton(movie, button)
+    button.addEventListener('click', (e) => console.log(movie))
 
     moviesHeader.innerHTML = `
       <div class="container-mov content-container m-auto position-relative" style="height: 70vh" id="content-info">
@@ -136,9 +138,7 @@ async function updateHeader() {
               <p class="mov-info text-white">${overview.slice(0, 240)}...</p>
             </div>
 
-            <div>${
-      button.outerHTML
-    }</div>
+            <div>${button.outerHTML}</div>
           </div>
         </div>
       </div>
@@ -239,7 +239,7 @@ function updateVotesAverage(vote) {
   }
 }
 
-// Update Votes Rating  
+// Update Votes Rating
 function votesPercentage(percentage) {
   const circleRadius = 16;
   const circumference = 2 * Math.PI * circleRadius;
@@ -248,7 +248,7 @@ function votesPercentage(percentage) {
   return `${borderLength} ${circumference - borderLength}`;
 }
 
-function getDetails(movie, button) {
+function updateButton(movie, button) {
   button.innerText = "Movie Details";
   button.classList.add(
     "px-5",
@@ -260,5 +260,5 @@ function getDetails(movie, button) {
     "btn-mov-details"
   );
 
-  console.log(movie);
+  // console.log(movie);
 }
