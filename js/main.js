@@ -201,12 +201,12 @@ async function getPopular() {
         movieContent[i];
       topRatedMovies.innerHTML += `
         <div class="list mx-3 rounded-5" id="list">
-          <div>
-            <img class="border border-dark rounded-5 " src="${
+          <div class="position-relative overflow-hidden rounded-5">
+            <img class="border border-dark rounded-5 overflow-hidden" src="${
               img_path + poster_path
             }" alt="">
-            <div id="img-details">
-              
+            <div class="img-details position-absolute top-0 text-white h-100 w-100" style="border-radius: 5px">
+              lorem
             </div>
           </div>
           <div class="item position-absolute top-0 ">
