@@ -67,7 +67,7 @@ async function getMovies(url, minResults) {
       }
     }
 
-    return fetchedMoviesArr.slice(25, minResults);
+    return fetchedMoviesArr.slice(90, minResults);
   } catch (error) {
     console.log(error.message);
   }
@@ -88,7 +88,7 @@ async function updateHeader() {
     contentInfo.innerHTML = "";
 
     const movie = movies[currentIndex];
-    const { id, title, vote_average, overview, poster_path, genre_ids } = movie;
+    const { title, vote_average, overview, poster_path, genre_ids } = movie;
 
     const data = await getGenres(api_url_genres);
 
@@ -182,7 +182,7 @@ function checkLength(text) {
 }
 
 async function getPopular() {
-  let popularMoviesLength = 100;
+  let popularMoviesLength = 200;
   const movList = document.querySelector(".mov-list");
   movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
   let movieContents = await getMovies(api_popular_list, popularMoviesLength);
@@ -201,9 +201,14 @@ async function getPopular() {
         movieContent[i];
       topRatedMovies.innerHTML += `
         <div class="list mx-3 rounded-5" id="list">
-          <img class="border border-dark rounded-5 " src="${
-            img_path + poster_path
-          }" alt="">
+          <div>
+            <img class="border border-dark rounded-5 " src="${
+              img_path + poster_path
+            }" alt="">
+            <div id="img-details">
+              
+            </div>
+          </div>
           <div class="item position-absolute top-0 ">
             <svg width="40" height="40" class="position-absolute">
               <circle id="circle" stroke="${updateVotesAverage(
@@ -228,6 +233,9 @@ async function getPopular() {
       lists.forEach((list, index) => {
         list.addEventListener("click", (e) => {
           getMovieDetails(movieContent, index);
+        });
+        list.addEventListener("mouseover", (e) => {
+          console.log(123);
         });
       });
     }
@@ -254,4 +262,3 @@ function votesPercentage(percentage) {
 
   return `${borderLength} ${circumference - borderLength}`;
 }
-

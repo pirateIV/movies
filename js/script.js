@@ -104,7 +104,7 @@ async function getMovieDetails(movieContent, index) {
               )}" stroke-dasharray="${votesPercentage(
     vote_average * 10
   )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
-                      <circle cx="20" cy="20" r="16"  fill="black"></circle>
+                                  <circle cx="20" cy="20" r="16"  fill="black"></circle>
               <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
               </text>
@@ -113,7 +113,7 @@ async function getMovieDetails(movieContent, index) {
           </div>
   </div> 
   `;
-  // Close Movie Detiails Icon
+  // Close Movie Details Icon
   const closeIcon = document.querySelector(".close-btn");
   closeIcon.addEventListener("click", closeMovieDetails);
 
@@ -121,7 +121,7 @@ async function getMovieDetails(movieContent, index) {
   movContainer.style.transform = `scale(${1})`;
 
   // get movie trailers - called here to get the particular movie
-  getMovieTrailer(id)
+  getMovieTrailer(id);
 }
 
 // Exit Movie Details
@@ -131,9 +131,10 @@ function closeMovieDetails() {
 
 // get Movie Trailers
 function getMovieTrailer(movie_id) {
-  fetch(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`)
+  fetch(
+    `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
+  )
     .then((response) => response.json())
     .then((response) => console.log(response))
     .catch((err) => console.error(err.message));
 }
-
