@@ -121,7 +121,7 @@ async function getMovieDetails(movieContent, index) {
   movContainer.style.transform = `scale(${1})`;
 
   // get movie trailers - called here to get the particular movie
-  getMovieTrailer(id);
+  getMovieFullDetails(id);
 }
 
 // Exit Movie Details
@@ -130,10 +130,8 @@ function closeMovieDetails() {
 }
 
 // get Movie Trailers
-function getMovieTrailer(movie_id) {
-  fetch(
-    `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
-  )
+function getMovieFullDetails(movie_id) {
+  fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}`)
     .then((response) => response.json())
     .then((response) => console.log(response))
     .catch((err) => console.error(err.message));
