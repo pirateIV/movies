@@ -35,7 +35,7 @@ const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 // Get Movie Details
 async function getMovieDetails(movieContent, index) {
   // console.log(movieContent[index])
-  console.log(selectedMovieDisplay.innerHTML);
+  // console.log(selectedMovieDisplay.innerHTML);
   const movContent = movieContent[index];
   const {
     id,
@@ -72,6 +72,7 @@ async function getMovieDetails(movieContent, index) {
     <img src="${
       img_path + poster_path
     }" alt="" class="img-fluid" style="width: 31%"> 
+    ${id}
     <div>
       <h1 class="text-white">${title}</h1>
       <section class="mt-5 d-flex justify-content-center flex-column">
@@ -93,7 +94,7 @@ async function getMovieDetails(movieContent, index) {
             <p>${release_date}</p>
         </div>
         
-        <button>Full Movie Details</button>
+        <button id="fullMovieBtn">Full Movie Details</button>
       </section>
     </div>
 
@@ -113,6 +114,10 @@ async function getMovieDetails(movieContent, index) {
           </div>
   </div> 
   `;
+  const  fullMovieBtn = document.getElementById('fullMovieBtn')
+  fullMovieBtn.addEventListener('click', () => {
+    getMovieFullDetails(id)
+  })
   // Close Movie Details Icon
   const closeIcon = document.querySelector(".close-btn");
   closeIcon.addEventListener("click", closeMovieDetails);
@@ -135,7 +140,7 @@ function getMovieFullDetails(movie_id) {
       let mov_detail = response;
       const { budget, revenue, tagline, homepage, runtime } =
         mov_detail;
-        // console.log(mov_detail)
+        console.log(mov_detail)
     })
     .catch((err) => console.warn(err.message));
 
@@ -144,9 +149,10 @@ function getMovieFullDetails(movie_id) {
   )
     .then((vidResponse) => vidResponse.json())
     .then((vidResponse) => {
-      console.log(vidResponse)
+      console.log(vidResponse.results)
     })
     .catch((err) => {
       console.log(err.message);
     });
 }
+

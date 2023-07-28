@@ -131,7 +131,7 @@ async function updateHeader() {
             </div>
             <div class="movie-info nav align-items-center gap-3">
               <small id="rating" class="rating badge bg-light ${getRatings(
-                vote_average
+                vote_average  
               )}">${vote_average.toFixed(1)}</small>
               <a class="genre d-none d-md-block text-white text-decoration-none">${genreName
                 .map(
@@ -234,9 +234,9 @@ async function getPopular() {
       lists.forEach((list, index) => {
         list.addEventListener("click", (e) => {
           getMovieDetails(movieContent, index);
-          getMovieFullDetails(id)
         });
       });
+      // getMovieFullDetails(id)
     }
   } catch (error) {
     console.log(error.message);
