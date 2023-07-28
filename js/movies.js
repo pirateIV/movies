@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search)
-const videoKey = urlParams.get(videoKey)
+const videoKey = urlParams.get('videoKey')
 
 const videoContainer = document.getElementById('videoContainer');
 videoContainer.innerHTML = `

@@ -119,7 +119,7 @@ async function getMovieDetails(movieContent, index) {
   const fullMovieBtn = document.getElementById("fullMovieBtn");
   fullMovieBtn.addEventListener("click", () => {
     getMovieFullDetails(id);
-    viewTrailer();
+    // viewTrailer();
     // navigateToDestination(id)
   });
   // Close Movie Details Icon
@@ -152,7 +152,7 @@ function getMovieFullDetails(movie_id) {
     .then((vidResponse) => vidResponse.json())
     .then((vidResponse) => {
       console.log(vidResponse.results[0].key);
-      const video_key = vidResponse.results[0].key;
+      video_key = vidResponse.results[0].key;
       viewTrailer(video_key);
     })
     .catch((err) => {
