@@ -23,7 +23,7 @@ const api_popular_list = `https://api.themoviedb.org/3/discover/movie?api_key=5e
 // airing today movies
 const api_air_today = `https://api.themoviedb.org/3/tv/airing_today?api_key=${api_key}`;
 
-const youtube_watch = `https://www.youtube.com/watch?v=`
+const youtube_watch = `https://www.youtube.com/watch?v=`;
 
 async function getGenres() {
   const res = await fetch(
@@ -116,19 +116,18 @@ async function getMovieDetails(movieContent, index) {
           </div>
   </div> 
   `;
-  const  fullMovieBtn = document.getElementById('fullMovieBtn')
-  fullMovieBtn.addEventListener('click', () => {
-    getMovieFullDetails(id)
-    viewTrailer()
+  const fullMovieBtn = document.getElementById("fullMovieBtn");
+  fullMovieBtn.addEventListener("click", () => {
+    getMovieFullDetails(id);
+    viewTrailer();
     // navigateToDestination(id)
-  })
+  });
   // Close Movie Details Icon
   const closeIcon = document.querySelector(".close-btn");
   closeIcon.addEventListener("click", closeMovieDetails);
 
   // Show Movie Details
   movContainer.style.transform = `scale(${1})`;
-
 }
 
 // Exit Movie Details
@@ -142,19 +141,19 @@ function getMovieFullDetails(movie_id) {
     .then((response) => response.json())
     .then((response) => {
       let mov_detail = response;
-      const { budget, revenue, tagline, homepage, runtime } =
-        mov_detail;
-        console.log(mov_detail)
+      const { budget, revenue, tagline, homepage, runtime } = mov_detail;
+      console.log(mov_detail);
     })
-    .catch((err) => console.warn(err.message));   
+    .catch((err) => console.warn(err.message));
 
   fetch(
     `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
   )
     .then((vidResponse) => vidResponse.json())
     .then((vidResponse) => {
-      console.log(vidResponse.results[0].key)
-      const video_key = vidResponse.results[0].key
+      console.log(vidResponse.results[0].key);
+      const video_key = vidResponse.results[0].key;
+      viewTrailer(video_key);
     })
     .catch((err) => {
       console.log(err.message);
@@ -162,5 +161,5 @@ function getMovieFullDetails(movie_id) {
 }
 
 function viewTrailer(videoKey) {
-  window.location.href = `movies.html?videoKey=${videoKey}`
+  window.location.href = `movies.html?videoKey=${videoKey}`;
 }
