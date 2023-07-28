@@ -160,6 +160,18 @@ function getMovieFullDetails(movie_id) {
     });
 }
 
+const videoContainer = document.getElementById('video-container');
 function viewTrailer(videoKey) {
-  window.location.href = `movies.html?videoKey=${videoKey}`;
+  // window.location.href = `movies.html?videoKey=${videoKey}`;
+
+videoContainer.innerHTML = `
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/${videoKey}"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+`;
 }
