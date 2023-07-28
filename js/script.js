@@ -164,7 +164,7 @@ const videoContainer = document.getElementById('video-container');
 function viewTrailer(videoKey) {
   // window.location.href = `movies.html?videoKey=${videoKey}`;
 
-videoContainer.innerHTML = `
+  selectedMovieDisplay.innerHTML = `
   <iframe
     width="560"
     height="315"
