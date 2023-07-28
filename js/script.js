@@ -119,7 +119,8 @@ async function getMovieDetails(movieContent, index) {
   const  fullMovieBtn = document.getElementById('fullMovieBtn')
   fullMovieBtn.addEventListener('click', () => {
     getMovieFullDetails(id)
-    navigateToDestination(id)
+    viewTrailer()
+    // navigateToDestination(id)
   })
   // Close Movie Details Icon
   const closeIcon = document.querySelector(".close-btn");
@@ -145,20 +146,21 @@ function getMovieFullDetails(movie_id) {
         mov_detail;
         console.log(mov_detail)
     })
-    .catch((err) => console.warn(err.message));
+    .catch((err) => console.warn(err.message));   
 
   fetch(
     `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
   )
     .then((vidResponse) => vidResponse.json())
     .then((vidResponse) => {
-      console.log(vidResponse.results)
+      console.log(vidResponse.results[0].key)
+      const video_key = vidResponse.results[0].key
     })
     .catch((err) => {
       console.log(err.message);
     });
 }
 
-function navigateToDestination(video_key) {
-  window.location.href = `movies.html?videoKey=${video_key}`
+function viewTrailer(videoKey) {
+  window.location.href = `movies.html?videoKey=${videoKey}`
 }
