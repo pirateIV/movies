@@ -23,6 +23,8 @@ const api_popular_list = `https://api.themoviedb.org/3/discover/movie?api_key=5e
 // airing today movies
 const api_air_today = `https://api.themoviedb.org/3/tv/airing_today?api_key=${api_key}`;
 
+const youtube_watch = `https://www.youtube.com/watch?v=`
+
 async function getGenres() {
   const res = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list" + "?api_key=" + api_key
@@ -72,7 +74,7 @@ async function getMovieDetails(movieContent, index) {
     <img src="${
       img_path + poster_path
     }" alt="" class="img-fluid" style="width: 31%"> 
-    ${id}
+
     <div>
       <h1 class="text-white">${title}</h1>
       <section class="mt-5 d-flex justify-content-center flex-column">
@@ -94,7 +96,7 @@ async function getMovieDetails(movieContent, index) {
             <p>${release_date}</p>
         </div>
         
-        <button id="fullMovieBtn">Full Movie Details</button>
+        <button id="fullMovieBtn"></button>
       </section>
     </div>
 
@@ -117,6 +119,7 @@ async function getMovieDetails(movieContent, index) {
   const  fullMovieBtn = document.getElementById('fullMovieBtn')
   fullMovieBtn.addEventListener('click', () => {
     getMovieFullDetails(id)
+    navigateToDestination(id)
   })
   // Close Movie Details Icon
   const closeIcon = document.querySelector(".close-btn");
@@ -156,3 +159,6 @@ function getMovieFullDetails(movie_id) {
     });
 }
 
+function navigateToDestination(video_key) {
+  window.location.href = `movies.html?videoKey=${video_key}`
+}
