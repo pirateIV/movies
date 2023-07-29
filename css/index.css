@@ -28,3 +28,12 @@
   text-decoration: none;
   font-weight: 500;
 }
+
+/* Video container */
+.video-container {
+  height: 80vh;
+  background-color: #333;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
