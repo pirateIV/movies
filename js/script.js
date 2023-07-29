@@ -160,7 +160,7 @@ function getMovieFullDetails(movie_id) {
     });
 }
 
-const videoContainer = document.getElementById('video-container');
+const videoContainer = document.getElementById("video-container");
 function viewTrailer(videoKey) {
   // window.location.href = `movies.html?videoKey=${videoKey}`;
 
@@ -302,14 +302,11 @@ async function updateHeader() {
 
           <div class="mov-info">
             <div class="movie-info-header-text">
-              <h1 class="fw-900">${title.slice(
-      0,
-      36
-    )}</h1>
+              <h1 class="fw-900">${title.slice(0, 36)}</h1>
             </div>
             <div class="movie-info nav align-items-center gap-3">
               <small id="rating" class="rating badge bg-light ${getRatings(
-                vote_average  
+                vote_average
               )}">${vote_average.toFixed(1)}</small>
               <a class="genre d-none d-md-block text-white text-decoration-none">${genreName
                 .map(
