@@ -296,7 +296,7 @@ async function updateHeader() {
     moviesHeader.innerHTML = `
       <div class="container-mov content-container m-auto position-relative" style="height: 70vh" id="content-info">
         <div class="content mt-5 d-flex flex-column " style="height:inherit">
-          <div class="logo-header py-2 px-4" style="width: 200px">
+          <div class="logo-header py-2 px-4" >
             <img class="img-fluid" src="img/logo.png" alt="" />
           </div>
 

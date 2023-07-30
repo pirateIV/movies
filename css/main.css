@@ -10,7 +10,7 @@
 
   body {
     font-family: "Lexend", sans-serif !important;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 
   a {
@@ -70,6 +70,9 @@
   }
   .active{
     color: red;
+  }
+  .logo-header {
+    width: 200px;
   }
 
   header {
@@ -279,5 +282,23 @@
 
     .container-mov .content .mov-info h1 {
       font-size: 50px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    .fa-bell {
+      /* display: none !important; */
+    }
+    .container-mov .content .mov-info h1 {
+      font-size: 35px;
+    }
+    .container-mov .content .mov-info .info p {
+      font-size: 14px !important;
+    }
+    .header-logo {
+      display: none !important;
+    }
+    .logo-header {
+      width: 150px;
+      margin-bottom: 10px;
     }
   }
