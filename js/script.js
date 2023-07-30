@@ -413,7 +413,7 @@ async function getPopular() {
       });
       // getMovieFullDetails(id)
     }
-  }/ catch (error) {
+  } catch (error) {
     console.log(error.message);
   }
 }
