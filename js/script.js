@@ -165,7 +165,7 @@ function viewTrailer(videoKey) {
   // window.location.href = `movies.html?videoKey=${videoKey}`;
 
   videoContainer.innerHTML = `
-  <iframe
+  <iframe class="responsive-iframe" 
     width="560"
     height="315"
     src="https://www.youtube.com/embed/${videoKey}?autoplay=1"
