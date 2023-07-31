@@ -393,13 +393,13 @@ async function getPopular() {
         vote_average * 10
       )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
                       <circle cx="20" cy="20" r="16"  fill="black"></circle>
-              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
+              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="10" fill="white" font-weight="bold">
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
               </text>
             </svg>
 
           </div>
-          <p class="text-muted">${release_date}</p>
+          <p class="date text-muted">${release_date}</p>
           <h6 class="text-center text-light mb-5">${title}</h4>
         </div>
     

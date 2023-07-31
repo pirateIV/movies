@@ -292,7 +292,9 @@
     .container-mov .content .mov-info h1 {
       font-size: 35px;
     }
-    .container-mov .content .mov-info .info p {
+    .container-mov .content .mov-info .info p,
+    .top_rated_mov .top-rated .mov-list .list .date,
+    .top-rated p {
       font-size: 14px !important;
     }
     .header-logo {
@@ -301,5 +303,19 @@
     .logo-header {
       width: 150px;
       margin-bottom: 10px;
+    }
+    .top_rated_mov .top-rated .mov-list {
+      grid-gap: 10px !important;
+    }
+    .top_rated_mov .top-rated .mov-list .list  {
+      height: 120px !important;
+      width: 170px  !important;
+    }
+    .top_rated_mov .top-rated .mov-list .list .item {
+      height: 210px !important;
+      width: 190px;
+    }
+    .top_rated_mov .top-rated .mov-list .list img {
+      width: 170px !important;
     }
   }
