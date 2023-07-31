@@ -119,6 +119,7 @@ async function getMovieDetails(movieContent, index) {
   const fullMovieBtn = document.getElementById("fullMovieBtn");
   fullMovieBtn.addEventListener("click", () => {
     getMovieFullDetails(id);
+    
     // viewTrailer();
     // navigateToDestination(id)
   });
@@ -409,6 +410,18 @@ async function getPopular() {
       lists.forEach((list, index) => {
         list.addEventListener("click", (e) => {
           getMovieDetails(movieContent, index);
+          // fetch(
+          //   `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api_key}`
+          // )
+          //   .then((vidResponse) => vidResponse.json())
+          //   .then((vidResponse) => {
+          //     console.log(vidResponse.results[0].key);
+          //     video_key = vidResponse.results[0].key;
+          //     viewTrailer(video_key);
+          //   })
+          //   .catch((err) => {
+          //     console.log(err.message);
+          //   });
         });
       });
       // getMovieFullDetails(id)

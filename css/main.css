@@ -291,9 +291,10 @@
     }
     .container-mov .content .mov-info h1 {
       font-size: 35px;
+      width: 100% !important;
     }
     .container-mov .content .mov-info .info p,
-    .top_rated_mov .top-rated .mov-list .list .date,
+    .top_rated_mov .top-rated .mov-list .list .date,kk
     .top-rated p {
       font-size: 14px !important;
     }
