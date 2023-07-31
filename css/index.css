@@ -54,11 +54,15 @@
 
 /* Search */
 section.search {
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.4));
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(../mov-container.jpg);
+  background: ;
+  background-size: cover;
   height: 200px !important;
 }
 section.search input {
   width: 60vw;
 
   /* min-width: 750px; */
+}
+.section.search {
 }
