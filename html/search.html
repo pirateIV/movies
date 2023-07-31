@@ -21,9 +21,9 @@
     />
     <link rel="stylesheet" href="../bootstrap.min.css" />
   </head>
-  <body>
+  <body class="bg-000">
     <main class="position-relative">
-      <header id="header">
+      <section id="header">
         <section class="w-100">
           <nav
             class="d-flex pt-4 pe-5 align-items-center justify-content-between w-100 flex-nowrap"
@@ -115,13 +115,21 @@
           </nav>
         </section>
 
-        <div class="search-header" id="searchHeader">
-          <h1>Search </h1>
-        </div>
+
       </header>
 
-      <section class="search">
-        <input type="text" placeholder="Search ">
+      <section class="search d-flex justify-content-center ">
+        <div class="d-flex align-items-center justify-content-center mt-5 gap-3">
+            <select class="select form-control w-auto">
+                <option value="movie">Movie</option>
+                <option value="movie">Series</option>
+                <option value="person">Person</option>
+            </select>
+           <div class="search-box d-flex gap-3">
+            <input type="text" class="form-control" placeholder="Search for movies...">  
+            <span class="btn btn-danger"><i class="fas fa-search"></i></span>
+           </div>
+        </div>
       </section>
 
     </main>
