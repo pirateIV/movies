@@ -118,7 +118,7 @@
 
       </header>
 
-      <section class="search d-flex justify-content-center ">
+      <section class="search d-flex justify-content-center flex-column align-items-center position-relative">
         <div class="d-flex align-items-center justify-content-center mt-5 gap-3">
             <select class="select form-control w-auto">
                 <option value="movie">Movie</option>
@@ -129,6 +129,16 @@
             <input type="text" id="search" class="form-control" placeholder="Search for movies...">  
             <span class="btn btn-danger"><i class="fas fa-search"></i></span>
            </form>
+        </div>
+
+        <div class="header-btm position-absolute bottom-0 start-0 mt-5">
+          <ul class="d-flex gap-2 text-nowrap align-items-center">
+            <a href="" class="text-danger fs-4">@Search Movie</a>
+            <a href="" class="text-white text-decoration-none">Home</a> <span class="text-muted">|</span>
+            <a href="" class="text-white text-decoration-none">Now Playing Movies</a> <span class="text-muted">|</span>
+            <a href="" class="text-white text-decoration-none">Popular Movies</a> <span class="text-muted">|</span>
+            <a href="" class="text-white text-decoration-none">Upcoming Movies</a> 
+          </ul>
         </div>
       </section>
 
