@@ -290,6 +290,7 @@
       /* display: none !important; */
       transform: translateX(25px);
     }
+
     .container-mov .content .mov-info h1 {
       font-size: 35px;
       width: 100% !important;
