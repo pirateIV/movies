@@ -58,5 +58,7 @@ section.search {
   height: 200px !important;
 }
 section.search input {
-  width: 450px;
+  width: 60vw;
+
+  /* min-width: 750px; */
 }
