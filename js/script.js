@@ -1,6 +1,6 @@
 const movContainer = document.getElementById("movContainer");
-const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
+const api_key = "5e750355564957a2353604d8a9344e94";
 
 // const api_url_genres = "https://api.themoviedb.org/3/genre/movie/list";
 const api_url_movies = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&page=1"`;
