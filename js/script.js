@@ -96,7 +96,7 @@ async function getMovieDetails(movieContent, index) {
             <p>${release_date}</p>
         </div>
         
-        <button id="fullMovieBtn">Watch Trailer</button>
+        <button id="fullMovieBtn" style="width: 170px" class="rounded-pill py-2 shadow text-white bg-red btn-mov-details">Watch Trailer</button>
       </section>
     </div>
 
