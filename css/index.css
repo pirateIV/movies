@@ -55,8 +55,8 @@
 /* Search */
 section.search {
   background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(../mov-container.jpg);
-  background: ;
   background-size: cover;
+  background-repeat: no-repeat;
   height: 200px !important;
 }
 section.search input {
