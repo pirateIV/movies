@@ -83,7 +83,6 @@ section.search input {
 @media screen and (max-width: 645px) {
   .section-mov-card {
     grid-template-columns: repeat(2, 1fr);
-    padding-left: 40px !important;
   }
   .section-mov-card img {
     width: 150px !important;
@@ -94,16 +93,16 @@ section.search input {
 }
 @media screen and (max-width: 400px) {
   .section-mov-card {
-    padding-left: 0px !important;
     justify-content: center;
   }
   .section-mov-card img {
     width: 120px !important;
   }
-  .section-mov-card h5 {
-    font-size: 14px !important;
+  .movie-details h5 {
+    font-size: 13px !important;
   }
-  .section-mov-card p {
-    font-size: 10px !important;
+  .movie-details p {
+    font-size: 9px !important;
+    text-align: center ;
   }
 }

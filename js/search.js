@@ -34,8 +34,8 @@ async function searchMovies(url) {
     <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center" >
       <img  src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
       <div class="movie-details">
-          <h5 class="movie-title text-white text-center">${item.title}</div>
-          <div class="movie-release-year text-danger">${item.release_date}</div>
+          <h5 class="movie-title text-white text-center">${item.title}</h5>
+          <p class="movie-release-year text-danger">${item.release_date}</p>
       </div>
     </div>
     `
