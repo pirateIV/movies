@@ -31,7 +31,7 @@ async function searchMovies(url) {
   const { title, backdrop_path, poster_path, release_date  } = searchResArr
   searchResArr.forEach((item) => {
     searchSection.innerHTML += `
-    <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center" style="width: 200px">
+    <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center" >
       <img  src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
       <div class="movie-details">
           <h5 class="movie-title text-white text-center">${item.title}</div>
