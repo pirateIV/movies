@@ -36,7 +36,6 @@ async function searchMovies(url) {
     <div class="movie-details">
         <div class="movie-title">${item.title}</div>
         <div class="movie-release-year">Release Year: 2022</div>
-        <div class="movie-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus ultrices urna ut consectetur. Nulla nec massa auctor, porttitor justo eu, auctor elit.</div>
     </div>
   </div>
     `

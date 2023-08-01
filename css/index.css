@@ -66,4 +66,7 @@ section.search input {
 }
  .section-mov-card{
   max-width: 900px;
+  display: grid ;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
 }
