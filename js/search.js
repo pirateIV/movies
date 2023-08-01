@@ -13,8 +13,8 @@ form.addEventListener("submit", (e) => {
 
   const searchTerm = search.value
   if(searchTerm && searchTerm !== '') {
-    searchMovies(search_api + searchTerm)
     search.value = ''
+    searchMovies(search_api + searchTerm)
   }
   console.log(searchTerm)
 
@@ -31,11 +31,11 @@ async function searchMovies(url) {
   const { title, backdrop_path, poster_path  } = searchResArr
   searchResArr.forEach((item) => {
     searchSection.innerHTML += `
-    <div class="movie-card mt-4">
-      <img width="200" src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
+    <div class="movie-card mt-4 d-flex flex-column align-items-center" style="width: 250px">
+      <img width="150" src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
       <div class="movie-details">
           <h4 class="movie-title text-white text-center">${item.title}</div>
-          <div class="movie-release-year">Release Year: 2022</div>
+          <div class="movie-release-year text-danger"><span class="text-warning">Release Year:</span> 2022</div>
       </div>
     </div>
     `
