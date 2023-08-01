@@ -93,9 +93,12 @@ section.search input {
   }
 }
 @media screen and (max-width: 400px) {
+  .section-mov-card {
+    padding-left: 0px !important;
+    justify-content: center;
+  }
   .section-mov-card img {
     width: 120px !important;
-    margin-left: 0 !important;
   }
   .section-mov-card h5 {
     font-size: 14px !important;
