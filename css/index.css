@@ -88,6 +88,9 @@ section.search input {
   .section-mov-card img {
     width: 150px !important;
   }
+  .navbar-brand {
+    width: 120px;
+  }
 }
 @media screen and (max-width: 400px) {
   .section-mov-card img {
