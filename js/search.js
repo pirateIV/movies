@@ -39,5 +39,6 @@ async function searchMovies(url) {
       </div>
     </div>
     `
+
   })
 }
