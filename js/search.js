@@ -28,14 +28,14 @@ async function searchMovies(url) {
   let searchResArr = data.results
   // searchResArr.push(data.results)
   searchSection.innerHTML = ''
-  const { title, backdrop_path, poster_path  } = searchResArr
+  const { title, backdrop_path, poster_path, release_date  } = searchResArr
   searchResArr.forEach((item) => {
     searchSection.innerHTML += `
-    <div class="movie-card mt-4 d-flex flex-column align-items-center" style="width: 250px">
+    <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center" style="width: 200px">
       <img width="150" src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
       <div class="movie-details">
-          <h4 class="movie-title text-white text-center">${item.title}</div>
-          <div class="movie-release-year text-danger"><span class="text-warning">Release Year:</span> 2022</div>
+          <h5 class="movie-title text-white text-center">${item.title}</div>
+          <div class="movie-release-year text-danger">${item.release_date}</div>
       </div>
     </div>
     `

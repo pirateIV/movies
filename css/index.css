@@ -72,3 +72,13 @@ section.search input {
   align-items: center;
   /* grid-gap: 30px; */
 }
+@media screen and (max-width: 960px) {
+  .section-mov-card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 645px) {
+  .section-mov-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
