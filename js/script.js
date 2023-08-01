@@ -48,6 +48,7 @@ async function getMovieDetails(movieContent, index) {
     original_language,
     overview,
     poster_path,
+    backdrop_path,
     genre_ids,
     release_date,
   } = movContent;
@@ -268,7 +269,7 @@ async function updateHeader() {
     contentInfo.innerHTML = "";
 
     const movie = movies[currentIndex];
-    const { title, vote_average, overview, poster_path, genre_ids } = movie;
+    const { title, vote_average, overview, poster_path, backdrop_path, genre_ids } = movie;
 
     const data = await getGenres(api_url_genres);
 
