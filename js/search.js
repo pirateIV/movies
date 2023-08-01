@@ -32,12 +32,12 @@ async function searchMovies(url) {
   searchResArr.forEach((item) => {
     searchSection.innerHTML += `
     <div class="movie-card">
-    <img width="200" src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
-    <div class="movie-details">
-        <div class="movie-title">${item.title}</div>
-        <div class="movie-release-year">Release Year: 2022</div>
+      <img width="200" src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
+      <div class="movie-details">
+          <div class="movie-title">${item.title}</div>
+          <div class="movie-release-year">Release Year: 2022</div>
+      </div>
     </div>
-  </div>
     `
   })
 }

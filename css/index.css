@@ -68,5 +68,7 @@ section.search input {
   max-width: 900px;
   display: grid ;
   grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
   grid-gap: 30px;
 }
