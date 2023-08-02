@@ -70,6 +70,18 @@ let releaseDateDsc = `primary_release_date.desc`
 // );
 
 const filterContainer = document.getElementById('filterContainer')
+const applyFilterBtn = document.getElementById('applyFilters')
+applyFilterBtn.addEventListener('click', (e) => {
+  const includeAdult = document.getElementById('includeAdult').checked
+  const language = document.getElementById('language').value
+  const sortBy = document.getElementById('sortBy')
+  const releaseYear = document.getElementById('releaseYear')
+
+  console.log(includeAdult)
+  console.log(language)
+  console.log(sortBy)
+  console.log(releaseYear)
+})
 function filterMovies(e) {
   console.log(e)
   const formData = new FormData(filterContainer)
