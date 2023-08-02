@@ -136,12 +136,20 @@ input[type="number"] {
     width: 120px;
   }
 
+  label,
   select,
   .filter-container button,
   input[type="number"] {
     width: 100% !important;
+    font-size: 12px !important;
   }
 
+  .filter-container label,
+  .filter-container select,
+  .filter-container input,
+  .filter-container button {
+    margin-bottom: 5px;
+  }
 
 }
 
