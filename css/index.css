@@ -76,10 +76,6 @@ section.search input {
 }
 
 /* Filter options */
-select,
-input[type="number"] {
-  width: auto;
-}
 
 .filter-container {
   background-color: white;
@@ -142,6 +138,11 @@ input[type="number"] {
   input[type="number"] {
     width: 100% !important;
     font-size: 12px !important;
+  }
+  .filter-container {
+    width: 95%;
+    padding: 30px !important;
+    border-radius: 5px;
   }
 
   .filter-container label,
