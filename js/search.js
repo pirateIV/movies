@@ -77,10 +77,10 @@ applyFilterBtn.addEventListener('click', (e) => {
   const sortBy = document.getElementById('sortBy')
   const releaseYear = document.getElementById('releaseYear')
 
-  console.log(includeAdult)
-  console.log(language)
-  console.log(sortBy)
-  console.log(releaseYear)
+  console.log( 'Include Adult: ', includeAdult)
+  console.log('Language: ',language)
+  console.log('Sort by: ',sortBy)
+  console.log('Release Year: ' ,releaseYear)
 })
 function filterMovies(e) {
   console.log(e)
