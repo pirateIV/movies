@@ -1,6 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search)
-const videoKey = urlParams.get('videoKey')
+// Movie Credits
 
 
-
-// function ve=
+// https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=
