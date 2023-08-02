@@ -10,7 +10,18 @@ const searchSection = document.getElementById("searchSection");
 
 window.addEventListener("DOMContentLoaded", () => {
   fetchGenres(sortGenres);
+  updateBg(api_url)
 });
+
+async function updateBg(url) {
+  const res = await fetch(url)
+  const data = await res.json()
+
+  data.results.forEach((item) => {
+    const { backdrop_path } = item
+    console.log(backdrop_path)
+  })
+}
 
 searchMovies(api_url);
 form.addEventListener("submit", (e) => {
