@@ -6,21 +6,27 @@ const sortGenres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_
 
 const form = document.getElementById("search-form");
 const search = document.getElementById("search");
+const searchHeader = document.getElementById("section-search");
 const searchSection = document.getElementById("searchSection");
+// background: url(../1234.jpg);
 
 window.addEventListener("DOMContentLoaded", () => {
   fetchGenres(sortGenres);
-  updateBg(api_url)
+  updateBg(api_url);
 });
 
 async function updateBg(url) {
-  const res = await fetch(url)
-  const data = await res.json()
+  const res = await fetch(url);
+  const data = await res.json();
 
   data.results.forEach((item) => {
-    const { backdrop_path } = item
-    console.log(backdrop_path)
-  })
+    const { backdrop_path } = item;
+    console.log(backdrop_path);
+
+    searchHeader.style.background = `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(${
+      img_path + backdrop_path
+    })`;
+  });
 }
 
 searchMovies(api_url);
@@ -78,7 +84,7 @@ let releaseYear;
 let releaseDateAsc = `primary_release_date.asc`;
 let releaseDateDsc = `primary_release_date.desc`;
 
-const genreSelect = document.getElementById("genreSelect")
+const genreSelect = document.getElementById("genreSelect");
 
 // const
 // fetch(
@@ -92,13 +98,13 @@ applyFilterBtn.addEventListener("click", (e) => {
 
   const includeAdult = document.getElementById("includeAdult").checked;
   const language = document.getElementById("language").value;
-  const genre = document.getElementById("genreSelect").value
+  const genre = document.getElementById("genreSelect").value;
   const sortBy = document.getElementById("sortBy").value;
   const releaseYear = document.getElementById("releaseYear").value;
 
   console.log("Include Adult: ", includeAdult);
   console.log("Language: ", language);
-  console.log("Genre: ", genre)
+  console.log("Genre: ", genre);
   console.log("Sort by: ", sortBy);
   console.log("Release Year: ", releaseYear);
 
@@ -109,21 +115,20 @@ function filterMovies() {}
 async function fetchGenres(url) {
   try {
     const genRes = await fetch(url);
-    const genreData = await genRes.json()
-  
-    if(genreData.genres) {
+    const genreData = await genRes.json();
 
+    if (genreData.genres) {
       // genreSelect.innerHTML  = ''
 
       genreData.genres.forEach((genre) => {
-        const genreOption = document.createElement("option")
-        genreOption.textContent = genre.name
-        genreOption.value = genre.includeAdult
+        const genreOption = document.createElement("option");
+        genreOption.textContent = genre.name;
+        genreOption.value = genre.includeAdult;
 
-        genreSelect.appendChild(genreOption)
-      })
+        genreSelect.appendChild(genreOption);
+      });
     }
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 }
