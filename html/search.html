@@ -118,46 +118,57 @@
        
       </div> -->
 
-      <form action="" class="filter-container" id="filterContainer">
-        <div class="d-flex justify-content-between w-100 ">
-          <label for="includeAdult">Include Adult:</label>
-          <input type="checkbox" class="form-check" id="includeAdult" checked>
+      
+
+      <div class="filter-section mt-5" id="filter-section">
+
+        <div class="container">
+          <h2 class="text-white">Movie Filter Options</h2>
+        <p class="text-white">Customize your movie search using the filters below:</p>
         </div>
 
-        <label for="language">Language:</label>
-
-        <select name="language" id="language" class="form-select bg-secondary">
-          <option value="" selected disabled>Language</option>
-          <option value="en">English</option>
-          <option value="es">Spanish</option>
-          <!-- Add more language options here -->
-        </select>
-
-        <label for="genre">Genre: </label>
-
-        <select name="genre" id="genreSelect" class="form-select bg-secondary">
-          <option value="" selected disabled>Genre</option>
-        </select>
-
-        <!-- labe -->
-
-        <label for="sortBy">Sort By:</label>
-        <select id="sortBy" class="form-select bg-secondary">
-          <option value="" selected disabled>Sort By</option>
-          <option value="vote_count">Vote Count</option>
-          <option value="popularity_asc">Popularity (Ascending)</option>
-          <option value="popularity_desc">Popularity (Descending)</option>
-          <option value="revenue_asc">Revenue (Ascending)</option>
-          <option value="revenue_desc">Revenue (Descending)</option>
-          <option value="release_date_asc">Release Date (Ascending)</option>
-          <option value="release_date_desc">Release Date (Descending)</option>
-        </select>
-
-        <label for="releaseYear">Release Year:</label>
-        <input type="number" class="form-control" id="releaseYear" min="1900" max="2099" value="" placeholder="curr - 2023">
-
-        <button class="btn btn-danger" id="applyFilters">Apply Filters</button>
-      </form>
+        <form action="" class="filter-container" id="filterContainer">
+          <div class="d-flex justify-content-between w-100 ">
+            <label for="includeAdult">Include Adult:</label>
+            <input type="checkbox" class="form-check" id="includeAdult" checked>
+          </div>
+  
+          <label for="language">Language:</label>
+  
+          <select name="language" id="language" class="form-select bg-secondary">
+            <option value="" selected disabled>Language</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <!-- Add more language options here -->
+          </select>
+  
+          <label for="genre">Genre: </label>
+  
+          <select name="genre" id="genreSelect" class="form-select bg-secondary">
+            <option value="" selected disabled>Genre</option>
+            <!-- Fetch the available genres from TMDB -->
+          </select>
+  
+          <!-- labe -->
+  
+          <label for="sortBy">Sort By:</label>
+          <select id="sortBy" class="form-select bg-secondary">
+            <option value="" selected disabled>Sort By</option>
+            <option value="vote_count">Vote Count</option>
+            <option value="popularity_asc">Popularity (Ascending)</option>
+            <option value="popularity_desc">Popularity (Descending)</option>
+            <option value="revenue_asc">Revenue (Ascending)</option>
+            <option value="revenue_desc">Revenue (Descending)</option>
+            <option value="release_date_asc">Release Date (Ascending)</option>
+            <option value="release_date_desc">Release Date (Descending)</option>
+          </select>
+  
+          <label for="releaseYear">Release Year:</label>
+          <input type="number" class="form-control" id="releaseYear" min="1900" max="2099" value="" placeholder="curr - 2023">
+  
+          <button class="btn btn-danger" id="applyFilters">Apply Filters</button>
+        </form>
+      </div>
 
   </main>
 
