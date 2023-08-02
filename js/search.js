@@ -95,12 +95,12 @@ async function fetchGenres(url) {
   const genRes = await fetch(url);
   const genreData = await genRes.json()
 
-  // genreData.forEach((genre, idx) => {
-  //   console.log(genre)
-  // })
-  let genreArr = []
-  genreArr.push(genreData)
-  genreArr.forEach((genre, idx) => {
+  genreData.forEach((genre, idx) => {
     console.log(genre)
   })
+  // let genreArr = []
+  // genreArr.push(genreData)
+  // genreArr.forEach((genre, idx) => {
+  //   console.log(genre)
+  // })
 }
