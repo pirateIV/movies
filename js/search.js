@@ -106,8 +106,8 @@ async function fetchGenres(url) {
 
       genreData.genres.forEach((genre) => {
         const genreOption = document.createElement("option")
-        option.textContent = genre.name
-        option.value = genre.includeAdult
+        genreOption.textContent = genre.name
+        genreOption.value = genre.includeAdult
 
         genreSelect.appendChild(genreOption)
       })
