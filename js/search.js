@@ -72,10 +72,13 @@ let releaseDateDsc = `primary_release_date.desc`
 const filterContainer = document.getElementById('filterContainer')
 const applyFilterBtn = document.getElementById('applyFilters')
 applyFilterBtn.addEventListener('click', (e) => {
+
+  e.preventDefault()
+
   const includeAdult = document.getElementById('includeAdult').checked
   const language = document.getElementById('language').value
-  const sortBy = document.getElementById('sortBy')
-  const releaseYear = document.getElementById('releaseYear')
+  const sortBy = document.getElementById('sortBy').value
+  const releaseYear = document.getElementById('releaseYear').value
 
   console.log( 'Include Adult: ', includeAdult)
   console.log('Language: ',language)
