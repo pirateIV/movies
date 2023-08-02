@@ -70,10 +70,9 @@ let releaseDateDsc = `primary_release_date.desc`
 // );
 
 const filterContainer = document.getElementById('filterContainer')
-filterContainer.addEventListener('submit', (e) => {
-  e.preventDefault()
-  filterMovies(e)
-})
-function filterMovies() {
+function filterMovies(e) {
   console.log(e)
+  const formData = new FormData(filterContainer)
+  // const form =  Object.fromEntries(formData.entries())
+  console.log(formData)
 }
