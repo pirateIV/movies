@@ -171,4 +171,15 @@ section.search input {
     font-size: 9px !important;
     text-align: center;
   }
+
+
+  .filter-container {
+    width: 100%;
+  }
+  label,
+  select,
+  .filter-container button,
+  input[type="number"] {
+    width: 50% !important;
+  }
 }
