@@ -7,6 +7,7 @@ const form = document.getElementById("search-form");
 const search = document.getElementById("search");
 const searchSection = document.getElementById("searchSection");
 
+
 searchMovies(api_url);
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -68,6 +69,10 @@ let releaseDateDsc = `primary_release_date.desc`
 //   "https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page=1&primary_release_year=2023&sort_by=vote_count.desc&with_genres=adventure"
 // );
 
-function filterMovies() {
-  
+const filterContainer = document.getElementById('filterContainer')
+filterContainer.addEventListener('submit', (e) => {
+  filterMovies(e)
+})
+function filterMovies(e) {
+  console.log(e)
 }
