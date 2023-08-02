@@ -84,10 +84,9 @@ applyFilterBtn.addEventListener('click', (e) => {
   console.log('Language: ',language)
   console.log('Sort by: ',sortBy)
   console.log('Release Year: ' ,releaseYear)
+
+  filterMovies()
 })
-function filterMovies(e) {
-  console.log(e)
-  const formData = new FormData(filterContainer)
-  // const form =  Object.fromEntries(formData.entries())
-  console.log(formData)
+function filterMovies() {
+  
 }
