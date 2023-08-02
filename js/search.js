@@ -102,7 +102,7 @@ async function fetchGenres(url) {
   
     if(genreData.genres) {
 
-      genreSelect.innerHTML  = ''
+      // genreSelect.innerHTML  = ''
 
       genreData.genres.forEach((genre) => {
         const genreOption = document.createElement("option")
