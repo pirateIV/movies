@@ -100,8 +100,11 @@ async function fetchGenres(url) {
     const genRes = await fetch(url);
     const genreData = await genRes.json()
   
-    if(data.genres) {
-      data.genres.forEach((genre) => {
+    if(genreData.genres) {
+
+      genreSelect.innerHTML  = ''
+
+      genreData.genres.forEach((genre) => {
         const genreOption = document.createElement("option")
         option.textContent = genre.name
         option.value = genre.includeAdult
@@ -110,6 +113,6 @@ async function fetchGenres(url) {
       })
     }
   } catch (error) {
-    
+    console.log(error.message)
   }
 }
