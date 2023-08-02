@@ -78,7 +78,7 @@ section.search input {
 /* Filter options */
 select,
 input[type="number"] {
-  width: 100% !important;
+  width: auto;
 }
 
 .filter-container {
@@ -89,6 +89,8 @@ input[type="number"] {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  width: 80%;
+  margin: 50px auto 0;
 }
 
 .filter-container label,
@@ -133,6 +135,14 @@ input[type="number"] {
   .navbar-brand {
     width: 120px;
   }
+
+  select,
+  .filter-container button,
+  input[type="number"] {
+    width: 100% !important;
+  }
+
+
 }
 
 @media screen and (max-width: 400px) {
