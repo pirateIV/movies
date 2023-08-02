@@ -50,8 +50,8 @@ async function searchMovies(url) {
 
 // Filter Movies
 
-// let includeAdult = false;
-// let language;
+let includeAdult = false;
+let language;
 // let sortByVote = `sort_by=vote_count`
 
 // Popularity
@@ -63,17 +63,11 @@ let revenueAsc = `revenue.asc`;
 let revenueDsc = `revenue.desc`;
 
 // Date
-// let releaseYear;
+let releaseYear;
 let releaseDateAsc = `primary_release_date.asc`;
 let releaseDateDsc = `primary_release_date.desc`;
 
-
-
-const includeAdult = document.getElementById("includeAdult").checked;
-const language = document.getElementById("language").value;
-const genre = document.getElementById("genreSelect").value
-const sortBy = document.getElementById("sortBy").value;
-const releaseYear = document.getElementById("releaseYear").value;
+const genreSelect = document.getElementById("genreSelect")
 
 // const
 // fetch(
@@ -85,6 +79,11 @@ const applyFilterBtn = document.getElementById("applyFilters");
 applyFilterBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
+  const includeAdult = document.getElementById("includeAdult").checked;
+  const language = document.getElementById("language").value;
+  const genre = document.getElementById("genreSelect").value
+  const sortBy = document.getElementById("sortBy").value;
+  const releaseYear = document.getElementById("releaseYear").value;
 
   console.log("Include Adult: ", includeAdult);
   console.log("Language: ", language);
@@ -101,9 +100,15 @@ async function fetchGenres(url) {
     const genRes = await fetch(url);
     const genreData = await genRes.json()
   
-    genreData.genres.forEach(genre => {
-      console.log(genre.id, genre.name)
-    })
+    if(data.genres) {
+      data.genres.forEach((genre) => {
+        const genreOption = document.createElement("option")
+        option.textContent = genre.name
+        option.value = genre.includeAdult
+
+        genreSelect.appendChild(genreOption)
+      })
+    }
   } catch (error) {
     
   }
