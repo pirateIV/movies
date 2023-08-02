@@ -4,41 +4,54 @@ const search_api = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}
 const img_path = "https://image.tmdb.org/t/p/w1280";
 
 const form = document.getElementById("search-form");
-const search = document.getElementById('search')
-const searchSection = document.getElementById('searchSection')
+const search = document.getElementById("search");
+const searchSection = document.getElementById("searchSection");
 
-searchMovies(api_url)
+searchMovies(api_url);
 form.addEventListener("submit", (e) => {
-  e.preventDefault()
+  e.preventDefault();
 
-  const searchTerm = search.value
-  if(searchTerm && searchTerm !== '') {
-    search.value = ''
-    searchMovies(search_api + searchTerm)
+  const searchTerm = search.value;
+  if (searchTerm && searchTerm !== "") {
+    search.value = "";
+    searchMovies(search_api + searchTerm);
   }
-  console.log(searchTerm)
-
+  console.log(searchTerm);
 });
 
 async function searchMovies(url) {
-  const movieRes = await fetch(url)
-  const data = await movieRes.json()
+  const movieRes = await fetch(url);
+  const data = await movieRes.json();
 
-  console.log(data.results)
-  let searchResArr = data.results
+  console.log(data.results);
+  let searchResArr = data.results;
   // searchResArr.push(data.results)
-  searchSection.innerHTML = ''
-  const { title, backdrop_path, poster_path, release_date  } = searchResArr
+  searchSection.innerHTML = "";
+  const { title, backdrop_path, poster_path, release_date } = searchResArr;
   searchResArr.forEach((item) => {
     searchSection.innerHTML += `
     <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center" >
-      <img  src="${img_path + item.poster_path}" alt="Movie Poster" class="movie-poster rounded-3">
+      <img  src="${
+        img_path + item.poster_path
+      }" alt="Movie Poster" class="movie-poster rounded-3">
       <div class="movie-details">
           <h5 class="movie-title text-white text-center">${item.title}</h5>
           <p class="movie-release-year text-danger">${item.release_date}</p>
       </div>
     </div>
-    `
-
-  })
+    `;
+  });
 }
+
+// Filter Movies
+let includeAdult = false;
+let language;
+let releaseYear;
+let sortByVote = `sort_by=vote_count`
+let sortByPopularityAsc = `vote_count.asc`
+let sortByPopularityDsc = `vote_count.desc`
+
+const 
+fetch(
+  "https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page=1&primary_release_year=2023&sort_by=vote_count.desc&with_genres=adventure"
+);
