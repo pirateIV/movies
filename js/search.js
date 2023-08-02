@@ -2,11 +2,15 @@ const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 const search_api = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query="`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
+const sortGenres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=en-US`;
 
 const form = document.getElementById("search-form");
 const search = document.getElementById("search");
 const searchSection = document.getElementById("searchSection");
 
+window.addEventListener("DOMContentLoaded", () => {
+  fetchGenres();
+});
 
 searchMovies(api_url);
 form.addEventListener("submit", (e) => {
@@ -46,47 +50,52 @@ async function searchMovies(url) {
 
 // Filter Movies
 
-
 let includeAdult = false;
 let language;
 // let sortByVote = `sort_by=vote_count`
 
 // Popularity
-let sortByPopularityAsc = `vote_count.asc`
-let sortByPopularityDsc = `vote_count.desc`
+let sortByPopularityAsc = `vote_count.asc`;
+let sortByPopularityDsc = `vote_count.desc`;
 
 // Revenue
-let revenueAsc = `revenue.asc`
-let revenueDsc = `revenue.desc`
+let revenueAsc = `revenue.asc`;
+let revenueDsc = `revenue.desc`;
 
 // Date
 let releaseYear;
-let releaseDateAsc = `primary_release_date.asc`
-let releaseDateDsc = `primary_release_date.desc`
+let releaseDateAsc = `primary_release_date.asc`;
+let releaseDateDsc = `primary_release_date.desc`;
 
-// const 
+// const
 // fetch(
 //   "https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page=1&primary_release_year=2023&sort_by=vote_count.desc&with_genres=adventure"
 // );
 
-const filterContainer = document.getElementById('filterContainer')
-const applyFilterBtn = document.getElementById('applyFilters')
-applyFilterBtn.addEventListener('click', (e) => {
+const filterContainer = document.getElementById("filterContainer");
+const applyFilterBtn = document.getElementById("applyFilters");
+applyFilterBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-  e.preventDefault()
+  const includeAdult = document.getElementById("includeAdult").checked;
+  const language = document.getElementById("language").value;
+  const sortBy = document.getElementById("sortBy").value;
+  const releaseYear = document.getElementById("releaseYear").value;
 
-  const includeAdult = document.getElementById('includeAdult').checked
-  const language = document.getElementById('language').value
-  const sortBy = document.getElementById('sortBy').value
-  const releaseYear = document.getElementById('releaseYear').value
+  console.log("Include Adult: ", includeAdult);
+  console.log("Language: ", language);
+  console.log("Sort by: ", sortBy);
+  console.log("Release Year: ", releaseYear);
 
-  console.log( 'Include Adult: ', includeAdult)
-  console.log('Language: ',language)
-  console.log('Sort by: ',sortBy)
-  console.log('Release Year: ' ,releaseYear)
+  filterMovies();
+});
+function filterMovies() {}
 
-  filterMovies()
-})
-function filterMovies() {
-  
+async function fetchGenres(url) {
+  const genRes = await fetch(url);
+  const genreData = await genRes.json()
+
+  genreData.name.forEach((genre, idx) => {
+    
+  })
 }
