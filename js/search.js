@@ -54,6 +54,10 @@ let sortByVote = `sort_by=vote_count`
 let sortByPopularityAsc = `vote_count.asc`
 let sortByPopularityDsc = `vote_count.desc`
 
+// Revenue
+let revenueAsc = `revenue.asc`
+let revenueDsc = `revenue.desc`
+
 // Date
 let releaseYear;
 let releaseDateAsc = `primary_release_date.asc`
@@ -63,3 +67,4 @@ let releaseDateDsc = `primary_release_date.desc`
 // fetch(
 //   "https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page=1&primary_release_year=2023&sort_by=vote_count.desc&with_genres=adventure"
 // );
+
