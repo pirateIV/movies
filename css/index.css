@@ -70,6 +70,10 @@ section.search input {
 .section-mov-card img {
   width: 200px !important;
 }
+/* Filter options */
+select, input[type="number"] {
+  width: 250px !important;
+}
 @media screen and (max-width: 960px) {
   .section-mov-card {
     grid-template-columns: repeat(3, 1fr);
