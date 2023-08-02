@@ -50,8 +50,8 @@ async function searchMovies(url) {
 
 // Filter Movies
 
-let includeAdult = false;
-let language;
+// let includeAdult = false;
+// let language;
 // let sortByVote = `sort_by=vote_count`
 
 // Popularity
@@ -63,9 +63,17 @@ let revenueAsc = `revenue.asc`;
 let revenueDsc = `revenue.desc`;
 
 // Date
-let releaseYear;
+// let releaseYear;
 let releaseDateAsc = `primary_release_date.asc`;
 let releaseDateDsc = `primary_release_date.desc`;
+
+
+
+const includeAdult = document.getElementById("includeAdult").checked;
+const language = document.getElementById("language").value;
+const genre = document.getElementById("genreSelect").value
+const sortBy = document.getElementById("sortBy").value;
+const releaseYear = document.getElementById("releaseYear").value;
 
 // const
 // fetch(
@@ -77,11 +85,6 @@ const applyFilterBtn = document.getElementById("applyFilters");
 applyFilterBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const includeAdult = document.getElementById("includeAdult").checked;
-  const language = document.getElementById("language").value;
-  const genre = document.getElementById("genreSelect").value
-  const sortBy = document.getElementById("sortBy").value;
-  const releaseYear = document.getElementById("releaseYear").value;
 
   console.log("Include Adult: ", includeAdult);
   console.log("Language: ", language);
@@ -94,8 +97,14 @@ applyFilterBtn.addEventListener("click", (e) => {
 function filterMovies() {}
 
 async function fetchGenres(url) {
-  const genRes = await fetch(url);
-  const genreData = await genRes.json()
-
+  try {
+    const genRes = await fetch(url);
+    const genreData = await genRes.json()
   
+    genreData.genres.forEach(genre => {
+      console.log(genre.id, genre.name)
+    })
+  } catch (error) {
+    
+  }
 }
