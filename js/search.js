@@ -72,8 +72,8 @@ let releaseDateDsc = `primary_release_date.desc`
 const filterContainer = document.getElementById('filterContainer')
 filterContainer.addEventListener('submit', (e) => {
   e.preventDefault()
-  filterMovies()
+  filterMovies(e)
 })
 function filterMovies() {
-  console.log()
+  console.log(e)
 }
