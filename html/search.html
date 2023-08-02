@@ -114,9 +114,9 @@
         </div>
       </section>
 
-      <div class="section-mov-card m-auto" id="searchSection">
+      <!-- <div class="section-mov-card m-auto" id="searchSection">
        
-      </div>
+      </div> -->
 
       <form action="" class="filter-container" id="filterContainer">
         <div class="d-flex justify-content-between w-100 ">
@@ -126,16 +126,24 @@
 
         <label for="language">Language:</label>
 
-        <select id="language" class="form-select">
+        <select name="language" id="language" class="form-select bg-secondary">
+          <option value="" selected disabled>Language</option>
           <option value="en">English</option>
           <option value="es">Spanish</option>
           <!-- Add more language options here -->
         </select>
 
+        <label for="genre">Genre: </label>
+
+        <select name="genre" id="genreSelect" class="form-select bg-secondary">
+          <option value="" selected disabled>Genre</option>
+        </select>
+
         <!-- labe -->
 
         <label for="sortBy">Sort By:</label>
-        <select id="sortBy" class="form-select">
+        <select id="sortBy" class="form-select bg-secondary">
+          <option value="" selected disabled>Sort By</option>
           <option value="vote_count">Vote Count</option>
           <option value="popularity_asc">Popularity (Ascending)</option>
           <option value="popularity_desc">Popularity (Descending)</option>
@@ -146,9 +154,9 @@
         </select>
 
         <label for="releaseYear">Release Year:</label>
-        <input type="number" class="form-control" id="releaseYear" min="1900" max="2099" value="2023">
+        <input type="number" class="form-control" id="releaseYear" min="1900" max="2099" value="" placeholder="curr - 2023">
 
-        <button class="btn btn-warning" id="applyFilters">Apply Filters</button>
+        <button class="btn btn-danger" id="applyFilters">Apply Filters</button>
       </form>
 
   </main>
