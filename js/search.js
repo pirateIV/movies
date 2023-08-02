@@ -44,14 +44,21 @@ async function searchMovies(url) {
 }
 
 // Filter Movies
+
 let includeAdult = false;
 let language;
-let releaseYear;
 let sortByVote = `sort_by=vote_count`
+
+// Popularity
 let sortByPopularityAsc = `vote_count.asc`
 let sortByPopularityDsc = `vote_count.desc`
 
+// Date
+let releaseYear;
+let releaseDateAsc = `primary_release_date.asc`
+let releaseDateDsc = `primary_release_date.desc`
+
 const 
-fetch(
-  "https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page=1&primary_release_year=2023&sort_by=vote_count.desc&with_genres=adventure"
-);
+// fetch(
+//   "https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page=1&primary_release_year=2023&sort_by=vote_count.desc&with_genres=adventure"
+// );
