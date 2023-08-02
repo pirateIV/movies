@@ -9,7 +9,7 @@ const search = document.getElementById("search");
 const searchSection = document.getElementById("searchSection");
 
 window.addEventListener("DOMContentLoaded", () => {
-  fetchGenres();
+  fetchGenres(sortGenres);
 });
 
 searchMovies(api_url);
@@ -95,7 +95,12 @@ async function fetchGenres(url) {
   const genRes = await fetch(url);
   const genreData = await genRes.json()
 
-  genreData.name.forEach((genre, idx) => {
-    
+  // genreData.forEach((genre, idx) => {
+  //   console.log(genre)
+  // })
+  let genreArr = []
+  genreArr.push(genreData)
+  genreArr.forEach((genre, idx) => {
+    console.log(genre)
   })
 }
