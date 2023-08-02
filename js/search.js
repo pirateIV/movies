@@ -49,7 +49,7 @@ async function searchMovies(url) {
 
 let includeAdult = false;
 let language;
-let sortByVote = `sort_by=vote_count`
+// let sortByVote = `sort_by=vote_count`
 
 // Popularity
 let sortByPopularityAsc = `vote_count.asc`
