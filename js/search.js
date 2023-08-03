@@ -1,5 +1,5 @@
 const api_key = "5e750355564957a2353604d8a9344e94";
-const api_lang = `https://api.themoviedb.org/3/configuration/languages&api_key=5e750355564957a2353604d8a9344e94`
+const api_lang = `https://api.themoviedb.org/3/configuration/languages?api_key=5e750355564957a2353604d8a9344e94`
 const api_url = `https://api.themoviedb.org/3/search/movie?sort_by=popularity.desc&api_key=${api_key}&query="avengers`;
 const search_api = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query="`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
@@ -13,6 +13,7 @@ const searchSection = document.getElementById("searchSection");
 
 window.addEventListener("DOMContentLoaded", () => {
   fetchGenres(sortGenres);
+  getLanguages(api_lang)
   updateBg(api_url);
 });
 
@@ -134,5 +135,16 @@ async function fetchGenres(url) {
     }
   } catch (error) {
     console.log(error.message);
+  }
+}
+
+async function getLanguages(url) {
+  try {
+    const langRes = await fetchGenres(url)
+    const langData = await langRes.json()
+    
+    console.log(langData)
+  } catch (error) {
+    
   }
 }
