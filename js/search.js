@@ -87,6 +87,7 @@ let releaseDateAsc = `primary_release_date.asc`;
 let releaseDateDsc = `primary_release_date.desc`;
 
 const genreSelect = document.getElementById("genreSelect");
+const languageSelect = document.getElementById("languageSelect")
 
 // const
 
@@ -96,13 +97,13 @@ applyFilterBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const includeAdult = document.getElementById("includeAdult").checked;
-  const language = document.getElementById("language").value;
+  const languageSelect = document.getElementById("language").value;
   const genre = document.getElementById("genreSelect").value;
   const sortBy = document.getElementById("sortBy").value;
   const releaseYear = document.getElementById("releaseYear").value;
 
   console.log("Include Adult: ", includeAdult);
-  console.log("Language: ", language);
+  console.log("Language: ", languageSelect);
   console.log("Genre: ", genre);
   console.log("Sort by: ", sortBy);
   console.log("Release Year: ", releaseYear);
@@ -127,8 +128,8 @@ async function fetchGenres(url) {
 
       genreData.genres.forEach((genre) => {
         const genreOption = document.createElement("option");
-        genreOption.textContent = genre.name;
         genreOption.value = genre.id;
+        genreOption.textContent = genre.name;
 
         genreSelect.appendChild(genreOption);
       });
@@ -141,12 +142,19 @@ async function fetchGenres(url) {
 async function getLanguages(url) {
   try {
    const res = await fetch(url)
-   const data = await res.json()
+   const languages = await res.json()
 
   //  console.log(data.name.foe)
-  data.forEach((item) => {
-    console.log(item.iso_639_1, item.english_name)
-  })
+  if(languages ) {
+    languages.forEach((lang) => {
+      // console.log(item.iso_639_1, item.english_name)
+      const langOption = document.createElement("option")
+      langOption.value = lang.iso_639_1
+      langOption.textContent = lang.english_name
+
+      languageSelect.appendChild(langOption)
+    })
+  } 
   } catch (error) {
     console.log(error.message)
   }
