@@ -25,9 +25,10 @@ async function updateBg(url) {
     const { backdrop_path } = item;
     // console.log(backdrop_path);
 
-    searchHeader.style.background = `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(${
-      img_path + backdrop_path
-    })`;
+    searchHeader.style.background = `linear-gradient(rgba(0, 0, 0, 0.9),
+     rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.7)),
+       url(${img_path + backdrop_path})`;
   });
 }
 
