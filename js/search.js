@@ -97,13 +97,13 @@ applyFilterBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const includeAdult = document.getElementById("includeAdult").checked;
-  const languageSelect = document.getElementById("language").value;
+  const language = document.getElementById("languageSelect").value;
   const genre = document.getElementById("genreSelect").value;
   const sortBy = document.getElementById("sortBy").value;
   const releaseYear = document.getElementById("releaseYear").value;
 
   console.log("Include Adult: ", includeAdult);
-  console.log("Language: ", languageSelect);
+  console.log("Language: ", language);
   console.log("Genre: ", genre);
   console.log("Sort by: ", sortBy);
   console.log("Release Year: ", releaseYear);
