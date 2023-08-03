@@ -140,10 +140,13 @@ async function fetchGenres(url) {
 
 async function getLanguages(url) {
   try {
-    const langRes = await fetchGenres(url)
-    const langData = await langRes.json()
-    
-    console.log(langData)
+   const res = await fetch(url)
+   const data = await res.json()
+
+  //  console.log(data.name.foe)
+  data.forEach((item) => {
+    console.log(item.iso_639_1, item.english_name)
+  })
   } catch (error) {
     console.log(error.message)
   }
