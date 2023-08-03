@@ -151,7 +151,9 @@ section.search input {
   .filter-container button {
     margin-bottom: 5px;
   }
-
+  .responsive-iframe {
+    width: 90% !important;
+  }
 }
 
 @media screen and (max-width: 400px) {
