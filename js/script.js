@@ -156,7 +156,7 @@ function getMovieFullDetails(movie_id) {
     .then((vidResponse) => {
       console.log(vidResponse.results[0].key);
       video_key = vidResponse.results[currentTrailerIndex].key;
-      // -------------------------- For Later -----------------------
+      // -------------------------- For Later ----------------------- //
       viewTrailer(video_key);
     })
     .catch((err) => {
