@@ -1,6 +1,6 @@
 const api_key = "5e750355564957a2353604d8a9344e94";
-const api_lang = `https://api.themoviedb.org/3/configuration/languages?api_key=5e750355564957a2353604d8a9344e94`
-const api_url = `https://api.themoviedb.org/3/search/movie?sort_by=popularity.desc&api_key=${api_key}&query="avengers`;
+const api_lang = `https://api.themoviedb.org/3/configuration/languages?api_key=${api_key}`
+const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 const search_api = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query="`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
 const sortGenres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=en-US`;
@@ -23,7 +23,7 @@ async function updateBg(url) {
 
   data.results.forEach((item) => {
     const { backdrop_path } = item;
-    console.log(backdrop_path);
+    // console.log(backdrop_path);
 
     searchHeader.style.background = `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url(${
       img_path + backdrop_path
@@ -145,6 +145,6 @@ async function getLanguages(url) {
     
     console.log(langData)
   } catch (error) {
-    
+    console.log(error.message)
   }
 }
