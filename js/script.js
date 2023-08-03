@@ -121,7 +121,7 @@ async function getMovieDetails(movieContent, index) {
   fullMovieBtn.addEventListener("click", () => {
     getMovieFullDetails(id);
     
-    // viewTrailer();
+    viewTrailer();
     // navigateToDestination(id)
   });
   // Close Movie Details Icon
@@ -137,6 +137,7 @@ function closeMovieDetails() {
   movContainer.style.transform = `scale(${0})`;
 }
 
+let currentTrailerIndex = 0;
 // get Movie Trailers
 function getMovieFullDetails(movie_id) {
   fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}`)
@@ -154,9 +155,9 @@ function getMovieFullDetails(movie_id) {
     .then((vidResponse) => vidResponse.json())
     .then((vidResponse) => {
       console.log(vidResponse.results[0].key);
-      video_key = vidResponse.results[0].key;
+      video_key = vidResponse.results[currentTrailerIndex].key;
       // -------------------------- For Later -----------------------
-      // viewTrailer(video_key);
+      viewTrailer(video_key);
     })
     .catch((err) => {
       console.log(err.message);
