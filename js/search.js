@@ -1,5 +1,5 @@
 const api_key = "5e750355564957a2353604d8a9344e94";
-const api_lang = `https://api.themoviedb.org/3/configuration/languages?api_key=${api_key}`
+const api_lang = `https://api.themoviedb.org/3/configuration/languages?api_key=${api_key}`;
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 const search_api = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query="`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
@@ -13,7 +13,7 @@ const searchSection = document.getElementById("searchSection");
 
 window.addEventListener("DOMContentLoaded", () => {
   fetchGenres(sortGenres);
-  getLanguages(api_lang)
+  getLanguages(api_lang);
   updateBg(api_url);
 });
 
@@ -87,7 +87,7 @@ let releaseDateAsc = `primary_release_date.asc`;
 let releaseDateDsc = `primary_release_date.desc`;
 
 const genreSelect = document.getElementById("genreSelect");
-const languageSelect = document.getElementById("languageSelect")
+const languageSelect = document.getElementById("languageSelect");
 
 // const
 
@@ -111,10 +111,10 @@ applyFilterBtn.addEventListener("click", async (e) => {
   filterMovies();
 
   const movieRes = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&language=en-US&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}&api_key=${api_key}`
+    `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&with_original_language=${language}&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}&api_key=${api_key}`
   );
-  const data = await movieRes.json()
-  console.log(data)
+  const data = await movieRes.json();
+  console.log(data);
 });
 function filterMovies() {}
 
@@ -141,21 +141,21 @@ async function fetchGenres(url) {
 
 async function getLanguages(url) {
   try {
-   const res = await fetch(url)
-   const languages = await res.json()
+    const res = await fetch(url);
+    const languages = await res.json();
 
-  //  console.log(data.name.foe)
-  if(languages ) {
-    languages.forEach((lang) => {
-      // console.log(item.iso_639_1, item.english_name)
-      const langOption = document.createElement("option")
-      langOption.value = lang.iso_639_1
-      langOption.textContent = lang.english_name
+    //  console.log(data.name.foe)
+    if (languages) {
+      languages.forEach((lang) => {
+        // console.log(item.iso_639_1, item.english_name)
+        const langOption = document.createElement("option");
+        langOption.value = lang.iso_639_1;
+        langOption.textContent = lang.english_name;
 
-      languageSelect.appendChild(langOption)
-    })
-  } 
+        languageSelect.appendChild(langOption);
+      });
+    }
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 }
