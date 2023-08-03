@@ -271,6 +271,7 @@ async function updateHeader() {
 
     const movie = movies[currentIndex];
     const { title, vote_average, overview, poster_path, backdrop_path, genre_ids } = movie;
+    console.log(movie)
 
     const data = await getGenres(api_url_genres);
 
@@ -369,7 +370,7 @@ async function getPopular() {
   try {
     // console.log(movieContents);
 
-    const movieContent = movieContents;
+    const movieContent = movieContents; 
 
     console.log(movieContent);
     // movieContent.forEach((content) => {
