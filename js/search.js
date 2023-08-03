@@ -87,13 +87,10 @@ let releaseDateDsc = `primary_release_date.desc`;
 const genreSelect = document.getElementById("genreSelect");
 
 // const
-// fetch(
-//   "https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page=1&primary_release_year=2023&sort_by=vote_count.desc&with_genres=adventure"
-// );
 
 const filterContainer = document.getElementById("filterContainer");
 const applyFilterBtn = document.getElementById("applyFilters");
-applyFilterBtn.addEventListener("click", (e) => {
+applyFilterBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const includeAdult = document.getElementById("includeAdult").checked;
@@ -109,6 +106,12 @@ applyFilterBtn.addEventListener("click", (e) => {
   console.log("Release Year: ", releaseYear);
 
   filterMovies();
+
+  const movieRes = await fetch(
+    `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&language=en-US&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}`
+  );
+  const data = await movieRes.json()
+  console.log(data)
 });
 function filterMovies() {}
 
@@ -123,7 +126,7 @@ async function fetchGenres(url) {
       genreData.genres.forEach((genre) => {
         const genreOption = document.createElement("option");
         genreOption.textContent = genre.name;
-        genreOption.value = genre.includeAdult;
+        genreOption.value = genre.id;
 
         genreSelect.appendChild(genreOption);
       });
