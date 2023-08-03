@@ -60,7 +60,7 @@ async function searchMovies(url) {
         img_path + item.poster_path
       }" alt="Movie Poster" class="movie-poster rounded-3">
       <div class="movie-details">
-          <h5 class="movie-title text-white text-center">${item.title}</h5>
+          <h6 class="movie-title text-white text-center">${item.title}</h6>
           <p class="movie-release-year text-danger">${item.release_date}</p>
       </div>
     </div>
