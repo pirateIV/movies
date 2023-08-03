@@ -108,7 +108,7 @@ applyFilterBtn.addEventListener("click", async (e) => {
   filterMovies();
 
   const movieRes = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&language=en-US&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}`
+    `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&language=en-US&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}&api_key=${api_key}`
   );
   const data = await movieRes.json()
   console.log(data)
