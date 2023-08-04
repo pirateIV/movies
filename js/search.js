@@ -56,8 +56,11 @@ async function searchMovies(url) {
     searchResArr;
   searchResArr.forEach((item) => {
     searchSection.innerHTML += `
-    <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative" >
-    <span class="small badge rounded-circle d-flex align-items-center justify-content-center position-absolute " style="width: 25px; height: 25px; top: 10px; right: 20px; background: rgba(255, 255, 255, 0.5)">${item.original_language}</span>
+    <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative bg-danger" style="width: auto !important">
+    <span class="small badge rounded-circle d-flex align-items-center justify-content-center position-absolute"
+     style="width: 25px; height: 25px; top: 10px; right: 20px; background: rgba(255, 255, 255, 0.5)">${
+       item.original_language
+     }</span>
       <img  src="${
         img_path + item.poster_path
       }" alt="Movie Poster" class="movie-poster rounded-3">
