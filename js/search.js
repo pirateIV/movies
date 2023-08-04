@@ -48,30 +48,34 @@ async function searchMovies(url) {
   const movieRes = await fetch(url);
   const data = await movieRes.json();
 
-  console.log(data.results);
-  let searchResArr = data.results;
-  // searchResArr.push(data.results)
-  searchSection.innerHTML = "";
-  const { title, backdrop_path, poster_path, release_date, original_language } =
-    searchResArr;
-  searchResArr.forEach((item) => {
-    searchSection.innerHTML += `
-    <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
-    <span class="small badge rounded-circle d-flex align-items-center justify-content-center position-absolute"
-     style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid #000;
-      background: ${randomBorder()}; box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
-        item.original_language
-      }</span>
-      <img  src="${
-        img_path + item.poster_path
-      }" alt="Movie Poster" class="movie-poster rounded-3">
-      <div class="movie-details">
-          <h6 class="movie-title text-white text-center">${item.title}</h6>
-          <p class="movie-release-year text-danger">${item.release_date}</p>
+  try {
+    console.log(data.results);
+    let searchResArr = data.results;
+    // searchResArr.push(data.results)
+    searchSection.innerHTML = "";
+    const { title, backdrop_path, poster_path, release_date, original_language } =
+      searchResArr;
+    searchResArr.forEach((item) => {
+      searchSection.innerHTML += `
+      <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
+      <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
+       style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
+        background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
+          item.original_language
+        }</small>
+        <img  src="${
+          img_path + item.poster_path
+        }" alt="Movie Poster" class="movie-poster rounded-3">
+        <div class="movie-details">
+            <h6 class="movie-title text-white text-center">${item.title}</h6>
+            <p class="movie-release-year text-danger">${item.release_date}</p>
+        </div>
       </div>
-    </div>
-    `;
-  });
+      `;
+    });
+  } catch (error) {
+    searchSection.innerHTML = `No result for ${search.value}`
+  }
 }
 
 // Filter Movies
