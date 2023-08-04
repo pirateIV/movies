@@ -7,7 +7,12 @@
   :root {
     --transition-03s: 0.3s;
   }
-
+  i {
+    cursor: pointer;
+  }
+  .show {
+    transform: scale(0);
+  }
   body {
     font-family: "Lexend", sans-serif !important;
     /* overflow-x: hidden; */

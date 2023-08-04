@@ -1,5 +1,6 @@
 /* Selected Movie Detail */
 
+
 .movContainer {
   transform: scale(0);
   transition: all 0.3s ease;
