@@ -58,9 +58,10 @@ async function searchMovies(url) {
     searchSection.innerHTML += `
     <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
     <span class="small badge rounded-circle d-flex align-items-center justify-content-center position-absolute"
-     style="width: 25px; height: 25px; top: 10px; right: 20px; background: rgba(255, 255, 255, 0.5)">${
-       item.original_language
-     }</span>
+     style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid #f00;
+      background: rgba(255, 0, 0, 0.5); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
+        item.original_language
+      }</span>
       <img  src="${
         img_path + item.poster_path
       }" alt="Movie Poster" class="movie-poster rounded-3">

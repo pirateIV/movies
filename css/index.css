@@ -126,6 +126,7 @@ section.search input {
   }
   .section-mov-card .movie-card {
     width: 150px !important;
+    margin: auto;
   }
 
   .section-mov-card img {
