@@ -58,8 +58,8 @@ async function searchMovies(url) {
     searchSection.innerHTML += `
     <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
     <span class="small badge rounded-circle d-flex align-items-center justify-content-center position-absolute"
-     style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid #f00;
-      background: rgba(255, 0, 0, 0.5); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
+     style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid #000;
+      background: ${randomBorder()}; box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
         item.original_language
       }</span>
       <img  src="${
@@ -165,4 +165,20 @@ async function getLanguages(url) {
   } catch (error) {
     console.log(error.message);
   }
+}
+
+let colors = ['a', 'b', 'c', 'd', 'e', 'f', 1, 2, 3, 4, 5, 6 , 7, 8, 9, 0]
+function randomBorder() {
+  let hexColor = '#'
+
+  for(let i = 0; i < 6; i++) {
+    hexColor += colors[getRandomNumber()]
+  }
+
+
+  return hexColor;
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * colors.length)
 }
