@@ -249,7 +249,7 @@ async function getMovies(url, minResults) {
       }
     }
 
-    return fetchedMoviesArr.slice(90, minResults);
+    return fetchedMoviesArr.slice(130, minResults);
   } catch (error) {
     console.log(error.message);
   }
@@ -259,11 +259,11 @@ async function getMovies(url, minResults) {
 async function updateHeader() {
   // Update button
 
-  const minMoviesToFetch = 100;
+  const minMoviesToFetch = 200;
   const movies = await getMovies(api_url, minMoviesToFetch);
   currentIndex++;
   if (currentIndex >= movies.length) {
-    currentIndex = 20;
+    currentIndex = 50;
   }
   try {
     // object to display movies
