@@ -117,11 +117,15 @@ section.search input {
   .section-mov-card {
     grid-template-columns: repeat(3, 1fr);
   }
+
 }
 
 @media screen and (max-width: 645px) {
   .section-mov-card {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .section-mov-card .movie-card {
+    width: 150px !important;
   }
 
   .section-mov-card img {
