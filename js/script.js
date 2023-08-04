@@ -381,9 +381,9 @@ async function getPopular() {
       const { id, vote_average, poster_path, title, release_date } =
         movieContent[i];
       topRatedMovies.innerHTML += `
-        <div class="list mx-3 rounded-5" id="list">
-          <div class="position-relative overflow-hidden rounded-5">
-            <img class="border border-dark rounded-5 overflow-hidden" src="${
+        <div class="list mx-3 " id="list">
+          <div class="position-relative overflow-hidden ">
+            <img class="border border-dark  overflow-hidden" src="${
               img_path + poster_path
             }" alt="">
             <div class="img-details position-absolute top-0 text-white h-100 w-100" style="border-radius: 5px">
