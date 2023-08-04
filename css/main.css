@@ -1,10 +1,10 @@
-  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap');
 
   * {
     scroll-behavior: smooth !important;
   }
 
-  :root { 
+  :root {
     --transition-03s: 0.3s;
   }
 
@@ -28,12 +28,15 @@
     padding: 0 90px;
     justify-content: space-between !important;
   }
+
   .hidden {
     display: none !important;
   }
+
   .ms-9 {
     margin-left: 90px;
   }
+
   .mt-10 {
     margin-top: 170px;
   }
@@ -70,10 +73,12 @@
   .fs-90 {
     font-size: 5rem;
   }
-  .active{
+
+  .active {
     color: red;
     cursor: not-allowed !important;
   }
+
   .logo-header {
     width: 200px;
   }
@@ -83,9 +88,11 @@
     background-size: cover !important;
     background-repeat: no-repeat !important;
   }
+
   header nav li a {
     font-size: 12px !important;
   }
+
   .content-container .content {
     width: 53%;
     justify-content: center;
@@ -139,24 +146,27 @@
     transition: all 0.3s ease;
     /* cursor: pointer; */
   }
-  .top_rated_mov .top-rated .mov-list .list .item{
+
+  .top_rated_mov .top-rated .mov-list .list .item {
     width: 220px;
     height: 300px;
   }
-  .top_rated_mov .top-rated .mov-list .list .item svg{
+
+  .top_rated_mov .top-rated .mov-list .list .item svg {
     bottom: -50px;
     right: 20px;
   }
-  .top_rated_mov .top-rated .mov-list .list .item .vote{
-   background: #000;
-   position: absolute;
-   border: 3px solid gray;
-   bottom: -25px !important;
-   right: -10px !important;
-   font-size: 14px !important;
-   outline: 4px solid #000;
-   width: 40px;
-   height: 40px;
+
+  .top_rated_mov .top-rated .mov-list .list .item .vote {
+    background: #000;
+    position: absolute;
+    border: 3px solid gray;
+    bottom: -25px !important;
+    right: -10px !important;
+    font-size: 14px !important;
+    outline: 4px solid #000;
+    width: 40px;
+    height: 40px;
   }
 
   .top_rated_mov .top-rated .mov-list .list img {
@@ -171,6 +181,7 @@
     opacity: 0.7;
     transition: opacity 0.3s ease;
   }
+
   .top_rated_mov .top-rated .mov-list .list .img-details p {
     position: relative;
     top: 300px;
@@ -180,12 +191,13 @@
     transform: translateY(30px);
   }
 
-  .top_rated_mov .top-rated .mov-list .list:hover .img-details p{
+  .top_rated_mov .top-rated .mov-list .list:hover .img-details p {
     /* scale: 1.01; */
     opacity: 1;
     transform: translateY(0);
   }
-  .top_rated_mov .top-rated .mov-list .list:hover .img-details{
+
+  .top_rated_mov .top-rated .mov-list .list:hover .img-details {
     background: linear-gradient(transparent, 40%, rgba(0, 0, 0, 0.9));
     opacity: 1;
     display: block;
@@ -216,7 +228,8 @@
       font-size: 65px;
     }
   }
-   @media screen and (max-width: 992px) {
+
+  @media screen and (max-width: 992px) {
     nav ul:first-of-type {
       display: block !important;
       position: fixed;
@@ -224,10 +237,12 @@
       width: 100%;
       z-index: 3;
     }
+
     nav ul:first-of-type li {
       width: 100%;
     }
-    nav ul:first-of-type a{
+
+    nav ul:first-of-type a {
       background-color: #eee;
       width: 100% !important;
       display: block;
@@ -239,10 +254,11 @@
       align-items: center;
       justify-content: space-between;
     }
-    nav ul:first-of-type a.active{
+
+    nav ul:first-of-type a.active {
       color: red !important;
     }
-   }
+  }
 
   @media screen and (max-width: 750px) {
     #moviesHeader {
@@ -287,6 +303,7 @@
       font-size: 50px;
     }
   }
+
   @media screen and (max-width: 400px) {
     .nav-icons {
       /* display: none !important; */
@@ -297,29 +314,36 @@
       font-size: 35px;
       width: 100% !important;
     }
+
     .container-mov .content .mov-info .info p,
-    .top_rated_mov .top-rated .mov-list .list .date,kk
-    .top-rated p {
+    .top_rated_mov .top-rated .mov-list .list .date,
+    kk .top-rated p {
       font-size: 14px !important;
     }
+
     .header-logo {
       display: none !important;
     }
+
     .logo-header {
       width: 150px;
       margin-bottom: 10px;
     }
+
     .top_rated_mov .top-rated .mov-list {
       grid-gap: 10px !important;
     }
-    .top_rated_mov .top-rated .mov-list .list  {
+
+    .top_rated_mov .top-rated .mov-list .list {
       height: 120px !important;
-      width: 170px  !important;
+      width: 170px !important;
     }
+
     .top_rated_mov .top-rated .mov-list .list .item {
       height: 210px !important;
       width: 190px;
     }
+
     .top_rated_mov .top-rated .mov-list .list img {
       width: 170px !important;
     }
