@@ -103,7 +103,7 @@
 
         <div class="header-mt-5">
           <ul class="d-flex gap-2 text-nowrap align-items-center justify-content-between gap-5">
-            <a href="" class="text-danger fs-4 d-lg-block d-none">@Search Movie</a>
+            <a  class="text-danger fs-4 d-lg-block d-none">@Search Movie</a>
             <div class="d-md-flex justify-content-center d-none btm position-absolute bottom-0 end-0 ">
               <a href="" class="text-white text-decoration-none">Home</a> <span class="text-muted"> | </span>
               <a href="" class="text-white text-decoration-none">Now Playing Movies</a> <span class="text-muted"> |
@@ -114,12 +114,6 @@
           </ul>
         </div>
       </section>
-
-      <div class="section-mov-card m-auto" id="searchSection">
-       
-      </div>
-
-
 
       <div class="filter-section mt-5" id="filter-section">
 
@@ -152,8 +146,8 @@
 
           <label for="sortBy">Sort By:</label>
           <select id="sortBy" class="form-select bg-secondary">
-            <option value="" selected disabled>Sort By</option>
-            <option value="vote_count">Vote Count</option>
+            <option value=""  disabled>Sort By</option>
+            <option value="vote_count" selected>Vote Count</option>
             <option value="popularity_asc">Popularity (Ascending)</option>
             <option value="popularity_desc">Popularity (Descending)</option>
             <option value="revenue_asc">Revenue (Ascending)</option>
@@ -163,12 +157,20 @@
           </select>
 
           <label for="releaseYear">Release Year:</label>
-          <input type="number" class="form-control" id="releaseYear" min="1900" max="2099" value=""
+          <input type="number" class="form-control" id="releaseYear" min="1900" max="2099" value="2023"
             placeholder="curr - 2023">
 
-          <button class="btn btn-danger" id="applyFilters">Apply Filters</button>
+          <button class="btn btn-danger" id="applyFilters" >Apply Filters</button>
         </form>
       </div>
+
+      <div class="section-mov-card m-auto" id="searchSection">
+       
+      </div>
+
+
+
+    
 
   </main>
   <footer class="footer">
