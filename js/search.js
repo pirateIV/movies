@@ -48,34 +48,7 @@ async function searchMovies(url) {
   const movieRes = await fetch(url);
   const data = await movieRes.json();
 
-  try {
-    console.log(data.results);
-    let searchResArr = data.results;
-    // searchResArr.push(data.results)
-    searchSection.innerHTML = "";
-    const { title, backdrop_path, poster_path, release_date, original_language } =
-      searchResArr;
-    searchResArr.forEach((item) => {
-      searchSection.innerHTML += `
-      <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
-      <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
-       style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
-        background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
-          item.original_language
-        }</small>
-        <img  src="${
-          img_path + item.poster_path
-        }" alt="Movie Poster" class="movie-poster rounded-3">
-        <div class="movie-details">
-            <h6 class="movie-title text-white text-center">${item.title}</h6>
-            <p class="movie-release-year text-danger">${item.release_date}</p>
-        </div>
-      </div>
-      `;
-    });
-  } catch (error) {
-    searchSection.innerHTML = `No result for ${search.value}`
-  }
+  filterMovies(data);
 }
 
 // Filter Movies
@@ -104,6 +77,8 @@ const languageSelect = document.getElementById("languageSelect");
 
 const filterContainer = document.getElementById("filterContainer");
 const applyFilterBtn = document.getElementById("applyFilters");
+
+// filter movie ftching
 applyFilterBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
@@ -119,23 +94,34 @@ applyFilterBtn.addEventListener("click", async (e) => {
   console.log("Sort by: ", sortBy);
   console.log("Release Year: ", releaseYear);
 
-  filterMovies();
-
   const movieRes = await fetch(
     `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&with_original_language=${language}&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}&api_key=${api_key}`
   );
   const data = await movieRes.json();
-  console.log(data);
+  filterMovies(data);
+});
+
+// filter ends
+
+// displaying movie
+function filterMovies(data) {
+  const spinalDiv = document.getElementById('spinalDiv');
+  spinalDiv.style.display = 'none';
   try {
     console.log(data.results);
     let searchResArr = data.results;
     // searchResArr.push(data.results)
     searchSection.innerHTML = "";
-    const { title, backdrop_path, poster_path, release_date, original_language } =
-      searchResArr;
+    const {
+      title,
+      backdrop_path,
+      poster_path,
+      release_date,
+      original_language,
+    } = searchResArr;
     searchResArr.forEach((item) => {
       searchSection.innerHTML += `
-      <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
+      <div class="movie-card mt-4 d-flex flex-column shadow align-items-center justify-content-center position-relative">
       <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
        style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
         background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
@@ -145,17 +131,17 @@ applyFilterBtn.addEventListener("click", async (e) => {
           img_path + item.poster_path
         }" alt="Movie Poster" class="movie-poster rounded-3">
         <div class="movie-details">
-            <h6 class="movie-title text-white text-center">${item.title}</h6>
-            <p class="movie-release-year text-danger">${item.release_date}</p>
+            <h6 class="movie-title text-dark w-75 text-center p-2 text-center">${item.title}</h6>
+            <p class="movie-release-year text-danger text-center">${item.release_date}</p>
         </div>
       </div>
       `;
     });
   } catch (error) {
-    searchSection.innerHTML = `No result for ${search.value}`
+    searchSection.innerHTML = `No result for ${search.value}`;
   }
-});
-function filterMovies() {}
+}
+
 
 async function fetchGenres(url) {
   try {
@@ -199,24 +185,23 @@ async function getLanguages(url) {
   }
 }
 
-let colors = ['a', 'b', 'c', 'd', 'e', 'f', 1, 2, 3, 4, 5, 6 , 7, 8, 9, 0]
+let colors = ["a", "b", "c", "d", "e", "f", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 function randomBorder() {
-  let hexColor = '#'
+  let hexColor = "#";
 
-  for(let i = 0; i < 6; i++) {
-    hexColor += colors[getRandomNumber()]
+  for (let i = 0; i < 6; i++) {
+    hexColor += colors[getRandomNumber()];
   }
-
 
   return hexColor;
 }
 
 function getRandomNumber() {
-  return Math.floor(Math.random() * colors.length)
+  return Math.floor(Math.random() * colors.length);
 }
-
-
-
 
 // filter section
 
+searchSection.addEventListener("click", () => {
+  alert();
+});
