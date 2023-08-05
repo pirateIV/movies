@@ -120,7 +120,7 @@ async function getMovieDetails(movieContent, index) {
   const fullMovieBtn = document.getElementById("fullMovieBtn");
   fullMovieBtn.addEventListener("click", () => {
     getMovieFullDetails(id);
-    
+
     viewTrailer();
     // navigateToDestination(id)
   });
@@ -270,8 +270,15 @@ async function updateHeader() {
     contentInfo.innerHTML = "";
 
     const movie = movies[currentIndex];
-    const { title, vote_average, overview, poster_path, backdrop_path, genre_ids } = movie;
-    console.log(movie)
+    const {
+      title,
+      vote_average,
+      overview,
+      poster_path,
+      backdrop_path,
+      genre_ids,
+    } = movie;
+    console.log(movie);
 
     const data = await getGenres(api_url_genres);
 
@@ -365,12 +372,12 @@ function getRatings(vote) {
 async function getPopular() {
   let popularMoviesLength = 200;
   const movList = document.querySelector(".mov-list");
-  movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
+
   let movieContents = await getMovies(api_popular_list, popularMoviesLength);
   try {
     // console.log(movieContents);
-
-    const movieContent = movieContents; 
+    movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
+    const movieContent = movieContents;
 
     console.log(movieContent);
     // movieContent.forEach((content) => {
@@ -414,7 +421,6 @@ async function getPopular() {
       lists.forEach((list, index) => {
         list.addEventListener("click", (e) => {
           getMovieDetails(movieContent, index);
-         
         });
       });
       // getMovieFullDetails(id)
