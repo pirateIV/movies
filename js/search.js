@@ -105,20 +105,16 @@ applyFilterBtn.addEventListener("click", async (e) => {
 // filter ends
 
 // displaying movie
-let searchResArr
+let searchResArr;
 function filterMovies(data) {
+  try {
+    const spinalDiv = document.getElementById("spinalDiv");
+    spinalDiv.style.display = "none";
+  } catch (error) {}
 
   try {
-    const spinalDiv = document.getElementById('spinalDiv');
-    spinalDiv.style.display = 'none';
-  } catch (error) {
-    
-  }
-  
-  try {
-
     console.log(data.results);
-     searchResArr = data.results;
+    searchResArr = data.results;
     searchSection.innerHTML = "";
     const {
       title,
@@ -139,8 +135,12 @@ function filterMovies(data) {
           img_path + item.poster_path
         }" alt="Movie Poster" class="movie-poster rounded-3">
         <div class="movie-details">
-            <h6 class="movie-title text-dark w-100 text-center p-2 text-center">${item.title}</h6>
-            <p class="movie-release-year text-danger text-center">${item.release_date}</p>
+            <h6 class="movie-title text-light w-100 text-center p-2 text-center">${
+              item.title
+            }</h6>
+            <p class="movie-release-year text-light text-center">${
+              item.release_date
+            }</p>
         </div>
       </div>
       `;
@@ -149,7 +149,6 @@ function filterMovies(data) {
     searchSection.innerHTML = `No result for ${search.value}`;
   }
 }
-
 
 async function fetchGenres(url) {
   try {
@@ -210,17 +209,17 @@ function getRandomNumber() {
 
 // filter section
 
-const movContainer = document.getElementById('movContainer')
+const movContainer = document.getElementById("movContainer");
 
 searchSection.addEventListener("click", (event) => {
-
-  
   // console.log(event.target.parent())
-  const clickedElement = event.target.closest('.movie-card');
+  const clickedElement = event.target.closest(".movie-card");
   movContainer.style.transform = `scale(${1})`;
-  
+
   if (clickedElement) {
-    const index = Array.from(document.querySelectorAll('.movie-card')).indexOf(clickedElement);
+    const index = Array.from(document.querySelectorAll(".movie-card")).indexOf(
+      clickedElement
+    );
     const item = searchResArr[index];
     console.log(item);
     const {
@@ -234,11 +233,9 @@ searchSection.addEventListener("click", (event) => {
       poster_path,
       backdrop_path,
       genre_ids,
-      release_date
+      release_date,
     } = item;
 
-  
- 
     selectedMovieDisplay.innerHTML = `
     asdfghjhgfdsadfg
    <div class="d-flex text-white gap-5">
@@ -277,8 +274,8 @@ searchSection.addEventListener("click", (event) => {
               <circle id="circle" stroke="${updateVotesAverage(
                 vote_average * 10
               )}" stroke-dasharray="${votesPercentage(
-    vote_average * 10
-  )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
+      vote_average * 10
+    )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
                                   <circle cx="20" cy="20" r="16"  fill="black"></circle>
               <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
@@ -293,9 +290,9 @@ searchSection.addEventListener("click", (event) => {
 
 // Exit Movie Details
 
-movContainer.addEventListener('click', (event) => {
+movContainer.addEventListener("click", (event) => {
   const clickedElement = event.target;
-  if (clickedElement.id === 'close-btn') {
+  if (clickedElement.id === "close-btn") {
     movContainer.style.transform = `scale(0)`;
   }
 });
