@@ -210,9 +210,14 @@ function getRandomNumber() {
 
 // filter section
 
+const movContainer = document.getElementById('movContainer')
+
 searchSection.addEventListener("click", (event) => {
+
+  
   // console.log(event.target.parent())
   const clickedElement = event.target.closest('.movie-card');
+  movContainer.style.transform = `scale(${1})`;
   
   if (clickedElement) {
     const index = Array.from(document.querySelectorAll('.movie-card')).indexOf(clickedElement);
@@ -229,14 +234,15 @@ searchSection.addEventListener("click", (event) => {
       poster_path,
       backdrop_path,
       genre_ids,
-      release_date,
+      release_date
     } = item;
 
   
-    movContainer.style.transform = `scale(${1})`;
+ 
     selectedMovieDisplay.innerHTML = `
+    asdfghjhgfdsadfg
    <div class="d-flex text-white gap-5">
-   <i class="fas fa-times text-danger position-absolute fs-3 close-btn"></i>  
+   <i class="fas fa-times text-danger position-absolute fs-3 " id="close-btn"></i>  
     <img src="${
       img_path + poster_path
     }" alt="" class="img-fluid" style="width: 31%"> 
@@ -284,3 +290,29 @@ searchSection.addEventListener("click", (event) => {
   `;
   }
 });
+
+// Exit Movie Details
+
+movContainer.addEventListener('click', (event) => {
+  const clickedElement = event.target;
+  if (clickedElement.id === 'close-btn') {
+    movContainer.style.transform = `scale(0)`;
+  }
+});
+
+function updateVotesAverage(vote) {
+  if (vote >= 75) {
+    return "green";
+  } else if (vote >= 60) {
+    return "yellow";
+  } else {
+    return "red";
+  }
+}
+function votesPercentage(percentage) {
+  const circleRadius = 16;
+  const circumference = 2 * Math.PI * circleRadius;
+  const borderLength = (circumference * percentage) / 100;
+
+  return `${borderLength} ${circumference - borderLength}`;
+}
