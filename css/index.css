@@ -121,13 +121,14 @@ section.search input {
 
 }
 
-@media screen and (max-width: 645px) {
+@media screen and (max-width: 755px) {
   .section-mov-card {
     grid-template-columns: repeat(2, 1fr);
   }
   .section-mov-card .movie-card {
-    width: 150px !important;
+    width: 240px !important;
     margin: auto;
+    flex-direction: column !important;
   }
 
   .section-mov-card img {

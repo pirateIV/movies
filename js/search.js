@@ -9,6 +9,7 @@ const form = document.getElementById("search-form");
 const search = document.getElementById("search");
 const searchHeader = document.getElementById("section-search");
 const searchSection = document.getElementById("searchSection");
+const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 // background: url(../1234.jpg);
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -48,34 +49,7 @@ async function searchMovies(url) {
   const movieRes = await fetch(url);
   const data = await movieRes.json();
 
-  try {
-    console.log(data.results);
-    let searchResArr = data.results;
-    // searchResArr.push(data.results)
-    searchSection.innerHTML = "";
-    const { title, backdrop_path, poster_path, release_date, original_language } =
-      searchResArr;
-    searchResArr.forEach((item) => {
-      searchSection.innerHTML += `
-      <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
-      <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
-       style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
-        background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
-          item.original_language
-        }</small>
-        <img  src="${
-          img_path + item.poster_path
-        }" alt="Movie Poster" class="movie-poster rounded-3">
-        <div class="movie-details">
-            <h6 class="movie-title text-white text-center">${item.title}</h6>
-            <p class="movie-release-year text-danger">${item.release_date}</p>
-        </div>
-      </div>
-      `;
-    });
-  } catch (error) {
-    searchSection.innerHTML = `No result for ${search.value}`
-  }
+  filterMovies(data);
 }
 
 // Filter Movies
@@ -104,6 +78,8 @@ const languageSelect = document.getElementById("languageSelect");
 
 const filterContainer = document.getElementById("filterContainer");
 const applyFilterBtn = document.getElementById("applyFilters");
+
+// filter movie ftching
 applyFilterBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
@@ -119,23 +95,41 @@ applyFilterBtn.addEventListener("click", async (e) => {
   console.log("Sort by: ", sortBy);
   console.log("Release Year: ", releaseYearFilter);
 
-  filterMovies();
-
   const movieRes = await fetch(
     `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&with_original_language=${language}&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}&api_key=${api_key}`
   );
   const data = await movieRes.json();
-  console.log(data);
+  filterMovies(data);
+});
+
+// filter ends
+
+// displaying movie
+let searchResArr
+function filterMovies(data) {
+
   try {
+    const spinalDiv = document.getElementById('spinalDiv');
+    spinalDiv.style.display = 'none';
+  } catch (error) {
+    
+  }
+  
+  try {
+
     console.log(data.results);
-    let searchResArr = data.results;
-    // searchResArr.push(data.results)
+     searchResArr = data.results;
     searchSection.innerHTML = "";
-    const { title, backdrop_path, poster_path, release_date, original_language } =
-      searchResArr;
+    const {
+      title,
+      backdrop_path,
+      poster_path,
+      release_date,
+      original_language,
+    } = searchResArr;
     searchResArr.forEach((item) => {
       searchSection.innerHTML += `
-      <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
+      <div class="movie-card mt-4 d-flex  flex-column shadow align-items-center justify-content-center position-relative">
       <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
        style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
         background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
@@ -145,17 +139,17 @@ applyFilterBtn.addEventListener("click", async (e) => {
           img_path + item.poster_path
         }" alt="Movie Poster" class="movie-poster rounded-3">
         <div class="movie-details">
-            <h6 class="movie-title text-white text-center">${item.title}</h6>
-            <p class="movie-release-year text-danger">${item.release_date}</p>
+            <h6 class="movie-title text-dark w-100 text-center p-2 text-center">${item.title}</h6>
+            <p class="movie-release-year text-danger text-center">${item.release_date}</p>
         </div>
       </div>
       `;
     });
   } catch (error) {
-    searchSection.innerHTML = `No result for ${search.value}`
+    searchSection.innerHTML = `No result for ${search.value}`;
   }
-});
-function filterMovies() {}
+}
+
 
 async function fetchGenres(url) {
   try {
@@ -199,24 +193,126 @@ async function getLanguages(url) {
   }
 }
 
-let colors = ['a', 'b', 'c', 'd', 'e', 'f', 1, 2, 3, 4, 5, 6 , 7, 8, 9, 0]
+let colors = ["a", "b", "c", "d", "e", "f", 1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 function randomBorder() {
-  let hexColor = '#'
+  let hexColor = "#";
 
-  for(let i = 0; i < 6; i++) {
-    hexColor += colors[getRandomNumber()]
+  for (let i = 0; i < 6; i++) {
+    hexColor += colors[getRandomNumber()];
   }
-
 
   return hexColor;
 }
 
 function getRandomNumber() {
-  return Math.floor(Math.random() * colors.length)
+  return Math.floor(Math.random() * colors.length);
 }
-
-
-
 
 // filter section
 
+const movContainer = document.getElementById('movContainer')
+
+searchSection.addEventListener("click", (event) => {
+
+  
+  // console.log(event.target.parent())
+  const clickedElement = event.target.closest('.movie-card');
+  movContainer.style.transform = `scale(${1})`;
+  
+  if (clickedElement) {
+    const index = Array.from(document.querySelectorAll('.movie-card')).indexOf(clickedElement);
+    const item = searchResArr[index];
+    console.log(item);
+    const {
+      id,
+      title,
+      adults,
+      vote_average,
+      vote_count,
+      original_language,
+      overview,
+      poster_path,
+      backdrop_path,
+      genre_ids,
+      release_date
+    } = item;
+
+  
+ 
+    selectedMovieDisplay.innerHTML = `
+    asdfghjhgfdsadfg
+   <div class="d-flex text-white gap-5">
+   <i class="fas fa-times text-danger position-absolute fs-3 " id="close-btn"></i>  
+    <img src="${
+      img_path + poster_path
+    }" alt="" class="img-fluid" style="width: 31%"> 
+
+    <div>
+      <h1 class="text-white">${title}</h1>
+      <section class="mt-5 d-flex justify-content-center flex-column">
+        <div>
+          <small class="text-muted fw-bold">Language: <span class="badge bg-primary">${original_language}</span></small>
+        </div>
+        <div class="d-flex genre align-items-center gap-2">
+            <h4 class="text-warning">Genre: </h4>
+            <a class="genre-a">${genre_ids
+              .map((result) => `<a class="genre-item">${result}</a>`)
+              .join(" | ")}</a>
+        </div>
+        <div class="overview">
+            <h4 class="text-warning">Overview: </h4>
+            <p>${overview}</p>
+        </div>
+        <div class="release">
+            <h4 class="text-warning">Release Date: </h4>
+            <p>${release_date}</p>
+        </div>
+        
+        <button id="fullMovieBtn" style="width: 170px" class="rounded-pill py-2 shadow text-white bg-red btn-mov-details">Watch Trailer</button>
+      </section>
+    </div>
+
+    <div class="item position-absolute top-0 ">
+            <svg width="40" height="40" class="position-absolute">
+              <circle id="circle" stroke="${updateVotesAverage(
+                vote_average * 10
+              )}" stroke-dasharray="${votesPercentage(
+    vote_average * 10
+  )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
+                                  <circle cx="20" cy="20" r="16"  fill="black"></circle>
+              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
+                ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
+              </text>
+            </svg>
+
+          </div>
+  </div> 
+  `;
+  }
+});
+
+// Exit Movie Details
+
+movContainer.addEventListener('click', (event) => {
+  const clickedElement = event.target;
+  if (clickedElement.id === 'close-btn') {
+    movContainer.style.transform = `scale(0)`;
+  }
+});
+
+function updateVotesAverage(vote) {
+  if (vote >= 75) {
+    return "green";
+  } else if (vote >= 60) {
+    return "yellow";
+  } else {
+    return "red";
+  }
+}
+function votesPercentage(percentage) {
+  const circleRadius = 16;
+  const circumference = 2 * Math.PI * circleRadius;
+  const borderLength = (circumference * percentage) / 100;
+
+  return `${borderLength} ${circumference - borderLength}`;
+}
