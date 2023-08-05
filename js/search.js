@@ -9,6 +9,7 @@ const form = document.getElementById("search-form");
 const search = document.getElementById("search");
 const searchHeader = document.getElementById("section-search");
 const searchSection = document.getElementById("searchSection");
+const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 // background: url(../1234.jpg);
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -104,13 +105,20 @@ applyFilterBtn.addEventListener("click", async (e) => {
 // filter ends
 
 // displaying movie
+let searchResArr
 function filterMovies(data) {
-  const spinalDiv = document.getElementById('spinalDiv');
-  spinalDiv.style.display = 'none';
+
   try {
+    const spinalDiv = document.getElementById('spinalDiv');
+    spinalDiv.style.display = 'none';
+  } catch (error) {
+    
+  }
+  
+  try {
+
     console.log(data.results);
-    let searchResArr = data.results;
-    // searchResArr.push(data.results)
+     searchResArr = data.results;
     searchSection.innerHTML = "";
     const {
       title,
@@ -121,7 +129,7 @@ function filterMovies(data) {
     } = searchResArr;
     searchResArr.forEach((item) => {
       searchSection.innerHTML += `
-      <div class="movie-card mt-4 d-flex flex-column shadow align-items-center justify-content-center position-relative">
+      <div class="movie-card mt-4 d-flex  flex-column shadow align-items-center justify-content-center position-relative">
       <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
        style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
         background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
@@ -131,7 +139,7 @@ function filterMovies(data) {
           img_path + item.poster_path
         }" alt="Movie Poster" class="movie-poster rounded-3">
         <div class="movie-details">
-            <h6 class="movie-title text-dark w-75 text-center p-2 text-center">${item.title}</h6>
+            <h6 class="movie-title text-dark w-100 text-center p-2 text-center">${item.title}</h6>
             <p class="movie-release-year text-danger text-center">${item.release_date}</p>
         </div>
       </div>
@@ -202,6 +210,77 @@ function getRandomNumber() {
 
 // filter section
 
-searchSection.addEventListener("click", () => {
-  alert();
+searchSection.addEventListener("click", (event) => {
+  // console.log(event.target.parent())
+  const clickedElement = event.target.closest('.movie-card');
+  
+  if (clickedElement) {
+    const index = Array.from(document.querySelectorAll('.movie-card')).indexOf(clickedElement);
+    const item = searchResArr[index];
+    console.log(item);
+    const {
+      id,
+      title,
+      adults,
+      vote_average,
+      vote_count,
+      original_language,
+      overview,
+      poster_path,
+      backdrop_path,
+      genre_ids,
+      release_date,
+    } = item;
+
+  
+    movContainer.style.transform = `scale(${1})`;
+    selectedMovieDisplay.innerHTML = `
+   <div class="d-flex text-white gap-5">
+   <i class="fas fa-times text-danger position-absolute fs-3 close-btn"></i>  
+    <img src="${
+      img_path + poster_path
+    }" alt="" class="img-fluid" style="width: 31%"> 
+
+    <div>
+      <h1 class="text-white">${title}</h1>
+      <section class="mt-5 d-flex justify-content-center flex-column">
+        <div>
+          <small class="text-muted fw-bold">Language: <span class="badge bg-primary">${original_language}</span></small>
+        </div>
+        <div class="d-flex genre align-items-center gap-2">
+            <h4 class="text-warning">Genre: </h4>
+            <a class="genre-a">${genre_ids
+              .map((result) => `<a class="genre-item">${result}</a>`)
+              .join(" | ")}</a>
+        </div>
+        <div class="overview">
+            <h4 class="text-warning">Overview: </h4>
+            <p>${overview}</p>
+        </div>
+        <div class="release">
+            <h4 class="text-warning">Release Date: </h4>
+            <p>${release_date}</p>
+        </div>
+        
+        <button id="fullMovieBtn" style="width: 170px" class="rounded-pill py-2 shadow text-white bg-red btn-mov-details">Watch Trailer</button>
+      </section>
+    </div>
+
+    <div class="item position-absolute top-0 ">
+            <svg width="40" height="40" class="position-absolute">
+              <circle id="circle" stroke="${updateVotesAverage(
+                vote_average * 10
+              )}" stroke-dasharray="${votesPercentage(
+    vote_average * 10
+  )}" cx="20" cy="20" r="16" fill="none"  stroke-width="5"></circle>
+                                  <circle cx="20" cy="20" r="16"  fill="black"></circle>
+              <text x="23" y="22" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="white" font-weight="bold">
+                ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
+              </text>
+            </svg>
+
+          </div>
+  </div> 
+  `;
+  }
 });
