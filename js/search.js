@@ -111,7 +111,7 @@ applyFilterBtn.addEventListener("click", async (e) => {
   const language = document.getElementById("languageSelect").value;
   const genre = document.getElementById("genreSelect").value;
   const sortBy = document.getElementById("sortBy").value;
-  const releaseYear = document.getElementById("releaseYear").value;
+  const releaseYearFilter = document.getElementById("releaseYear").value;
 
   console.log("Include Adult: ", includeAdult);
   console.log("Language: ", language);
@@ -126,6 +126,34 @@ applyFilterBtn.addEventListener("click", async (e) => {
   );
   const data = await movieRes.json();
   console.log(data);
+  try {
+    console.log(data.results);
+    let searchResArr = data.results;
+    // searchResArr.push(data.results)
+    searchSection.innerHTML = "";
+    const { title, backdrop_path, poster_path, release_date, original_language } =
+      searchResArr;
+    searchResArr.forEach((item) => {
+      searchSection.innerHTML += `
+      <div class="movie-card mt-4 d-flex flex-column align-items-center justify-content-center position-relative">
+      <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
+       style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
+        background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
+          item.original_language
+        }</small>
+        <img  src="${
+          img_path + item.poster_path
+        }" alt="Movie Poster" class="movie-poster rounded-3">
+        <div class="movie-details">
+            <h6 class="movie-title text-white text-center">${item.title}</h6>
+            <p class="movie-release-year text-danger">${item.release_date}</p>
+        </div>
+      </div>
+      `;
+    });
+  } catch (error) {
+    searchSection.innerHTML = `No result for ${search.value}`
+  }
 });
 function filterMovies() {}
 
@@ -186,3 +214,9 @@ function randomBorder() {
 function getRandomNumber() {
   return Math.floor(Math.random() * colors.length)
 }
+
+
+
+
+// filter section
+
