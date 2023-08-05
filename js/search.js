@@ -117,7 +117,7 @@ applyFilterBtn.addEventListener("click", async (e) => {
   console.log("Language: ", language);
   console.log("Genre: ", genre);
   console.log("Sort by: ", sortBy);
-  console.log("Release Year: ", releaseYear);
+  console.log("Release Year: ", releaseYearFilter);
 
   filterMovies();
 
