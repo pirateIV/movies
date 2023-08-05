@@ -236,7 +236,7 @@
 
   @media screen and (max-width: 992px) {
     nav ul:first-of-type {
-      display: block !important;
+      display: none !important;
       position: fixed;
       top: 90px;
       width: 100%;
