@@ -1,6 +1,5 @@
 /* Selected Movie Detail */
 
-
 .movContainer {
   transform: scale(0);
   transition: all 0.3s ease;
@@ -49,7 +48,7 @@
   left: 50%;
   width: 50%;
   height: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 /* Search */
@@ -118,7 +117,6 @@ section.search input {
   .section-mov-card {
     grid-template-columns: repeat(3, 1fr);
   }
-
 }
 
 @media screen and (max-width: 755px) {
@@ -182,7 +180,6 @@ section.search input {
     text-align: center;
   }
 
-
   .filter-container {
     width: 100%;
   }
@@ -203,7 +200,7 @@ body {
 
 /* Footer Styles */
 .footer {
-  background-color: #4B0A0A;
+  background-color: #4b0a0a;
   color: #fff;
   padding: 30px 0;
 }
