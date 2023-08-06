@@ -26,6 +26,10 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
   box-shadow: inset 0px 100px 250px #000000;
 }
+.slide-up {
+  position: relative;
+  z-index: 5;
+}
 
 .hero-content {
   position: relative;
