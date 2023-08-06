@@ -14,6 +14,7 @@ body {
   color: #fff;
   margin-bottom: 40px;
 }
+
 .hero::after {
   content: "";
   position: absolute;
@@ -22,8 +23,13 @@ body {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: inset 120px 100px 250px #000000;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
+  box-shadow: inset 0px 100px 250px #000000;
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
 }
 
 .hero-content {
