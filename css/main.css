@@ -10,9 +10,9 @@
 i {
   cursor: pointer;
 }
-/* .show {
+.show {
   transform: scale(0);
-} */
+}
 body {
   font-family: "Lexend", sans-serif !important;
   /* overflow-x: hidden; */
@@ -356,6 +356,6 @@ header nav li a {
   }
 }
 
-.show {
+.open {
   left: 0 !important;
 }
