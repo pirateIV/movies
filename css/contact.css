@@ -1,3 +1,46 @@
 body {
   background-color: black !important;
 }
+
+.hero {
+  position: relative;
+  height: 600px;
+  background-image: url("movie_hero_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #f1356d;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #ff77a9;
+}
