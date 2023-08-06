@@ -80,7 +80,7 @@ nav a:hover {
 }
 
 .active {
-  color: red;
+  color: red !important;
   cursor: not-allowed !important;
 }
 
