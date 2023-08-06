@@ -71,7 +71,11 @@ body {
 }
 
 .contact {
-  background-color: #61171e;
+  backdrop-filter: blur(3px) saturate(50%);
+  -webkit-backdrop-filter: blur(3px) saturate(50%);
+  background-color: rgba(189, 189, 209, 0.42);
+  border: 3px solid rgba(255, 255, 255, 0.125);
+  border-radius: 10px;
   color: #fff;
   padding: 40px;
   width: 70%;
