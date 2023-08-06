@@ -102,3 +102,9 @@ body {
 .btn:hover {
   color: #8d343d !important;
 }
+
+@media (max-width: 589px) {
+  .contact {
+    width: 100%;
+  }
+}
