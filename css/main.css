@@ -235,11 +235,14 @@ header nav li a {
 
 @media screen and (max-width: 992px) {
   nav ul:first-of-type {
-    display: none !important;
+    /* display: none !important; */
     position: fixed;
-    top: 90px;
+    top: 60px;
     width: 100%;
-    z-index: 3;
+    z-index: 3000;
+    background-color: #eee;
+    left: -100%;
+    transition: all ease-in 0.5s;
   }
 
   nav ul:first-of-type li {
@@ -252,7 +255,7 @@ header nav li a {
     display: block;
     padding: 10px 40px;
     color: #000 !important;
-    border: 0.5px solid #000;
+    /* border: 0.5px solid #000 */
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -351,4 +354,8 @@ header nav li a {
   .top_rated_mov .top-rated .mov-list .list img {
     width: 170px !important;
   }
+}
+
+.open {
+  left: 0 !important;
 }
