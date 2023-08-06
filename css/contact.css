@@ -4,14 +4,15 @@ body {
 
 .hero {
   position: relative;
-  height: 600px;
-  background-image: url("movie_hero_bg.jpg");
+  height: 300px;
+  background-image: url("../img/Stage-curtain-background-2000x1245.png");
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
+  margin-bottom: 40px;
 }
 
 .hero-content {
@@ -30,17 +31,20 @@ body {
   margin-bottom: 30px;
 }
 
-.btn {
+.now {
   display: inline-block;
-  background-color: #f1356d;
+  background-color: #61171e;
   color: #fff;
   padding: 15px 30px;
   border-radius: 5px;
   font-size: 18px;
   text-decoration: none;
   transition: background-color 0.2s ease;
+  border: 1px solid #61171e;
+  padding: 20px;
 }
 
-.btn:hover {
-  background-color: #ff77a9;
+.now:hover {
+  background-color: #8d343d;
+  color: #fff;
 }
