@@ -94,8 +94,8 @@ header {
 }
 
  nav li a {
-  font-size: 13px !important;
-  margin: 0;
+  font-size: 11px !important;
+  border: 1px solid rgba(128, 128, 128, 0.4);
 }
 
 .content-container .content {
