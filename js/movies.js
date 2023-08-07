@@ -2,7 +2,7 @@
 // const api_credits = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=5e750355564957a2353604d8a9344e94`;
 // https://api.themoviedb.org/3/movie/298618/credits?api_key=5e750355564957a2353604d8a9344e94
 
-getMovies(api_url, minResults);
+getMovieResults();
 
 const api_mov_details = `https://api.themoviedb.org/3/movie/{movie_id}`
 // const api_key = "5e750355564957a2353604d8a9344e94";
@@ -37,7 +37,7 @@ async function getMovies(url, minResults) {
     // console.log(fetchedMoviesArr)
 
     // return fetchedMoviesArr.slice(130, minResults);
-    return fetchedMoviesArr;
+    // console.log(fetchedMoviesArr)
   } catch (error) {
     console.log(error.message);
   }
@@ -63,10 +63,10 @@ async function getMovieResults() {
 
 async function getSimilar(movieId) {
   const api_similar = `https://api.themoviedb.org/3/movie/${movieId}/similar`;
-  const resSimilar = await fetch(api_similar)
-  const dataSimilar = await resSimilar.json()
+  // const resSimilar = await fetch(api_similar)
+  // const dataSimilar = await resSimilar.json()
 
-  console.log(dataSimilar.results)
+  // console.log(dataSimilar.results)
 }
 
 function getMovieFullDetails() {}

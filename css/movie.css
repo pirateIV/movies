@@ -49,5 +49,15 @@ body {
 
 .main-section {
   height: 60vh;
+  display: flex;
+  align-items: center;
 }
-.main-section
+.main-section .ratings {
+  width: 90px;
+}
+.main-section .ratings .rate-count {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  width: 53%;
+}
