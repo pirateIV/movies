@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/media.css" />
+  <link rel="stylesheet" href="../css/movie.css">
   <!-- <link
       rel="stylesheet"
       href="../fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css"
@@ -46,7 +48,7 @@
                 <!-- <i class="fas fa-angle-down"></i> -->
               </a>
             </li>
-
+          
             <li class="d-none">
               <a class="text-uppercase text-decoration-none text-white" href="news.html">News
               </a>
@@ -66,106 +68,26 @@
         </nav>
       </section>
 
-      <div class="section-main d-flex">
-        <div class="section-main-left page one ">
 
-          
-        </div>
+      </header>
 
-      <section class="search d-flex justify-content-center flex-column align-items-center position-relative" id="section-search">
-        <h1 class="fs-1 text-white">Search and Discover</h1>
-        <small class="small text-danger">the unknown</small>
-        <div class="d-flex align-items-center justify-content-center flex-column  mt-2 gap-3">
-          <select class="select form-control w-auto">
-            <option value="movie">Movie</option>
-            <option value="movie">Series</option>
-            <option value="person">Person</option>
-          </select>
-          <form class="search-box d-flex gap-3" id="search-form">
-            <input type="text" id="search" class="form-control" placeholder="Search for movies...">
-            <button class="btn btn-danger"><i class="fas fa-search"></i></button>
-          </form>
-        </div>
-
-        <div class="header-mt-5">
-          <ul class="d-flex gap-2 text-nowrap align-items-center justify-content-between gap-5">
-            <a  class="text-danger fs-4 d-lg-block d-none">@Search Movie</a>
-            <div class="d-md-flex justify-content-center d-none btm position-absolute bottom-0 end-0 ">
-              <a href="" class="text-white text-decoration-none">Home</a> <span class="text-muted"> | </span>
-              <a href="" class="text-white text-decoration-none">Now Playing Movies</a> <span class="text-muted"> |
-              </span>
-              <a href="" class="text-white text-decoration-none">Popular Movies</a> <span class="text-muted"> | </span>
-              <a href="" class="text-white text-decoration-none">Upcoming Movies</a>
+      <section class="main-section">
+        <div class="container">
+          <h1 class="title"></h1>
+          <div class="ratings">
+            <div class="rate-count bg-success d-flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
             </div>
-          </ul>
+          </div>
+
+          <div class="story-line"></div>
+          <button class="btn  btn-suwccess  py-2 rounded-2"><i class="fas fa-play"></i> Watch Trailer</button>
         </div>
       </section>
-
-      <div class="filter-section mt-5" id="filter-section">
-
-        <div class="container">
-          <h2 class="text-white">Movie Filter Options</h2>
-          <p class="text-white">Customize your movie search using the filters below:</p>
-        </div>
-
-        <form action="" class="filter-container" id="filterContainer">
-          <div class="d-flex justify-content-between w-100 ">
-            <label for="includeAdult">Include Adult:</label>
-            <input type="checkbox" class="form-check" id="includeAdult" checked>
-          </div>
-
-          <label for="language">Language:</label>
-
-          <select name="language" id="languageSelect" class="form-select bg-secondary">
-            <option value="" selected disabled>Language</option>
-            <!-- Add more language options here -->
-          </select>
-
-          <label for="genre">Genre: </label>
-
-          <select name="genre" id="genreSelect" class="form-select bg-secondary">
-            <option value="" selected disabled>Genre</option>
-            <!-- Fetch the available genres from TMDB -->
-          </select>
-
-          <!-- labe -->
-
-          <label for="sortBy">Sort By:</label>
-          <select id="sortBy" class="form-select bg-secondary">
-            <option value=""  disabled>Sort By</option>
-            <option value="vote_count" selected>Vote Count</option>
-            <option value="popularity_asc">Popularity (Ascending)</option>
-            <option value="popularity_desc">Popularity (Descending)</option>
-            <option value="revenue_asc">Revenue (Ascending)</option>
-            <option value="revenue_desc">Revenue (Descending)</option>
-            <option value="release_date_asc">Release Date (Ascending)</option>
-            <option value="release_date_desc">Release Date (Descending)</option>
-          </select>
-
-          <label for="releaseYear">Release Year:</label>
-          <input type="number" class="form-control" id="releaseYear" min="1900" max="2099" 
-            placeholder="curr - 2023">
-
-          <button class="btn btn-danger" id="applyFilters" >Apply Filters</button>
-        </form>
-      </div>
-
-      <div class="section-mov-card m-auto container  p-5 mt-5 rounded mb-5" id="searchSection">
-      <div class="section-mov-card m-auto container p-5 mt-5 rounded mb-5" id="searchSection" style="background-color: brown;">
-       
-        <div class="text-center p-5 m-5" id="spinalDiv">
-          <div class="spinner-border text-primary text-center" role="status">
-            <span class="sr-only text-center">Loading...</span>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="position-fixed top-0 movContainer" id="movContainer"
-      style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.4);">
-      <div class="selected-mov-detail bg-000 text-white position-fixed p-3" id="selectedMovieDisplay">
-      </div>
-    </div>
 
     
 
