@@ -262,3 +262,15 @@ section.search input {
     text-align: center;
   }
 }
+
+/* Section main */
+.section-main {
+  width: 200%;
+  box-sizing: border-box;
+}
+
+.section-main .one,
+ .section-main .two {
+  width: 100%;
+  transition: all 1s ease;
+}
