@@ -13,34 +13,6 @@ const minResults = 300;
 getMovies(api_url, minResults)
 // script js - line 230
 async function getMovies(url, minResults) {
-    try {
-      let totalResults = 0;
-      let currentPage = 1;
-  
-      // add fetched movies to array
-      let fetchedMoviesArr = [];
-  
-      while (fetchedMoviesArr.length < minResults) {
-        const response = await fetch(`${url}&page=${currentPage}`);
-        const data = await response.json();
-  
-        fetchedMoviesArr = fetchedMoviesArr.concat(data.results);
-        totalResults = data.total_results;
-        currentPage++;
-        
-        if (currentPage > data.total_pages) {
-          // stop fetching if there are no more pages
-          break;
-        }
-    }
-    console.log(fetchedMoviesArr)
-    
-      return fetchedMoviesArr.slice(130, minResults);
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-async function getMovies(url, minResults) {
   try {
     let totalResults = 0;
     let currentPage = 1;
@@ -76,6 +48,7 @@ async function getMovieResults() {
 
   const movies = await getMovies(api_url, minResults);
   const {
+    id,
     title,
     vote_average,
     overview,
@@ -84,13 +57,16 @@ async function getMovieResults() {
     genre_ids,
   } = movies;
 
-  const similar = await getSimilar()
+  const similar = await getSimilar(id)
+  console.log(similar)
 }
 
 async function getSimilar(movieId) {
   const api_similar = `https://api.themoviedb.org/3/movie/${movieId}/similar`;
   const resSimilar = await fetch(api_similar)
   const dataSimilar = await resSimilar.json()
+
+  console.log(dataSimilar.results)
 }
 
 function getMovieFullDetails() {}
