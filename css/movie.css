@@ -44,3 +44,28 @@ body {
 .watch-now-button:hover {
   background-color: #ff77a9;
 }
+
+/* Movie main section */
+
+.rating-length {
+  padding: 10px;
+  width: 50px;
+}
+
+.rate-count {
+  width: 95px;
+}
+
+.rating {
+  width: 50px !important;
+  -webkit-background-clip: text;
+  background-color: green;
+  -webkit-text-fill-color: transparent;
+  width: auto;
+  display: flex;
+  top: -2px;
+}
+
+.rating i {
+  color: transparent !important;
+}
