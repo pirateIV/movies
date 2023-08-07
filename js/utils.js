@@ -13,3 +13,5 @@ navToggle.addEventListener("click", () => {
   //   alert();
   navLinks.classList.toggle("open");
 });
+
+const pages = document.quer
