@@ -22,7 +22,6 @@ a {
   cursor: pointer !important;
   transition: all 0.3s ease-in;
 }
-
 nav a:hover {
   opacity: 0.8;
   scale: 1.05;
@@ -94,8 +93,8 @@ header {
   background-repeat: no-repeat !important;
 }
 
-header nav li a {
-  font-size: 12px !important;
+ nav li a {
+  font-size: 13px !important;
 }
 
 .content-container .content {
@@ -240,7 +239,6 @@ header nav li a {
     top: 60px;
     width: 100%;
     z-index: 3000;
-    background-color: #eee;
     left: -100%;
     transition: all ease-in 0.5s;
   }
