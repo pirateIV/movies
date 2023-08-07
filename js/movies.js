@@ -83,10 +83,14 @@ async function getMovieResults() {
     backdrop_path,
     genre_ids,
   } = movies;
+
+  const similar = await getSimilar()
 }
 
-function getSimilar(movieId) {
+async function getSimilar(movieId) {
   const api_similar = `https://api.themoviedb.org/3/movie/${movieId}/similar`;
+  const resSimilar = await fetch(api_similar)
+  const dataSimilar = await resSimilar.json()
 }
 
 function getMovieFullDetails() {}
