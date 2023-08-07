@@ -3,6 +3,9 @@
 * {
   scroll-behavior: smooth !important;
 }
+body {
+  overflow-x: hidden;
+}
 
 :root {
   --transition-03s: 0.3s;
