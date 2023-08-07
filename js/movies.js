@@ -8,6 +8,7 @@ const api_credits = `https://api.themoviedb.org/3/movie/{movie_id}/credits?api_k
 // `https://api.themoviedb.org/3/movie/298618/credits?api_key=5e750355564957a2353604d8a9344e94`
 const minResults = 300;
 getMovies(api_url, minResults)
+// script js - line 230
 async function getMovies(url, minResults) {
     try {
       let totalResults = 0;
