@@ -95,6 +95,7 @@ header {
 
  nav li a {
   font-size: 13px !important;
+  margin: 0;
 }
 
 .content-container .content {
@@ -148,7 +149,6 @@ header {
   height: 300px;
   position: relative;
   transition: all 0.3s ease;
-  /* cursor: pointer; */
 }
 
 .top_rated_mov .top-rated .mov-list .list .item {
@@ -174,9 +174,7 @@ header {
 }
 
 .top_rated_mov .top-rated .mov-list .list img {
-  /* width: 190px; */
   width: 220px;
-  /* margin: 10px 15px; */
   border-radius: 10px;
 }
 
@@ -311,8 +309,6 @@ header {
 
 @media screen and (max-width: 400px) {
   .nav-icons {
-    /* display: none !important; */
-    transform: translateX(25px);
   }
 
   .container-mov .content .mov-info h1 {
