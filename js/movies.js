@@ -8,10 +8,10 @@ const api_mov_details = `
 https://api.themoviedb.org/3/movie/{movie_id}`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
 
-const mainSection = document.getElementById('mainSection')
-const mainAbout = document.getElementById('mainAbout')
+const mainSection = document.getElementById("mainSection");
+const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex  = 0
+let currentIndex = 0;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -22,10 +22,11 @@ async function getMovies(url) {
   // getMovieCredits(data.results[0].id);
   // getSimilarMovies(data.results[0].id);
 
-  const movies = data.results
-  const { id, title, poster_path, backdrop_path, vote_average, overview } = movies[currentIndex]
+  const movies = data.results;
+  const { id, title, poster_path, backdrop_path, vote_average, overview } =
+    movies[currentIndex];
 
-  let movie = movies[currentIndex]
+  let movie = movies[currentIndex];
 
   movies.forEach((objectData, index) => {
     // -- clg objectData for object API reference
@@ -50,18 +51,14 @@ async function getMovies(url) {
       <div class="story-line text-light">${objectData.overview}</div>
       <button><i class="fas fa-play"></i> Watch Trailer</button>
     </div>
-  `
-  
-  ;
-  // Get the full movie details
-  getMovieDetails(id)
-  // Get Similar movies
-  getSimilarMovies(id)  
+  `;
+    // Get the full movie details
+    getMovieDetails(id);
+    // Get Similar movies
+    getSimilarMovies(id);
 
-
-  // Call the updateStars function to update the stars based on the rating
-  // updateStars(rating);
-  
+    // Call the updateStars function to update the stars based on the rating
+    // updateStars(rating);
 
     // Example usage: Update stars with a rating of 5
     // updateStars(data.results[0].overview);
@@ -73,7 +70,35 @@ async function getMovieDetails(mov_detail_id) {
   https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
   const data = await resp.json();
 
+  const details = data;
+
+  const {
+    id,
+    budet,
+    status,
+    genres,
+    imbd_id,
+    runtime,
+    tagline,
+    homepage,
+    poster_path,
+    release_date,
+    original_title,
+    spoken_languages,
+    original_language,
+    production_countries,
+    production_companies,
+  } = details;
   console.log(data);
+
+  mainAbout.innerHTML = `
+    <div class="container">
+      <div class="mov-poster" id="movPoster">
+
+      </div>
+   </div>
+  `;
+  movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
 async function getSimilarMovies(similar_id) {
