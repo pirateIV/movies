@@ -23,10 +23,10 @@ async function getMovies(url){
   data.results.forEach((objectData, index) => {
     console.log(objectData)
 
-    mainSection.style.background =  `url(${img_path + data.results[0].poster_path})`
+    mainSection.style.background =  `url(${img_path + data.results[0].backdrop_path})`
     mainSection.innerHTML = `
       <div class="container">
-        <h1 class="title">${ data.results[0].title}</h1>
+        <h1 class="title text-white">${ data.results[0].title}</h1>
         <div class="ratings">
           <div class="rate-count bg-success d-flex">
             <i class="fas fa-star"></i>
