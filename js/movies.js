@@ -18,9 +18,9 @@ async function getMovies(url) {
   const data = await resp.json();
 
   // console.log(data.results)
-  getMovieDetails(data.results[0].id);
-  getMovieCredits(data.results[0].id);
-  getSimilarMovies(data.results[0].id);
+  // getMovieDetails(data.results[0].id);
+  // getMovieCredits(data.results[0].id);
+  // getSimilarMovies(data.results[0].id);
 
   const movies = data.results
   const { id, title, poster_path, backdrop_path, vote_average, overview } = movies[currentIndex]
@@ -58,7 +58,7 @@ async function getMovies(url) {
   // Get Similar movies
   getSimilarMovies(id)  
 
-  
+
   // Call the updateStars function to update the stars based on the rating
   // updateStars(rating);
   
