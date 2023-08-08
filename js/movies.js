@@ -73,7 +73,7 @@ async function getMovieDetails(mov_detail_id) {
   https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
   const data = await resp.json();
 
-  // console.log(data);
+  console.log(data);
 }
 
 async function getSimilarMovies(similar_id) {
@@ -82,7 +82,7 @@ async function getSimilarMovies(similar_id) {
   );
   const data = await resp.json();
 
-  console.log(data);
+  // console.log(data);
 }
 
 async function getMovieCredits(credits_id) {
