@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Rubik:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap');
 body {
   background-color: black !important;
-  font-family: 'Rubik' !important;
 }
 h1 {
   
@@ -12,10 +11,11 @@ h1 {
   border-radius: 8px;
   background-color: #fff;
   height: 80vh;
-  max-width: 800px;
-  align-items: center;
 }
-
+a {
+  /* margin: 0 10px;
+  border: 0 !important; */
+}
 .movie-poster {
   width: 200px;
   height: auto;
@@ -60,7 +60,7 @@ h1 {
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-blend-mode: darken;
-  /* justify-content: center; */
+  justify-content: center;
   margin-top: 35px;
 }
 .main-section .container-section {
@@ -80,4 +80,15 @@ h1 {
   -webkit-text-fill-color: transparent;
   display: flex;
   width: 53%;
+}
+.main-about {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.main-about .mov-poster {
+  height: 65vh;
+  width: 300px;
+  border-radius: 5px;
+  background-color: #333;
 }
