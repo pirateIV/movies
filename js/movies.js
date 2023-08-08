@@ -13,11 +13,21 @@ async function getMovies(url){
 
   console.log(data.results)
   getMovieDetails(data.results[0].id)
+  getSimilarMovies(data.results[0].id)
 }
 
 async function getMovieDetails(mov_detail_id) {
   const resp = await fetch(`
   https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`)
+  const data = await resp.json()
+
+  console.log(data)
+}
+
+async function getSimilarMovies(similar_id) {
+  const resp = await fetch(
+    `https://api.themoviedb.org/3/movie/${similar_id}/similar?api_key=${api_key}`
+  )
   const data = await resp.json()
 
   console.log(data)
