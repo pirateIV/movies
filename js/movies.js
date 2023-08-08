@@ -25,7 +25,7 @@ async function getMovies(url){
 
     mainSection.style.background =  `url(${img_path + data.results[0].backdrop_path})`
     mainSection.innerHTML = `
-      <div class="container">
+      <div class="w-75 m-0 ">
         <h1 class="title text-white">${ data.results[0].title}</h1>
         <div class="ratings">
           <div class="rate-count bg-success d-flex">
@@ -38,7 +38,7 @@ async function getMovies(url){
           ${ data.results[0].vote_average } / 10
         </div>
 
-        <div class="story-line">${ data.results[0].overview}</div>
+        <div class="story-line text-light">${ data.results[0].overview}</div>
         <button class="btn  btn-warning  py-2 rounded-2"><i class="fas fa-play text-danger"></i> Watch Trailer</button>
       </div>
     `
