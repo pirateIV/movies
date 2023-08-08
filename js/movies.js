@@ -13,6 +13,7 @@ async function getMovies(url){
 
   console.log(data.results)
   getMovieDetails(data.results[0].id)
+  getMovieCredits(data.results[0].id)
   getSimilarMovies(data.results[0].id)
 }
 
@@ -31,4 +32,13 @@ async function getSimilarMovies(similar_id) {
   const data = await resp.json()
 
   console.log(data)
+}
+
+async function getMovieCredits(credits_id) {
+  const creditsResponse = await fetch (
+    `https://api.themoviedb.org/3/movie/${credits_id}/credits?api_key=${api_key}`
+  )
+  const creditsData = await creditsResponse.json()
+
+  console.log(creditsData)
 }
