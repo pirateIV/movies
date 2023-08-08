@@ -42,3 +42,12 @@ async function getMovieCredits(credits_id) {
 
   console.log(creditsData)
 }
+
+async function getPersonMovieCredits(person_id) {
+  const personCreditRes = await fetch (
+   `https://api.themoviedb.org/3/person/${person_id}/movie_credits?api_key=${api_key}`
+  )
+  const personData = await personCreditRes.json()
+
+  console.log(personData)
+}
