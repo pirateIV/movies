@@ -262,9 +262,9 @@ async function updateHeader() {
   const minMoviesToFetch = 200;
   const movies = await getMovies(api_url, minMoviesToFetch);
   currentIndex++;
-  if (currentIndex >= movies.length) {
-    currentIndex = 50;
-  }
+  // if (currentIndex >= movies.length) {
+  //   currentIndex = 50;
+  // }
   try {
     // object to display movies
     contentInfo.innerHTML = "";
