@@ -107,11 +107,11 @@ async function getMovieDetails(mov_detail_id) {
             )
             .join(" ")}</div>
           <div class="d-flex">
-            <p class="text-danger text-truncate runtime" id="runtime">Runtime: ${convertRuntime(
+            <p class="text-danger runtime" id="runtime">Runtime: ${convertRuntime(
               runtime
             )}</p>
           </div>
-          <div>
+          <div style="text-align: justify;">
             <small class="text-white">${overview}</small>
           </div>
         </div>
