@@ -95,12 +95,12 @@ async function getMovieDetails(mov_detail_id) {
   console.log(data);
 
   mainAbout.innerHTML = `
-    <div class="container d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
       <div class="mov-poster" id="movPoster"></div>
       <div class="details w-50">
         <div class="m-overview d-flex flex-column justify-content-between">
-          <h1 class="m-title">${title}</h1>
-          <div class="genre" id="genreId">${genres.map((item, index) => `<button class="genreBtn border-0 bg-dark rounded-3">${item.name}</button>`).join(" | ")}</div>
+          <h1 class="m-title text-white">${title}</h1>
+          <div class="genre" id="genreId">${genres.map((item, index) => `<button class="genreBtn border-0 bg-dark rounded-1">${item.name}</button>`).join(" ")}</div>
           <div class="d-flex">
             <p class="runtime" id="runtime">Runtime: ${
               convertRuntime(runtime)
@@ -110,7 +110,7 @@ async function getMovieDetails(mov_detail_id) {
             }</div>
           </div>
           <div>
-            <small>${overview}</small>
+            <small class="text-white">${overview}</small>
           </div>
         </div>
         <div class="m-watch">
@@ -165,4 +165,10 @@ function convertRuntime(runtime) {
   let hrs = Math.floor(runtime / hourToMins)
 
   return `${hrs}hr ${mins}mins`
+}
+
+async function watchProvider(watch) {
+  const watchRespose = await fetch (
+    ` https://api.themoviedb.org/3/movie/{movie_id}/watch/providers`
+  )
 }
