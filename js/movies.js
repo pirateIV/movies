@@ -23,11 +23,10 @@ async function getMovies(url) {
   // getSimilarMovies(data.results[0].id);
 
   const movies = data.results;
-  const { id, title, poster_path, backdrop_path, vote_average, overview } =
-    movies[currentIndex];
+  // const { id, title, poster_path, backdrop_path, vote_average, overview } =
+  //   movies;
 
-  let movie = movies[currentIndex];
-
+  // let movie = movies[currentIndex];
   movies.forEach((objectData, index) => {
     // -- clg objectData for object API reference
 
@@ -36,7 +35,7 @@ async function getMovies(url) {
     })`;
     mainSection.innerHTML = `
     <div class="container-section">
-      <h1 class="title text-white">${objectData.title}</h1>
+      <h1 class="display-4 title text-white" style="font-weight: 500">${objectData.title}</h1>
       <div class="ratings">
         <div class="rate-count d-flex">
           <i class="fas fa-star"></i>
@@ -53,9 +52,9 @@ async function getMovies(url) {
     </div>
   `;
     // Get the full movie details
-    getMovieDetails(id);
+    getMovieDetails(objectData.id);
     // Get Similar movies
-    getSimilarMovies(id);
+    getSimilarMovies(objectData.id);
 
     // Call the updateStars function to update the stars based on the rating
     // updateStars(rating);
@@ -91,13 +90,13 @@ async function getMovieDetails(mov_detail_id) {
   } = details;
   console.log(data);
 
-  mainAbout.innerHTML = `
-    <div class="container">
-      <div class="mov-poster" id="movPoster">
-
-      </div>
-   </div>
-  `;
+  // mainAbout.innerHTML = `
+  //   <div class="container">
+  //     <div class="mov-poster" id="movPoster">
+  //     <div
+  //     </div>
+  //  </div>
+  // `;
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 

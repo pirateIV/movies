@@ -60,11 +60,13 @@ a {
   background-size: cover !important;
   background-repeat: no-repeat !important;
   background-blend-mode: darken;
-  justify-content: center;
+  /* justify-content: center; */
   margin-top: 35px;
 }
 .main-section .container-section {
-  width: 70%;
+  /* width: 1200px; */
+  max-width: 900px;
+  margin-left: 100px;
 }
 .main-section button {
   border: 0;
@@ -85,6 +87,7 @@ a {
   height: 100vh;
   display: flex;
   align-items: center;
+  /* justify-content: space-between; */
 }
 .main-about .mov-poster {
   height: 75vh;
