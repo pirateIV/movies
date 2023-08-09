@@ -107,13 +107,9 @@ async function getMovieDetails(mov_detail_id) {
             )
             .join(" ")}</div>
           <div class="d-flex">
-            <p class="text-primary text-truncate runtime" id="runtime">Runtime: ${convertRuntime(
+            <p class="text-danger text-truncate runtime" id="runtime">Runtime: ${convertRuntime(
               runtime
             )}</p>
-            <div class="prod-companies">${production_companies.map(
-              (item, idx) =>
-                `<img width="30" class="" src="${img_path + item.logo_path}">`
-            ).join(" ")}</div>
           </div>
           <div>
             <small class="text-white">${overview}</small>
