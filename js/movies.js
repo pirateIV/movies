@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 19;
+let currentIndex = 13;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -41,19 +41,21 @@ function displayMovie(movie) {
   })`;
   mainSection.innerHTML = `
   <div class="container-section">
-    <h1 class="display-4 title text-white" style="font-weight: 500">${movie.title}</h1>
-    <div class="ratings">
-      <div class="rate-count d-flex">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
+      <div style="background: linear-gradient(white, rgba(0, 0, 0, 0.5)); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
+        <h1 class="display-1 title text-white" style="font-weight: 600">${movie.title}</h1>
       </div>
+      <div class="ratings">
+        <div class="rate-count d-flex">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
       ${movie.vote_average} / 10
     </div>
 
-    <div class="story-line text-light">${movie.overview}</div>
+    <div class="story-line text-light"></div>
     <button><i class="fas fa-play"></i> Watch Trailer</button>
   </div>
 `;
@@ -167,8 +169,9 @@ function convertRuntime(runtime) {
   return `${hrs}hr ${mins}mins`
 }
 
-async function watchProvider(watch) {
+async function watchProvider(watch_id) {
   const watchRespose = await fetch (
-    ` https://api.themoviedb.org/3/movie/{movie_id}/watch/providers`
+    ` https://api.themoviedb.org/3/movie/${watch_id}/watch/providers`
   )
+  const watchData = await watchRespose.json()
 }
