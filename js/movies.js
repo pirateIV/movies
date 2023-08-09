@@ -17,37 +17,32 @@ async function getMovies(url) {
   const resp = await fetch(url);
   const data = await resp.json();
 
+  const movies = data.results;
+
+  displayMovie(movies[currentIndex]);
+
   // console.log(data.results)
   // getMovieDetails(data.results[0].id);
   // getMovieCredits(data.results[0].id);
   // getSimilarMovies(data.results[0].id);
+  // Get the full movie details
+  getMovieDetails(objectData.id);
+  // Get Similar movies
+  getSimilarMovies(objectData.id);
 
-  let movies;
-  let moviesArr = [];
-  moviesArr.push(data.results)
-  const { id, title, poster_path, backdrop_path, vote_average, overview } =
-    movie;
+  // Call the updateStars function to update the stars based on the rating
+  // updateStars(rating);
 
-    // Get the full movie details
-    getMovieDetails(objectData.id);
-    // Get Similar movies
-    getSimilarMovies(objectData.id);
+  // Example usage: Update stars with a rating of 5
+  // updateStars(data.results[0].overview);
 
-    // Call the updateStars function to update the stars based on the rating
-    // updateStars(rating);
-
-    // Example usage: Update stars with a rating of 5
-    // updateStars(data.results[0].overview);
-    
   movPoster.style.backgroundImage = `url(${img_path + objectData.poster_path})`;
   // });
 }
 
 function displayMovie(movie) {
-  
-
   mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
-    img_path + objectData.backdrop_path
+    img_path + movie.backdrop_path
   })`;
   mainSection.innerHTML = `
   <div class="container-section">
