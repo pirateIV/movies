@@ -60,12 +60,10 @@ function displayMovie(movie) {
   </div>
 `;
 
-
   // Get the full movie details
   getMovieDetails(movie.id);
   // Get Similar movies
   getSimilarMovies(movie.id);
-  
 }
 
 async function getMovieDetails(mov_detail_id) {
@@ -102,14 +100,20 @@ async function getMovieDetails(mov_detail_id) {
       <div class="details w-50">
         <div class="m-overview d-flex flex-column justify-content-between">
           <h1 class="m-title text-white">${title}</h1>
-          <div class="genre" id="genreId">${genres.map((item, index) => `<button class="genreBtn border-0 bg-dark rounded-1">${item.name}</button>`).join(" ")}</div>
+          <div class="genre" id="genreId">${genres
+            .map(
+              (item, index) =>
+                `<button class="genreBtn border-0 bg-dark rounded-1">${item.name}</button>`
+            )
+            .join(" ")}</div>
           <div class="d-flex">
-            <p class="runtime" id="runtime">Runtime: ${
-              convertRuntime(runtime)
-            }</p>
-            <div class="prod-companies">${
-              production_companies.map((item, idx) => `<img width="30" src="${img_path + item.logo_path}">`)
-            }</div>
+            <p class="runtime" id="runtime">Runtime: ${convertRuntime(
+              runtime
+            )}</p>
+            <div class="prod-companies">${production_companies.map(
+              (item, idx) =>
+                `<img width="30" src="${img_path + item.logo_path}">`
+            )}</div>
           </div>
           <div>
             <small class="text-white">${overview}</small>
@@ -122,7 +126,6 @@ async function getMovieDetails(mov_detail_id) {
     </div>
   `;
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
-
 }
 
 async function getSimilarMovies(similar_id) {
@@ -153,25 +156,25 @@ async function getPersonMovieCredits(person_id) {
 }
 
 async function getMovieTrailers(movie_id) {
-  const trailerResp = await fetch (
+  const trailerResp = await fetch(
     `https://api.themoviedb.org/3/movie/${movie_id}/videos`
-  )
-  const trailerData = await trailerResp.json()
+  );
+  const trailerData = await trailerResp.json();
 
-  console.log(trailerData)
+  console.log(trailerData);
 }
 
 function convertRuntime(runtime) {
-  let hourToMins = 60
-  let mins = runtime % hourToMins
-  let hrs = Math.floor(runtime / hourToMins)
+  let hourToMins = 60;
+  let mins = runtime % hourToMins;
+  let hrs = Math.floor(runtime / hourToMins);
 
-  return `${hrs}hr ${mins}mins`
+  return `${hrs}hr ${mins}mins`;
 }
 
 async function watchProvider(watch_id) {
-  const watchRespose = await fetch (
+  const watchRespose = await fetch(
     ` https://api.themoviedb.org/3/movie/${watch_id}/watch/providers`
-  )
-  const watchData = await watchRespose.json()
+  );
+  const watchData = await watchRespose.json();
 }
