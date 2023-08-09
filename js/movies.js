@@ -95,7 +95,7 @@ async function getMovieDetails(mov_detail_id) {
   console.log(data);
 
   mainAbout.innerHTML = `
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="container d-flex align-items-center justify-content-between">
       <div class="mov-poster" id="movPoster"></div>
       <div class="details w-50">
         <div class="m-overview d-flex flex-column justify-content-between">
@@ -103,11 +103,11 @@ async function getMovieDetails(mov_detail_id) {
           <div class="genre" id="genreId">${genres
             .map(
               (item, index) =>
-                `<button class="genreBtn border-0 bg-dark rounded-1">${item.name}</button>`
+                `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
             )
             .join(" ")}</div>
           <div class="d-flex">
-            <p class="runtime" id="runtime">Runtime: ${convertRuntime(
+            <p class="text-primary text-truncate runtime" id="runtime">Runtime: ${convertRuntime(
               runtime
             )}</p>
             <div class="prod-companies">${production_companies.map(
@@ -117,7 +117,7 @@ async function getMovieDetails(mov_detail_id) {
           </div>
           <div>
             <small class="text-white">${overview}</small>
-fff          </div>
+          </div>
         </div>
         <div class="m-watch">
           
