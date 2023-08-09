@@ -83,6 +83,7 @@ async function getMovieDetails(mov_detail_id) {
     runtime,
     tagline,
     homepage,
+    overview,
     poster_path,
     release_date,
     original_title,
@@ -96,7 +97,7 @@ async function getMovieDetails(mov_detail_id) {
   mainAbout.innerHTML = `
     <div class="container d-flex align-items-center">
       <div class="mov-poster" id="movPoster"></div>
-      <div class="details">
+      <div class="details w-50">
         <div class="m-overview d-flex flex-column justify-content-between">
           <h1 class="m-title">${title}</h1>
           <div class="genre" id="genreId">${genres.map((item, index) => `<button class="genreBtn border-0 bg-dark rounded-3">${item.name}</button>`).join(" | ")}</div>
@@ -107,6 +108,9 @@ async function getMovieDetails(mov_detail_id) {
             <div class="prod-companies">${
               production_companies.map((item, idx) => `<img width="30" src="${img_path + item.logo_path}">`)
             }</div>
+          </div>
+          <div>
+            <small>${overview}</small>
           </div>
         </div>
         <div class="m-watch">
