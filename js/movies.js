@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 0;
+let currentIndex = 2;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -32,7 +32,6 @@ async function getMovies(url) {
   // Example usage: Update stars with a rating of 5
   // updateStars(data.results[0].overview);
 
-  movPoster.style.backgroundImage = `url(${img_path + objectData.poster_path})`;
   // });
 }
 
@@ -64,6 +63,8 @@ function displayMovie(movie) {
   getMovieDetails(movie.id);
   // Get Similar movies
   getSimilarMovies(movie.id);
+  
+  movPoster.style.backgroundImage = `url(${img_path + movie.poster_path})`;
 }
 
 async function getMovieDetails(mov_detail_id) {
