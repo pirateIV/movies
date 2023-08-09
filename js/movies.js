@@ -100,6 +100,7 @@ async function getMovieDetails(mov_detail_id) {
         <div class="m-overview">
           <h1 class="m-title">${title}</h1>
           <div class="genre" id="genreId">${genres.map((item, index) => `<button class="genreBtn border-0 bg-dark rounded-3">${item.name}</button>`).join(" | ")}</div>
+          <div></div>
         </div>
         <div class="m-watch">
           
@@ -145,4 +146,12 @@ async function getMovieTrailers(movie_id) {
   const trailerData = await trailerResp.json()
 
   console.log(trailerData)
+}
+
+function convertRuntime(runtime) {
+  let hourToMins = 60
+  let mins = runtime % hourToMins
+  let hrs = Math.floor(runtime / hourToMins)
+
+  return `${hrs}hr ${mins}mins`
 }
