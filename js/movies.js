@@ -25,10 +25,6 @@ async function getMovies(url) {
   // getMovieDetails(data.results[0].id);
   // getMovieCredits(data.results[0].id);
   // getSimilarMovies(data.results[0].id);
-  // Get the full movie details
-  getMovieDetails(objectData.id);
-  // Get Similar movies
-  getSimilarMovies(objectData.id);
 
   // Call the updateStars function to update the stars based on the rating
   // updateStars(rating);
@@ -62,6 +58,12 @@ function displayMovie(movie) {
     <button><i class="fas fa-play"></i> Watch Trailer</button>
   </div>
 `;
+
+
+  // Get the full movie details
+  getMovieDetails(movie.id);
+  // Get Similar movies
+  getSimilarMovies(movie.id);
 }
 
 async function getMovieDetails(mov_detail_id) {
