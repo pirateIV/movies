@@ -61,6 +61,8 @@ async function getMovies(url) {
 
     // Example usage: Update stars with a rating of 5
     // updateStars(data.results[0].overview);
+    
+  movPoster.style.backgroundImage = `url(${img_path + objectData.poster_path})`;
   });
 }
 
@@ -97,7 +99,6 @@ async function getMovieDetails(mov_detail_id) {
   //     </div>
   //  </div>
   // `;
-  movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
 async function getSimilarMovies(similar_id) {
