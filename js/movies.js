@@ -128,3 +128,12 @@ async function getPersonMovieCredits(person_id) {
 
   console.log(personData);
 }
+
+async function getMovieTrailers(movie_id) {
+  const trailerResp = await fetch (
+    `https://api.themoviedb.org/3/movie/${movie_id}/videos`
+  )
+  const trailerData = await trailerResp.json()
+
+  console.log(trailerData)
+}
