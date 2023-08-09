@@ -36,7 +36,7 @@ async function getMovies(url) {
   // });
 }
 
-function displayMovie(movie, tagline) {
+function displayMovie(movie) {
   mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
     img_path + movie.backdrop_path
   })`;
@@ -56,7 +56,7 @@ function displayMovie(movie, tagline) {
       ${movie.vote_average} / 10
     </div>
 
-    <div class="story-line text-light">${tagline}</div>
+    <div class="story-line text-light"></div>
     <button><i class="fas fa-play"></i> Watch Trailer</button>
   </div>
 `;
