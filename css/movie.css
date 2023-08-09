@@ -124,4 +124,6 @@ a {
   background-color: #333;
   background-size: cover;
   background-position: center;
+  box-shadow: 1px 0px 3px 2px rgb(0 0 0); 
+
 }

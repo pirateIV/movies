@@ -18,6 +18,7 @@ async function getMovies(url) {
   const data = await resp.json();
 
   const movies = data.results;
+  console.log(movies)
 
   displayMovie(movies[currentIndex]);
 
