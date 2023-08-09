@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 13;
+let currentIndex = 7;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -112,12 +112,12 @@ async function getMovieDetails(mov_detail_id) {
             )}</p>
             <div class="prod-companies">${production_companies.map(
               (item, idx) =>
-                `<img width="30" src="${img_path + item.logo_path}">`
-            )}</div>
+                `<img width="30" class="" src="${img_path + item.logo_path}">`
+            ).join(" ")}</div>
           </div>
           <div>
             <small class="text-white">${overview}</small>
-          </div>
+fff          </div>
         </div>
         <div class="m-watch">
           
@@ -177,4 +177,10 @@ async function watchProvider(watch_id) {
     ` https://api.themoviedb.org/3/movie/${watch_id}/watch/providers`
   );
   const watchData = await watchRespose.json();
+}
+
+function checkNull(logo_path) {
+  if(logo_path === null) {
+    img.style.display = 'none'
+  }
 }
