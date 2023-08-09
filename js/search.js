@@ -156,7 +156,6 @@ async function fetchGenres(url) {
     const genreData = await genRes.json();
 
     if (genreData.genres) {
-      // genreSelect.innerHTML  = ''
 
       genreData.genres.forEach((genre) => {
         const genreOption = document.createElement("option");
@@ -179,7 +178,7 @@ async function getLanguages(url) {
     //  console.log(data.name.foe)
     if (languages) {
       languages.forEach((lang) => {
-        // console.log(item.iso_639_1, item.english_name)
+        //  available - props (item.iso_639_1, item.english_name)
         const langOption = document.createElement("option");
         langOption.value = lang.iso_639_1;
         langOption.textContent = lang.english_name;

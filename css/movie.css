@@ -2,8 +2,9 @@
 body {
   background-color: black !important;
 }
-h1 {
-  
+/* Classes */
+.genreBtn {
+  font-size: 12px;
 }
 .movie-container {
   display: flex;

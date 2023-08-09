@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 2;
+let currentIndex = 19;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -99,7 +99,7 @@ async function getMovieDetails(mov_detail_id) {
       <div class="details">
         <div class="m-overview">
           <h1 class="m-title">${title}</h1>
-          <div class="genre">Horror | Action Adventure</div>
+          <div class="genre" id="genreId">${genres.map((item, index) => `<button class="genreBtn border-0 bg-dark rounded-3">${item.name}</button>`).join(" | ")}</div>
         </div>
         <div class="m-watch">
           
