@@ -22,35 +22,12 @@ async function getMovies(url) {
   // getMovieCredits(data.results[0].id);
   // getSimilarMovies(data.results[0].id);
 
-  const movies = data.results;
-  // const { id, title, poster_path, backdrop_path, vote_average, overview } =
-  //   movies;
+  let movies;
+  let moviesArr = [];
+  moviesArr.push(data.results)
+  const { id, title, poster_path, backdrop_path, vote_average, overview } =
+    movie;
 
-  // let movie = movies[currentIndex];
-  movies.forEach((objectData, index) => {
-    // -- clg objectData for object API reference
-
-    mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
-      img_path + objectData.backdrop_path
-    })`;
-    mainSection.innerHTML = `
-    <div class="container-section">
-      <h1 class="display-4 title text-white" style="font-weight: 500">${objectData.title}</h1>
-      <div class="ratings">
-        <div class="rate-count d-flex">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        ${objectData.vote_average} / 10
-      </div>
-  
-      <div class="story-line text-light">${objectData.overview}</div>
-      <button><i class="fas fa-play"></i> Watch Trailer</button>
-    </div>
-  `;
     // Get the full movie details
     getMovieDetails(objectData.id);
     // Get Similar movies
@@ -63,7 +40,33 @@ async function getMovies(url) {
     // updateStars(data.results[0].overview);
     
   movPoster.style.backgroundImage = `url(${img_path + objectData.poster_path})`;
-  });
+  // });
+}
+
+function displayMovie(movie) {
+  
+
+  mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
+    img_path + objectData.backdrop_path
+  })`;
+  mainSection.innerHTML = `
+  <div class="container-section">
+    <h1 class="display-4 title text-white" style="font-weight: 500">${movie.title}</h1>
+    <div class="ratings">
+      <div class="rate-count d-flex">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      ${movie.vote_average} / 10
+    </div>
+
+    <div class="story-line text-light">${movie.overview}</div>
+    <button><i class="fas fa-play"></i> Watch Trailer</button>
+  </div>
+`;
 }
 
 async function getMovieDetails(mov_detail_id) {
