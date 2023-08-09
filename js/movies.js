@@ -64,7 +64,6 @@ function displayMovie(movie) {
   // Get Similar movies
   getSimilarMovies(movie.id);
   
-  movPoster.style.backgroundImage = `url(${img_path + movie.poster_path})`;
 }
 
 async function getMovieDetails(mov_detail_id) {
@@ -77,6 +76,7 @@ async function getMovieDetails(mov_detail_id) {
   const {
     id,
     budet,
+    title,
     status,
     genres,
     imbd_id,
@@ -93,13 +93,22 @@ async function getMovieDetails(mov_detail_id) {
   } = details;
   console.log(data);
 
-  // mainAbout.innerHTML = `
-  //   <div class="container">
-  //     <div class="mov-poster" id="movPoster">
-  //     <div
-  //     </div>
-  //  </div>
-  // `;
+  mainAbout.innerHTML = `
+    <div class="container d-flex align-items-center">
+      <div class="mov-poster" id="movPoster"></div>
+      <div class="details">
+        <div class="m-overview">
+          <h1 class="m-title">${title}</h1>
+          <div class="genre">Horror | Action Adventure</div>
+        </div>
+        <div class="m-watch">
+          
+        </div>
+      </div>
+    </div>
+  `;
+  movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
+
 }
 
 async function getSimilarMovies(similar_id) {
