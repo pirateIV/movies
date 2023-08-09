@@ -36,7 +36,7 @@ async function getMovies(url) {
   // });
 }
 
-function displayMovie(movie) {
+function displayMovie(movie, tagline) {
   mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
     img_path + movie.backdrop_path
   })`;
@@ -56,7 +56,7 @@ function displayMovie(movie) {
       ${movie.vote_average} / 10
     </div>
 
-    <div class="story-line text-light"></div>
+    <div class="story-line text-light">${tagline}</div>
     <button><i class="fas fa-play"></i> Watch Trailer</button>
   </div>
 `;
@@ -94,6 +94,7 @@ async function getMovieDetails(mov_detail_id) {
     production_companies,
   } = details;
   console.log(data);
+  // displayMovie( , tagline)
 
   mainAbout.innerHTML = `
     <div class="container d-flex align-items-center justify-content-between">
@@ -166,7 +167,7 @@ function convertRuntime(runtime) {
   let mins = runtime % hourToMins;
   let hrs = Math.floor(runtime / hourToMins);
 
-  return `${hrs}hr ${mins}mins`;
+  return `${hrs}h ${mins}mins`;
 }
 
 async function watchProvider(watch_id) {
@@ -176,8 +177,3 @@ async function watchProvider(watch_id) {
   const watchData = await watchRespose.json();
 }
 
-function checkNull(logo_path) {
-  if(logo_path === null) {
-    img.style.display = 'none'
-  }
-}
