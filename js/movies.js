@@ -96,10 +96,6 @@ async function getMovieDetails(mov_detail_id) {
   // displayMovie( , tagline)
 
   mainAbout.innerHTML = `
-  <div class="tabs d-flex position-absolute justify-content-center end-50" style="top: 40px" id="tabs">
-    <button class="bg-transparent text-white tab-active">Overview</button>
-    <button class="bg-transparent text-white">Videos</button>
-    <button class="bg-transparent text-white">Photos</button>
   </div>
     <div class="container d-flex align-items-center justify-content-between">
       <div class="mov-poster" id="movPoster"></div>
