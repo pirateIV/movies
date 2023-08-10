@@ -18,7 +18,7 @@ async function getMovies(url) {
   const data = await resp.json();
 
   const movies = data.results;
-  console.log(movies)
+  console.log(movies);
 
   displayMovie(movies[currentIndex]);
 
@@ -94,7 +94,6 @@ async function getMovieDetails(mov_detail_id) {
   } = details;
   console.log(data);
   // displayMovie( , tagline)
-
 
   mainAbout.innerHTML = `
     <div class="container d-flex align-items-center  justify-content-between">
@@ -175,13 +174,22 @@ async function watchProvider(watch_id) {
 }
 
 function filterNull(production_companies) {
-  const prod_companies = production_companies.filter((company, index) => company.logo_path !== null)
-  
-  return prod_companies.map((company, idx) => `<img class=" bg-light " width="110" height="110" src="${img_path + company.logo_path}">`);
+  const prod_companies = production_companies.filter(
+    (company, index) => company.logo_path !== null
+  );
+
+  return prod_companies.map(
+    (company, idx) =>
+      `<img class=" bg-light " width="110" height="110" src="${
+        img_path + company.logo_path
+      }">`
+  );
 }
 
 // Production Companies
 
-{/* <div class="m-watch">
+{
+  /* <div class="m-watch">
 <div class="d-flex flex-wrap align-items-center ">${filterNull(production_companies)}</div>
-</div> */}
+</div> */
+}
