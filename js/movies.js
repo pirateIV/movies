@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 12;
+let currentIndex = 14;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -36,29 +36,38 @@ async function getMovies(url) {
   // });
 }
 
-function displayMovie(movie, tagline) {
+async function displayMovie(movie) {
+  const data = await getMoviesId(movie.id);
+  console.log(data, "toooe");
+
   mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
     img_path + movie.backdrop_path
   })`;
   mainSection.innerHTML = `
-  <div class="container-section">
-      <div style="background: linear-gradient(white, rgba(0, 0, 0, 0.5)); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
-        <h1 class="display-1 title text-white" style="font-weight: 600">${movie.title}</h1>
-      </div>
-      <div class="ratings">
-        <div class="rate-count d-flex">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
+      <div class="container-section">
+        <div style="background: linear-gradient(white, rgba(0, 0, 0, 0.5)); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
+            <h1 class="display-1 title text-white" style="font-weight: 600">${movie.title}</h1>
         </div>
-      ${movie.vote_average} / 10
-    </div>
+          <div class="ratings">
+            <div class="rate-count d-flex">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            </div>
+            <p class="tagline text-white">${data.tagline}</p>
+            <div class="d-flex align-items-center gap-4">
+              
+              <div class="badge bg-light text-dark ">${movie.vote_average} <sup class="text-danger">10<sup></div>
+              <small>${data.release_date.split("-")[0]}</small>
+              <small>${convertRuntime(data.runtime)}</small>
+            </div>
+        </div>
+      </div>
 
-    <div class="story-line text-light">${tagline}</div>
-    <button><i class="fas fa-play"></i> Watch Trailer</button>
-  </div>
+    
 `;
 
   // Get the full movie details
@@ -67,11 +76,13 @@ function displayMovie(movie, tagline) {
   getSimilarMovies(movie.id);
 }
 async function getMovieDetails(mov_detail_id) {
-  const resp = await fetch(`
-  https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
-  const data = await resp.json();
+  // const resp = await fetch(`
+  // https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
+  // const data = await resp.json();
 
-  const details = data;
+  // const details = data;
+  const data = await getMoviesId(mov_detail_id);
+  console.log(data, "mee");
 
   const {
     id,
@@ -91,8 +102,8 @@ async function getMovieDetails(mov_detail_id) {
     original_language,
     production_countries,
     production_companies,
-  } = details;
-  console.log(data);
+  } = data;
+  // console.log(data);
   // displayMovie( , tagline)
 
   mainAbout.innerHTML = `
@@ -190,18 +201,49 @@ function filterNull(production_companies) {
 }
 
 function displayActiveTab(evt, tab) {
-  let i, tabContent, tabLink
+  let i, tabContent, tabLink;
 }
 
-// Production Companies
+async function getMoviesId(mov_detail_id) {
+  const resp = await fetch(`
+  https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
+  const data = await resp.json();
+  
+  const details = data;
+  return details;
 
-{
-  /* <div class="m-watch">
-<div class="d-flex flex-wrap align-items-center ">${filterNull(production_companies)}</div>
-</div> */
+  const {
+    id,
+    budet,
+    title,
+    status,
+    genres,
+    imbd_id,
+    runtime,
+    tagline,
+    homepage,
+    overview,
+    poster_path,
+    release_date,
+    original_title,
+    spoken_languages,
+    original_language,
+    production_countries,
+    production_companies,
+  } = details;
+  console.log(data);
 }
 
-
-// Title
-{/* <h1 class="m-title text-white">${title}</h1> */}
-
+    
+    // Production Companies
+    
+    {
+      /* <div class="m-watch">
+    <div class="d-flex flex-wrap align-items-center ">${filterNull(production_companies)}</div>
+    </div> */
+    }
+    
+    // Title
+    {
+      /* <h1 class="m-title text-white">${title}</h1> */
+    }
