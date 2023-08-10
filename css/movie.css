@@ -11,12 +11,7 @@ a {
   box-shadow: 0px 0px 2px 0px #cfbe07;
   margin: 0 3px ;
 }
-.tabs {
-  transform: translateX(50%);
-}
-.tabs button.tab-active {
-  border-bottom:  2px solid white;
-}
+
 .movie-container {
   display: flex;
   border: 1px solid #ccc;
@@ -135,4 +130,14 @@ a {
   background-position: center;
   box-shadow: 1px 0px 3px 2px rgb(0 0 0); 
 
+}
+/* Tabs */
+.tabs {
+  transform: translateX(50%);
+}
+.tabs button {
+  border: 0;
+}
+.tabs button.tab-active {
+  border-bottom:  2px solid white;
 }
