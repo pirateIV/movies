@@ -96,12 +96,21 @@ async function getMovieDetails(mov_detail_id) {
   // displayMovie( , tagline)
 
   mainAbout.innerHTML = `
-    <div class="container d-flex align-items-center  justify-content-between">
+    <div class="container d-flex align-items-center  justify-content-between position-relative">
+    <div class="d-flex position-absolute top-0">
+      <button class="border-0 bg-transparent">Overview</button>
+      <button class="border-0 bg-transparent">Videos</button>
+      <button class="border-0 bg-transparent">Photos</button>
+    </div>
       <div class="mov-poster" id="movPoster"></div>
       <div class="details w-50">
         <div class="m-overview d-flex flex-column justify-content-between">
-          <h1 class="m-title text-white">${title}</h1>
-          <div class="genre" id="genreId">${genres
+          
+          <div style="text-align: justify;" class="my-3">
+            <h3 class="text-white">Storyline</h3>
+            <small class="text-white">${overview}</small>
+          </div>
+          <div class="genre" id="genreId"><span class="text-white">Genres:</span> ${genres
             .map(
               (item, index) =>
                 `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
@@ -112,9 +121,7 @@ async function getMovieDetails(mov_detail_id) {
               runtime
             )}</p>
           </div>
-          <div style="text-align: justify;">
-            <small class="text-white">${overview}</small>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -193,3 +200,7 @@ function filterNull(production_companies) {
 <div class="d-flex flex-wrap align-items-center ">${filterNull(production_companies)}</div>
 </div> */
 }
+
+
+// Title
+{/* <h1 class="m-title text-white">${title}</h1> */}
