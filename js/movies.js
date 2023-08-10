@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 6;
+let currentIndex = 3;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -108,10 +108,10 @@ async function getMovieDetails(mov_detail_id) {
   console.log(creditData)
   // console.log(data);
   mainAbout.innerHTML = `
-    <div class="d-flex align-items-center justify-content-center h-100">
-      <div class="container d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-center h-100 flex-column">
+      <div class="container-fluid d-flex align-items-center justify-content-between w-75 m-auto">
         <div class="mov-poster" id="movPoster"></div>
-        <div class="details w-50">
+        <div class="details" style="width: 65%">
           <div class="m-overview d-flex flex-column justify-content-between">
             
             <div style="text-align: justify;" class="my-3">
@@ -129,18 +129,12 @@ async function getMovieDetails(mov_detail_id) {
                 runtime
               )}</p>
             </div>
-            <div class="details d-flex">
-              <section></section>
-              <section></section>
-            </div>
+           
           </div>
         </div>
-      </div>
+      </div>  
     </div>
 
-    <div class="d-flex ">
-      
-    </div>
   
   `;
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
