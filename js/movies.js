@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 14;
+let currentIndex = 6;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -103,35 +103,45 @@ async function getMovieDetails(mov_detail_id) {
     production_countries,
     production_companies,
   } = data;
-  // console.log(data);
   // displayMovie( , tagline)
-
+  const creditData = await getMovieCredits(id)
+  console.log(creditData)
+  // console.log(data);
   mainAbout.innerHTML = `
-  </div>
-    <div class="container d-flex align-items-center justify-content-between">
-      <div class="mov-poster" id="movPoster"></div>
-      <div class="details w-50">
-        <div class="m-overview d-flex flex-column justify-content-between">
-          
-          <div style="text-align: justify;" class="my-3">
-            <h3 class="text-white">Storyline</h3>
-            <small class="text-white">${overview}</small>
+    <div class="d-flex align-items-center justify-content-center h-100">
+      <div class="container d-flex align-items-center justify-content-between">
+        <div class="mov-poster" id="movPoster"></div>
+        <div class="details w-50">
+          <div class="m-overview d-flex flex-column justify-content-between">
+            
+            <div style="text-align: justify;" class="my-3">
+              <h3 class="text-white">Storyline</h3>
+              <small class="text-white">${overview}</small>
+            </div>
+            <div class="genre" id="genreId"><span class="text-white">Genres:</span> ${genres
+              .map(
+                (item, index) =>
+                  `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
+              )
+              .join(" ")}</div>
+            <div class="d-flex">
+              <p class="text-danger runtime" id="runtime">Runtime: ${convertRuntime(
+                runtime
+              )}</p>
+            </div>
+            <div class="details d-flex">
+              <section></section>
+              <section></section>
+            </div>
           </div>
-          <div class="genre" id="genreId"><span class="text-white">Genres:</span> ${genres
-            .map(
-              (item, index) =>
-                `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
-            )
-            .join(" ")}</div>
-          <div class="d-flex">
-            <p class="text-danger runtime" id="runtime">Runtime: ${convertRuntime(
-              runtime
-            )}</p>
-          </div>
-          
         </div>
       </div>
     </div>
+
+    <div class="d-flex ">
+      
+    </div>
+  
   `;
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
@@ -151,7 +161,8 @@ async function getMovieCredits(credits_id) {
   );
   const creditsData = await creditsResponse.json();
 
-  console.log(creditsData);
+  // console.log(creditsData);
+  return creditsData
 }
 
 async function getPersonMovieCredits(person_id) {

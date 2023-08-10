@@ -91,9 +91,9 @@ a {
   width: 53%;
 }
 .main-about {
-  height: 100vh;
-  display: flex;
-  align-items: center;
+  height: calc(100vh + 300px);
+  /* display: flex;
+  align-items: center; */
   position: relative;
   overflow: hidden;
   background: linear-gradient(rgb(8, 0, 20), rgb(23, 0, 31));
