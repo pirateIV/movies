@@ -163,6 +163,9 @@ section.search input {
 }
 
 @media screen and (max-width: 400px) {
+  .movie-card {
+    width: 120px !important;
+  }
   .section-mov-card {
     justify-content: center;
     width: 120px !important;
