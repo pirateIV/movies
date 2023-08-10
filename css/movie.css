@@ -2,6 +2,9 @@
 body {
   background-color: black !important;
 }
+a {
+  border: 0 !important;
+}
 /* Classes */
 .genreBtn {
   font-size: 12px;
@@ -92,7 +95,7 @@ a {
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(rgb(8, 0, 20), rgb(31, 0, 31));
+  background: linear-gradient(rgb(8, 0, 20), rgb(23, 0, 31));
   /* justify-content: space-between; */
 }
 .main-about::before {

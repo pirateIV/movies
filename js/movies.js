@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 7;
+let currentIndex = 12;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -66,7 +66,6 @@ function displayMovie(movie, tagline) {
   // Get Similar movies
   getSimilarMovies(movie.id);
 }
-
 async function getMovieDetails(mov_detail_id) {
   const resp = await fetch(`
   https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
@@ -96,8 +95,9 @@ async function getMovieDetails(mov_detail_id) {
   console.log(data);
   // displayMovie( , tagline)
 
+
   mainAbout.innerHTML = `
-    <div class="container d-flex align-items-center justify-content-between">
+    <div class="container d-flex align-items-center  justify-content-between">
       <div class="mov-poster" id="movPoster"></div>
       <div class="details w-50">
         <div class="m-overview d-flex flex-column justify-content-between">
@@ -116,9 +116,6 @@ async function getMovieDetails(mov_detail_id) {
           <div style="text-align: justify;">
             <small class="text-white">${overview}</small>
           </div>
-        </div>
-        <div class="m-watch">
-          
         </div>
       </div>
     </div>
@@ -177,3 +174,14 @@ async function watchProvider(watch_id) {
   const watchData = await watchRespose.json();
 }
 
+function filterNull(production_companies) {
+  const prod_companies = production_companies.filter((company, index) => company.logo_path !== null)
+  
+  return prod_companies.map((company, idx) => `<img class=" bg-light " width="110" height="110" src="${img_path + company.logo_path}">`);
+}
+
+// Production Companies
+
+{/* <div class="m-watch">
+<div class="d-flex flex-wrap align-items-center ">${filterNull(production_companies)}</div>
+</div> */}
