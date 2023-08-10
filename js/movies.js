@@ -103,9 +103,10 @@ async function getMovieDetails(mov_detail_id) {
     production_countries,
     production_companies,
   } = data;
-  // displayMovie( , tagline)
+  
+  // Get Movie Credits
   const creditData = await getMovieCredits(id)
-  console.log(creditData)
+  
   // console.log(data);
   mainAbout.innerHTML = `
     <div class="d-flex align-items-center justify-content-center h-100 flex-column">
