@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 3;
+let currentIndex = 8;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -60,10 +60,11 @@ async function displayMovie(movie) {
             <p class="tagline text-white">${data.tagline}</p>
             <div class="d-flex align-items-center gap-4">
               
-              <div class="badge bg-light text-dark ">${movie.vote_average} <sup class="text-danger text-bold">10<sup></div>
+              <div class="badge bg-light text-dark ">${movie.vote_average}<sup class="text-danger text-bold">  10<sup></div>
               <small class="text-white">${data.release_date.split("-")[0]}</small>
               <small class="text-white">${convertRuntime(data.runtime)}</small>
             </div>
+          </div>
         </div>
       </div>
 
@@ -82,7 +83,7 @@ async function getMovieDetails(mov_detail_id) {
 
   // const details = data;
   const data = await getMoviesId(mov_detail_id);
-  console.log(data, "mee");
+  console.log(data);
 
   const {
     id,
@@ -106,6 +107,7 @@ async function getMovieDetails(mov_detail_id) {
   
   // Get Movie Credits
   const creditData = await getMovieCredits(id)
+  console.log(creditData)
   
   // console.log(data);
   mainAbout.innerHTML = `
@@ -131,9 +133,22 @@ async function getMovieDetails(mov_detail_id) {
               )}</p>
             </div>
            
+            <div class="d-flex align-items-center">
+              <ul>
+                <li>Released ${data.release_date}</li>
+              </ul>
+              <ul>
+                <li>Director ${homepage}</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>  
+      </div> 
+      <div class="cast">
+        ${creditData.cast.forEach((cst, index) => {
+          console.log(`${cst.original_name}`)
+        })}
+      </div> 
     </div>
 
   
