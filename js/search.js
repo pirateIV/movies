@@ -236,12 +236,11 @@ searchSection.addEventListener("click", (event) => {
     } = item;
 
     selectedMovieDisplay.innerHTML = `
-    asdfghjhgfdsadfg
    <div class="d-flex text-white gap-5">
    <i class="fas fa-times text-danger position-absolute fs-3 " id="close-btn"></i>  
     <img src="${
       img_path + poster_path
-    }" alt="" class="img-fluid" style="width: 31%"> 
+    }" alt="" class="img-fluid" style="width: 31%" loading="lazy"> 
 
     <div>
       <h1 class="text-white">${title}</h1>
