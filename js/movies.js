@@ -60,9 +60,9 @@ async function displayMovie(movie) {
             <p class="tagline text-white">${data.tagline}</p>
             <div class="d-flex align-items-center gap-4">
               
-              <div class="badge bg-light text-dark ">${movie.vote_average} <sup class="text-danger">10<sup></div>
-              <small>${data.release_date.split("-")[0]}</small>
-              <small>${convertRuntime(data.runtime)}</small>
+              <div class="badge bg-light text-dark ">${movie.vote_average} <sup class="text-danger text-bold">10<sup></div>
+              <small class="text-white">${data.release_date.split("-")[0]}</small>
+              <small class="text-white">${convertRuntime(data.runtime)}</small>
             </div>
         </div>
       </div>
