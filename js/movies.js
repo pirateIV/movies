@@ -46,7 +46,9 @@ async function displayMovie(movie) {
   mainSection.innerHTML = `
       <div class="container-section">
         <div style="background: linear-gradient(white, rgba(0, 0, 0, 0.5)); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
-            <h1 class="display-1 title text-white" style="font-weight: 600">${movie.title}</h1>
+            <h1 class="display-1 title text-white" style="font-weight: 600">${
+              movie.title
+            }</h1>
         </div>
           <div class="ratings">
             <div class="rate-count d-flex">
@@ -60,8 +62,12 @@ async function displayMovie(movie) {
             <p class="tagline text-white">${data.tagline}</p>
             <div class="d-flex align-items-center gap-4">
               
-              <div class="badge bg-light text-dark ">${movie.vote_average}<sup class="text-danger text-bold">  10<sup></div>
-              <small class="text-white">${data.release_date.split("-")[0]}</small>
+              <div class="badge bg-light text-dark ">${
+                movie.vote_average
+              }<sup class="text-danger text-bold">  10<sup></div>
+              <small class="text-white">${
+                data.release_date.split("-")[0]
+              }</small>
               <small class="text-white">${convertRuntime(data.runtime)}</small>
             </div>
           </div>
@@ -104,11 +110,11 @@ async function getMovieDetails(mov_detail_id) {
     production_countries,
     production_companies,
   } = data;
-  
+
   // Get Movie Credits
-  const creditData = await getMovieCredits(id)
-  console.log(creditData)
-  
+  const creditData = await getMovieCredits(id);
+  console.log(creditData);
+
   // console.log(data);
   mainAbout.innerHTML = `
     <div class="d-flex align-items-center justify-content-center h-100 flex-column">
@@ -138,20 +144,18 @@ async function getMovieDetails(mov_detail_id) {
                 <li>Released ${data.release_date}</li>
               </ul>
               <ul>
-                <li>Director ${homepage}</li>
+                <li>Director ${creditData.cast.}</li>
               </ul>
             </div>
           </div>
         </div>
       </div> 
       <div class="cast">
-        ${creditData.cast.forEach((cst, index) => {
-
-          `<div>${index}</div>`
-        })}
-        ${creditData.crew.forEach((cst, index) => {
-          console.log(`${cst.original_name}`)
-        })}
+       ${creditData.cast.forEach((cst, index) => {
+        `<div>${cst.original_name}</div>`;
+        // console.log(cst.original_name)
+      })}
+      
       </div> 
     </div>
 
@@ -176,7 +180,7 @@ async function getMovieCredits(credits_id) {
   const creditsData = await creditsResponse.json();
 
   // console.log(creditsData);
-  return creditsData
+  return creditsData;
 }
 
 async function getPersonMovieCredits(person_id) {
@@ -233,7 +237,7 @@ async function getMoviesId(mov_detail_id) {
   const resp = await fetch(`
   https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
   const data = await resp.json();
-  
+
   const details = data;
   return details;
 
@@ -259,16 +263,15 @@ async function getMoviesId(mov_detail_id) {
   console.log(data);
 }
 
-    
-    // Production Companies
-    
-    {
-      /* <div class="m-watch">
+// Production Companies
+
+{
+  /* <div class="m-watch">
     <div class="d-flex flex-wrap align-items-center ">${filterNull(production_companies)}</div>
     </div> */
-    }
-    
-    // Title
-    {
-      /* <h1 class="m-title text-white">${title}</h1> */
-    }
+}
+
+// Title
+{
+  /* <h1 class="m-title text-white">${title}</h1> */
+}
