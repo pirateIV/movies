@@ -115,6 +115,11 @@ async function getMovieDetails(mov_detail_id) {
   const creditData = await getMovieCredits(id);
   console.log(creditData);
 
+  const {
+    profile_path,
+    
+  } = creditData
+
   // console.log(data);
   mainAbout.innerHTML = `
     <div class="d-flex align-items-center justify-content-center h-100 flex-column">
@@ -144,18 +149,15 @@ async function getMovieDetails(mov_detail_id) {
                 <li>Released ${data.release_date}</li>
               </ul>
               <ul>
-                <li>Director ${creditData.cast.}</li>
+                <li>Director </li>
               </ul>
             </div>
           </div>
         </div>
       </div> 
-      <div class="cast">
-       ${creditData.cast.forEach((cst, index) => {
-        `<div>${cst.original_name}</div>`;
-        // console.log(cst.original_name)
-      })}
-      
+      <div class="cast d-flex gap-5 overflow-scroll">
+       ${creditData.cast.map((cst, index) => `<div>${cst.original_name}</div>`).join(" ")}
+        
       </div> 
     </div>
 
