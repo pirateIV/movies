@@ -146,6 +146,10 @@ async function getMovieDetails(mov_detail_id) {
       </div> 
       <div class="cast">
         ${creditData.cast.forEach((cst, index) => {
+
+          `<div>${index}</div>`
+        })}
+        ${creditData.crew.forEach((cst, index) => {
           console.log(`${cst.original_name}`)
         })}
       </div> 
