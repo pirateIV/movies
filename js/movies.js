@@ -117,7 +117,11 @@ async function getMovieDetails(mov_detail_id) {
 
   const {
     profile_path,
-    
+    character,
+    cast_id,
+    gender,
+    order,
+    name,
   } = creditData
 
   // console.log(data);
@@ -144,12 +148,12 @@ async function getMovieDetails(mov_detail_id) {
               )}</p>
             </div>
            
-            <div class="d-flex align-items-center">
+            <div class="mov-items d-flex flex-column text-white">
               <ul>
-                <li>Released ${data.release_date}</li>
+                <li class="d-flex gap-4"><span>Released</span> ${data.release_date.split("-").join("/")}</li>
               </ul>
               <ul>
-                <li>Director </li>
+                <li class="d-flex gap-0"><span>Director</span> </li>
               </ul>
             </div>
           </div>

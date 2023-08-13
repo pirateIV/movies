@@ -5,6 +5,9 @@ body {
 a {
   border: 0 !important;
 }
+ul li {
+  list-style: none;
+}
 /* Classes */
 .genreBtn {
   font-size: 12px;
