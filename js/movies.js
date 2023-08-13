@@ -118,6 +118,7 @@ async function getMovieDetails(mov_detail_id) {
   const cast = creditData.cast
   const crew = creditData.crew
   
+  // find the director for each movie
   const director = crew.find(member => member.job === 'Director')
 
   console.log(director)
