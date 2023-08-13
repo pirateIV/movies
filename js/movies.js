@@ -115,6 +115,9 @@ async function getMovieDetails(mov_detail_id) {
   const creditData = await getMovieCredits(id);
   console.log(creditData);
 
+  const cast = creditData.cast
+  const crew = creditData.crew
+
   const {
     profile_path,
     character,
@@ -153,7 +156,7 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${data.release_date.split("-").join("/")}</li>
               </ul>
               <ul>
-                <li class="d-flex gap-0"><span>Director</span> </li>
+                <li class="d-flex gap-0"><span class="text-light opacity-50">Director</span> <a></a></li>
               </ul>
             </div>
           </div>
