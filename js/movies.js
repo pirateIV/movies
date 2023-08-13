@@ -150,7 +150,7 @@ async function getMovieDetails(mov_detail_id) {
            
             <div class="mov-items d-flex flex-column text-white">
               <ul>
-                <li class="d-flex gap-4"><span>Released</span> ${data.release_date.split("-").join("/")}</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${data.release_date.split("-").join("/")}</li>
               </ul>
               <ul>
                 <li class="d-flex gap-0"><span>Director</span> </li>
