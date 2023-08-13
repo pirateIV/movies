@@ -117,6 +117,10 @@ async function getMovieDetails(mov_detail_id) {
 
   const cast = creditData.cast
   const crew = creditData.crew
+  
+  const director = crew.find(member => member.job === 'Director')
+
+  console.log(director)
 
   const {
     profile_path,
@@ -156,7 +160,7 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${data.release_date.split("-").join("/")}</li>
               </ul>
               <ul>
-                <li class="d-flex gap-0"><span class="text-light opacity-50">Director</span> <a></a></li>
+                <li class="d-flex gap-0"><span class="text-light opacity-50">Director</span> <a>${director.name}</a></li>
               </ul>
             </div>
           </div>
