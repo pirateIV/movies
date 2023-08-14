@@ -171,10 +171,10 @@ async function getMovieDetails(mov_detail_id) {
                   runtime
                 )}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Language</span> <a class="dir">${original_language}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> <a>${spoken_languages.forEach(lang => {
-                  `<span>${lang.english_name}</span>`
-                })}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${
+                  spoken_languages.map((item , index) => `<a>${item.english_name}</a>`).join(" ")
+                }</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Product</span> ${status}</li>
               </ul>
             </div>
           </div>
