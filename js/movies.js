@@ -176,7 +176,7 @@ async function getMovieDetails(mov_detail_id) {
                 }</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Production companies</span>
                   ${
-                    production_companies.map((comp, index) => `<a>${comp.name}</a> <img class="d-none" id="compImg" src="${img_path + comp.logo_path}">`).join(" ")
+                    production_companies.map((comp, index) => `<a id="compName">${comp.name}</a> <img class="d-none" id="compImg" src="${img_path + comp.logo_path}">`).join(" ")
                   }
                 </li>
               </ul>
@@ -223,8 +223,9 @@ async function getMovieDetails(mov_detail_id) {
   })
 
   const compImg = document.getElementById("compImg")
-  compImg.addEventListener("mouseover", (e) => {
-    
+  const compName = document.getElementById("compName")
+  compName.addEventListener("mouseover", (e) => {
+    console.log('123')
   })
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
