@@ -174,7 +174,11 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${
                   spoken_languages.map((item , index) => `<a>${item.english_name}</a>`).join(" ")
                 }</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Product</span> ${status}</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Production companies</span>
+                  ${
+                    production_companies.map((comp, index) => `<a>${comp.name}</a> <img class="d-none" id="compImg" src="${img_path + comp.logo_path}">`).join(" ")
+                  }
+                </li>
               </ul>
             </div>
           </div>
@@ -216,6 +220,11 @@ async function getMovieDetails(mov_detail_id) {
       console.log(item[index])
     })
 
+  })
+
+  const compImg = document.getElementById("compImg")
+  compImg.addEventListener("mouseover", (e) => {
+    
   })
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
