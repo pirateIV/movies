@@ -238,8 +238,8 @@ async function getMovieDetails(mov_detail_id) {
   });
   compName.addEventListener("mouseleave", (e) => {
     compImg.forEach((img) => {
-      img.classList.remove("d-none");
-      img.classList.add("d-block");
+      img.classList.remove("d-block");
+      img.classList.add("d-none");
     });
   });
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
