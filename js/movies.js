@@ -179,14 +179,14 @@ async function getMovieDetails(mov_detail_id) {
           </div>
         </div>
       </div> 
-      <div class="cast d-flex gap-5 flex-column overflow-scroll" style="width: 90vw">
+      <div class="cast d-flex gap-5 flex-column overflow-scroll overflow-hidden" style="width: 90vw">
       <h1>Cast</h1>
        <div class="d-flex gap-3  flex-row">
         ${creditData.cast.map((cst, index) =>
           `<div>
-          ${`<img src="${img_path + cst.profile_path}" width="160">`}
+          ${`<img src="${img_path + cst.profile_path}" width="160" alt="${cst.orinal_name}">`}
           ${cst.original_name}
-        </div>`)
+         </div>`)
         .join(" ")}
        
        </div>
