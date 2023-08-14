@@ -162,7 +162,7 @@ async function getMovieDetails(mov_detail_id) {
                 }</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Production</span>
-                  
+
                 </li>
               </ul>
 
@@ -186,15 +186,17 @@ async function getMovieDetails(mov_detail_id) {
             .map(
               (cst, index) =>
                 `<div>
-                  <div>
-                    ${`<img src="${img_path + cst.profile_path}" class="border border-2 border-secondary rounded-2 z-2 position-relative" width="180" alt="${
-                      cst.orinal_name
-                    }">`}
+                    <div>
+                      ${`<img src="${
+                        img_path + cst.profile_path
+                      }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="castImg" width="180" alt="${
+                        cst.original_name
+                      }">`}
+                    </div>
+                    <div class="z-2 position-relative text-white">
+                      ${cst.original_name}
+                      <small class="d-block opacity-50">${cst.character}</small>
                   </div>
-                  <div class="z-2 position-relative text-white">
-                    ${cst.original_name}
-                    <small class="d-block opacity-50">${cst.character}</small>
-                </div>
                 </div>`
             )
             .join(" ")}
@@ -203,8 +205,12 @@ async function getMovieDetails(mov_detail_id) {
       </div> 
     </div>
 
-  
   `;
+  const castImg = document.getElementById("castImg")
+  console.log(castImg)
+  castImg.addEventListener('click', (e) => {
+    console.log(e.target.value)
+  })
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
@@ -298,6 +304,8 @@ async function getMoviesId(mov_detail_id) {
   const details = data;
   return details;
 }
+
+function getCastDetails(cast) {}
 
 // Production Companies
 
