@@ -259,6 +259,7 @@ function formatNumber(num) {
     maximumFractionDigits: 0
   })
 
+  console.log(formattedNumber)
   return formattedNumber
 }
 
