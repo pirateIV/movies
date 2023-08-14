@@ -122,6 +122,10 @@ async function getMovieDetails(mov_detail_id) {
   // find the director for each movie
   const director = crew.find(member => member.job === 'Director')
 
+  const formattedRevenue = formatNumber(revenue)
+
+  console.log(formattedRevenue)
+
   console.log(director)
 
   const {
@@ -156,7 +160,7 @@ async function getMovieDetails(mov_detail_id) {
               <ul class="d-flex gap-3 flex-column">
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date.split("-").join("/")}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${director.name}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${revenue}</a></li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> ${document.createTextNode(formattedRevenue).textContent}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Production</span>
                  ${filterNull(production_companies)} 
@@ -168,7 +172,7 @@ async function getMovieDetails(mov_detail_id) {
                   runtime
                 )}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Language</span> <a class="dir">${original_language}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${formatNumber(revenue)}</a></li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${formattedRevenue}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
               </ul>
             </div>
@@ -259,7 +263,6 @@ function formatNumber(num) {
     maximumFractionDigits: 0
   })
 
-  console.log(formattedNumber)
   return formattedNumber
 }
 
