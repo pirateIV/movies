@@ -162,7 +162,7 @@ async function getMovieDetails(mov_detail_id) {
                 }</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Production</span>
-                 ${filterNull(production_companies)} 
+                  
                 </li>
               </ul>
 
@@ -178,22 +178,28 @@ async function getMovieDetails(mov_detail_id) {
           </div>
         </div>
       </div> 
-      <div class="cast d-flex gap-5 flex-column overflow-scroll overflow-hidden" style="width: 90vw">
+      <div>
       <h1>Cast</h1>
-       <div class="d-flex gap-3  flex-row">
-        ${creditData.cast
-          .map(
-            (cst, index) =>
-              `<div>
-          ${`<img src="${img_path + cst.profile_path}" width="160" alt="${
-            cst.orinal_name
-          }">`}
-          ${cst.original_name}
-         </div>`
-          )
-          .join(" ")}
-       
-       </div>
+       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden" style="width: 90vw">
+          <div class="d-flex flex-row gap-4 text-center">
+          ${creditData.cast
+            .map(
+              (cst, index) =>
+                `<div>
+                  <div>
+                    ${`<img src="${img_path + cst.profile_path}" class="border border-2 border-secondary rounded-2 z-2 position-relative" width="180" alt="${
+                      cst.orinal_name
+                    }">`}
+                  </div>
+                  <div class="z-2 position-relative text-white">
+                    ${cst.original_name}
+                    <small class="d-block opacity-50">${cst.character}</small>
+                </div>
+                </div>`
+            )
+            .join(" ")}
+          </div>
+       </section>
       </div> 
     </div>
 

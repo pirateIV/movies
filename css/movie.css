@@ -30,6 +30,11 @@ ul li {
   box-shadow: 0px 0px 2px 0px #cfbe07;
   margin: 0 3px ;
 }
+.cast-img {
+  background-color: #333;
+  width: 200px;
+  height: 300px;
+}
 
 .movie-container {
   display: flex;
