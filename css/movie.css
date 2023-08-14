@@ -3,7 +3,8 @@ body {
   background-color: black !important;
 }
 a {
-  border: 0 !important;
+  text-decoration: none !important;
+  color: white;
 }
 ul li {
   list-style-type: none;
