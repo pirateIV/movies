@@ -151,13 +151,8 @@ async function getMovieDetails(mov_detail_id) {
                   `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
               )
               .join(" ")}</div>
-            <div class="d-flex">
-              <p class="text-danger runtime" id="runtime">Runtime: ${convertRuntime(
-                runtime
-              )}</p>
-            </div>
            
-            <div class="mov-items d-flex gap-5 text-white">
+            <div class="mov-items d-flex gap-5 text-white mt-5">
               <ul class="d-flex gap-3 flex-column">
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date.split("-").join("/")}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${director.name}</a></li>
@@ -165,7 +160,9 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
               </ul>
               <ul class="d-flex gap-3 flex-column">
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date.split("-").join("/")}</li>
+              <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50">Runtime: </span>${convertRuntime(
+                runtime
+              )}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${director.name}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${revenue}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
