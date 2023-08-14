@@ -158,8 +158,9 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${director.name}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${revenue}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
               </ul>
-              
+
               <ul class="d-flex gap-3 flex-column">
                 <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50">Runtime: </span>${convertRuntime(
                   runtime
