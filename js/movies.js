@@ -171,13 +171,20 @@ async function getMovieDetails(mov_detail_id) {
                   runtime
                 )}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Language</span> <a class="dir">${original_language}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${
-                  spoken_languages.map((item , index) => `<a>${item.english_name}</a>`).join(" ")
-                }</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${spoken_languages
+                  .map((item, index) => `<a>${item.english_name}</a>`)
+                  .join(" ")}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Production companies</span>
-                  ${
-                    production_companies.map((comp, index) => `<a id="compName">${comp.name}</a> <img class="d-none" id="compImg" width="150" src="${img_path + comp.logo_path}">`).join(" ")
-                  }
+                  ${production_companies
+                    .map(
+                      (comp, index) =>
+                        `<a id="compName">${
+                          comp.name
+                        }</a> <img class="d-none" id="compImg" width="150" src="${
+                          img_path + comp.logo_path
+                        }">`
+                    )
+                    .join(" ")}
                 </li>
               </ul>
             </div>
@@ -212,26 +219,29 @@ async function getMovieDetails(mov_detail_id) {
     </div>
 
   `;
-  const castImg = document.getElementById("castImg")
-  console.log(castImg)
-  castImg.addEventListener('click', (e) => {
+  const castImg = document.getElementById("castImg");
+  console.log(castImg);
+  castImg.addEventListener("click", (e) => {
     // console.log(e.target.value)
     creditData.cast.forEach((item, index) => {
-      console.log(item[index])
-    })
+      console.log(item[index]);
+    });
+  });
 
-  })
-
-  const compImg = document.getElementById("compImg")
-  const compName = document.getElementById("compName")
+  const compImg = document.querySelectorAll("#compImg");
+  const compName = document.getElementById("compName");
   compName.addEventListener("mouseover", (e) => {
-    compImg.classList.remove("d-none")
-    compImg.classList.add("d-block")
-  })
+    compImg.forEach((img) => {
+      img.classList.remove("d-none");
+      img.classList.add("d-block");
+    });
+  });
   compName.addEventListener("mouseleave", (e) => {
-    compImg.classList.remove("d-block")
-    compImg.classList.add("d-none")
-  })
+    compImg.forEach((img) => {
+      img.classList.remove("d-none");
+      img.classList.add("d-block");
+    });
+  });
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
@@ -331,8 +341,8 @@ function getCastDetails(cast) {}
 async function searchPerson(name) {
   const nameSearcheResp = await fetch(
     `https://api.themoviedb.org/3/search/person?query=`
-  )
-  const personData = await nameSearcheResp.json()
+  );
+  const personData = await nameSearcheResp.json();
 }
 
 // Production Companies
