@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 14;
+let currentIndex = 17;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -45,7 +45,7 @@ async function displayMovie(movie) {
   })`;
   mainSection.innerHTML = `
       <div class="container-section">
-        <div style="background: linear-gradient(white, rgba(0, 0, 0, 0.5)); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
+        <div style="background: linear-gradient(white, rgba(255, 255, 255, 0.8)); -webkit-text-fill-color: transparent; -webkit-background-clip: text;">
             <h1 class="display-1 title text-white" style="font-weight: 600">${
               movie.title
             }</h1>
