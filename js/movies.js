@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 6;
+let currentIndex = 1;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -38,7 +38,7 @@ async function getMovies(url) {
 
 async function displayMovie(movie) {
   const data = await getMoviesId(movie.id);
-  console.log(data, "toooe");
+  console.log(data, "get-movies");
 
   mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
     img_path + movie.backdrop_path
@@ -167,7 +167,7 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50">Runtime: </span>${convertRuntime(
                   runtime
                 )}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${director.name}</a></li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Language</span> <a class="dir">${original_language}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${revenue}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
               </ul>
@@ -263,26 +263,6 @@ async function getMoviesId(mov_detail_id) {
   const details = data;
   return details;
 
-  const {
-    id,
-    budet,
-    title,
-    status,
-    genres,
-    imbd_id,
-    runtime,
-    tagline,
-    homepage,
-    overview,
-    poster_path,
-    release_date,
-    original_title,
-    spoken_languages,
-    original_language,
-    production_countries,
-    production_companies,
-  } = details;
-  console.log(data);
 }
 
 // Production Companies
