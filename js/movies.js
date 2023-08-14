@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 8;
+let currentIndex = 12;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -245,7 +245,7 @@ function filterNull(production_companies) {
 
   return prod_companies.map(
     (company, idx) =>
-      `<img width="100" src="${
+      `<img class="filterNull" width="100" src="${
         img_path + company.logo_path
       }">`
   ).join(" ");
