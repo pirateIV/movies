@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 3;
+let currentIndex = 10;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -133,7 +133,7 @@ async function getMovieDetails(mov_detail_id) {
   // console.log(data);
   mainAbout.innerHTML = `
     <div class="d-flex align-items-center justify-content-center h-100 flex-column">
-      <div class="container-fluid d-flex align-items-center justify-content-between w-75 m-auto">
+      <div class="container-fluid d-flex align-items-center h-auto justify-content-between w-75 m-auto">
         <div class="mov-poster" id="movPoster"></div>
         <div class="details" style="width: 65%">
           <div class="m-overview d-flex flex-column justify-content-between">
@@ -182,16 +182,16 @@ async function getMovieDetails(mov_detail_id) {
       </div> 
       <div>
       <h1 class="text-white mt-3">Cast</h1>
-       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden" style="width: 90vw">
+       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
           ${creditData.cast
             .map(
               (cst, index) =>
-                `<div>
+                `<div class="cast-img rounded-2">
                     <div>
                       ${`<img src="${
                         img_path + cst.profile_path
-                      }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="castImg" width="180" alt="${
+                      }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="castImg" width="180" loading="lazy" alt="${
                         cst.original_name
                       }">`}
                     </div>
