@@ -251,6 +251,17 @@ function filterNull(production_companies) {
   ).join(" ");
 }
 
+function formatNumber(num) {
+  const formattedNumber = num.toLocaleString('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0
+  })
+
+  return formattedNumber
+}
+
 function displayActiveTab(evt, tab) {
   let i, tabContent, tabLink;
 }
