@@ -38,6 +38,9 @@ ul li {
   background-repeat: no-repeat;
   background-position: center;
 }
+.cast-img img {
+  transition: opacity 0.5s ease;
+}
 
 .movie-container {
   display: flex;
