@@ -313,6 +313,13 @@ async function getMoviesId(mov_detail_id) {
 
 function getCastDetails(cast) {}
 
+async function searchPerson(name) {
+  const nameSearcheResp = await fetch(
+    `https://api.themoviedb.org/3/search/person?query=`
+  )
+  const personData = await nameSearcheResp.json()
+}
+
 // Production Companies
 
 {
