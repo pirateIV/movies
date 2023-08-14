@@ -116,26 +116,19 @@ async function getMovieDetails(mov_detail_id) {
   const creditData = await getMovieCredits(id);
   console.log(creditData);
 
-  const cast = creditData.cast
-  const crew = creditData.crew
-  
+  const cast = creditData.cast;
+  const crew = creditData.crew;
+
   // find the director for each movie
-  const director = crew.find(member => member.job === 'Director')
+  const director = crew.find((member) => member.job === "Director");
 
-  const formattedRevenue = formatNumber(revenue)
+  const formattedRevenue = formatNumber(revenue);
 
-  console.log(formattedRevenue)
+  console.log(formattedRevenue);
 
-  console.log(director)
+  console.log(director);
 
-  const {
-    profile_path,
-    character,
-    cast_id,
-    gender,
-    order,
-    name,
-  } = creditData
+  const { profile_path, character, cast_id, gender, order, name } = creditData;
 
   // console.log(data);
   mainAbout.innerHTML = `
@@ -158,9 +151,15 @@ async function getMovieDetails(mov_detail_id) {
            
             <div class="mov-items d-flex gap-5 text-white mt-5">
               <ul class="d-flex gap-3 flex-column">
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date.split("-").join("/")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${director.name}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> ${document.createTextNode(formattedRevenue).textContent}</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date
+                  .split("-")
+                  .join("/")}</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${
+                  director.name
+                }</a></li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> ${
+                  document.createTextNode(formattedRevenue).textContent
+                }</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Production</span>
                  ${filterNull(production_companies)} 
@@ -182,12 +181,17 @@ async function getMovieDetails(mov_detail_id) {
       <div class="cast d-flex gap-5 flex-column overflow-scroll overflow-hidden" style="width: 90vw">
       <h1>Cast</h1>
        <div class="d-flex gap-3  flex-row">
-        ${creditData.cast.map((cst, index) =>
-          `<div>
-          ${`<img src="${img_path + cst.profile_path}" width="160" alt="${cst.orinal_name}">`}
+        ${creditData.cast
+          .map(
+            (cst, index) =>
+              `<div>
+          ${`<img src="${img_path + cst.profile_path}" width="160" alt="${
+            cst.orinal_name
+          }">`}
           ${cst.original_name}
-         </div>`)
-        .join(" ")}
+         </div>`
+          )
+          .join(" ")}
        
        </div>
       </div> 
@@ -255,23 +259,25 @@ function filterNull(production_companies) {
     (company, index) => company.logo_path !== null
   );
 
-  return prod_companies.map(
-    (company, idx) =>
-      `<img class="filterNull" width="100" src="${
-        img_path + company.logo_path
-      }">`
-  ).join(" ");
+  return prod_companies
+    .map(
+      (company, idx) =>
+        `<img class="filterNull" width="100" src="${
+          img_path + company.logo_path
+        }">`
+    )
+    .join(" ");
 }
 
 function formatNumber(num) {
-  const formattedNumber = num.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const formattedNumber = num.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
     minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  })
+    maximumFractionDigits: 0,
+  });
 
-  return formattedNumber
+  return formattedNumber;
 }
 
 function displayActiveTab(evt, tab) {
@@ -285,7 +291,6 @@ async function getMoviesId(mov_detail_id) {
 
   const details = data;
   return details;
-
 }
 
 // Production Companies
