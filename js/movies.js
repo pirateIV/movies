@@ -174,13 +174,13 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${spoken_languages
                   .map((item, index) => `<a>${item.english_name}</a>`)
                   .join(" ")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Production companies</span>
+                <li class="d-flex gap-4 position-relative end-0"><span class="text-light opacity-50">Production companies</span>
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<a id="compName">${
+                        `<a class="" id="compName">${
                           comp.name
-                        }</a> <img class="d-none" id="compImg" width="150" src="${
+                        }</a> <img class="d-none position-absolute" id="compImg" width="150" src="${
                           img_path + comp.logo_path
                         }">`
                     )
