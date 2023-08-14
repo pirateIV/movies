@@ -168,7 +168,7 @@ async function getMovieDetails(mov_detail_id) {
                   runtime
                 )}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Language</span> <a class="dir">${original_language}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${revenue}</a></li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${formatNumber(revenue)}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
               </ul>
             </div>
