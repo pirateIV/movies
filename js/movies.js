@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 1;
+let currentIndex = 3;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -171,7 +171,7 @@ async function getMovieDetails(mov_detail_id) {
                   runtime
                 )}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Language</span> <a class="dir">${original_language}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> <a>${spoken_languages.map(lang => {
+                <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> <a>${spoken_languages.forEach(lang => {
                   `<span>${lang.english_name}</span>`
                 })}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
@@ -181,7 +181,7 @@ async function getMovieDetails(mov_detail_id) {
         </div>
       </div> 
       <div>
-      <h1>Cast</h1>
+      <h1 class="text-white mt-3">Cast</h1>
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden" style="width: 90vw">
           <div class="d-flex flex-row gap-4 text-center">
           ${creditData.cast
@@ -211,7 +211,11 @@ async function getMovieDetails(mov_detail_id) {
   const castImg = document.getElementById("castImg")
   console.log(castImg)
   castImg.addEventListener('click', (e) => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
+    creditData.cast.forEach((item, index) => {
+      console.log(item[index])
+    })
+
   })
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
