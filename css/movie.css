@@ -31,9 +31,12 @@ ul li {
   margin: 0 3px ;
 }
 .cast-img {
-  background-color: #333;
+  background-color: #fff;
   width: 180px;
   height: 265px;
+  background-image: url(../loader.gif);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .movie-container {
