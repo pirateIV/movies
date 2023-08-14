@@ -159,7 +159,7 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> <a>${revenue}</a></li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Production</span>
-                 ${filterNull(production_companies)}
+                 ${filterNull(production_companies)} 
                 </li>
               </ul>
 
