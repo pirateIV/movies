@@ -225,7 +225,8 @@ async function getMovieDetails(mov_detail_id) {
   const compImg = document.getElementById("compImg")
   const compName = document.getElementById("compName")
   compName.addEventListener("mouseover", (e) => {
-    console.log('123')
+    compImg.classList.remove("d-none")
+    compImg.classList.add("d-block")
   })
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
