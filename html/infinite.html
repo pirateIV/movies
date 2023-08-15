@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Scroll Movies</title>
+  <style>
+    .scroll-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      overflow: scroll;
+      height: 40vh;
+    }
+
+    .movie {
+      width: 200px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .lazy-image {
+      width: 100%;
+      max-height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <!-- Movie posters will be added dynamically here -->
+  </div>
+
+  <script src="../js/infiniteScroll.js"></script>
+</body>
+</html>
