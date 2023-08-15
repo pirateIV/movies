@@ -1,3 +1,8 @@
+// Intersection Obeserver API
+
+// note - The Intersection Observer API provides a way to asynchronously observe changes
+//        in the intersection of a target element with an ancestor element or with a top-level document's viewport.
+
 document.addEventListener("DOMContentLoaded", () => {
   const scrollContainer = document.querySelector(".scroll-container");
   const apiKey = "5e750355564957a2353604d8a9344e94";
