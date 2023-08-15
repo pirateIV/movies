@@ -11,13 +11,15 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 80;
+let currentIndex = 103;
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
+  const totalPages = 15
 
-  for (let page = 1; page <= 15; page++) {
-    const resp = await fetch(url);
+  for (let page = 1; page <= totalPages; page++) {
+    const pageUrl = `${url}&page=${page}`
+    const resp = await fetch(pageUrl);
     const data = await resp.json();
 
     const movies = data.results;
@@ -29,6 +31,7 @@ async function getMovies(url) {
     }
   }
 
+  console.log(allMovies)
   displayMovie(allMovies[currentIndex]);
 
   // console.log(data.results)
