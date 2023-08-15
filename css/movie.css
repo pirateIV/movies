@@ -105,7 +105,8 @@ section.casts::-webkit-scrollbar {
   height: 60vh;
   display: flex;
   align-items: center;
-  background-size: cover !important;
+  background-size: contain !important;
+  background-position: right !important;
   background-repeat: no-repeat !important;
   background-blend-mode: darken;
   margin-top: 35px;
