@@ -11,16 +11,25 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 8;
+let currentIndex = 80;
 getMovies(api_url);
 async function getMovies(url) {
-  const resp = await fetch(url);
-  const data = await resp.json();
+  let allMovies = [];
 
-  const movies = data.results;
-  console.log(movies);
+  for (let page = 1; page <= 15; page++) {
+    const resp = await fetch(url);
+    const data = await resp.json();
 
-  displayMovie(movies[currentIndex]);
+    const movies = data.results;
+    allMovies = allMovies.concat(movies)
+
+
+    if(allMovies.length >= 300) {
+      break;
+    }
+  }
+
+  displayMovie(allMovies[currentIndex]);
 
   // console.log(data.results)
   // getMovieDetails(data.results[0].id);
@@ -193,7 +202,7 @@ async function getMovieDetails(mov_detail_id) {
       </div> 
       <div>
       <h1 class="text-white mt-3">Cast</h1>
-       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden" style="width: 90vw; height: 50vh">
+       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
           ${creditData.cast
             .map(
@@ -213,6 +222,11 @@ async function getMovieDetails(mov_detail_id) {
                 </div>`
             )
             .join(" ")}
+          </div>
+
+          <div>
+            <button class="position-absolute top-50"><i class="fas fa-angle-left fs-1"></i></button>
+            <button class="position-absolute top-50"><i class="fas fa-angle-right fs-1"></i></button>
           </div>
        </section>
       </div> 
