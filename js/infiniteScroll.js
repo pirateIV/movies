@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
 
   let currentPage = 1;
+  let currentIndex;
 
   const loadMovies = async () => {
     const response = await fetch(`${baseUrl}&page=${currentPage}`);
