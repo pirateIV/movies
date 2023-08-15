@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 2;
+let currentIndex = 8;
 getMovies(api_url);
 async function getMovies(url) {
   const resp = await fetch(url);
@@ -40,7 +40,7 @@ async function displayMovie(movie) {
   const data = await getMoviesId(movie.id);
   console.log(data, "get-movies");
 
-  mainSection.style.background = ` linear-gradient(black, rgba(0,0,0,0.4)), url(${
+  mainSection.style.background = ` linear-gradient(to right, rgba(0, 0, 0, 1) 43%, rgba(0,0,0,0.1)) , url(${
     img_path + movie.backdrop_path
   })`;
   mainSection.innerHTML = `
