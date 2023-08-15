@@ -15,23 +15,22 @@ let currentIndex = 103;
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
-  const totalPages = 15
+  const totalPages = 15;
 
   for (let page = 1; page <= totalPages; page++) {
-    const pageUrl = `${url}&page=${page}`
+    const pageUrl = `${url}&page=${page}`;
     const resp = await fetch(pageUrl);
     const data = await resp.json();
 
     const movies = data.results;
-    allMovies = allMovies.concat(movies)
+    allMovies = allMovies.concat(movies);
 
-
-    if(allMovies.length >= 300) {
+    if (allMovies.length >= 300) {
       break;
     }
   }
 
-  console.log(allMovies)
+  console.log(allMovies);
   displayMovie(allMovies[currentIndex]);
 
   // console.log(data.results)
@@ -186,15 +185,13 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${spoken_languages
                   .map((item, index) => `<a>${item.english_name}</a>`)
                   .join(" ")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Production companies</span>
+                <li class="d-flex gap-4"><span class="text-light opacity-50 ">Production companies</span>
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<a id="compName">${
+                        `<li id="compName" class="ms-5 text-warning ff-roboto">${
                           comp.name
-                        }</a> <img class="d-none position-absolute end-0" id="compImg" width="150" src="${
-                          img_path + comp.logo_path
-                        }">`
+                        }</li> `
                     )
                     .join(" ")}
                 </li>

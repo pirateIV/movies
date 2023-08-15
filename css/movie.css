@@ -10,6 +10,10 @@ a {
   color: white;
 }
 
+.ff-roboto {
+  font-family: "Roboto Condensed"!important;
+}
+
 .filterNull {
   padding: 10px;
   border: 3px solid darkgray;
@@ -23,7 +27,7 @@ ul li {
   font-size: 11px !important;
 }
 
-.mov-items ul li a.dir {
+.mov-items ul li a.dir, #compName {
   padding: 2px 4px;
   background: #333;
   border-radius: 4px;
