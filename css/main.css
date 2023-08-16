@@ -40,6 +40,10 @@ nav a:hover {
   display: none !important;
 }
 
+.ff-roboto {
+  font-family: "Roboto Condensed"!important;
+}
+
 .ms-9 {
   margin-left: 90px;
 }

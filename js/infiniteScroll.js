@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentPage = 1;
   let currentIndex;
 
-  const loadMovies = async () => {
+  const loadMovies = async () => {jec
     const response = await fetch(`${baseUrl}&page=${currentPage}`);
     const data = await response.json();
 

@@ -144,7 +144,7 @@ async function getMovieDetails(mov_detail_id) {
   // console.log(data);
   mainAbout.innerHTML = `
     <div class="d-flex align-items-center justify-content-center h-100 flex-column">
-      <div class="container-fluid d-flex align-items-center h-auto justify-content-between w-75 m-auto">
+      <div class="about-container-section container-fluid d-flex align-items-center h-auto justify-content-between m-auto">
         <div class="mov-poster" id="movPoster"></div>
         <div class="details" style="width: 65%">
           <div class="m-overview d-flex flex-column justify-content-between">
@@ -160,7 +160,7 @@ async function getMovieDetails(mov_detail_id) {
               )
               .join(" ")}</div>
            
-            <div class="mov-items d-flex gap-5 text-white mt-5">
+            <div class="mov-items d-flex gap-5 text-white mt-5 flex-row">
               <ul class="d-flex gap-3 flex-column">
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date
                   .split("-")
