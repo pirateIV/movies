@@ -366,8 +366,10 @@ header {
   align-items: center;
   padding: 20px;
   overflow-y: scroll;
-  width: 100vw;
+  width: 95vw;
   height: 90vh;
+
+  margin: auto;
 }
 
 .movie {
