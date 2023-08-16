@@ -363,7 +363,7 @@ header {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding: 20px;
   overflow-y: scroll;
   width: 100vw;
@@ -374,10 +374,25 @@ header {
   width: 200px;
   border: 1px solid #ccc;
   padding: 10px;
+  height: 350px;
   text-align: center;
 }
 
 .lazy-image {
   width: 100%;
   max-height: 300px;
+}
+
+@media  (max-width: 700px) {
+  .scroll-container {
+    gap: 10px;
+  }
+  .movie{
+    width: 140px;
+    height: 270px;
+    padding: 5px;
+  }
+  .lazy-image {
+    max-height: 220px;
+  }
 }
