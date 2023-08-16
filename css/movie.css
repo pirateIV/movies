@@ -23,7 +23,7 @@ ul li {
   font-size: 11px !important;
 }
 
-.mov-items ul li a.dir {
+.mov-items ul li a.dir, #compName {
   padding: 2px 4px;
   background: #333;
   border-radius: 4px;
@@ -109,7 +109,13 @@ section.casts::-webkit-scrollbar {
   background-position: right !important;
   background-repeat: no-repeat !important;
   background-blend-mode: darken;
-  margin-top: 35px;
+  margin-top: 30px;
+}
+@media (max-width: 880px) {
+  .main-section {
+    background-size: cover !important;
+    text-align: center;
+  }
 }
 
 .main-section .container-section {
@@ -170,6 +176,33 @@ section.casts::-webkit-scrollbar {
   background-size: cover;
   background-position: center;
   box-shadow: 1px 0px 3px 2px rgb(0 0 0);
+
+}
+
+.main-about .about-container-section {
+  width: 75vw;
+}
+
+@media (max-width: 1250px) {
+  .main-about .about-container-section {
+    width: 85vw;
+  }
+}
+@media (max-width: 1080px) {
+  .main-about .about-container-section {
+    width: 90vw;
+  }
+  .main-about .mov-items {
+    /* gap: 0 !important; */
+    /* flex-direction: column !important; */
+  } 
+  .main-about .mov-items #compName {
+    width: 90px !important;
+  }
+  .main-about .mov-poster {
+    width: 250px;
+    height: 55vh;
+  }
 
 }
 

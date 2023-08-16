@@ -9,6 +9,7 @@ const form = document.getElementById("search-form");
 const search = document.getElementById("search");
 const searchHeader = document.getElementById("section-search");
 const searchSection = document.getElementById("searchSection");
+const filterToggle = document.getElementById("filterToggle")
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 // background: url(../1234.jpg);
 
@@ -96,7 +97,7 @@ applyFilterBtn.addEventListener("click", async (e) => {
   console.log("Release Year: ", releaseYearFilter);
 
   const movieRes = await fetch(
-    `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&with_original_language=${language}&page=1&primary_release_year=${releaseYear}&sort_by=${sortBy}.desc&with_genres=${genre}&api_key=${api_key}`
+    `https://api.themoviedb.org/3/discover/movie?include_adult=${includeAdult}&with_original_language=${language}&page=1&primary_release_year=${releaseYearFilter}&sort_by=${sortBy}.desc&with_genres=${genre}&api_key=${api_key}`
   );
   const data = await movieRes.json();
   filterMovies(data);
@@ -310,4 +311,19 @@ function votesPercentage(percentage) {
   const borderLength = (circumference * percentage) / 100;
 
   return `${borderLength} ${circumference - borderLength}`;
+}
+filterContainer.style.transition = `0.3s ease`
+filterToggle.addEventListener('click', (e) => {
+  displayFilter()
+  console.log(123)
+})
+function displayFilter() {
+  // filterContainer.style.transform = `translateX(${350}px)`
+
+  if(filterContainer.style.transform === `translateX(${0}px)`) {
+    filterContainer.style.transform = `translateX(${350}px)`
+  }
+  else {
+    filterContainer.style.transform = `translateX(${0}px)`
+  }
 }

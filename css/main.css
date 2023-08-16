@@ -40,6 +40,10 @@ nav a:hover {
   display: none !important;
 }
 
+.ff-roboto {
+  font-family: "Roboto Condensed"!important;
+}
+
 .ms-9 {
   margin-left: 90px;
 }
@@ -355,4 +359,58 @@ header {
 
 .open {
   left: 0 !important;
+}
+
+/* Infinite scoll section */
+.scroll-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: scroll;
+  width: 95vw;
+  height: 90vh;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 5%);
+  z-index: 10;
+  margin: auto;
+  background-color: #000;
+}
+.scroll-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.movie {
+  width: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 350px;
+  text-align: center;
+}
+
+small {
+  color: white !important;
+}
+
+.lazy-image {
+  width: 100%;
+  max-height: 300px;
+}
+
+@media  (max-width: 700px) {
+  .scroll-container {
+    gap: 10px;
+  }
+  .movie{
+    width: 140px;
+    height: 270px;
+    padding: 5px;
+  }
+  .lazy-image {
+    max-height: 220px;
+  }
 }

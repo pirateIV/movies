@@ -11,27 +11,26 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 103;
+let currentIndex = 104;
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
-  const totalPages = 15
+  const totalPages = 15;
 
   for (let page = 1; page <= totalPages; page++) {
-    const pageUrl = `${url}&page=${page}`
+    const pageUrl = `${url}&page=${page}`;
     const resp = await fetch(pageUrl);
     const data = await resp.json();
 
     const movies = data.results;
-    allMovies = allMovies.concat(movies)
+    allMovies = allMovies.concat(movies);
 
-
-    if(allMovies.length >= 300) {
+    if (allMovies.length >= 300) {
       break;
     }
   }
 
-  console.log(allMovies)
+  console.log(allMovies);
   displayMovie(allMovies[currentIndex]);
 
   // console.log(data.results)
@@ -145,7 +144,7 @@ async function getMovieDetails(mov_detail_id) {
   // console.log(data);
   mainAbout.innerHTML = `
     <div class="d-flex align-items-center justify-content-center h-100 flex-column">
-      <div class="container-fluid d-flex align-items-center h-auto justify-content-between w-75 m-auto">
+      <div class="about-container-section container-fluid d-flex align-items-center h-auto justify-content-between m-auto">
         <div class="mov-poster" id="movPoster"></div>
         <div class="details" style="width: 65%">
           <div class="m-overview d-flex flex-column justify-content-between">
@@ -161,7 +160,7 @@ async function getMovieDetails(mov_detail_id) {
               )
               .join(" ")}</div>
            
-            <div class="mov-items d-flex gap-5 text-white mt-5">
+            <div class="mov-items d-flex gap-5 text-white mt-5 flex-row">
               <ul class="d-flex gap-3 flex-column">
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date
                   .split("-")
@@ -186,15 +185,13 @@ async function getMovieDetails(mov_detail_id) {
                 <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${spoken_languages
                   .map((item, index) => `<a>${item.english_name}</a>`)
                   .join(" ")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Production companies</span>
+                <li class="d-flex gap-4"><span class="text-light opacity-50 ">Production companies</span>
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<a id="compName">${
+                        `<li id="compName" class="ms-5 text-warning ff-roboto">${
                           comp.name
-                        }</a> <img class="d-none position-absolute end-0" id="compImg" width="150" src="${
-                          img_path + comp.logo_path
-                        }">`
+                        }</li> `
                     )
                     .join(" ")}
                 </li>
