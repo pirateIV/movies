@@ -1,4 +1,5 @@
 /* Selected Movie Detail */
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&family=Space+Mono:wght@400;700&display=swap");
 
 .movContainer {
   transform: scale(0);
@@ -77,14 +78,18 @@ section.search input {
 /* Filter options */
 
 .filter-container {
-  background-color: white;
+  background-color: #000;
   padding: 20px;
-  border-bottom: 1px solid #ccc;
+  border: 2px solid #ccc;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
+  gap: 10px;
+  width: 300px !important;
+  color: white !important;
+  border-radius: 10px;
+  /* justify-content: space-between; */
+  /* width: 80%; */
   margin: 50px auto 0;
   box-shadow: 0px 1px 3px 0px rgba(255, 255, 255, 0.8);
 }
@@ -98,7 +103,7 @@ section.search input {
 
 .filter-container select,
 .filter-container input[type="number"] {
-  width: 150px;
+  width: 250px !important;
 }
 
 .filter-container button {
@@ -111,6 +116,13 @@ section.search input {
 
 .filter-container button:hover {
   background-color: #0056b3;
+}
+label,
+select,
+.filter-container button,
+input[type="number"] {
+  width: 100% !important;
+  font-size: 12px !important;
 }
 
 @media screen and (max-width: 960px) {
@@ -137,13 +149,6 @@ section.search input {
     width: 120px;
   }
 
-  label,
-  select,
-  .filter-container button,
-  input[type="number"] {
-    width: 100% !important;
-    font-size: 12px !important;
-  }
   .filter-container {
     width: 95%;
     padding: 30px !important;
@@ -183,16 +188,6 @@ section.search input {
     font-size: 9px !important;
     text-align: center;
   }
-
-  .filter-container {
-    width: 100%;
-  }
-  label,
-  select,
-  .filter-container button,
-  input[type="number"] {
-    width: 50% !important;
-  }
 }
 
 /* Footer Styles */
@@ -200,6 +195,7 @@ section.search input {
   background-color: #4b0a0a;
   color: #fff;
   padding: 30px 0;
+  font-family: "Roboto Condensed" !important;
 }
 
 .footer h4 {
@@ -274,7 +270,7 @@ section.search input {
 }
 
 .section-main .one,
- .section-main .two {
+.section-main .two {
   width: 100%;
   transition: all 1s ease;
 }
