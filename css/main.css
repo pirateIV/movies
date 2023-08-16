@@ -366,6 +366,7 @@ header {
   align-items: flex-start;
   padding: 20px;
   overflow-y: scroll;
+  width: 100vw;
   height: 90vh;
 }
 
