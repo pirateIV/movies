@@ -372,8 +372,13 @@ header {
   overflow-y: scroll;
   width: 95vw;
   height: 90vh;
-
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 5%);
+  z-index: 10;
   margin: auto;
+  background-color: #000;
 }
 
 .movie {
