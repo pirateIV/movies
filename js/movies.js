@@ -264,9 +264,7 @@ async function getMovieDetails(mov_detail_id) {
   const castImg = document.querySelectorAll("#castImg");
   castImg.forEach((cstImg, index) => {
     cstImg.addEventListener('click', (e) => {
-      creditData.cast.forEach((item) => {
-        console.log(item[index])
-      })
+      console.log(creditData.cast[index])
     })
   })
   console.log(creditData)
