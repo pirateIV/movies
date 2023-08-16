@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 104;
+let currentIndex = 120;
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
@@ -25,7 +25,7 @@ async function getMovies(url) {
     const movies = data.results;
     allMovies = allMovies.concat(movies);
 
-    if (allMovies.length >= 300) {
+    if (allMovies.length >= 200) {
       break;
     }
   }
@@ -229,18 +229,52 @@ async function getMovieDetails(mov_detail_id) {
             <button class="position-absolute top-50"><i class="fas fa-angle-right fs-1"></i></button>
           </div>
        </section>
+
+       <h1>Crew</h1>
+       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
+          <div class="d-flex flex-row gap-4 text-center">
+          ${creditData.crew
+            .map(
+              (cst, index) =>
+                `<div class="cast-img rounded-2">
+                    <div>
+                      ${`<img src="${
+                        img_path + cst.profile_path
+                      }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="castImg" width="180" loading="lazy" alt="${
+                        cst.original_name
+                      }">`}
+                    </div>
+                    <small>${cst.original_name}</small>
+                </div>`
+            )
+            .join(" ")}
+          </div>
+
+          <div>
+            <button class="position-absolute top-50"><i class="fas fa-angle-left fs-1"></i></button>
+            <button class="position-absolute top-50"><i class="fas fa-angle-right fs-1"></i></button>
+          </div>
+       </section>
       </div> 
     </div>
 
   `;
-  const castImg = document.getElementById("castImg");
-  console.log(castImg);
-  castImg.addEventListener("click", (e) => {
-    // console.log(e.target.value)
-    creditData.cast.forEach((item, index) => {
-      console.log(item[index]);
-    });
-  });
+  const castImg = document.querySelectorAll("#castImg");
+  castImg.forEach((cstImg, index) => {
+    cstImg.addEventListener('click', (e) => {
+      creditData.cast.forEach((item) => {
+        console.log(item[index])
+      })
+    })
+  })
+  console.log(creditData)
+  // castImg.addEventListener("click", (e) => {
+  //   // console.log(e.target.value)
+  //   creditData.cast.forEach((item, index) => {
+  //     console.log(item[index]);
+  //     console.log(123)
+  //   });
+  // });
 
   const compImg = document.querySelectorAll("#compImg");
   const compName = document.getElementById("compName");
