@@ -6,13 +6,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   const scrollContainer = document.querySelector(".scroll-container");
   const apiKey = "5e750355564957a2353604d8a9344e94";
-  const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
+  // const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
+  const baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}`;
 
   let currentPage = 1;
   let currentIndex;
 
+  // const query = searchInput.value
+  // https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query="
+
   const loadMovies = async () => {
-    const response = await fetch(`${baseUrl}&page=${currentPage}`);
+    const response = await fetch(`${baseUrl}&page=${currentPage}&query=avengers`);
     const data = await response.json();
 
     const movies = data.results;

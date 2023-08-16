@@ -380,6 +380,9 @@ header {
   margin: auto;
   background-color: #000;
 }
+.scroll-container::-webkit-scrollbar {
+  width: 10px;
+}
 
 .movie {
   width: 200px;
