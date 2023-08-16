@@ -380,6 +380,10 @@ header {
   text-align: center;
 }
 
+small {
+  color: white !important;
+}
+
 .lazy-image {
   width: 100%;
   max-height: 300px;
