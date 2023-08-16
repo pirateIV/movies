@@ -19,7 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     movies.forEach(movie => {
       const movieElement = document.createElement("div");
       movieElement.classList.add("movie");
-      movieElement.innerHTML = `<img class="lazy-image" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}">`;
+      movieElement.innerHTML = `
+        <div class="d-flex flex-column">
+         <img class="lazy-image" loading="lazy" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}">
+          <p class="text-white ff-roboto">${movie.title}</p>
+        </div>
+      `;
       scrollContainer.appendChild(movieElement);
     });
 
