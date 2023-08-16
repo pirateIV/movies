@@ -230,7 +230,7 @@ async function getMovieDetails(mov_detail_id) {
           </div>
        </section>
 
-       <h1>Crew</h1>
+       <h1 class="text-white">Crew</h1>
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
           ${creditData.crew
@@ -244,7 +244,8 @@ async function getMovieDetails(mov_detail_id) {
                         cst.original_name
                       }">`}
                     </div>
-                    <small>${cst.original_name}</small>
+                    <h6>${cst.original_name}</h6>
+                    <small class="text-white d-block">${cst.department}</small>
                 </div>`
             )
             .join(" ")}
