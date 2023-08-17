@@ -2,7 +2,7 @@
 // const api_credits = `https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=5e750355564957a2353604d8a9344e94`;
 // // https://api.themoviedb.org/3/movie/298618/credits?api_key=5e750355564957a2353604d8a9344e94
 
-// ----- Enter search query----------------------------// 
+// ----- Enter search query----------------------------//
 const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 const api_mov_details = `
@@ -124,7 +124,7 @@ async function getMovieDetails(mov_detail_id) {
     production_companies,
   } = data;
 
-  getSimilarMovies(id)
+  getSimilarMovies(id);
 
   // Get Movie Credits
   const creditData = await getMovieCredits(id);
@@ -192,9 +192,7 @@ async function getMovieDetails(mov_detail_id) {
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<li id="compName" class="ms-5 text-warning ff-roboto">${
-                          comp.name
-                        }</li> `
+                        `<li id="compName" class="ms-5 text-warning ff-roboto">${comp.name}</li> `
                     )
                     .join(" ")}
                 </li>
@@ -265,32 +263,36 @@ async function getMovieDetails(mov_detail_id) {
   `;
   // Data for Each cas
   const castImg = document.querySelectorAll("#castImg");
-  const crewImg = document.querySelectorAll("#crewImg")
+  const crewImg = document.querySelectorAll("#crewImg");
   castImg.forEach((cstImg, index) => {
-    cstImg.addEventListener('click', async(e) => {
-      let castid = creditData.cast[index].id
-      console.log(castid)
+    cstImg.addEventListener("click", async (e) => {
+      let castid = creditData.cast[index].id;
+      console.log(castid);
 
-      const res = await fetch(`https://api.themoviedb.org/3/person/${castid}/movie_credits?api_key=${api_key}`)
-      const data = await res.json()
+      // get other movies acted by the particular cast or crew
+      const res = await fetch(
+        `https://api.themoviedb.org/3/person/${castid}/movie_credits?api_key=${api_key}`
+      );
+      const data = await res.json();
 
-      console.log(data)
+      console.log(data);
 
       // const personObj = await getPersonMovieCredits(castid)
       // console.log(personObj)
-    })
-  })
-
-  
+    });
+  });
 
   // Data for Each crew
   crewImg.forEach((crwImg, index) => {
-    crwImg.addEventListener('click', (e) => {
-      // console.log(creditData.crew[index])
-      
-      
-    })
-  })
+    crwImg.addEventListener("click", async (e) => {
+      const crewId = creditData.crew[index].id;
+
+      const res = await fetch(
+        `https://api.themoviedb.org/3/person/${crewId}/movie_credits?api_key=${api_key}`
+      );
+      const data = res.json();
+    });
+  });
   // --- creditData - array that contains both cast and the crew for current movie
 
   const compImg = document.querySelectorAll("#compImg");
