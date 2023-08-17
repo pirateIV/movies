@@ -6,15 +6,23 @@
     <title>Document</title>
   </head>
 
+  <style>
+    img {
+      background-size: contain;
+    }
+  </style>
+
   <link rel="shortcut icon" href="../movies-sm.webp" type="image/x-icon">
   <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <body>
       <main id="cast-character">
-        <section class="header" id="castHeader">
-          <div class="profile d-flex justify-content-between">
-            <img src="" width="300" alt="" class="profile-img" id="profileImg">
+        <section class="header container m-auto" id=" castHeader">
+          <div class="row profile justify-content-between">
+            <img src="" height="400" alt="" class="col-3 profile-img position-relative top-0" id="profileImg">
 
-            <div class="about">
+            <div class="about mt-5 col-8">
               <h2 class="cast-name"></h2>
               <div class="header-cast">
                 <p id="castInfo"></p>
@@ -22,7 +30,15 @@
                 <div class="mt-5">
                   <p class="small opacity-50">Know for: <span id="job"></span></p>
                   <p class="small opacity-50">Place of birth: <span id="birth"></span></p>
-                  <p class="small opacity-50">Birthday: <span id="birthday"></span></p>
+                  <p class="small opacity-50">Birthday: <span id="birthdate"></span></p>
+                </div>
+
+                <div class="d-flex ">
+                  <div class="icons">
+                    <a href="" class="text-dark"><i class="fab fa-twitter"></i></a>
+                    <a href="" class="text-dark"><i class="fab fa-instagram"></i></a>
+                    <a href="" class="text-dark"><i class="fab fa-imdb"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
