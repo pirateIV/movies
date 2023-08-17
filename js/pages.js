@@ -6,7 +6,7 @@ const ID = JSON.parse(localStorage.getItem("cast-id"));
 const castHeader = document.getElementById("castHeader");
 const profileImg = document.getElementById("profileImg");
 const castName = document.querySelector(".cast-name");
-const castInfo = document.querySelector(".cast-info");
+// const castInfo = document.querySelector("#castInfo");
 
 async function fetchData(url) {
   const response = await fetch(url);
@@ -27,7 +27,7 @@ async function getCastInfo(id) {
   const castCreditsDATA = await fetchData(castCreditsURL);
   const combCreditsDATA = await fetchData(combCreditsURL);
   const castDetailsDATA = await fetchData(castDetailsURL);
-  
+
   console.log(castImgsDATA);
   console.log(castMovieDATA);
   console.log(castCreditsDATA);
@@ -37,8 +37,9 @@ async function getCastInfo(id) {
   // console.log(castDetailsDATA);
 
   castName.innerHTML = castDetailsDATA.name;
+  birthday.innerHTML = castDetailsDATA.birthday;
+  castInfo.innerHTML = castDetailsDATA.biography.split("\n\n")
   birth.innerHTML = castDetailsDATA.place_of_birth;
   job.innerHTML = castDetailsDATA.known_for_department;
   profileImg.src = img_path + castImgsDATA.profiles[0].file_path;
 }
-

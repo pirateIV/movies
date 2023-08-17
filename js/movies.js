@@ -13,6 +13,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
 let currentIndex = 2;
+
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
@@ -31,8 +32,14 @@ async function getMovies(url) {
     }
   }
 
-  console.log(allMovies);
   displayMovie(allMovies[currentIndex]);
+
+  console.log(allMovies);
+  window.addEventListener('click', (e) => {
+    currentIndex++
+    console.log(currentIndex)
+    displayMovie(allMovies[currentIndex]);
+  })
 
   // console.log(data.results)
   // getMovieDetails(data.results[0].id);
