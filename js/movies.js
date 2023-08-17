@@ -274,8 +274,11 @@ async function getMovieDetails(mov_detail_id) {
 
   // Data for Each crew
   crewImg.forEach((crwImg, index) => {
-    crwImg.addEventListener('click', (e) => {
-      console.log(creditData.crew[index])
+    crwImg.addEventListener('click', async(e) => {
+      // console.log(creditData.crew[index])
+      
+      const personCreditData = await getPersonMovieCredits(id)
+      console.log(creditData)
     })
   })
   // --- creditData - array that contains both cast and the crew for current movie
