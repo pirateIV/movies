@@ -12,7 +12,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 49;
+let currentIndex = 55;
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
@@ -140,7 +140,7 @@ async function getMovieDetails(mov_detail_id) {
 
   console.log(formattedRevenue);
 
-  console.log(director);
+  // console.log(director);
 
   const { profile_path, character, cast_id, gender, order, name } = creditData;
 
@@ -263,22 +263,32 @@ async function getMovieDetails(mov_detail_id) {
     </div>
 
   `;
-  // Data for Each cast
+  // Data for Each cas
   const castImg = document.querySelectorAll("#castImg");
   const crewImg = document.querySelectorAll("#crewImg")
   castImg.forEach((cstImg, index) => {
-    cstImg.addEventListener('click', (e) => {
-      console.log(creditData.cast[index])
+    cstImg.addEventListener('click', async(e) => {
+      let castid = creditData.cast[index].id
+      console.log(castid)
+
+      const res = await fetch(`https://api.themoviedb.org/3/person/${castid}/movie_credits?api_key=${api_key}`)
+      const data = await res.json()
+
+      console.log(data)
+
+      // const personObj = await getPersonMovieCredits(castid)
+      // console.log(personObj)
     })
   })
 
+  
+
   // Data for Each crew
   crewImg.forEach((crwImg, index) => {
-    crwImg.addEventListener('click', async(e) => {
+    crwImg.addEventListener('click', (e) => {
       // console.log(creditData.crew[index])
       
-      const personCreditData = await getPersonMovieCredits(id)
-      console.log(creditData)
+      
     })
   })
   // --- creditData - array that contains both cast and the crew for current movie
@@ -325,7 +335,7 @@ async function getPersonMovieCredits(person_id) {
   );
   const personData = await personCreditRes.json();
 
-  console.log(personData);
+  // console.log(personData);
 }
 
 async function getMovieTrailers(movie_id) {
