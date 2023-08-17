@@ -12,7 +12,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 120;
+let currentIndex = 45;
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
@@ -123,6 +123,8 @@ async function getMovieDetails(mov_detail_id) {
     production_countries,
     production_companies,
   } = data;
+
+  getSimilarMovies(id)
 
   // Get Movie Credits
   const creditData = await getMovieCredits(id);
@@ -241,7 +243,7 @@ async function getMovieDetails(mov_detail_id) {
                     <div>
                       ${`<img src="${
                         img_path + cst.profile_path
-                      }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="castImg" width="180" loading="lazy" alt="${
+                      }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="crewImg" width="180" loading="lazy" alt="${
                         cst.original_name
                       }">`}
                     </div>
@@ -261,20 +263,22 @@ async function getMovieDetails(mov_detail_id) {
     </div>
 
   `;
+  // Data for Each cast
   const castImg = document.querySelectorAll("#castImg");
+  const crewImg = document.querySelectorAll("#crewImg")
   castImg.forEach((cstImg, index) => {
     cstImg.addEventListener('click', (e) => {
       console.log(creditData.cast[index])
     })
   })
-  console.log(creditData)
-  // castImg.addEventListener("click", (e) => {
-  //   // console.log(e.target.value)
-  //   creditData.cast.forEach((item, index) => {
-  //     console.log(item[index]);
-  //     console.log(123)
-  //   });
-  // });
+
+  // Data for Each crew
+  crewImg.forEach((crwImg, index) => {
+    crwImg.addEventListener('click', (e) => {
+      console.log(creditData.crew[index])
+    })
+  })
+  // --- creditData - array that contains both cast and the crew for current movie
 
   const compImg = document.querySelectorAll("#compImg");
   const compName = document.getElementById("compName");
@@ -299,7 +303,7 @@ async function getSimilarMovies(similar_id) {
   );
   const data = await resp.json();
 
-  // console.log(data);
+  console.log(data);
 }
 
 async function getMovieCredits(credits_id) {
