@@ -8,40 +8,43 @@
   <body>
     <script>
       const api_key = "5e750355564957a2353604d8a9344e94";
-
       const ID = JSON.parse(localStorage.getItem("cast-id"));
-      console.log(ID);
 
-      async function getSimilar() {
-        const res = await fetch(`
-              https://api.themoviedb.org/3/person/${ID}/movie_credits?api_key=${api_key}`);
-        const data = await res.json();
+      async function fetchData(url) {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      }
 
-        console.log(data);
+      async function getSimilarMovies(id) {
+        const url = `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${api_key}`;
+        const data = await fetchData(url);
+        console.log("Similar Movies:", data);
       }
 
       async function getPersonImages(id) {
-        const res = await fetch(
-          `https://api.themoviedb.org/3/person/${id}/images?api_key=${api_key}`
-        )
-        const data = await res.json()
-
-        console.log(data)
+        const url = `https://api.themoviedb.org/3/person/${id}/images?api_key=${api_key}`;
+        const data = await fetchData(url);
+        console.log("Person Images:", data);
       }
 
       async function getPersonDetails(details_id) {
-        const res = await fetch (
-          `https://api.themoviedb.org/3/person/${details_id}?api_key=${api_key}`
-        )
-
-        const data = await res.json() 
-
-        console.log(data)
-        
+        const url = `https://api.themoviedb.org/3/person/${details_id}?api_key=${api_key}`;
+        const data = await fetchData(url);
+        console.log("Person Details:", data);
       }
-      getPersonDetails(ID)
-      getPersonImages(ID)
-      getSimilar();
+
+      async function main() {
+        try {
+          await getPersonImages(ID);
+          await getPersonDetails(ID);
+          await getSimilarMovies(ID);
+        } catch (error) {
+          console.error("An error occurred:", error);
+        }
+      }
+
+      main();
     </script>
   </body>
 </html>
