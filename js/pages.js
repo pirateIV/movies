@@ -7,6 +7,12 @@ async function fetchData(url) {
   return data;
 }
 
+async function getPersonCombinedCredits(id) {
+    const url = `https://api.themoviedb.org/3/person/${id}/combined_credits`
+    const data = await fetchData(url)
+    console.log("Combined credits", data)
+}
+
 async function getPersonMovies(id) {
   const url = `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${api_key}`;
   const data = await fetchData(url);
@@ -37,6 +43,7 @@ async function main() {
     await getPersonDetails(ID);
     await getPersonMovies(ID);
     await getPersonMovieCredits(ID)
+    await getPersonCombinedCredits(ID)
   } catch (error) {
     console.error("An error occurred:", error);
   }
