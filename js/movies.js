@@ -12,7 +12,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 55;
+let currentIndex = 61;
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
@@ -268,6 +268,8 @@ async function getMovieDetails(mov_detail_id) {
     cstImg.addEventListener("click", async (e) => {
       let castid = creditData.cast[index].id;
       console.log(castid);
+      
+      localStorage.setItem('cast-id', JSON.stringify(castid))
 
       // get other movies acted by the particular cast or crew
       const res = await fetch(
@@ -276,9 +278,9 @@ async function getMovieDetails(mov_detail_id) {
       const data = await res.json();
 
       console.log(data);
+      // -------------------- navigate to page  ------------------------ //
+      window.location.href = '../html/pages.html'
 
-      // const personObj = await getPersonMovieCredits(castid)
-      // console.log(personObj)
     });
   });
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const api_key = "5e750355564957a2353604d8a9344e94";
+
+      const ID = JSON.parse(localStorage.getItem("cast-id"));
+      console.log(ID);
+
+      async function getSimilar() {
+        const res = await fetch(`
+              https://api.themoviedb.org/3/person/${ID}/movie_credits?api_key=${api_key}`);
+        const data = await res.json();
+
+        console.log(data);
+      }
+
+      async function getPersonImages(id) {
+        const res = await fetch(
+          `https://api.themoviedb.org/3/person/${id}/images?api_key=${api_key}`
+        )
+        const data = await res.json()
+
+        console.log(data)
+      }
+
+      async function getPersonDetails(details_id) {
+        const res = await fetch (
+          `https://api.themoviedb.org/3/person/${details_id}?api_key=${api_key}`
+        )
+
+        const data = await res.json() 
+
+        console.log(data)
+        
+      }
+      getPersonDetails(ID)
+      getPersonImages(ID)
+      getSimilar();
+    </script>
+  </body>
+</html>
