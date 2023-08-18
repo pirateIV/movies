@@ -41,7 +41,7 @@ async function getCastInfo(id) {
     name,
     birthday,
     popularity,
-    profile_pat,
+    profile_path,
     place_of_birth,
     known_for_department,
     homepage,
