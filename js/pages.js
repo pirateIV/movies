@@ -1,6 +1,8 @@
 const api_key = "5e750355564957a2353604d8a9344e94";
 const img_path = "https://image.tmdb.org/t/p/w1280";
 
+const imdb_href = `https://www.imdb.com/name/`
+
 const ID = JSON.parse(localStorage.getItem("cast-id"));
 
 const castName = document.querySelector(".cast-name");
@@ -9,6 +11,7 @@ const castInfo = document.getElementById("castInfo");
 const birthdate = document.getElementById("birthdate");
 const castHeader = document.getElementById("castHeader");
 const profileImg = document.getElementById("profileImg");
+const imdbPage = document.getElementById("imdbPage")
 // const castInfo = document.querySelector("#castInfo");
 
 async function fetchData(url) {
@@ -39,21 +42,24 @@ async function getCastInfo(id) {
 
   const {
     name,
+    gender,
+    imdb_id,
+    deathday,
     birthday,
+    homepage,
+    biography,
     popularity,
     profile_path,
     place_of_birth,
     known_for_department,
-    homepage,
-    gender,
-    deathday,
-    biography,
   } = castDetailsDATA;
 
   const castBio = biography.split(". ");
 
   castName.innerHTML = name;
   birthdate.innerHTML = birthday;
+  // imbdPage.href = `${imbd_href + imdb_id}`
+  imdbPage.setAttribute("href", `${imdb_href}${imdb_id}`)
   castInfo.innerHTML = castBio
     .map((item) => (item = `<p>${item}.</p>`))
     .join(" ");

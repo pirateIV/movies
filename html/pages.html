@@ -6,23 +6,29 @@
     <title>Document</title>
   </head>
 
+  <link rel="shortcut icon" href="../movies-sm.webp" type="image/x-icon" />
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../bootstrap.min.css" />
   <style>
     body {
       background-color: #111 !important;
-      color: white !important;
+      /* color: white !important; */
     }
-    img {
+    img.profileImg  {
       background-size: contain;
       border: 5px solid #333;
     }
-    #castInfo {
+    #castInfo, p {
       opacity: 0.67 !important;
+      color: white;
+    }
+    p.small span {
+      opacity: 1 !important;
+      color: white !important;
     }
   </style>
 
-  <link rel="shortcut icon" href="../movies-sm.webp" type="image/x-icon" />
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="../bootstrap.min.css" />
+  <!-- <link rel="stylesheet" href="../css/main.css" /> -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -46,16 +52,16 @@
           </div>
 
           <div class="about mt-5 col-8">
-            <h2 class="cast-name"></h2>
+            <h2 class="cast-name text-white"></h2>
             <div class="header-cast">
               <p id="castInfo"></p>
 
               <div class="mt-5">
-                <p class="small opacity-50">Know for: <span id="job"></span></p>
-                <p class="small opacity-50">
+                <p class="opacity-50">Know for: <span id="job"></span></p>
+                <p class="opacity-50">
                   Place of birth: <span id="birth"></span>
                 </p>
-                <p class="small opacity-50">
+                <p class="opacity-50">
                   Birthday: <span id="birthdate"></span>
                 </p>
               </div>
@@ -63,13 +69,13 @@
               <div class="">
                 <div class="icons d-flex gap-2">
                   <a href="" class="text-white"
-                    ><i class="fab fa-twitter fs-4"></i
+                    ><img width="20" src="../icon/twitter-color.256x209.png" alt=""></i
                   ></a>
                   <a href="" class="text-white"
-                    ><i class="fab fa-instagram fs-4"></i
+                    ><img width="20" src="../icon/instagram.256x256.png" alt=""></i
                   ></a>
-                  <a href="" class="text-dark"
-                    ><i class="fab fa-imdb fs-4 bg-light rounded-2"></i
+                  <a id="imdbPage" class="text-dark"
+                    ><img width="20" src="../icon/imdb_5977585.png" alt=""></i
                   ></a>
                 </div>
               </div>
