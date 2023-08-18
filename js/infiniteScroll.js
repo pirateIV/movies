@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query="
 
   const loadMovies = async () => {
-    const response = await fetch(`${baseUrl}&page=${currentPage}&query=avengers`);
+    const response = await fetch(`${baseUrl}&page=${currentPage}`);
     const data = await response.json();
 
     const movies = data.results;

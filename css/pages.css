@@ -16,3 +16,6 @@ p.small span {
   opacity: 1 !important;
   color: white !important;
 }
+.tab-content {
+  display: none;
+}

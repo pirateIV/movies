@@ -84,7 +84,7 @@ tabs.forEach((tab) => {
 
     tabContent.forEach((content) => {
       content.style.display = "none";
-      tabOne.classList.remove(
+      content.classList.remove(
         "d-flex",
         "flex-wrap",
         "justify-content-center",
