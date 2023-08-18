@@ -12,6 +12,7 @@ const birthdate = document.getElementById("birthdate");
 const castHeader = document.getElementById("castHeader");
 const profileImg = document.getElementById("profileImg");
 const imdbPage = document.getElementById("imdbPage")
+const tabOne = document.getElementById("tab1")
 // const castInfo = document.querySelector("#castInfo");
 
 async function fetchData(url) {
@@ -39,6 +40,8 @@ async function getCastInfo(id) {
   console.log(castCreditsDATA);
   console.log(combCreditsDATA);
   console.log(castDetailsDATA);
+  
+  getCastCredits(castCreditsDATA)
 
   const {
     name,
@@ -92,3 +95,17 @@ tabs.forEach((tab) => {
     tab.classList.add("border-bottom")
   })
 })
+
+async function getCastCredits(castCreditsDATA) {
+  const cast = castCreditsDATA.cast
+  const production = castCreditsDATA.crew
+
+  console.log(cast)
+  console.log(production)
+
+  cast.forEach((item, index) => {
+    tabOne.innerHTML = `
+      <img src="${img_path + item.poster_path}" alt="">
+    `
+  })
+}
