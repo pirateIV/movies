@@ -77,10 +77,10 @@
           </div>
         </div>
 
-        <div class="tabs-container">
-          <button class="tab" data-tab="tab1">Tab 1</button>
-          <button class="tab" data-tab="tab2">Tab 2</button>
-          <button class="tab" data-tab="tab3">Tab 3</button>
+        <div class="tabs-container d-flex gap-5 justify-content-center my-4">
+          <button class="tab bg-transparent border-0 text-white" data-tab="tab1">Tab 1</button>
+          <button class="tab bg-transparent border-0 text-white" data-tab="tab2">Tab 2</button>
+          <button class="tab bg-transparent border-0 text-white border-bottom" data-tab="tab3">Tab 3</button>
         </div>
 
         <div class="tab-content" id="tab1">
@@ -103,12 +103,20 @@
       tabs.forEach((tab) => {
         tab.addEventListener('click', (e) => {
           const tabId = tab.getAttribute('data-tab')
+          
 
           tabContent.forEach(content => {
             content.style.display = 'none'
           })
 
+          tabs.forEach((otherTab) =>{
+            if(otherTab !== tab) {
+              otherTab.classList.remove("border-bottom")
+            }
+          })
+
           document.getElementById(tabId).style.display = 'block'
+          tab.classList.add("border-bottom")
         })
       })
     </script>
