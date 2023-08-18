@@ -104,8 +104,8 @@ async function getCastCredits(castCreditsDATA) {
   console.log(production)
 
   cast.forEach((item, index) => {
-    tabOne.innerHTML = `
-      <img src="${img_path + item.poster_path}" alt="">
+    tabOne.innerHTML += `
+      <img width="200" src="${img_path + item.poster_path}" alt="">
     `
   })
 }
