@@ -3,9 +3,12 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 
 const ID = JSON.parse(localStorage.getItem("cast-id"));
 
+const castName = document.querySelector(".cast-name");
+
+const castInfo = document.getElementById("castInfo");
+const birthdate = document.getElementById("birthdate");
 const castHeader = document.getElementById("castHeader");
 const profileImg = document.getElementById("profileImg");
-const castName = document.querySelector(".cast-name");
 // const castInfo = document.querySelector("#castInfo");
 
 async function fetchData(url) {
@@ -33,7 +36,6 @@ async function getCastInfo(id) {
   console.log(castCreditsDATA);
   console.log(combCreditsDATA);
   console.log(castDetailsDATA);
-
 
   const {
     name,

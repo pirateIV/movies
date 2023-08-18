@@ -12,7 +12,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 2;
+let currentIndex = 7;
 
 getMovies(api_url);
 async function getMovies(url) {

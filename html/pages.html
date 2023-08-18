@@ -7,8 +7,16 @@
   </head>
 
   <style>
+    body {
+      background-color: #111 !important;
+      color: white !important;
+    }
     img {
       background-size: contain;
+      border: 5px solid #333;
+    }
+    #castInfo {
+      opacity: 0.67 !important;
     }
   </style>
 
@@ -20,7 +28,9 @@
       <main id="cast-character">
         <section class="header container m-auto" id=" castHeader">
           <div class="row profile justify-content-between">
-            <img src="" height="400" alt="" class="col-3 profile-img position-relative top-0" id="profileImg">
+           <div class="col-4 mt-5 pt-3">
+            <img src="" height="450" width="310" alt="" class="profile-img mt-3" id="profileImg">
+           </div>
 
             <div class="about mt-5 col-8">
               <h2 class="cast-name"></h2>
@@ -33,11 +43,11 @@
                   <p class="small opacity-50">Birthday: <span id="birthdate"></span></p>
                 </div>
 
-                <div class="d-flex ">
-                  <div class="icons">
-                    <a href="" class="text-dark"><i class="fab fa-twitter"></i></a>
-                    <a href="" class="text-dark"><i class="fab fa-instagram"></i></a>
-                    <a href="" class="text-dark"><i class="fab fa-imdb"></i></a>
+                <div class="">
+                  <div class="icons d-flex gap-2">
+                    <a href="" class="text-white"><i class="fab fa-twitter fs-4"></i></a>
+                    <a href="" class="text-white"><i class="fab fa-instagram fs-4"></i></a>
+                    <a href="" class="text-dark"><i class="fab fa-imdb fs-4 bg-light rounded-2"></i></a>
                   </div>
                 </div>
               </div>
