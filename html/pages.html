@@ -101,30 +101,5 @@
       </section>
     </main>
     <script src="../js/pages.js"></script>
-
-    <script>
-      const tabs = document.querySelectorAll('.tab')
-      const tabContent = document.querySelectorAll(".tab-content")
-
-      tabs.forEach((tab) => {
-        tab.addEventListener('click', (e) => {
-          const tabId = tab.getAttribute('data-tab')
-          
-
-          tabContent.forEach(content => {
-            content.style.display = 'none'
-          })
-
-          tabs.forEach((otherTab) =>{
-            if(otherTab !== tab) {
-              otherTab.classList.remove("border-bottom")
-            }
-          })
-
-          document.getElementById(tabId).style.display = 'block'
-          tab.classList.add("border-bottom")
-        })
-      })
-    </script>
   </body>
 </html>

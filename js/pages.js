@@ -67,3 +67,28 @@ async function getCastInfo(id) {
   job.innerHTML = known_for_department;
   profileImg.src = img_path + castImgsDATA.profiles[0].file_path;
 }
+
+// tabs 
+
+const tabs = document.querySelectorAll('.tab')
+const tabContent = document.querySelectorAll(".tab-content")
+
+tabs.forEach((tab) => {
+  tab.addEventListener('click', (e) => {
+    const tabId = tab.getAttribute('data-tab')
+    
+
+    tabContent.forEach(content => {
+      content.style.display = 'none'
+    })
+
+    tabs.forEach((otherTab) =>{
+      if(otherTab !== tab) {
+        otherTab.classList.remove("border-bottom")
+      }
+    })
+
+    document.getElementById(tabId).style.display = 'block'
+    tab.classList.add("border-bottom")
+  })
+})
