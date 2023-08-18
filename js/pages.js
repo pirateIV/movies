@@ -1,7 +1,7 @@
 const api_key = "5e750355564957a2353604d8a9344e94";
 const img_path = "https://image.tmdb.org/t/p/w1280";
 
-const imdb_href = `https://www.imdb.com/name/`
+const imdb_href = `https://www.imdb.com/name/`;
 
 const ID = JSON.parse(localStorage.getItem("cast-id"));
 
@@ -11,8 +11,10 @@ const castInfo = document.getElementById("castInfo");
 const birthdate = document.getElementById("birthdate");
 const castHeader = document.getElementById("castHeader");
 const profileImg = document.getElementById("profileImg");
-const imdbPage = document.getElementById("imdbPage")
-const tabOne = document.getElementById("tab1")
+const imdbPage = document.getElementById("imdbPage");
+const tabOne = document.getElementById("tab1");
+const tabTwo = document.getElementById("tab2");
+const tabThree = document.getElementById("tab3");
 // const castInfo = document.querySelector("#castInfo");
 
 async function fetchData(url) {
@@ -40,8 +42,8 @@ async function getCastInfo(id) {
   console.log(castCreditsDATA);
   console.log(combCreditsDATA);
   console.log(castDetailsDATA);
-  
-  getCastCredits(castCreditsDATA)
+
+  getCastCredits(castCreditsDATA);
 
   const {
     name,
@@ -62,7 +64,7 @@ async function getCastInfo(id) {
   castName.innerHTML = name;
   birthdate.innerHTML = birthday;
   // imbdPage.href = `${imbd_href + imdb_id}`
-  imdbPage.setAttribute("href", `${imdb_href}${imdb_id}`)
+  imdbPage.setAttribute("href", `${imdb_href}${imdb_id}`);
   castInfo.innerHTML = castBio
     .map((item) => (item = `<p>${item}.</p>`))
     .join(" ");
@@ -71,41 +73,53 @@ async function getCastInfo(id) {
   profileImg.src = img_path + castImgsDATA.profiles[0].file_path;
 }
 
-// tabs 
+// tabs
 
-const tabs = document.querySelectorAll('.tab')
-const tabContent = document.querySelectorAll(".tab-content")
+const tabs = document.querySelectorAll(".tab");
+const tabContent = document.querySelectorAll(".tab-content");
 
 tabs.forEach((tab) => {
-  tab.addEventListener('click', (e) => {
-    const tabId = tab.getAttribute('data-tab')
-    
+  tab.addEventListener("click", (e) => {
+    const tabId = tab.getAttribute("data-tab");
 
-    tabContent.forEach(content => {
-      content.style.display = 'none'
-    })
+    tabContent.forEach((content) => {
+      content.style.display = "none";
+      tabOne.classList.remove(
+        "d-flex",
+        "flex-wrap",
+        "justify-content-center",
+        "gap-4"
+      );
+    });
 
-    tabs.forEach((otherTab) =>{
-      if(otherTab !== tab) {
-        otherTab.classList.remove("border-bottom")
+    tabs.forEach((otherTab) => {
+      if (otherTab !== tab) {
+        otherTab.classList.remove("border-bottom");
+        // document.getElementById(tabId).style.display = 'none'
       }
-    })
+    });
 
-    document.getElementById(tabId).style.display = 'block'
-    tab.classList.add("border-bottom")
-  })
-})
+    document.getElementById(tabId).style.display = "block";
+    tab.classList.add("border-bottom");
+  });
+});
 
 async function getCastCredits(castCreditsDATA) {
-  const cast = castCreditsDATA.cast
-  const production = castCreditsDATA.crew
+  const cast = castCreditsDATA.cast;
+  const production = castCreditsDATA.crew;
 
-  console.log(cast)
-  console.log(production)
+  console.log(cast);
+  console.log(production);
 
+  tabOne.classList.add(
+    "d-flex",
+    "flex-wrap",
+    "justify-content-center",
+    "gap-4"
+  );
   cast.forEach((item, index) => {
     tabOne.innerHTML += `
-      <img width="200" src="${img_path + item.poster_path}" alt="">
+      <img width="200" loading="lazy" src="${img_path + item.poster_path}" alt="">
     `
-  })
+  });
 }
