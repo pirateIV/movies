@@ -50,7 +50,7 @@ async function getCastInfo(id) {
     biography,
   } = castDetailsDATA;
 
-  const castBio = castDetailsDATA.biography.split(". ");
+  const castBio = biography.split(". ");
 
   castName.innerHTML = name;
   birthdate.innerHTML = birthday;
