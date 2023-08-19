@@ -17,5 +17,5 @@ p.small span {
   color: white !important;
 }
 .tab-content {
-  display: none !important;
+  /* display: none !important; */
 }

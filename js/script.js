@@ -70,7 +70,7 @@ async function getMovieDetails(movieContent, index) {
 
   // Update Movie Details
   selectedMovieDisplay.innerHTML = `
-   <div class="d-flex text-white gap-5">
+   <div class="d-flex text-white gap-5 bg-dark">
    <i class="fas fa-times text-danger position-absolute fs-3 close-btn"></i>  
     <img src="${
       img_path + poster_path

@@ -78,13 +78,15 @@ async function getCastInfo(id) {
 const tabs = document.querySelectorAll(".tab");
 const tabContent = document.querySelectorAll(".tab-content");
 
+tabContent[0].style.display = 'flex'
+
 tabs.forEach((tab) => {
   tab.addEventListener("click", (e) => {
     const tabId = tab.getAttribute("data-tab");
 
     tabContent.forEach((content) => {
       content.style.display = "none";
-      content.classList.remove(
+      tabOne.classList.remove(
         "d-flex",
         "flex-wrap",
         "justify-content-center",
@@ -115,11 +117,11 @@ async function getCastCredits(castCreditsDATA) {
     "d-flex",
     "flex-wrap",
     "justify-content-center",
-    "gap-4"
+    "gap-2"
   );
   cast.forEach((item, index) => {
     tabOne.innerHTML += `
-      <img width="200" loading="lazy" src="${img_path + item.poster_path}" alt="">
+      <img width="200" class"mt-2" loading="lazy" src="${img_path + item.poster_path}" alt="">
     `
   });
 }
