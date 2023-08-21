@@ -14,6 +14,7 @@ const mainAbout = document.getElementById("mainAbout");
 
 let currentIndex = 20;
 
+
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
@@ -71,11 +72,7 @@ async function displayMovie(movie) {
         </div>
           <div class="ratings">
             <div class="rate-count d-flex">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
+              <img src="">
             </div>
             </div>
             <p class="tagline text-white">${data.tagline}</p>
@@ -199,7 +196,7 @@ async function getMovieDetails(mov_detail_id) {
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<li id="compName" class="ms-5 text-warning ff-roboto">${comp.name}</li> `
+                        `<li id="compName" class="ms-5 text-warning fw-bold ff-roboto" >${comp.name}</li> `
                     )
                     .join(" ")}
                 </li>
