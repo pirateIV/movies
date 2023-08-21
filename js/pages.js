@@ -17,26 +17,40 @@ const tabTwo = document.getElementById("tab2");
 const tabThree = document.getElementById("tab3");
 // const castInfo = document.querySelector("#castInfo");
 
+const castDetailsURL = `https://api.themoviedb.org/3/person/${ID}?api_key=${api_key}`;
+const castImgsURL = `https://api.themoviedb.org/3/person/${ID}/images?api_key=${api_key}`;
+const castMovieURL = `https://api.themoviedb.org/3/person/${ID}/movie_credits?api_key=${api_key}`;
+const castCreditsURL = `https://api.themoviedb.org/3/person/${ID}/movie_credits?api_key=${api_key}`;
+const combCreditsURL = `https://api.themoviedb.org/3/person/${ID}/combined_credits?api_key=${api_key}`;
 async function fetchData(url) {
   const response = await fetch(url);
   const data = await response.json();
 
   return data;
 }
-getCastInfo(ID);
-async function getCastInfo(id) {
-  const castDetailsURL = `https://api.themoviedb.org/3/person/${id}?api_key=${api_key}`;
-  const castImgsURL = `https://api.themoviedb.org/3/person/${id}/images?api_key=${api_key}`;
-  const castMovieURL = `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${api_key}`;
-  const castCreditsURL = `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${api_key}`;
-  const combCreditsURL = `https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${api_key}`;
-
+castURL()
+async function castURL() {  
   const castImgsDATA = await fetchData(castImgsURL);
   const castMovieDATA = await fetchData(castMovieURL);
   const castCreditsDATA = await fetchData(castCreditsURL);
   const combCreditsDATA = await fetchData(combCreditsURL);
   const castDetailsDATA = await fetchData(castDetailsURL);
 
+  getCastInfo(
+    castImgsDATA,
+    castMovieDATA,
+    castCreditsDATA,
+    combCreditsDATA,
+    castDetailsDATA
+  );
+}
+async function getCastInfo(
+  castImgsDATA,
+  castMovieDATA,
+  castCreditsDATA,
+  combCreditsDATA,
+  castDetailsDATA
+) {
   console.log(castImgsDATA);
   console.log(castMovieDATA);
   console.log(castCreditsDATA);
@@ -44,6 +58,7 @@ async function getCastInfo(id) {
   console.log(castDetailsDATA);
 
   getCastCredits(castCreditsDATA);
+  getCastImages(castImgsDATA.profiles);
 
   const {
     name,
@@ -78,26 +93,22 @@ async function getCastInfo(id) {
 const tabs = document.querySelectorAll(".tab");
 const tabContent = document.querySelectorAll(".tab-content");
 
-tabContent[0].style.display = 'flex'
+// tabContent[0].style.display = 'flex'
 
 tabs.forEach((tab) => {
   tab.addEventListener("click", (e) => {
     const tabId = tab.getAttribute("data-tab");
-    tabOne.classList.add(
-      "d-flex",
-      "justify-content-center"
-    )
+    // tabOne.classList.add(
+    //   "d-flex",
+    // )
     tabContent.forEach((content) => {
-      content.style.display = "none";
-      tabOne.classList.remove(
-        "d-flex"
-      );
+      // content.classList.remove("d-none")
     });
 
     tabs.forEach((otherTab) => {
       if (otherTab !== tab) {
         otherTab.classList.remove("border-bottom");
-      
+
         // document.getElementById(tabId).style.display = 'none'
       }
     });
@@ -108,7 +119,7 @@ tabs.forEach((tab) => {
 });
 
 // tabOne.classList.add(
- 
+
 // );
 async function getCastCredits(castCreditsDATA) {
   const cast = castCreditsDATA.cast;
@@ -119,7 +130,13 @@ async function getCastCredits(castCreditsDATA) {
 
   cast.forEach((item, index) => {
     tabOne.innerHTML += `
-      <img width="200" class"mt-2" loading="lazy" src="${img_path + item.poster_path}" alt="">
-    `
+      <img width="200" class"mt-2 bg-secondary" loading="lazy" src="${
+        img_path + item.poster_path
+      }" alt="">
+    `;
   });
+}
+
+function getCastImages(cast_images) {
+  console.log(cast_images);
 }
