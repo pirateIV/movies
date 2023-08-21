@@ -36,7 +36,7 @@ async function getMovies(url) {
   displayMovie(allMovies[currentIndex]);
 
   console.log(allMovies);
-  window.addEventListener('click', (e) => {
+  document.body.addEventListener('click', (e) => {
     currentIndex++
     console.log(currentIndex)
     displayMovie(allMovies[currentIndex]);
@@ -270,14 +270,14 @@ async function getMovieDetails(mov_detail_id) {
   const crewImg = document.querySelectorAll("#crewImg");
   castImg.forEach((cstImg, index) => {
     cstImg.addEventListener("click", async (e) => {
-      let castid = creditData.cast[index].id;
-      console.log(castid);
+      let id = creditData.cast[index].id;
+      // console.log(castid);
       
-      localStorage.setItem('person-id', JSON.stringify(castid))
+      localStorage.setItem('person-id', JSON.stringify(id))
 
       // get other movies acted by the particular cast or crew
       const res = await fetch(
-        `https://api.themoviedb.org/3/person/${castid}/movie_credits?api_key=${api_key}`
+        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${api_key}`
       );
       const data = await res.json();
 
@@ -291,13 +291,13 @@ async function getMovieDetails(mov_detail_id) {
   // Data for Each crew
   crewImg.forEach((crwImg, index) => {
     crwImg.addEventListener("click", async (e) => {
-      const crewId = creditData.crew[index].id;
-      console.log(crewId)
+      let id = creditData.crew[index].id;
+      // console.log(crewId)
 
-      localStorage.setItem('person-id', JSON.stringify(crewId))
+      localStorage.setItem('person-id', JSON.stringify(id))
 
       const res = await fetch(
-        `https://api.themoviedb.org/3/person/${crewId}/movie_credits?api_key=${api_key}`
+        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${api_key}`
       );
       const data = res.json();
       // -------------------- navigate to page  ------------------------ //
