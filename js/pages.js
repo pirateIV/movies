@@ -28,8 +28,8 @@ async function fetchData(url) {
 
   return data;
 }
-castURL()
-async function castURL() {  
+castURL();
+async function castURL() {
   const castImgsDATA = await fetchData(castImgsURL);
   const castMovieDATA = await fetchData(castMovieURL);
   const castCreditsDATA = await fetchData(castCreditsURL);
@@ -45,20 +45,20 @@ async function castURL() {
   );
 }
 async function getCastInfo(
-  castImgsDATA,
-  castMovieDATA,
-  castCreditsDATA,
+  personImgsDATA,
+  personMovieDATA,
+  personCreditsDATA,
   combCreditsDATA,
-  castDetailsDATA
+  personDetailsDATA
 ) {
-  console.log(castImgsDATA);
-  console.log(castMovieDATA);
-  console.log(castCreditsDATA);
+  console.log(personImgsDATA);
+  console.log(personMovieDATA);
+  console.log(personCreditsDATA);
   console.log(combCreditsDATA);
-  console.log(castDetailsDATA);
+  console.log(personDetailsDATA);
 
-  getCastCredits(castCreditsDATA);
-  getCastImages(castImgsDATA.profiles);
+  getCastCredits(personCreditsDATA);
+  getCastImages(personImgsDATA.profiles);
 
   const {
     name,
@@ -72,7 +72,7 @@ async function getCastInfo(
     profile_path,
     place_of_birth,
     known_for_department,
-  } = castDetailsDATA;
+  } = personDetailsDATA;
 
   const castBio = biography.split(". ");
 
@@ -85,7 +85,11 @@ async function getCastInfo(
     .join(" ");
   birth.innerHTML = place_of_birth;
   job.innerHTML = known_for_department;
-  profileImg.src = img_path + castImgsDATA.profiles[0].file_path;
+  profileImg.src = img_path + personImgsDATA.profiles[0].file_path;
+}
+
+async function getCrewInfo() {
+
 }
 
 // tabs

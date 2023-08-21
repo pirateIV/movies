@@ -273,7 +273,7 @@ async function getMovieDetails(mov_detail_id) {
       let castid = creditData.cast[index].id;
       console.log(castid);
       
-      localStorage.setItem('cast-id', JSON.stringify(castid))
+      localStorage.setItem('person-id', JSON.stringify(castid))
 
       // get other movies acted by the particular cast or crew
       const res = await fetch(
@@ -281,7 +281,7 @@ async function getMovieDetails(mov_detail_id) {
       );
       const data = await res.json();
 
-      console.log(data);
+      // ----call - data
       // -------------------- navigate to page  ------------------------ //
       window.location.href = '../html/pages.html'
 
@@ -292,11 +292,16 @@ async function getMovieDetails(mov_detail_id) {
   crewImg.forEach((crwImg, index) => {
     crwImg.addEventListener("click", async (e) => {
       const crewId = creditData.crew[index].id;
+      console.log(crewId)
+
+      localStorage.setItem('person-id', JSON.stringify(crewId))
 
       const res = await fetch(
         `https://api.themoviedb.org/3/person/${crewId}/movie_credits?api_key=${api_key}`
       );
       const data = res.json();
+      // -------------------- navigate to page  ------------------------ //
+      window.location.href = '../html/pages.html'
     });
   });
   // --- creditData - array that contains both cast and the crew for current movie
