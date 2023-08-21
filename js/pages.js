@@ -83,20 +83,21 @@ tabContent[0].style.display = 'flex'
 tabs.forEach((tab) => {
   tab.addEventListener("click", (e) => {
     const tabId = tab.getAttribute("data-tab");
-
+    tabOne.classList.add(
+      "d-flex",
+      "justify-content-center"
+    )
     tabContent.forEach((content) => {
       content.style.display = "none";
       tabOne.classList.remove(
-        "d-flex",
-        "flex-wrap",
-        "justify-content-center",
-        "gap-4"
+        "d-flex"
       );
     });
 
     tabs.forEach((otherTab) => {
       if (otherTab !== tab) {
         otherTab.classList.remove("border-bottom");
+      
         // document.getElementById(tabId).style.display = 'none'
       }
     });
@@ -106,6 +107,9 @@ tabs.forEach((tab) => {
   });
 });
 
+// tabOne.classList.add(
+ 
+// );
 async function getCastCredits(castCreditsDATA) {
   const cast = castCreditsDATA.cast;
   const production = castCreditsDATA.crew;
@@ -113,12 +117,6 @@ async function getCastCredits(castCreditsDATA) {
   console.log(cast);
   console.log(production);
 
-  tabOne.classList.add(
-    "d-flex",
-    "flex-wrap",
-    "justify-content-center",
-    "gap-2"
-  );
   cast.forEach((item, index) => {
     tabOne.innerHTML += `
       <img width="200" class"mt-2" loading="lazy" src="${img_path + item.poster_path}" alt="">
