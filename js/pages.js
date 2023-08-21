@@ -78,7 +78,7 @@ async function getCastInfo(
 
   castName.innerHTML = name;
   birthdate.innerHTML = birthday;
-  // imbdPage.href = `${imbd_href + imdb_id}`
+  // imbdPage.href = `${imbd_href + imdb_id}` 
   imdbPage.setAttribute("href", `${imdb_href}${imdb_id}`);
   castInfo.innerHTML = castBio
     .map((item) => (item = `<p>${item}.</p>`))
