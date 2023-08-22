@@ -273,7 +273,7 @@ async function getMovieDetails(mov_detail_id) {
       let id = creditData.cast[index].id;
       // console.log(castid);
       
-      localStorage.setItem('person-id', JSON.stringify(id))
+      localStorage.setItem('cast-id', JSON.stringify(castid))
 
       // get other movies acted by the particular cast or crew
       const res = await fetch(
