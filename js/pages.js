@@ -58,7 +58,7 @@ async function getCastInfo(
   console.log(personDetailsDATA);
 
   getCastCredits(personCreditsDATA);
-  getCastImages(personImgsDATA.profiles);
+  // getCastImages(personImgsDATA.profiles);
 
   const {
     name,
