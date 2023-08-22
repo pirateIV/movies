@@ -134,7 +134,7 @@ async function getCastCredits(castCreditsDATA) {
 
   cast.forEach((item, index) => {
     tabOne.innerHTML += `
-      <img width="200" class"mt-2 bg-secondary" loading="lazy" src="${
+      <img width="200" class"mt-2 bg-danger" loading="lazy" src="${
         img_path + item.poster_path
       }" alt="">
     `;
