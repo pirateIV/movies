@@ -3,7 +3,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 
 const imdb_href = `https://www.imdb.com/name/`;
 
-const ID = JSON.parse(localStorage.getItem("cast-id"));
+const ID = JSON.parse(localStorage.getItem("person-id"));
 
 const castName = document.querySelector(".cast-name");
 
@@ -117,9 +117,12 @@ async function getCastCredits(castCreditsDATA) {
   console.log(cast);
   console.log(production);
 
-  cast.forEach((item, index) => {
-    tabOne.innerHTML += `
+  cast.filter((item, index) => {
+    if(item.poster_path !== null) {
+      tabOne.innerHTML += `
       <img width="200" class"mt-2" loading="lazy" src="${img_path + item.poster_path}" alt="">
     `
+    }
   });
 }
+
