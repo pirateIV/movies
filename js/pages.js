@@ -83,7 +83,7 @@ tabs.forEach((tab) => {
     const tabId = tab.getAttribute("data-tab");
 
     tabContent.forEach((content) => {
-      content.style.display = "none";
+      content.classList.add("d-none")
     });
 
     tabs.forEach((otherTab) => {
@@ -93,11 +93,12 @@ tabs.forEach((tab) => {
     tabs.forEach((otherTab) => {
       const otherTabId = otherTab.getAttribute("data-tab");
       if (otherTab !== tab) {
-        document.getElementById(otherTabId).style.display = "none";
+        document.getElementById(otherTabId).classList.add("d-none")
       }
     });
 
-    document.getElementById(tabId).style.display = "flex";
+    document.getElementById(tabId).classList.add("d-flex")
+    document.getElementById(tabId).classList.remove("d-none")
     tab.classList.add("border-bottom");
   });
 });
