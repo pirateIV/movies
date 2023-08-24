@@ -78,34 +78,30 @@ async function getCastInfo(id) {
 const tabs = document.querySelectorAll(".tab");
 const tabContent = document.querySelectorAll(".tab-content");
 
-tabContent[0].style.display = 'flex'
-
 tabs.forEach((tab) => {
   tab.addEventListener("click", (e) => {
     const tabId = tab.getAttribute("data-tab");
-    tabOne.classList.add(
-      "d-flex",
-      "justify-content-center"
-    )
+
     tabContent.forEach((content) => {
       content.style.display = "none";
-      tabOne.classList.remove(
-        "d-flex"
-      );
+    });
+
+    tabs.forEach((otherTab) => {
+      otherTab.classList.remove("border-bottom");
     });
 
     tabs.forEach((otherTab) => {
       if (otherTab !== tab) {
-        otherTab.classList.remove("border-bottom");
-      
-        // document.getElementById(tabId).style.display = 'none'
+        const otherTabId = otherTab.getAttribute("data-tab");
+        document.getElementById(otherTabId).style.display = "none";
       }
     });
 
-    document.getElementById(tabId).style.display = "block";
+    document.getElementById(tabId).style.display = "flex";
     tab.classList.add("border-bottom");
   });
 });
+
 
 // tabOne.classList.add(
  
