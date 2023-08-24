@@ -14,7 +14,6 @@ const mainAbout = document.getElementById("mainAbout");
 
 let currentIndex = 20;
 
-
 getMovies(api_url);
 async function getMovies(url) {
   let allMovies = [];
@@ -36,11 +35,11 @@ async function getMovies(url) {
   displayMovie(allMovies[currentIndex]);
 
   console.log(allMovies);
-  window.addEventListener('click', (e) => {
+  window.addEventListener("click", (e) => {
     // currentIndex++
     // console.log(currentIndex)
     // displayMovie(allMovies[currentIndex]);
-  })
+  });
 
   // console.log(data.results)
   // getMovieDetails(data.results[0].id);
@@ -272,8 +271,8 @@ async function getMovieDetails(mov_detail_id) {
     cstImg.addEventListener("click", async (e) => {
       let castid = creditData.cast[index].id;
       console.log(castid);
-      
-      localStorage.setItem('person-id', JSON.stringify(castid))
+
+      localStorage.setItem("person-id", JSON.stringify(castid));
 
       // get other movies acted by the particular cast or crew
       const res = await fetch(
@@ -283,8 +282,7 @@ async function getMovieDetails(mov_detail_id) {
 
       console.log(data);
       // -------------------- navigate to page  ------------------------ //
-      // window.location.href = '../html/pages.html'
-
+      window.location.href = "../html/pages.html";
     });
   });
 
@@ -292,18 +290,19 @@ async function getMovieDetails(mov_detail_id) {
   crewImg.forEach((crwImg, index) => {
     crwImg.addEventListener("click", async (e) => {
       let crewId = creditData.crew[index].id;
-      console.log(crewId)
+      console.log(crewId);
 
-      localStorage.setItem('person-id', JSON.stringify(crewId))
+      localStorage.setItem("person-id", JSON.stringify(crewId));
 
       const res = await fetch(
         `https://api.themoviedb.org/3/person/${crewId}/movie_credits?api_key=${api_key}`
       );
       const data = await res.json();
-      console.log(data)
+      console.log(data);
 
+      // -------------------- navigate to page  ------------------------ //
 
-      // window.location.href = '../html/pages.html'
+      window.location.href = "../html/pages.html";
     });
   });
   // --- creditData - array that contains both cast and the crew for current movie
