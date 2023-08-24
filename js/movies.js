@@ -293,10 +293,15 @@ async function getMovieDetails(mov_detail_id) {
     crwImg.addEventListener("click", async (e) => {
       const crewId = creditData.crew[index].id;
 
+      localStorage.setItem('person-id', JSON.stringify(crewId))
+
       const res = await fetch(
         `https://api.themoviedb.org/3/person/${crewId}/movie_credits?api_key=${api_key}`
       );
       const data = res.json();
+
+
+      window.location.href = '../html/pages.html'
     });
   });
   // --- creditData - array that contains both cast and the crew for current movie
