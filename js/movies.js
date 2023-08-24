@@ -12,7 +12,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 20;
+let currentIndex = 23;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -238,21 +238,18 @@ async function getMovieDetails(mov_detail_id) {
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
           ${creditData.crew
-            .map(
-              (cst, index) =>
-                `<div class="cast-img rounded-2">
-                    <div>
-                      ${`<img src="${
-                        img_path + cst.profile_path
-                      }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="crewImg" width="180" loading="lazy" alt="${
-                        cst.original_name
-                      }">`}
-                    </div>
-                    <h6 class="text-white">${cst.original_name}</h6>
-                    <small class="opacity-50 d-block">${cst.department}</small>
-                </div>`
-            )
+            .filter((cst) => cst.profile_path !== null)
+            .map((cst) => `
+              <div class="cast-img rounded-2">
+                <div>
+                  <img src="${img_path + cst.profile_path}" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="crewImg" width="180" loading="lazy" alt="${cst.original_name}">
+                </div>
+                <h6 class="text-white">${cst.original_name}</h6>
+                <small class="opacity-50 d-block">${cst.department}</small>
+              </div>
+            `)
             .join(" ")}
+          
           </div>
 
           <div>
