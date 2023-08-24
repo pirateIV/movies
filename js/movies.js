@@ -209,6 +209,7 @@ async function getMovieDetails(mov_detail_id) {
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
           ${creditData.cast
+            .filter((cst) => cst.profile_path !== null) 
             .map(
               (cst, index) =>
                 `<div class="cast-img rounded-2">
