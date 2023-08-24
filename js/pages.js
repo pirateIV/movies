@@ -91,8 +91,8 @@ tabs.forEach((tab) => {
     });
 
     tabs.forEach((otherTab) => {
+      const otherTabId = otherTab.getAttribute("data-tab");
       if (otherTab !== tab) {
-        const otherTabId = otherTab.getAttribute("data-tab");
         document.getElementById(otherTabId).style.display = "none";
       }
     });
