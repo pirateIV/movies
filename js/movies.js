@@ -131,10 +131,12 @@ async function getMovieDetails(mov_detail_id) {
 
   // Get Movie Credits
   const creditData = await getMovieCredits(id);
-  console.log(creditData);
+  console.log(creditData.cast);
+  console.log(creditData.cast);
 
-  const cast = creditData.cast;
-  const crew = creditData.crew;
+  const cast = creditData.cast.filter(cst => cst.profile_path !== null);
+  const crew = creditData.crew.filter(cst => cst.profile_path !== null);
+  console.log(crew, cast)
 
   // find the director for each movie
   const director = crew.find((member) => member.job === "Director");
@@ -208,9 +210,8 @@ async function getMovieDetails(mov_detail_id) {
       <h1 class="text-white mt-3">Cast</h1>
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
-          ${creditData.cast
-            .filter((cst) => cst.profile_path !== null)
-            .map(
+          ${cast
+            .forEach(
               (cst, index) =>
                 `<div class="cast-img rounded-2">
                     <div>
@@ -238,10 +239,9 @@ async function getMovieDetails(mov_detail_id) {
        <h1 class="text-white">Crew</h1>
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
-          ${creditData.crew
-            .filter((cst) => cst.profile_path !== null)
-            .map(
-              (cst) => `
+          ${crew
+              .forEach(
+              (cst, index) => `
               <div class="cast-img rounded-2">
                 <div>
                   <img src="${
