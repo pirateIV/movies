@@ -12,7 +12,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 
-let currentIndex = 23;
+let currentIndex = 2;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -170,30 +170,30 @@ async function getMovieDetails(mov_detail_id) {
            
             <div class="mov-items d-flex gap-5 text-white mt-5 flex-row">
               <ul class="d-flex gap-3 flex-column">
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Released</span> ${release_date
+                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Released</span> ${release_date
                   .split("-")
                   .join("/")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Director</span> <a class="dir">${
+                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Director</span> <a class="dir">${
                   director.name
                 }</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Revenue</span> ${
+                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Revenue</span> ${
                   document.createTextNode(formattedRevenue).textContent
                 }</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Status</span> ${status}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Production</span>
+                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Status</span> ${status}</li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Production</span>
 
                 </li>
               </ul>
 
               <ul class="d-flex gap-3 flex-column">
-                <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50">Runtime: </span>${convertRuntime(
+                <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50 fw-bold">Runtime: </span>${convertRuntime(
                   runtime
                 )}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Language</span> <a class="dir">${original_language}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50">Spoken  Languages</span> ${spoken_languages
+                <li class="d-flex gap-4"><span class="text-light opacity-50" fw-bold>Language</span> <a class="dir">${original_language}</a></li>
+                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Spoken  Languages</span> ${spoken_languages
                   .map((item, index) => `<a>${item.english_name}</a>`)
                   .join(" ")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50 ">Production companies</span>
+                <li class="d-flex gap-4"><span class="text-light opacity-50  fw-bold">Production companies</span>
                   ${production_companies
                     .map(
                       (comp, index) =>
@@ -211,7 +211,7 @@ async function getMovieDetails(mov_detail_id) {
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
           ${cast
-            .forEach(
+            .map(
               (cst, index) =>
                 `<div class="cast-img rounded-2">
                     <div>
@@ -240,7 +240,7 @@ async function getMovieDetails(mov_detail_id) {
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
           ${crew
-              .forEach(
+            .map(
               (cst, index) => `
               <div class="cast-img rounded-2">
                 <div>
