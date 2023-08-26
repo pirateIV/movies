@@ -328,7 +328,7 @@ async function getMovieDetails(mov_detail_id) {
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
-async function getSimilarMovies(similar_id) {
+async function getSimilarMovies(similar_id) { 
   const resp = await fetch(
     `https://api.themoviedb.org/3/movie/${similar_id}/similar?api_key=${api_key}`
   );

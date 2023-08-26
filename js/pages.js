@@ -44,6 +44,7 @@ async function getCastInfo(id) {
   console.log(castDetailsDATA);
 
   getCastCredits(castCreditsDATA);
+  getCombCredits(combCreditsDATA)
 
   const {
     name,
@@ -123,3 +124,6 @@ async function getCastCredits(castCreditsDATA) {
   });
 }
 
+async function getCombCredits(combCreditsDATA){
+  console.log(combCreditsDATA)
+}
