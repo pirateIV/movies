@@ -34,3 +34,6 @@ p.small span {
   display: block;
   transition: 0.3s ease;
 }
+.credit.credit-active {
+  border: 2px solid gray;
+}
