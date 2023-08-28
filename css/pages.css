@@ -32,4 +32,5 @@ p.small span {
   position: relative;
   overflow: hidden;
   display: block;
+  transition: 0.3s ease;
 }

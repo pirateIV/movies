@@ -136,14 +136,14 @@ async function getCombCredits(combCreditsDATA) {
   item.forEach((item, index) => {
     creditContainer.innerHTML += 
     `
-    <a class="credit credit-active">
-    <span class="credit-title"></span>
+    <a class="credit credit-active text-decoration-none text-white ff-roboto">
+      <span class="credit-title">${item.title ? item.title : item.original_name}</span>
 
-    <button>
-      <i class="fa-solid fa-chevron-down"></i>
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-  </a>
+      <button>
+        <i class="fa-solid fa-chevron-down"></i>
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </a>
    `
   });
 }
