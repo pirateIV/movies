@@ -137,7 +137,7 @@ async function getCombCredits(combCreditsDATA) {
     creditContainer.innerHTML += 
     `
     <a class="credit credit-active text-decoration-none text-white ff-roboto">
-      <span class="credit-title">${item.title ? item.title : item.original_name}</span>
+      <span class="credit-title text-dark fw-bold">${item.title ? item.title : item.original_name}</span>
 
       <button>
         <i class="fa-solid fa-chevron-down"></i>

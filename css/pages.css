@@ -33,7 +33,20 @@ p.small span {
   overflow: hidden;
   display: block;
   transition: 0.3s ease;
+  color: white;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .credit.credit-active {
   border: 2px solid gray;
+  background-color: #ccc;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.credit.credit-active::before,
+.credit.credit-active::after {
+  content: '\f04b';
+  font-family: 'Font Awesome 6 Free';
 }
