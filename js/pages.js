@@ -127,7 +127,11 @@ async function getCastCredits(castCreditsDATA) {
 
 async function getCombCredits(combCreditsDATA) {
   console.log(combCreditsDATA);
-  combCreditsDATA.cast.forEach((item, index) => {
+  const cast = combCreditsDATA.cast
+  const crew = combCreditsDATA.crew
+  // combCreditsDATA = 
+  let item = [...cast, ...crew]
+  item.forEach((item, index) => {
     tabTwo.innerHTML += `<h3>${
       item.title ? item.title : item.original_name
     }</h3><br>`;
