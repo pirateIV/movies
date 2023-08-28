@@ -127,13 +127,13 @@ async function getCastCredits(castCreditsDATA) {
 
 async function getCombCredits(combCreditsDATA) {
   console.log(combCreditsDATA);
-  const cast = combCreditsDATA.cast
-  const crew = combCreditsDATA.crew
-  // combCreditsDATA = 
-  let item = [...cast, ...crew]
+  const cast = combCreditsDATA.cast;
+  const crew = combCreditsDATA.crew;
+  // combCreditsDATA =
+  let item = [...cast, ...crew];
   item.forEach((item, index) => {
-    tabTwo.innerHTML += `<h3>${
+    tabTwo.innerHTML += `<a class="d-block p-3 text-decoration-none text-white rounded-3 bg-222">${
       item.title ? item.title : item.original_name
-    }</h3><br>`;
+    }</a>`;
   });
 }

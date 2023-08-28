@@ -4,9 +4,15 @@ body {
   background-color: #111 !important;
   /* color: white !important; */
 }
+a {
+  cursor: pointer;
+}
+
 img#profileImg  {
   background-size: contain;
   border: 5px solid #333;
+}.bg-222{
+  background-color: #222;
 }
 #castInfo, p {
   opacity: 0.67 !important;
