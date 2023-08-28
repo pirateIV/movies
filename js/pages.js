@@ -44,7 +44,7 @@ async function getCastInfo(id) {
   console.log(castDetailsDATA);
 
   getCastCredits(castCreditsDATA);
-  getCombCredits(combCreditsDATA)
+  getCombCredits(combCreditsDATA);
 
   const {
     name,
@@ -84,7 +84,7 @@ tabs.forEach((tab) => {
     const tabId = tab.getAttribute("data-tab");
 
     tabContent.forEach((content) => {
-      content.classList.add("d-none")
+      content.classList.add("d-none");
     });
 
     tabs.forEach((otherTab) => {
@@ -94,19 +94,18 @@ tabs.forEach((tab) => {
     tabs.forEach((otherTab) => {
       const otherTabId = otherTab.getAttribute("data-tab");
       if (otherTab !== tab) {
-        document.getElementById(otherTabId).classList.add("d-none")
+        document.getElementById(otherTabId).classList.add("d-none");
       }
     });
 
-    document.getElementById(tabId).classList.add("d-flex")
-    document.getElementById(tabId).classList.remove("d-none")
+    document.getElementById(tabId).classList.add("d-flex");
+    document.getElementById(tabId).classList.remove("d-none");
     tab.classList.add("border-bottom");
   });
 });
 
-
 // tabOne.classList.add(
- 
+
 // );
 async function getCastCredits(castCreditsDATA) {
   const cast = castCreditsDATA.cast;
@@ -116,14 +115,21 @@ async function getCastCredits(castCreditsDATA) {
   console.log(production);
 
   cast.filter((item, index) => {
-    if(item.poster_path !== null) {
+    if (item.poster_path !== null) {
       tabOne.innerHTML += `
-      <img width="200" class"mt-2" loading="lazy" src="${img_path + item.poster_path}" alt="">
-    `
+      <img width="200" class"mt-2" loading="lazy" src="${
+        img_path + item.poster_path
+      }" alt="">
+    `;
     }
   });
 }
 
-async function getCombCredits(combCreditsDATA){
-  console.log(combCreditsDATA)
+async function getCombCredits(combCreditsDATA) {
+  console.log(combCreditsDATA);
+  combCreditsDATA.cast.forEach((item, index) => {
+    tabTwo.innerHTML += `<h3>${
+      item.title ? item.title : item.original_name
+    }</h3><br>`;
+  });
 }
