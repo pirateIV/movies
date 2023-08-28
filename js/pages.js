@@ -132,8 +132,22 @@ async function getCombCredits(combCreditsDATA) {
   // combCreditsDATA =
   let item = [...cast, ...crew];
   item.forEach((item, index) => {
-    tabTwo.innerHTML += `<a class="d-block p-3 text-decoration-none text-white rounded-3 bg-222">${
-      item.title ? item.title : item.original_name
-    }</a>`;
+    tabTwo.innerHTML += 
+      `
+      <div class="credit-container">
+        <a class="credit credit-active">
+          <span class="creditt-title"></span>
+        </a>
+      </div>
+    `
   });
 }
+
+{/* <div>
+        <img
+          src="${img_path + item.backdrop_path}"
+          alt="${item.title ? item.title : item.original_name}">
+        <a class="d-block p-3 text-decoration-none text-white rounded-3 bg-222">${
+          item.title ? item.title : item.original_name
+        }</a>
+      </div> */}
