@@ -15,6 +15,8 @@ const imdbPage = document.getElementById("imdbPage");
 const tabOne = document.getElementById("tab1");
 const tabTwo = document.getElementById("tab2");
 const tabThree = document.getElementById("tab3");
+
+const creditContainer = document.getElementById("creditContainer")
 // const castInfo = document.querySelector("#castInfo");
 
 async function fetchData(url) {
@@ -132,14 +134,10 @@ async function getCombCredits(combCreditsDATA) {
   // combCreditsDATA =
   let item = [...cast, ...crew];
   item.forEach((item, index) => {
-    tabTwo.innerHTML += 
-      `
-      <div class="credit-container">
-        <a class="credit credit-active">
-          <span class="creditt-title"></span>
-        </a>
-      </div>
+    creditContainer.innerHTML += 
     `
+     
+   `
   });
 }
 
@@ -151,3 +149,13 @@ async function getCombCredits(combCreditsDATA) {
           item.title ? item.title : item.original_name
         }</a>
       </div> */}
+
+
+    //   <a class="credit credit-active">
+    //   <span class="credit-title"></span>
+
+    //   <button>
+    //     <i class="fa-solid fa-chevron-down"></i>
+    //     <i class="fa-solid fa-xmark"></i>
+    //   </button>
+    // </a>
