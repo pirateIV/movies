@@ -136,7 +136,14 @@ async function getCombCredits(combCreditsDATA) {
   item.forEach((item, index) => {
     creditContainer.innerHTML += 
     `
-     
+    <a class="credit credit-active">
+    <span class="credit-title"></span>
+
+    <button>
+      <i class="fa-solid fa-chevron-down"></i>
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </a>
    `
   });
 }
@@ -151,11 +158,4 @@ async function getCombCredits(combCreditsDATA) {
       </div> */}
 
 
-    //   <a class="credit credit-active">
-    //   <span class="credit-title"></span>
-
-    //   <button>
-    //     <i class="fa-solid fa-chevron-down"></i>
-    //     <i class="fa-solid fa-xmark"></i>
-    //   </button>
-    // </a>
+      
