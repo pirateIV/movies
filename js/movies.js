@@ -11,6 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
+const similarMov = document.getElementById("similar-mov")
 
 let currentIndex = 2;
 
@@ -335,6 +336,14 @@ async function getSimilarMovies(similar_id) {
   const data = await resp.json();
 
   console.log(data);
+  data.results.forEach((item, index) => {
+    similarMov.innerHTML += `
+      <article class="item-mov-card bg-secondary p-2">
+        <img src="${img_path + item.poster_path}"  width="200" alt="">
+      </article>
+    `
+  })
+
 }
 
 async function getMovieCredits(credits_id) {
