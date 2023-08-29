@@ -13,7 +13,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov")
 
-let currentIndex = 2;
+let currentIndex = 8;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -336,13 +336,26 @@ async function getSimilarMovies(similar_id) {
   const data = await resp.json();
 
   console.log(data);
-  data.results.forEach((item, index) => {
-    similarMov.innerHTML += `
-      <article class="item-mov-card bg-secondary p-2">
-        <img src="${img_path + item.poster_path}"  width="200" alt="">
-      </article>
-    `
-  })
+  data.results.filter((item, index) => {
+    if (item.poster_path !== null) {
+      similarMov.innerHTML += `
+        <article class="item-mov-card col-5 p-2 m-3 rounded-2" style="background-color: #111;" id="article">
+          <div class="h-100" style="width: 120px; padding: 5px;">
+            <img src="${img_path + item.poster_path}" loading="lazy" width="120" alt="">
+          </div>
+        </article>
+      `;
+      const articles = document.querySelectorAll("#article")
+      // articles[index].addEventListener('click', (e) => console.log(item[index]))
+      articles.forEach((article, index) => {
+        article.addEventListener('click', ()=> {
+          console.log(item[index])
+        })
+      })
+    }
+
+  });
+  
 
 }
 
