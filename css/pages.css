@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Muli:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap");
 body {
   background-color: #111 !important;
-  /* color: white !important; */
-  font-family: 'Muli', sans-serif !important;
+  font-family: 'Muli', sans-serif 1 !important;
 }
 a {
   cursor: pointer;
@@ -35,9 +34,9 @@ p.small span {
   transition: 0.3s ease;
   color: white;
   font-weight: 400;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: flex-start; */
 }
 .credit.credit-active {
   border: 2px solid gray;
@@ -45,8 +44,8 @@ p.small span {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4), 0 3px 6px rgba(0, 0, 0, 0.4);
 }
 
-.credit.credit-active::before,
-.credit.credit-active::after {
+.credit::before,
+.credit::after {
   content: '\f04b';
   font-family: 'Font Awesome 6 Free';
 }

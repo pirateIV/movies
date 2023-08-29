@@ -134,9 +134,9 @@ async function getMovieDetails(mov_detail_id) {
   console.log(creditData.cast);
   console.log(creditData.cast);
 
-  const cast = creditData.cast.filter(cst => cst.profile_path !== null);
-  const crew = creditData.crew.filter(cst => cst.profile_path !== null);
-  console.log(crew, cast)
+  const cast = creditData.cast.filter((cst) => cst.profile_path !== null);
+  const crew = creditData.crew.filter((cst) => cst.profile_path !== null);
+  console.log(crew, cast);
 
   // find the director for each movie
   const director = crew.find((member) => member.job === "Director");
@@ -328,7 +328,7 @@ async function getMovieDetails(mov_detail_id) {
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
-async function getSimilarMovies(similar_id) { 
+async function getSimilarMovies(similar_id) {
   const resp = await fetch(
     `https://api.themoviedb.org/3/movie/${similar_id}/similar?api_key=${api_key}`
   );
