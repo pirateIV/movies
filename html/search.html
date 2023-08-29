@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Search and Discover</title>
-
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/media.css" />
   <link rel="shortcut icon" href="../movies-sm.webp" type="image/x-icon">
-
-  <link
-      rel="stylesheet"
-      href="../fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css"
-    />
+  <link rel="stylesheet" href="../fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="../bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
@@ -30,7 +24,6 @@
         <nav class="d-flex pt-4 pe-5 align-items-center justify-content-between w-100 flex-nowrap">
           <a href="../" class="header-logo order-lg-0 order-1" href="index.html">
             <img class="navbar-brand ms-9" width="160" src="../img/logo.png" /></a>
-
           <i id="nav-toggle" class="fas fa-bars text-white ps-4 d-lg-none d-flex order-lg-0"></i>
           <ul class="nav-links nav align-items-center  order-lg-0">
             <li>
@@ -48,7 +41,6 @@
                 <!-- <i class="fas fa-angle-down"></i> -->
               </a>
             </li>
-
             <li class="d-none">
               <a class="text-uppercase text-decoration-none text-white" href="news.html">News
               </a>
@@ -57,7 +49,6 @@
               <a class="text-uppercase text-decoration-none text-white" href="contact.html">Contact</a>
             </li>
           </ul>
-
           <ul class="nav-icons nav gap-3 align-items-center flex-nowrap order-md-3 order-3">
             <li>
               <a href=""><img src="../img/user.png" width="30" alt="user" /></a>
@@ -77,7 +68,6 @@
             <a class="btn btn-danger" href="#searchSection"><i class="fas fa-search"></i></a>
           </form>
         </div>
-
         <div class="header-mt-5">
           <ul class="d-flex gap-2 text-nowrap align-items-center justify-content-between gap-5">
             <a class="text-danger fs-4 d-lg-block d-none">@Search Movie</a>
@@ -88,7 +78,6 @@
       <div class="filter-section mt-5" id="filter-section">
 
         <div class="container ps-3 ">
-          
           <i class="fas fa-filter fs-2 bg-danger p-3 rounded-circle text-white" id="filterToggle"></i>
           <p class="text-white">Use the filter icon to customize your search...</p>
         </div>
@@ -99,7 +88,6 @@
             <label for="includeAdult">Include Adult:</label>
             <input type="checkbox" class="form-check" id="includeAdult" checked>
           </div>
-
           <div>
             <label for="language">Language:</label>
 
@@ -117,9 +105,6 @@
               <!-- Fetch the available genres from TMDB -->
             </select>
           </div>
-
-          <!-- labe -->
-
           <div>
             <label for="sortBy">Sort By:</label>
             <select id="sortBy" class="form-select bg-secondary">
@@ -133,16 +118,15 @@
               <option value="release_date_desc">Release Date (Descending)</option>
             </select>
           </div>
-
           <div>
             <label for="releaseYear">Release Year:</label>
-            <input type="number" role="searchbox" class="form-control" id="releaseYear" min="1900" max="2099" placeholder="curr - 2023">
+            <input type="number" role="searchbox" class="form-control" id="releaseYear" min="1900" max="2099"
+              placeholder="curr - 2023">
           </div>
 
           <button class="btn btn-danger" id="applyFilters">Apply Filters</button>
         </form>
       </div>
-
       <div class="section-mov-card m-auto container  p-5 mt-5 rounded mb-5" id="searchSection">
         <div class="section-mov-card m-auto container p-5 mt-5 rounded mb-5" id="searchSection"
           style="background-color: white;">
@@ -153,16 +137,11 @@
             </div>
           </div>
         </div>
-
-
         <div class="position-fixed top-0 movContainer" id="movContainer"
           style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.4);">
           <div class="selected-mov-detail bg-000 text-white position-fixed p-3" id="selectedMovieDisplay">
           </div>
         </div>
-
-
-
   </main>
   <footer class="footer">
     <div class="container">
@@ -206,5 +185,4 @@
   <script src="../js/search.js"></script>
   <script src="../js/utils.js"></script>
 </body>
-
 </html>

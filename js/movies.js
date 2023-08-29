@@ -128,7 +128,7 @@ async function getMovieDetails(mov_detail_id) {
     production_companies,
   } = data;
 
-  getSimilarMovies(id);
+  // getSimilarMovies(id);
 
   // Get Movie Credits
   const creditData = await getMovieCredits(id);
@@ -346,6 +346,7 @@ async function getSimilarMovies(similar_id) {
         </article>
       `;
       const articles = document.querySelectorAll("#article")
+      console.log(articles)
       // articles[index].addEventListener('click', (e) => console.log(item[index]))
       articles.forEach((article, index) => {
         article.addEventListener('click', ()=> {
