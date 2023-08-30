@@ -1,7 +1,6 @@
 const movContainer = document.getElementById("movContainer");
 const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
-
 // const api_url_genres = "https://api.themoviedb.org/3/genre/movie/list";
 const api_url_movies = `https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&page=1"`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
@@ -13,31 +12,23 @@ const moviesHeader = document.getElementById("moviesHeader");
 
 // const video_url = `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${api_key}`
 // const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key="${api_key}&page=2"`
-
 // Get Genre list
 const api_url_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=5e750355564957a2353604d8a9344e94&page=1`;
-
 // Popular movies list
 const api_popular_list = `https://api.themoviedb.org/3/discover/movie?api_key=5e750355564957a2353604d8a9344e94&sort_by=popularity.desc&page=1  `;
-
 // airing today movies
 const api_air_today = `https://api.themoviedb.org/3/tv/airing_today?api_key=${api_key}`;
-
 const youtube_watch = `https://www.youtube.com/watch?v=`;
-
 async function getGenres() {
   const res = await fetch(
     "https://api.themoviedb.org/3/genre/movie/list" + "?api_key=" + api_key
   );
   const genreData = await res.json();
 }
-
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
 
 // Get Movie Details
 async function getMovieDetails(movieContent, index) {
-  // console.log(movieContent[index])
-  // console.log(selectedMovieDisplay.innerHTML);
   const movContent = movieContent[index];
   const {
     id,
@@ -75,7 +66,6 @@ async function getMovieDetails(movieContent, index) {
     <img src="${
       img_path + poster_path
     }" alt="" class="img-fluid" style="width: 31%"> 
-
     <div>
       <h1 class="text-white">${title}</h1>
       <section class="mt-5 d-flex justify-content-center flex-column">
@@ -100,7 +90,6 @@ async function getMovieDetails(movieContent, index) {
         <button id="fullMovieBtn" style="width: 170px" class="rounded-pill py-2 shadow text-white bg-red btn-mov-details">Watch Trailer</button>
       </section>
     </div>
-
     <div class="item position-absolute top-0 ">
             <svg width="40" height="40" class="position-absolute">
               <circle id="circle" stroke="${updateVotesAverage(
@@ -166,8 +155,6 @@ function getMovieFullDetails(movie_id) {
 
 const videoContainer = document.getElementById("video-container");
 function viewTrailer(videoKey) {
-  // window.location.href = `movies.html?videoKey=${videoKey}`;
-
   videoContainer.innerHTML = `
   <iframe class="responsive-iframe" 
     width="560"
@@ -181,7 +168,6 @@ function viewTrailer(videoKey) {
 }
 
 let genres = [];
-
 // id as used by api for genre list
 const genreMap = {
   12: "Adventure",
@@ -205,7 +191,6 @@ const genreMap = {
 };
 
 // getMovies(api_url);
-
 getPopular(api_popular_list);
 getGenres(api_url_genres);
 setInterval(() => {
@@ -213,16 +198,13 @@ setInterval(() => {
 }, 10000);
 updateHeader();
 let genreName;
-
 let mainData = [];
-
 // Get Genres
 async function getGenres(api_url_genres) {
   const genreRes = await fetch(api_url_genres);
   const genreData = await genreRes.json();
   return genreData;
 }
-
 let currentIndex = 0;
 let random = Math.floor(Math.random() * 1);
 
@@ -231,44 +213,32 @@ async function getMovies(url, minResults) {
   try {
     let totalResults = 0;
     let currentPage = 1;
-
     // add fetched movies to array
     let fetchedMoviesArr = [];
 
     while (fetchedMoviesArr.length < minResults) {
       const response = await fetch(`${url}&page=${currentPage}`);
       const data = await response.json();
-
       fetchedMoviesArr = fetchedMoviesArr.concat(data.results);
       totalResults = data.total_results;
       currentPage++;
-
       if (currentPage > data.total_pages) {
         // stop fetching if there are no more pages
         break;
       }
     }
-
     return fetchedMoviesArr.slice(130, minResults);
   } catch (error) {
     console.log(error.message);
   }
 }
-
 // function for header / first page
 async function updateHeader() {
-  // Update button
-
   const minMoviesToFetch = 200;
   const movies = await getMovies(api_url, minMoviesToFetch);
   currentIndex++;
-  // if (currentIndex >= movies.length) {
-  //   currentIndex = 50;
-  // }
   try {
-    // object to display movies
     contentInfo.innerHTML = "";
-
     const movie = movies[currentIndex];
     const {
       title,
@@ -281,7 +251,6 @@ async function updateHeader() {
     console.log(movie);
 
     const data = await getGenres(api_url_genres);
-
     // Genre List
     let result = [];
     let genreName = [];
@@ -304,14 +273,12 @@ async function updateHeader() {
       "bg-red",
       "btn-mov-details"
     );
-
     moviesHeader.innerHTML = `
       <div class="container-mov content-container m-auto position-relative" style="height: 70vh" id="content-info">
         <div class="content mt-5 d-flex flex-column " style="height:inherit">
           <div class="logo-header py-2 px-4" >
             <img class="img-fluid" src="img/logo.png" alt="" />
           </div>
-
           <div class="mov-info">
             <div class="movie-info-header-text">
               <h1 class="fw-900">${title.slice(0, 36)}</h1>
@@ -331,7 +298,6 @@ async function updateHeader() {
             <div class="info mt-3">
               <p class="mov-info text-white">${overview.slice(0, 240)}...</p>
             </div>
-            
             <a href="./movies.html">${button.outerHTML}</a>
           </div>
         </div>
@@ -339,9 +305,7 @@ async function updateHeader() {
         <img class="mov-img br-30 shd btn position-absolute" style="right: 60px; top: 90px" src="${
           img_path + poster_path
         }" width="450" alt="" />
-      
       `;
-
     header.style.background = `
       linear-gradient(to right,
       rgba(${0}, ${0}, ${0}, ${0.9}) 30%,
@@ -352,7 +316,6 @@ async function updateHeader() {
     console.error(error.message);
   }
 }
-
 function getRatings(vote) {
   if (vote >= 8) {
     return "text-success";
@@ -362,27 +325,14 @@ function getRatings(vote) {
     return "text-danger";
   }
 }
-
-// function checkLength(text) {
-//   if (text.length > 36) {
-//     // text.style.fontSize = `${30}px`;
-//   }
-// }
-
 async function getPopular() {
   let popularMoviesLength = 200;
   const movList = document.querySelector(".mov-list");
-
   let movieContents = await getMovies(api_popular_list, popularMoviesLength);
   try {
-    // console.log(movieContents);
     movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
     const movieContent = movieContents;
-
     console.log(movieContent);
-    // movieContent.forEach((content) => {
-    // })
-
     topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
       const { id, vote_average, poster_path, title, release_date } =
@@ -409,13 +359,10 @@ async function getPopular() {
                 ${vote_average * 10}<tspan dy="-5" font-size="8">%</tspan>
               </text>
             </svg>
-
           </div>
           <p class="date text-muted">${release_date}</p>
           <h6 class="text-center text-light mb-5">${title}</h4>
         </div>
-    
-    
       `;
       const lists = document.querySelectorAll("#list");
       lists.forEach((list, index) => {
@@ -423,13 +370,11 @@ async function getPopular() {
           getMovieDetails(movieContent, index);
         });
       });
-      // getMovieFullDetails(id)
     }
   } catch (error) {
     console.log(error.message);
   }
 }
-
 function updateVotesAverage(vote) {
   if (vote >= 75) {
     return "green";
@@ -439,7 +384,6 @@ function updateVotesAverage(vote) {
     return "red";
   }
 }
-
 // Update Votes Rating
 function votesPercentage(percentage) {
   const circleRadius = 16;

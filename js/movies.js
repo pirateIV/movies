@@ -13,7 +13,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
 
-let currentIndex = 9;
+let currentIndex = 10;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -180,10 +180,8 @@ async function getMovieDetails(mov_detail_id) {
                 }</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Status</span> ${status}</li>
                 <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Production</span>
-
-                </li>
+x                </li>
               </ul>
-
               <ul class="d-flex gap-3 flex-column">
                 <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50 fw-bold">Runtime: </span>${convertRuntime(
                   runtime
@@ -228,9 +226,7 @@ async function getMovieDetails(mov_detail_id) {
             )
             .join(" ")}
           </div>
-
        </section>
-
        <h1 class="text-white">Crew</h1>
        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
@@ -251,9 +247,7 @@ async function getMovieDetails(mov_detail_id) {
             `
             )
             .join(" ")}
-          
           </div>
-
        </section>
       </div> 
     </div>
@@ -294,14 +288,11 @@ async function getMovieDetails(mov_detail_id) {
       );
       const data = await res.json();
       console.log(data);
-
       // -------------------- navigate to page  ------------------------ //
-
       window.location.href = "../html/pages.html";
     });
   });
   // --- creditData - array that contains both cast and the crew for current movie
-
   const compImg = document.querySelectorAll("#compImg");
   const compName = document.getElementById("compName");
   compName.addEventListener("mouseover", (e) => {
@@ -330,7 +321,7 @@ async function getSimilarMovies(similar_id) {
     if (item.poster_path !== null) {
       similarMov.innerHTML += `
         <article class="item-mov-card p-2 m-3 rounded-2"
-          style="background-color: #111;
+          style="background-color: #111;height: 250px;
           box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
           id="article">
           <div class="h-100 d-flex gap-3 w-100" style="width: 120px; padding: 5px;">
@@ -339,7 +330,7 @@ async function getSimilarMovies(similar_id) {
             }" loading="lazy" width="120" alt="">
             <div>
               <p class="text-warning ">${item.title}</p> 
-              <small class="text-white">${item.overview}</small>
+              <small class="text-white overflow-scroll" style="height: 100px; !important">${item.overview}</small>
             </div>
           </div>
         </article>
@@ -361,7 +352,6 @@ async function getMovieCredits(credits_id) {
     `https://api.themoviedb.org/3/movie/${credits_id}/credits?api_key=${api_key}`
   );
   const creditsData = await creditsResponse.json();
-
   // console.log(creditsData);
   return creditsData;
 }
@@ -371,7 +361,6 @@ async function getPersonMovieCredits(person_id) {
     `https://api.themoviedb.org/3/person/${person_id}/movie_credits?api_key=${api_key}`
   );
   const personData = await personCreditRes.json();
-
   // console.log(personData);
 }
 
@@ -380,7 +369,6 @@ async function getMovieTrailers(movie_id) {
     `https://api.themoviedb.org/3/movie/${movie_id}/videos`
   );
   const trailerData = await trailerResp.json();
-
   console.log(trailerData);
 }
 
@@ -445,17 +433,4 @@ async function searchPerson(name) {
     `https://api.themoviedb.org/3/search/person?query=`
   );
   const personData = await nameSearcheResp.json();
-}
-
-// Production Companies
-
-{
-  /* <div class="m-watch">
-    <div class="d-flex flex-wrap align-items-center ">${filterNull(production_companies)}</div>
-    </div> */
-}
-
-// Title
-{
-  /* <h1 class="m-title text-white">${title}</h1> */
 }
