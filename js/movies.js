@@ -11,7 +11,7 @@ const img_path = "https://image.tmdb.org/t/p/w1280";
 
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
-const similarMov = document.getElementById("similar-mov")
+const similarMov = document.getElementById("similar-mov");
 
 let currentIndex = 8;
 
@@ -89,8 +89,6 @@ async function displayMovie(movie) {
           </div>
         </div>
       </div>
-
-    
 `;
 
   // Get the full movie details
@@ -339,25 +337,30 @@ async function getSimilarMovies(similar_id) {
   data.results.filter((item, index) => {
     if (item.poster_path !== null) {
       similarMov.innerHTML += `
-        <article class="item-mov-card col-5 p-2 m-3 rounded-2" style="background-color: #111;" id="article">
-          <div class="h-100" style="width: 120px; padding: 5px;">
-            <img src="${img_path + item.poster_path}" loading="lazy" width="120" alt="">
+        <article class="item-mov-card col-5 p-2 m-3 rounded-2"
+          style="background-color: #111;
+          box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
+          id="article">
+          <div class="h-100 d-flex align-items-center gap-3" style="width: 120px; padding: 5px;">
+            <img src="${
+              img_path + item.poster_path
+            }" loading="lazy" width="120" alt="">
+            <div>
+              <h6>${item.title}</h6>
+            </div>
           </div>
         </article>
       `;
-      const articles = document.querySelectorAll("#article")
-      console.log(articles)
+      const articles = document.querySelectorAll("#article");
+      console.log(articles);
       // articles[index].addEventListener('click', (e) => console.log(item[index]))
       articles.forEach((article, index) => {
-        article.addEventListener('click', ()=> {
-          console.log(item[index])
-        })
-      })
+        article.addEventListener("click", () => {
+          console.log(item[index]);
+        });
+      });
     }
-
   });
-  
-
 }
 
 async function getMovieCredits(credits_id) {
