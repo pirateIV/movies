@@ -341,7 +341,7 @@ async function getSimilarMovies(similar_id) {
           style="background-color: #111;
           box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
           id="article">
-          <div class="h-100 d-flex align-items-center gap-3" style="width: 120px; padding: 5px;">
+          <div class="h-100 d-flex gap-3" style="width: 120px; padding: 5px;">
             <img src="${
               img_path + item.poster_path
             }" loading="lazy" width="120" alt="">
