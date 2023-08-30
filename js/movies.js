@@ -13,7 +13,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
 
-let currentIndex = 8;
+let currentIndex = 9;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -229,10 +229,6 @@ async function getMovieDetails(mov_detail_id) {
             .join(" ")}
           </div>
 
-          <div>
-            <button class="position-absolute top-50"><i class="fas fa-angle-left fs-1"></i></button>
-            <button class="position-absolute top-50"><i class="fas fa-angle-right fs-1"></i></button>
-          </div>
        </section>
 
        <h1 class="text-white">Crew</h1>
@@ -258,10 +254,6 @@ async function getMovieDetails(mov_detail_id) {
           
           </div>
 
-          <div>
-            <button class="position-absolute top-50"><i class="fas fa-angle-left fs-1"></i></button>
-            <button class="position-absolute top-50"><i class="fas fa-angle-right fs-1"></i></button>
-          </div>
        </section>
       </div> 
     </div>
@@ -337,22 +329,23 @@ async function getSimilarMovies(similar_id) {
   data.results.filter((item, index) => {
     if (item.poster_path !== null) {
       similarMov.innerHTML += `
-        <article class="item-mov-card col-5 p-2 m-3 rounded-2"
+        <article class="item-mov-card p-2 m-3 rounded-2"
           style="background-color: #111;
           box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
           id="article">
-          <div class="h-100 d-flex gap-3" style="width: 120px; padding: 5px;">
+          <div class="h-100 d-flex gap-3 w-100" style="width: 120px; padding: 5px;">
             <img src="${
               img_path + item.poster_path
             }" loading="lazy" width="120" alt="">
             <div>
-              <h6>${item.title}</h6>
+              <p class="text-warning ">${item.title}</p> 
+              <small class="text-white">${item.overview}</small>
             </div>
           </div>
         </article>
       `;
       const articles = document.querySelectorAll("#article");
-      console.log(articles);
+      // console.log(articles);
       // articles[index].addEventListener('click', (e) => console.log(item[index]))
       articles.forEach((article, index) => {
         article.addEventListener("click", () => {
