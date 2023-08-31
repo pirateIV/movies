@@ -330,7 +330,7 @@ async function getSimilarMovies(similar_id) {
             }" loading="lazy" width="120" alt="">
             <div>
               <p class="text-warning ">${item.title}</p> 
-              <div class="overflow-y" style="height: 100px; !important">
+              <div class="overflow-y-scroll" style="height: 180px; !important">
                 <small class="text-white " >${item.overview}</small>
               </div>
             </div>
