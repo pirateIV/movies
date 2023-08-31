@@ -321,16 +321,16 @@ async function getSimilarMovies(similar_id) {
     if (item.poster_path !== null) {
       similarMov.innerHTML += `
         <article class="item-mov-card p-2 m-3 rounded-2"
-          style="background-color: #111;height: 250px;
+          style="background-color: #111;
           box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
           id="article">
-          <div class="h-100 d-flex gap-3 w-100" style="width: 120px; padding: 5px;">
+          <div class="h-100 d-flex gap-3 w-100" padding: 5px;">
             <img id="article-img" src="${
               img_path + item.poster_path
             }" loading="lazy" alt="">
             <div>
               <p class="text-warning ">${item.title}</p> 
-              <div class="overflow-y-auto" style="height: 180px; !important">
+              <div class="overflow-y-auto" style="height: 75% !important">
                 <small class="text-white " >${item.overview}</small>
               </div>
             </div>
