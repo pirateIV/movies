@@ -202,9 +202,6 @@ article #article-img {
   article.item-mov-card {
     height: 210px;
   }
-  .movie-similar #similar-mov {
-    /* grid-template-columns: 1fr; */
-  }
   article #article-img {
     /* width: 100px; */
   } 
@@ -228,7 +225,9 @@ article #article-img {
 }
  
 @media (max-width: 995px) {
-  
+  .movie-similar #similar-mov {
+    grid-template-columns: 1fr;
+  }
 }
 
 
