@@ -187,10 +187,21 @@ section.casts::-webkit-scrollbar {
   grid-template-columns: repeat(2, 1fr);
 }
 
+article .article-img {
+  width: 120px;
+}
+
 @media (max-width: 1250px) {
   .main-about .about-container-section {
     width: 85vw;
   }
+  .movie-similar #similar-mov {
+    grid-template-columns: 1fr;
+  }
+  article .article-img {
+    width: 100px;
+  } 
+
 }
 @media (max-width: 1080px) {
   .main-about .about-container-section {
@@ -222,3 +233,5 @@ section.casts::-webkit-scrollbar {
 .tabs button.tab-active {
   border-bottom: 2px solid white;
 }
+
+

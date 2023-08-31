@@ -325,12 +325,12 @@ async function getSimilarMovies(similar_id) {
           box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
           id="article">
           <div class="h-100 d-flex gap-3 w-100" style="width: 120px; padding: 5px;">
-            <img src="${
+            <img id="article-img" src="${
               img_path + item.poster_path
-            }" loading="lazy" width="120" alt="">
+            }" loading="lazy" alt="">
             <div>
               <p class="text-warning ">${item.title}</p> 
-              <div class="overflow-y-scroll" style="height: 180px; !important">
+              <div class="overflow-y-auto" style="height: 180px; !important">
                 <small class="text-white " >${item.overview}</small>
               </div>
             </div>
