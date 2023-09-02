@@ -194,6 +194,19 @@ article.item-mov-card {
 article #article-img {
   /* width: 120px; */
 }
+article #text-details{
+  overflow-y: scroll;
+}
+article #text-details::-webkit-scrollbar {
+  background-color: transparent;
+  height: 5px;
+  width: 5px;
+}
+article #text-details::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: #333;
+  width: 4px;
+}
 
 @media (max-width: 1250px) {
   .main-about .about-container-section {
@@ -229,7 +242,6 @@ article #article-img {
     grid-template-columns: 1fr;
   }
 }
-
 
 /* Tabs */
 .tabs {

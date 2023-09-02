@@ -13,7 +13,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
 
-let currentIndex = 10;
+let currentIndex = 14;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -144,7 +144,6 @@ async function getMovieDetails(mov_detail_id) {
 
   console.log(formattedRevenue);
 
-  // console.log(director);
 
   const { profile_path, character, cast_id, gender, order, name } = creditData;
 
@@ -253,7 +252,7 @@ x                </li>
     </div>
 
   `;
-  // Data for Each cas
+  // Data for Each cast and crew
   const castImg = document.querySelectorAll("#castImg");
   const crewImg = document.querySelectorAll("#crewImg");
   castImg.forEach((cstImg, index) => {
@@ -330,7 +329,7 @@ async function getSimilarMovies(similar_id) {
             }" loading="lazy" alt="">
             <div>
               <p class="text-warning ">${item.title}</p> 
-              <div class="overflow-y-auto" style="height: 75% !important">
+              <div id="text-details" style="height: 75% !important">
                 <small class="text-white " >${item.overview}</small>
               </div>
             </div>
@@ -338,8 +337,6 @@ async function getSimilarMovies(similar_id) {
         </article>
       `;
       const articles = document.querySelectorAll("#article");
-      // console.log(articles);
-      // articles[index].addEventListener('click', (e) => console.log(item[index]))
       articles.forEach((article, index) => {
         article.addEventListener("click", () => {
           console.log(item[index]);
@@ -354,7 +351,6 @@ async function getMovieCredits(credits_id) {
     `https://api.themoviedb.org/3/movie/${credits_id}/credits?api_key=${api_key}`
   );
   const creditsData = await creditsResponse.json();
-  // console.log(creditsData);
   return creditsData;
 }
 
@@ -363,7 +359,6 @@ async function getPersonMovieCredits(person_id) {
     `https://api.themoviedb.org/3/person/${person_id}/movie_credits?api_key=${api_key}`
   );
   const personData = await personCreditRes.json();
-  // console.log(personData);
 }
 
 async function getMovieTrailers(movie_id) {
