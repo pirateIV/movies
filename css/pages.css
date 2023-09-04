@@ -72,3 +72,12 @@ p.small span {
 .credit.credit-active .fa-xmark {
   display: block;
 }
+/* #toggleBtn {
+  background-color: transparent;
+  border: 0;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
