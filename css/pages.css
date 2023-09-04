@@ -46,6 +46,6 @@ p.small span {
 
 .credit::before,
 .credit::after {
-  content: '\f04b';
-  font-family: 'Font Awesome 6 Free';
+  content: 'o';
+  /* font-family: 'Font Awesome 6 Free'; */
 }

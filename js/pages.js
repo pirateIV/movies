@@ -119,7 +119,7 @@ async function getCastCredits(castCreditsDATA) {
   cast.filter((item, index) => {
     if (item.poster_path !== null) {
       tabOne.innerHTML += `
-      <img width="200" class"mt-2" loading="lazy" src="${
+      <img width="200" class"mt-2 rounded-3" loading="lazy" src="${
         img_path + item.poster_path
       }" alt="">
     `;
