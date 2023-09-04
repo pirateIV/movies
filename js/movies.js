@@ -74,9 +74,9 @@ async function displayMovie(movie) {
             <div class="rate-count d-flex">
               <img src="">
             </div>
-            </div>
-            <p class="tagline text-white">${data.tagline}</p>
-            <div class="d-flex align-items-center gap-4">
+          </div>
+          <p class="tagline text-white">${data.tagline}</p>
+          <div class="d-flex align-items-center gap-4">
               
               <div class="badge bg-light text-dark ">${
                 movie.vote_average
@@ -85,7 +85,7 @@ async function displayMovie(movie) {
                 data.release_date.split("-")[0]
               }</small>
               <small class="text-white">${convertRuntime(data.runtime)}</small>
-            </div>
+          </div>
           </div>
         </div>
       </div>
