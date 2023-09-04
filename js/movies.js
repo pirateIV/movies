@@ -13,7 +13,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
 
-let currentIndex = 14;
+let currentIndex = 16;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -145,7 +145,14 @@ async function getMovieDetails(mov_detail_id) {
   console.log(formattedRevenue);
 
 
-  const { profile_path, character, cast_id, gender, order, name } = creditData;
+  const {
+    profile_path,
+    character,
+    cast_id,
+    gender,
+    order,
+    name
+  } = creditData;
 
   // console.log(data);
   mainAbout.innerHTML = `
@@ -315,12 +322,16 @@ async function getSimilarMovies(similar_id) {
   );
   const data = await resp.json();
 
-  console.log(data);
+  console.log(data.results);
+  const movieSimilar = document.getElementById('movieSimilar')
+  if (data.results.length === 0) {
+    movieSimilar.style.display = 'none'
+  }
   data.results.filter((item, index) => {
     if (item.poster_path !== null) {
       similarMov.innerHTML += `
         <article class="item-mov-card p-2 m-3 rounded-2"
-          style="background-color: #111;
+          style="background-color: #111;0
           box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
           id="article">
           <div class="h-100 d-flex gap-3 w-100" padding: 5px;">
@@ -392,7 +403,7 @@ function filterNull(production_companies) {
   return prod_companies
     .map(
       (company, idx) =>
-        `<img class="filterNull" width="100" src="${
+      `<img class="filterNull" width="100" src="${
           img_path + company.logo_path
         }">`
     )
