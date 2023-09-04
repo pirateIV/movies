@@ -144,6 +144,9 @@ async function getCombCredits(combCreditsDATA) {
       'ff-roboto',
       'position-relative'
     );
+    creditElement.addEventListener('click', () => {
+      creditElement.classList.toggle('credit-active')
+    })
 
     const creditTitle = document.createElement('span');
     creditTitle.classList.add(
@@ -151,14 +154,14 @@ async function getCombCredits(combCreditsDATA) {
       'text-',
       'fw-bold',
       'position-relative',
-      'z-2=3'
+      'z-2'
     );
     creditTitle.textContent = item.title ? item.title : item.original_name;
 
     const toggleBtn = document.createElement('button');
     toggleBtn.id = 'toggleBtn';
     toggleBtn.classList.add(
-      'border-1',
+      'border-0',
       'rounded-circle',
       'position-absolute',
       'end-0',
@@ -166,10 +169,10 @@ async function getCombCredits(combCreditsDATA) {
     );
 
     const chevronIcon = document.createElement('i');
-    chevronIcon.classList.add('fa-solid', 'fa-chevron-down');
+    chevronIcon.classList.add('fa-solid', 'fa-chevron-down', 'text-white');
 
     const xmarkIcon = document.createElement('i');
-    xmarkIcon.classList.add('fa-solid', 'fa-xmark');
+    xmarkIcon.classList.add('fa-solid', 'fa-xmark', 'text-white');
 
     toggleBtn.appendChild(chevronIcon);
     toggleBtn.appendChild(xmarkIcon);
