@@ -82,8 +82,8 @@ header {
   background-repeat: no-repeat !important;
 }
  nav li a {
-  font-size: 11px !important;
-  border: 1px solid rgba(128, 128, 128, 0.4);
+  font-size: 12px !important;
+  font-weight: 500;
 }
 .content-container .content {
   width: 53%;
@@ -203,7 +203,6 @@ header {
 }
 @media screen and (max-width: 992px) {
   nav ul:first-of-type {
-    /* display: none !important; */
     position: fixed;
     top: 60px;
     width: 100%;
@@ -220,11 +219,12 @@ header {
     display: block;
     padding: 10px 40px;
     color: #000 !important;
-    /* border: 0.5px solid #000 */
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+
   }
   nav ul:first-of-type a.active {
     color: red !important;

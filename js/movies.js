@@ -13,7 +13,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
 
-let currentIndex = 16;
+let currentIndex = 18;
 
 getMovies(api_url);
 async function getMovies(url) {
@@ -95,6 +95,8 @@ async function displayMovie(movie) {
   getMovieDetails(movie.id);
   // Get Similar movies
   getSimilarMovies(movie.id);
+  // Get Movie trailers
+  getMovieTrailers(movie.id)
 }
 async function getMovieDetails(mov_detail_id) {
   // const resp = await fetch(`
@@ -155,65 +157,186 @@ async function getMovieDetails(mov_detail_id) {
   } = creditData;
 
   // console.log(data);
+  // mainAbout.innerHTML = `
+  //   <div class="d-flex align-items-center justify-content-center h-100 flex-column">
+  //     <div class="about-container-section container-fluid d-flex flex-md-row flex-column align-items-center h-auto justify-content-between m-auto">
+  //       <div class="mov-poster" id="movPoster"></div>
+  //       <div class="details" style="width: 65%">
+  //         <div class="m-overview d-flex flex-column justify-content-between">
+
+  //           <div style="text-align: justify;" class="my-3">
+  //             <h3 class="text-white">Storyline</h3>
+  //             <small class="text-white opacity-50">${overview}</small>
+  //           </div>
+  //           <div class="genre" id="genreId"><span class="text-white">Genres:</span> ${genres
+  //             .map(
+  //               (item, index) =>
+  //                 `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
+  //             )
+  //             .join(" ")}</div>
+
+  //           <div class="mov-items d-flex gap-5 text-white mt-5 flex-md-row flex-column">
+  //             <ul class="d-flex gap-3 flex-column">
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Released</span> ${release_date
+  //                 .split("-")
+  //                 .join("/")}</li>
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Director</span> <a class="dir">${
+  //                 director.name
+  //               }</a></li>
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Revenue</span> ${
+  //                 document.createTextNode(formattedRevenue).textContent
+  //               }</li>
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Status</span> ${status}</li>
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Production</span></li>
+  //             </ul>
+  //             <ul class="d-flex gap-3 flex-column">
+  //               <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50 fw-bold">Runtime: </span>${convertRuntime(
+  //                 runtime
+  //               )}</li>
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50" fw-bold>Language</span> <a class="dir">${original_language}</a></li>
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Spoken  Languages</span> ${spoken_languages
+  //                 .map((item, index) => `<a>${item.english_name}</a>`)
+  //                 .join(" ")}</li>
+  //               <li class="d-flex gap-4"><span class="text-light opacity-50  fw-bold">Production companies</span>
+  //                 ${production_companies
+  //                   .map(
+  //                     (comp, index) =>
+  //                       `<li id="compName" class="ms-5 text-warning fw-bold ff-roboto" >${comp.name}</li> `
+  //                   )
+  //                   .join(" ")}
+  //               </li>
+  //             </ul>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div> 
+  //     <div>
+  //     <h1 class="text-white mt-3">Cast</h1>
+  //      <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
+  //         <div class="d-flex flex-row gap-4 text-center">
+  //         ${cast
+  //           .map(
+  //             (cst, index) =>
+  //               `<div class="cast-img rounded-2">
+  //                   <div>
+  //                     ${`<img src="${
+  //                       img_path + cst.profile_path
+  //                     }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="castImg" width="180" loading="lazy" alt="${
+  //                       cst.original_name
+  //                     }">`}
+  //                   </div>
+  //                   <div class="z-2 position-relative text-white">
+  //                     ${cst.original_name}
+  //                     <small class="d-block opacity-50">${cst.character}</small>
+  //                 </div>
+  //               </div>`
+  //           )
+  //           .join(" ")}
+  //         </div>
+  //      </section>
+  //      <h1 class="text-white">Crew</h1>
+  //      <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
+  //         <div class="d-flex flex-row gap-4 text-center">
+  //         ${crew
+  //           .map(
+  //             (cst, index) => `
+  //             <div class="cast-img rounded-2">
+  //               <div>
+  //                 <img src="${
+  //                   img_path + cst.profile_path
+  //                 }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="crewImg" width="180" loading="lazy" alt="${
+  //               cst.original_name
+  //             }">
+  //               </div>
+  //               <h6 class="text-white">${cst.original_name}</h6>
+  //               <small class="opacity-50 d-block">${cst.department}</small>
+  //             </div>
+  //           `
+  //           )
+  //           .join(" ")}
+  //         </div>
+  //      </section>
+  //     </div> 
+  //   </div>
+
+  // `;
   mainAbout.innerHTML = `
-    <div class="d-flex align-items-center justify-content-center h-100 flex-column">
-      <div class="about-container-section container-fluid d-flex align-items-center h-auto justify-content-between m-auto">
+  <div class="container m-auto">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-6">
         <div class="mov-poster" id="movPoster"></div>
-        <div class="details" style="width: 65%">
-          <div class="m-overview d-flex flex-column justify-content-between">
-            
-            <div style="text-align: justify;" class="my-3">
-              <h3 class="text-white">Storyline</h3>
-              <small class="text-white opacity-50">${overview}</small>
-            </div>
-            <div class="genre" id="genreId"><span class="text-white">Genres:</span> ${genres
+      </div>
+      <div class="col-md-6">
+        <div class="details">
+          <div class="m-overview my-3">
+            <h3 class="text-white">Storyline</h3>
+            <small class="text-white opacity-50">${overview}</small>
+          </div>
+          <div class="genre" id="genreId">
+            <span class="text-white">Genres:</span> ${genres
               .map(
                 (item, index) =>
                   `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
               )
-              .join(" ")}</div>
-           
-            <div class="mov-items d-flex gap-5 text-white mt-5 flex-row">
-              <ul class="d-flex gap-3 flex-column">
-                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Released</span> ${release_date
-                  .split("-")
-                  .join("/")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Director</span> <a class="dir">${
-                  director.name
-                }</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Revenue</span> ${
-                  document.createTextNode(formattedRevenue).textContent
-                }</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Status</span> ${status}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Production</span>
-x                </li>
-              </ul>
-              <ul class="d-flex gap-3 flex-column">
-                <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50 fw-bold">Runtime: </span>${convertRuntime(
-                  runtime
-                )}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50" fw-bold>Language</span> <a class="dir">${original_language}</a></li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Spoken  Languages</span> ${spoken_languages
-                  .map((item, index) => `<a>${item.english_name}</a>`)
-                  .join(" ")}</li>
-                <li class="d-flex gap-4"><span class="text-light opacity-50  fw-bold">Production companies</span>
+              .join(" ")}
+          </div>
+          <div class="mov-items mt-5">
+            <ul class="list-unstyled">
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Released</span>
+                <span>${release_date.split("-").join("/")}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Director</span>
+                <span class="dir">${director.name}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Revenue</span>
+                <span>${formattedRevenue}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Status</span>
+                <span>${status}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Production</span>
+              </li>
+            </ul>
+            <ul class="list-unstyled">
+              <li class="runtime d-flex justify-content-between" id="runtime">
+                <span class="text-light opacity-50 fw-bold">Runtime:</span>
+                <span>${convertRuntime(runtime)}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Language</span>
+                <span class="dir text-white">${original_language}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Spoken Languages</span>
+                <span>${spoken_languages.map((item) => item.english_name).join(", ")}</span>
+              </li>
+              <li class="d-flex justify-content-between">
+                <span class="text-light opacity-50 fw-bold">Production companies</span>
+                <ul class="list-unstyled">
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<li id="compName" class="ms-5 text-warning fw-bold ff-roboto" >${comp.name}</li> `
+                        `<li class="ms-5 text-warning fw-bold ff-roboto">${comp.name}</li>`
                     )
                     .join(" ")}
-                </li>
-              </ul>
-            </div>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
-      </div> 
-      <div>
-      <h1 class="text-white mt-3">Cast</h1>
-       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
-          <div class="d-flex flex-row gap-4 text-center">
-          ${cast
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col">
+        <h1 class="text-white">Cast</h1>
+        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
+         <div class="d-flex flex-row gap-4 text-center">
+         ${cast
             .map(
               (cst, index) =>
                 `<div class="cast-img rounded-2">
@@ -233,32 +356,37 @@ x                </li>
             .join(" ")}
           </div>
        </section>
-       <h1 class="text-white">Crew</h1>
-       <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
-          <div class="d-flex flex-row gap-4 text-center">
-          ${crew
-            .map(
-              (cst, index) => `
-              <div class="cast-img rounded-2">
-                <div>
-                  <img src="${
-                    img_path + cst.profile_path
-                  }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="crewImg" width="180" loading="lazy" alt="${
-                cst.original_name
-              }">
-                </div>
-                <h6 class="text-white">${cst.original_name}</h6>
-                <small class="opacity-50 d-block">${cst.department}</small>
-              </div>
-            `
-            )
-            .join(" ")}
-          </div>
-       </section>
-      </div> 
+      </div>
     </div>
+    <div class="row mt-5">
+      <div class="col">
+        <h1 class="text-white">Crew</h1>
+        <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
+          <div class="d-flex flex-row gap-4 text-center">
+            ${crew
+              .map(
+                (cst, index) => `
+                <div class="cast-img rounded-2">
+                  <div>
+                    <img src="${
+                      img_path + cst.profile_path
+                    }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="crewImg" width="180" loading="lazy" alt="${
+                  cst.original_name
+                }">
+                  </div>
+                  <h6 class="text-white">${cst.original_name}</h6>
+                  <small class="opacity-50 d-block">${cst.department}</small>
+                </div>
+              `
+              )
+              .join(" ")}
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+`;
 
-  `;
   // Data for Each cast and crew
   const castImg = document.querySelectorAll("#castImg");
   const crewImg = document.querySelectorAll("#crewImg");
@@ -299,20 +427,20 @@ x                </li>
     });
   });
   // --- creditData - array that contains both cast and the crew for current movie
-  const compImg = document.querySelectorAll("#compImg");
-  const compName = document.getElementById("compName");
-  compName.addEventListener("mouseover", (e) => {
-    compImg.forEach((img) => {
-      img.classList.remove("d-none");
-      img.classList.add("d-block");
-    });
-  });
-  compName.addEventListener("mouseleave", (e) => {
-    compImg.forEach((img) => {
-      img.classList.remove("d-block");
-      img.classList.add("d-none");
-    });
-  });
+  // const compImg = document.querySelectorAll("#compImg");
+  // const compName = document.getElementById("compName");
+  // compName.addEventListener("mouseover", (e) => {
+  //   compImg.forEach((img) => {
+  //     img.classList.remove("d-none");
+  //     img.classList.add("d-block");
+  //   });
+  // });
+  // compName.addEventListener("mouseleave", (e) => {
+  //   compImg.forEach((img) => {
+  //     img.classList.remove("d-block");
+  //     img.classList.add("d-none");
+  //   });
+  // });
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
