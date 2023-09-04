@@ -164,7 +164,7 @@ async function getMovieDetails(mov_detail_id) {
             
             <div style="text-align: justify;" class="my-3">
               <h3 class="text-white">Storyline</h3>
-              <small class="text-white">${overview}</small>
+              <small class="text-white opacity-50">${overview}</small>
             </div>
             <div class="genre" id="genreId"><span class="text-white">Genres:</span> ${genres
               .map(
