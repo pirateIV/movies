@@ -39,7 +39,7 @@ async function getCastInfo(id) {
   const combCreditsDATA = await fetchData(combCreditsURL);
   const castDetailsDATA = await fetchData(castDetailsURL);
 
-  console.log(castImgsDATA);
+  // console.log(castImgsDATA);
   console.log(castMovieDATA);
   console.log(castCreditsDATA);
   console.log(combCreditsDATA);
@@ -47,6 +47,8 @@ async function getCastInfo(id) {
 
   getCastCredits(castCreditsDATA);
   getCombCredits(combCreditsDATA);
+  getProfiles(castImgsDATA) 
+
 
   const {
     name,
@@ -74,8 +76,8 @@ async function getCastInfo(id) {
   birth.innerHTML = place_of_birth;
   job.innerHTML = known_for_department;
   profileImg.src = img_path + castImgsDATA.profiles[0].file_path;
-}
-
+  
+} 
 // tabs
 
 const tabs = document.querySelectorAll('.tab');
@@ -119,11 +121,13 @@ async function getCastCredits(castCreditsDATA) {
   cast.filter((item, index) => {
     if (item.poster_path !== null) {
       tabOne.innerHTML += `
-      <img width="200" class"mt-2 rounded-3" loading="lazy" src="${
-        img_path + item.poster_path
-      }" alt="">
-    `;
-    }
+      <div>
+        <img width="200" class"mt-2 rounded-3" loading="lazy" src="${
+          img_path + item.poster_path
+        }" alt="">
+        </div>`
+      }
+      // <span class="d-block text-wrap text-center width">${item.original_title}</span>
   });
 }
 
@@ -165,7 +169,8 @@ async function getCombCredits(combCreditsDATA) {
       'rounded-circle',
       'position-absolute',
       'end-0',
-      'me-3'
+      'me-3',
+  
     );
 
     const chevronIcon = document.createElement('i');
@@ -189,9 +194,18 @@ async function getCombCredits(combCreditsDATA) {
 
     // Add click event listener to each toggleBtn
     toggleBtn.addEventListener('click', () => {
-      creditElement.classList.toggle('credit-active');
+      creditElement.classList.add('credit-active');
 
       console.log(123);
     });
   });
+}
+
+function getProfiles(profile) {
+  // console.log(profile)
+  profile.profiles.forEach((imgs, index) => {
+    tabThree.innerHTML += `
+      <img src="${img_path + imgs.file_path}" class=" mt-2 m-auto" alt="..." width="300">
+    `
+  })
 }
