@@ -81,6 +81,7 @@ p.small span {
 }
 .profile-img {
   width: 310px;
+  height: 450px;
 }
 
 @media (max-width: 999px) {
@@ -93,5 +94,6 @@ p.small span {
 @media (max-width: 400px) {
   .profile-img {
     width: 240px;
+    height: 320px;
   }
 }

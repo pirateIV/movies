@@ -205,7 +205,7 @@ function getProfiles(profile) {
   // console.log(profile)
   profile.profiles.forEach((imgs, index) => {
     tabThree.innerHTML += `
-      <img src="${img_path + imgs.file_path}" class=" mt-2 m-auto" alt="..." width="200">
+      <img src="${img_path + imgs.file_path}" class=" mt-2 m-auto" alt="..." width="130">
     `
   })
 }
