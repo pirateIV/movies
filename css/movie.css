@@ -243,6 +243,13 @@ article #text-details::-webkit-scrollbar-thumb {
   }
 }
 
+@media (max-width: 767px) {
+  .main-about {
+  height: calc(100vh + 1000px);
+
+  }
+}
+
 /* Tabs */
 .tabs {
   transform: translateX(50%);

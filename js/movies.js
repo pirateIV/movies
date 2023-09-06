@@ -76,7 +76,7 @@ async function displayMovie(movie) {
             </div>
           </div>
           <p class="tagline text-white">${data.tagline}</p>
-          <div class="d-flex align-items-center gap-4">
+          <div class="d-flex align-items-center justify-content-sm-start justify-content-center gap-4">
               
               <div class="badge bg-light text-dark ">${
                 movie.vote_average
@@ -161,7 +161,7 @@ async function getMovieDetails(mov_detail_id) {
   mainAbout.innerHTML = `
   <div class="container m-auto">
     <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
+      <div class="col-md-4 rounded-2">
         <div class="mov-poster" id="movPoster"></div>
       </div>
       <div class="col-md-6">
@@ -181,37 +181,37 @@ async function getMovieDetails(mov_detail_id) {
           <div class="mov-items mt-5">
             <ul class="list-unstyled">
               <li class="d-flex justify-content-between">
-                <span class="text-ligh">Released</span>
-                <span>${release_date.split("-").join("/")}</span>
+                <span class="text-white">Released</span>
+                <span class="text-white">${release_date.split("-").join("/")}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light">Director</span>
+                <span class="text-white">Director</span>
                 <span class="">${director.name}</span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-light">Revenue</span>
-                <span>${formattedRevenue}</span>
+                <span class="text-white">${formattedRevenue}</span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-light">Status</span>
-                <span>${status}</span>
+                <span class="text-white">${status}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light">Production</span>
+                <span class="text-white">Production</span>
               </li>
             </ul>
             <ul class="list-unstyled">
               <li class="runtime d-flex justify-content-between" id="runtime">
-                <span class="text-light">Runtime:</span>
-                <span>${convertRuntime(runtime)}</span>
+                <span class="text-white">Runtime:</span>
+                <span class="text-white">${convertRuntime(runtime)}</span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-light">Language</span>
                 <span class=" text-white">${original_language}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light">Spoken Languages</span>
-                <span>${spoken_languages.map((item) => item.english_name).join(", ")}</span>
+                <span class="text-white">Spoken Languages</span>
+                <span class="text-white">${spoken_languages.map((item) => item.english_name).join(", ")}</span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-light">Production companies</span>
