@@ -157,109 +157,7 @@ async function getMovieDetails(mov_detail_id) {
   } = creditData;
 
   // console.log(data);
-  // mainAbout.innerHTML = `
-  //   <div class="d-flex align-items-center justify-content-center h-100 flex-column">
-  //     <div class="about-container-section container-fluid d-flex flex-md-row flex-column align-items-center h-auto justify-content-between m-auto">
-  //       <div class="mov-poster" id="movPoster"></div>
-  //       <div class="details" style="width: 65%">
-  //         <div class="m-overview d-flex flex-column justify-content-between">
-
-  //           <div style="text-align: justify;" class="my-3">
-  //             <h3 class="text-white">Storyline</h3>
-  //             <small class="text-white opacity-50">${overview}</small>
-  //           </div>
-  //           <div class="genre" id="genreId"><span class="text-white">Genres:</span> ${genres
-  //             .map(
-  //               (item, index) =>
-  //                 `<button class="genreBtn border-0 bg-dark rounded-1 text-warning fw-bold">${item.name}</button>`
-  //             )
-  //             .join(" ")}</div>
-
-  //           <div class="mov-items d-flex gap-5 text-white mt-5 flex-md-row flex-column">
-  //             <ul class="d-flex gap-3 flex-column">
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Released</span> ${release_date
-  //                 .split("-")
-  //                 .join("/")}</li>
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Director</span> <a class="dir">${
-  //                 director.name
-  //               }</a></li>
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Revenue</span> ${
-  //                 document.createTextNode(formattedRevenue).textContent
-  //               }</li>
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Status</span> ${status}</li>
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Production</span></li>
-  //             </ul>
-  //             <ul class="d-flex gap-3 flex-column">
-  //               <li class="runtime d-flex gap-4" id="runtime"><span class="text-light opacity-50 fw-bold">Runtime: </span>${convertRuntime(
-  //                 runtime
-  //               )}</li>
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50" fw-bold>Language</span> <a class="dir">${original_language}</a></li>
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50 fw-bold">Spoken  Languages</span> ${spoken_languages
-  //                 .map((item, index) => `<a>${item.english_name}</a>`)
-  //                 .join(" ")}</li>
-  //               <li class="d-flex gap-4"><span class="text-light opacity-50  fw-bold">Production companies</span>
-  //                 ${production_companies
-  //                   .map(
-  //                     (comp, index) =>
-  //                       `<li id="compName" class="ms-5 text-warning fw-bold ff-roboto" >${comp.name}</li> `
-  //                   )
-  //                   .join(" ")}
-  //               </li>
-  //             </ul>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div> 
-  //     <div>
-  //     <h1 class="text-white mt-3">Cast</h1>
-  //      <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
-  //         <div class="d-flex flex-row gap-4 text-center">
-  //         ${cast
-  //           .map(
-  //             (cst, index) =>
-  //               `<div class="cast-img rounded-2">
-  //                   <div>
-  //                     ${`<img src="${
-  //                       img_path + cst.profile_path
-  //                     }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="castImg" width="180" loading="lazy" alt="${
-  //                       cst.original_name
-  //                     }">`}
-  //                   </div>
-  //                   <div class="z-2 position-relative text-white">
-  //                     ${cst.original_name}
-  //                     <small class="d-block opacity-50">${cst.character}</small>
-  //                 </div>
-  //               </div>`
-  //           )
-  //           .join(" ")}
-  //         </div>
-  //      </section>
-  //      <h1 class="text-white">Crew</h1>
-  //      <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
-  //         <div class="d-flex flex-row gap-4 text-center">
-  //         ${crew
-  //           .map(
-  //             (cst, index) => `
-  //             <div class="cast-img rounded-2">
-  //               <div>
-  //                 <img src="${
-  //                   img_path + cst.profile_path
-  //                 }" class="border border-2 border-secondary rounded-2 z-2 position-relative" id="crewImg" width="180" loading="lazy" alt="${
-  //               cst.original_name
-  //             }">
-  //               </div>
-  //               <h6 class="text-white">${cst.original_name}</h6>
-  //               <small class="opacity-50 d-block">${cst.department}</small>
-  //             </div>
-  //           `
-  //           )
-  //           .join(" ")}
-  //         </div>
-  //      </section>
-  //     </div> 
-  //   </div>
-
-  // `;
+  
   mainAbout.innerHTML = `
   <div class="container m-auto">
     <div class="row justify-content-center mt-5">
@@ -283,40 +181,40 @@ async function getMovieDetails(mov_detail_id) {
           <div class="mov-items mt-5">
             <ul class="list-unstyled">
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Released</span>
+                <span class="text-ligh">Released</span>
                 <span>${release_date.split("-").join("/")}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Director</span>
-                <span class="dir">${director.name}</span>
+                <span class="text-light">Director</span>
+                <span class="">${director.name}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Revenue</span>
+                <span class="text-light">Revenue</span>
                 <span>${formattedRevenue}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Status</span>
+                <span class="text-light">Status</span>
                 <span>${status}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Production</span>
+                <span class="text-light">Production</span>
               </li>
             </ul>
             <ul class="list-unstyled">
               <li class="runtime d-flex justify-content-between" id="runtime">
-                <span class="text-light opacity-50 fw-bold">Runtime:</span>
+                <span class="text-light">Runtime:</span>
                 <span>${convertRuntime(runtime)}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Language</span>
-                <span class="dir text-white">${original_language}</span>
+                <span class="text-light">Language</span>
+                <span class=" text-white">${original_language}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Spoken Languages</span>
+                <span class="text-light">Spoken Languages</span>
                 <span>${spoken_languages.map((item) => item.english_name).join(", ")}</span>
               </li>
               <li class="d-flex justify-content-between">
-                <span class="text-light opacity-50 fw-bold">Production companies</span>
+                <span class="text-light">Production companies</span>
                 <ul class="list-unstyled">
                   ${production_companies
                     .map(
