@@ -255,10 +255,12 @@ article #text-details::-webkit-scrollbar-thumb {
     margin: 0 auto;
     width: 90%;
   }
- 
 }
 
 @media (max-width: 400px) {
+  .main-about {
+    height: calc(100vh + 1100px);
+  }
   article.item-mov-card {
     height: 150px;
   }
