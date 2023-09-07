@@ -186,7 +186,9 @@ section.casts::-webkit-scrollbar {
 .movie-similar #similar-mov {
   grid-template-columns: repeat(2, 1fr);
 }
-
+article {
+  /* overflow: hidden;. */
+}
 article.item-mov-card {
   height: 250px;
 }
@@ -253,11 +255,15 @@ article #text-details::-webkit-scrollbar-thumb {
     margin: 0 auto;
     width: 90%;
   }
+ 
+}
+
+@media (max-width: 400px) {
   article.item-mov-card {
     height: 150px;
   }
   article #text-details {
-    height: 120px!important;
+    height: 75px!important;
   }
 }
 
