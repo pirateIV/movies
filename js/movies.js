@@ -366,7 +366,7 @@ async function getSimilarMovies(similar_id) {
             }" loading="lazy" alt="">
             <div>
               <p class="text-warning ">${item.title}</p> 
-              <div id="text-details" style="height: 75% !important">
+              <div id="text-details">
                 <small class="text-white " >${item.overview}</small>
               </div>
             </div>

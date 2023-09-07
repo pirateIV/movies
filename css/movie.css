@@ -256,6 +256,9 @@ article #text-details::-webkit-scrollbar-thumb {
   article.item-mov-card {
     height: 150px;
   }
+  article #text-details {
+    height: 60% !important;
+  }
 }
 
 /* Tabs */
