@@ -265,7 +265,7 @@ article #text-details::-webkit-scrollbar-thumb {
     height: 150px;
   }
   article #text-details {
-    height: 75px!important;
+    height: 80px!important;
   }
 }
 
