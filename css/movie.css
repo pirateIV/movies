@@ -187,7 +187,7 @@ section.casts::-webkit-scrollbar {
   grid-template-columns: repeat(2, 1fr);
 }
 article {
-  /* overflow: hidden;. */
+  overflow: scroll;.
 }
 article.item-mov-card {
   height: 250px;
@@ -265,7 +265,10 @@ article #text-details::-webkit-scrollbar-thumb {
     height: 150px;
   }
   article #text-details {
-    height: 80px!important;
+    height: 75px!important;
+  }
+  article #text-details small{
+    font-size: 10px;
   }
 }
 
