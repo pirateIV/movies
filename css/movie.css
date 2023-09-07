@@ -23,12 +23,13 @@ ul li {
   font-size: 11px !important;
 }
 
-.mov-items ul li a.dir, #compName {
+.mov-items ul li a.dir,
+#compName {
   padding: 2px 4px;
   background: #333;
   border-radius: 4px;
   color: white;
-  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.75)
+  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.75);
 }
 
 /* Classes */
@@ -176,7 +177,6 @@ section.casts::-webkit-scrollbar {
   background-size: cover;
   background-position: center;
   box-shadow: 1px 0px 3px 2px rgb(0 0 0);
-
 }
 
 .main-about .about-container-section {
@@ -186,7 +186,7 @@ section.casts::-webkit-scrollbar {
 .movie-similar #similar-mov {
   grid-template-columns: repeat(2, 1fr);
 }
- 
+
 article.item-mov-card {
   height: 250px;
 }
@@ -194,8 +194,9 @@ article.item-mov-card {
 article #article-img {
   /* width: 120px; */
 }
-article #text-details{
+article #text-details {
   overflow-y: scroll;
+  height: 75% !important;
 }
 article #text-details::-webkit-scrollbar {
   background-color: transparent;
@@ -217,8 +218,7 @@ article #text-details::-webkit-scrollbar-thumb {
   }
   article #article-img {
     /* width: 100px; */
-  } 
-
+  }
 }
 @media (max-width: 1080px) {
   .main-about .about-container-section {
@@ -227,7 +227,7 @@ article #text-details::-webkit-scrollbar-thumb {
   .main-about .mov-items {
     /* gap: 0 !important; */
     /* flex-direction: column !important; */
-  } 
+  }
   .main-about .mov-items #compName {
     width: 90px !important;
   }
@@ -236,7 +236,7 @@ article #text-details::-webkit-scrollbar-thumb {
     height: 55vh;
   }
 }
- 
+
 @media (max-width: 995px) {
   .movie-similar #similar-mov {
     grid-template-columns: 1fr;
@@ -245,8 +245,16 @@ article #text-details::-webkit-scrollbar-thumb {
 
 @media (max-width: 767px) {
   .main-about {
-  height: calc(100vh + 1000px);
-
+    height: calc(100vh + 1000px);
+  }
+  .main-section .container-section {
+    margin-left: 0;
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+  }
+  article.item-mov-card {
+    height: 150px;
   }
 }
 
@@ -262,5 +270,3 @@ article #text-details::-webkit-scrollbar-thumb {
 .tabs button.tab-active {
   border-bottom: 2px solid white;
 }
-
-

@@ -357,7 +357,7 @@ async function getSimilarMovies(similar_id) {
     if (item.poster_path !== null) {
       similarMov.innerHTML += `
         <article class="item-mov-card p-2 m-3 rounded-2"
-          style="background-color: #111;0
+          style="background-color: #111;
           box-shadow: 0px 0px 2px 1px rgba(115, 115, 115, 0.3);"
           id="article">
           <div class="h-100 d-flex gap-3 w-100" padding: 5px;">
