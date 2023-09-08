@@ -8,6 +8,8 @@ const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.
 const api_mov_details = `
 https://api.themoviedb.org/3/movie/{movie_id}`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
+const youtube_watch = `https://www.youtube.com/watch?v=`;
+
 
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
@@ -219,7 +221,7 @@ async function getMovieDetails(mov_detail_id) {
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<li class="ms-5 text-warning fw-bold ff-roboto">${comp.name}</li>`
+                        `<li class="ms-5 text-warning fw-bold ff-roboto genreBtn">${comp.name}</li>`
                     )
                     .join(" ")}
                 </ul>
@@ -366,7 +368,7 @@ async function getSimilarMovies(similar_id) {
             }" loading="lazy" alt="">
             <div>
               <p class="text-warning ">${item.title}</p> 
-              <div id="text-details">
+              <div id="text-details " class="overflow-y">
                 <small class="text-white " >${item.overview}</small>
               </div>
             </div>
@@ -400,10 +402,11 @@ async function getPersonMovieCredits(person_id) {
 
 async function getMovieTrailers(movie_id) {
   const trailerResp = await fetch(
-    `https://api.themoviedb.org/3/movie/${movie_id}/videos`
+    `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
   );
   const trailerData = await trailerResp.json();
-  console.log(trailerData);
+  console.log(trailerData.results);
+
 }
 
 function convertRuntime(runtime) {

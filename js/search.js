@@ -308,7 +308,7 @@ function updateVotesAverage(vote) {
 function votesPercentage(percentage) {
   const circleRadius = 16;
   const circumference = 2 * Math.PI * circleRadius;
-  const borderLength = (circumference * percentage) / 100;
+  const borderLength = (circumference * percentage) / 100; // 2r
 
   return `${borderLength} ${circumference - borderLength}`;
 }

@@ -1,11 +1,11 @@
 /* Selected Movie Detail */
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&family=Space+Mono:wght@400;700&display=swap");
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   background-color: transparent;
   height: 5px;
   width: 5px;
 }
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: #333;
   border-radius: 100px;
   width: 4px;
