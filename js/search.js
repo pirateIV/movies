@@ -318,7 +318,6 @@ filterToggle.addEventListener('click', (e) => {
   console.log(123)
 })
 function displayFilter() {
-  // filterContainer.style.transform = `translateX(${350}px)`
 
   if(filterContainer.style.transform === `translateX(${0}px)`) {
     filterContainer.style.transform = `translateX(${350}px)`
