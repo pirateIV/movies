@@ -15,7 +15,7 @@ const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
 
-let currentIndex = 19;
+let currentIndex = 22;
 
 getMovies(api_url);
 async function getMovies(url) {

@@ -11,7 +11,6 @@ const searchHeader = document.getElementById("section-search");
 const searchSection = document.getElementById("searchSection");
 const filterToggle = document.getElementById("filterToggle")
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
-// background: url(../1234.jpg);
 
 window.addEventListener("DOMContentLoaded", () => {
   fetchGenres(sortGenres);
@@ -25,7 +24,6 @@ async function updateBg(url) {
 
   data.results.forEach((item) => {
     const { backdrop_path } = item;
-    // console.log(backdrop_path);
 
     searchHeader.style.background = `linear-gradient(rgba(0, 0, 0, 0.9),
      rgba(0, 0, 0, 0.3),
