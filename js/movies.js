@@ -159,7 +159,7 @@ async function getMovieDetails(mov_detail_id) {
   } = creditData;
 
   // console.log(data);
-  
+
   mainAbout.innerHTML = `
   <div class="container m-auto">
     <div class="row justify-content-center mt-5">
@@ -400,14 +400,7 @@ async function getPersonMovieCredits(person_id) {
   const personData = await personCreditRes.json();
 }
 
-async function getMovieTrailers(movie_id) {
-  const trailerResp = await fetch(
-    `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
-  );
-  const trailerData = await trailerResp.json();
-  console.log(trailerData.results);
 
-}
 
 function convertRuntime(runtime) {
   let hourToMins = 60;
@@ -471,3 +464,81 @@ async function searchPerson(name) {
   );
   const personData = await nameSearcheResp.json();
 }
+
+const apiKey = 'YOUR_TMDB_API_KEY';
+const movieContainer = document.getElementById('movie-container');
+const modal = document.getElementById('modal');
+const closeModal = document.getElementById('close-modal');
+const trailerVideo = document.getElementById('trailer-video');
+
+async function getMovieTrailers(movie_id) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
+    );
+    const data = await response.json();
+    console.log(data.results);
+
+
+    const movies = data.results;
+
+    movies.forEach((movie) => {
+      const movieCard = document.createElement('div');
+      movieCard.classList.add('movie-card');
+      movieCard.innerHTML = `
+                <img class="movie-poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title} Poster">
+                <h2 class="movie-title">${movie.title}</h2>
+                <p class="movie-description">${movie.overview}</p>
+                <button class="watch-trailer" data-id="${movie_id}">Watch Trailer</button>
+            `;
+      movieContainer.appendChild(movieCard);
+    });
+
+    // Add event listeners for opening and closing the modal
+    const watchButtons = document.querySelectorAll('.watch-trailer');
+    watchButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        openModal(button.getAttribute('data-id'));
+      });
+    });
+    closeModal.addEventListener('click', closeModalHandler);
+    window.addEventListener('click', outsideClickHandler);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+// Open the modal and load the trailer for the selected movie
+async function openModal(movieId) {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}`);
+    const data = await response.json();
+    const trailers = data.results.filter((result) => result.type === 'Trailer');
+
+    if (trailers.length > 0) {
+      const trailerKey = trailers[0].key;
+      trailerVideo.src = `https://www.youtube.com/embed/${trailerKey}`;
+      modal.style.display = 'block';
+    } else {
+      alert('No trailers available for this movie.');
+    }
+  } catch (error) {
+    console.error('Error fetching trailer:', error);
+  }
+}
+
+// Close the modal
+function closeModalHandler() {
+  modal.style.display = 'none';
+  trailerVideo.src = '';
+}
+
+// Close the modal if the user clicks outside of it
+function outsideClickHandler(event) {
+  if (event.target === modal) {
+    closeModalHandler();
+  }
+}
+
+// Fetch popular movies on page load
+window.addEventListener('load', getMovieTrailers);
