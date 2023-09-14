@@ -89,7 +89,10 @@ async function displayMovie(movie) {
               <small class="text-white">${convertRuntime(data.runtime)}</small>
           </div>
           </div>
+          <i class="fas fa-chevron-left  fs-5 text-warning text-end position-absolute start-0"></i>
+          <i class="fas fa-chevron-right fs-5 text-warning text-end position-absolute end-0"></i>
         </div>
+
       </div>
 `;
 

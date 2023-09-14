@@ -298,7 +298,7 @@ async function updateHeader() {
             <div class="info mt-3">
               <p class="mov-info text-white">${overview.slice(0, 240)}...</p>
             </div>
-            <a href="./movies.html">${button.outerHTML}</a>
+            <a href="./html/movie.html">${button.outerHTML}</a>
           </div>
         </div>
         </div>

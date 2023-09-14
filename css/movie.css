@@ -321,3 +321,13 @@ article #text-details::-webkit-scrollbar-thumb {
 }
 
 /* Add any other styles as needed */
+i.fas.fa-chevron-left, i.fas.fa-chevron-right {
+  padding: 20px;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  /* transform: translateY(50%); */
+  height: 60vh;
+}
+/* i.fas.fa-chevron-right {
+  margin
+} */
