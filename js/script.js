@@ -26,7 +26,7 @@ async function getGenres() {
   const genreData = await res.json();
 }
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
-
+const searchMov = document.getElementById('searchMov')
 // Get Movie Details
 async function getMovieDetails(movieContent, index) {
   const movContent = movieContent[index];
@@ -58,6 +58,8 @@ async function getMovieDetails(movieContent, index) {
       }
     });
   });
+
+  updateHomeMoviesList(movContent)
 
   // Update Movie Details
   selectedMovieDisplay.innerHTML = `
@@ -391,4 +393,8 @@ function votesPercentage(percentage) {
   const borderLength = (circumference * percentage) / 100;
 
   return `${borderLength} ${circumference - borderLength}`;
+}
+
+function updateHomeMoviesList(movieContents){
+  console.log(movieContents)
 }
