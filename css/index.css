@@ -283,3 +283,22 @@ input[type="number"] {
   width: 100%;
   transition: all 1s ease;
 }
+
+.search-mov {
+  height: 80vh;
+}
+
+.search-mov .search-cards {
+  height: 80vh;
+  overflow: scroll;
+}
+
+.search-card-desc .top {
+  height: 280px;
+  padding: 10px;
+}
+
+.card {
+  background-image: url(../loader.gif);
+  background-position: center;
+}
