@@ -285,11 +285,12 @@ input[type="number"] {
 }
 
 .search-mov {
-  height: 80vh;
+  height: 100vh;
+  margin: 90px 0;
 }
 
 .search-mov .search-cards {
-  height: 80vh;
+  height: 90vh;
   overflow: scroll;
 }
 
