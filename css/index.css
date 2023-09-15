@@ -296,6 +296,7 @@ input[type="number"] {
 .search-card-desc .top {
   height: 280px;
   padding: 10px;
+  box-shadow: inset 0px 0px 8px 3px rgb(0, 0, 0, 0.45);
 }
 
 .card {
