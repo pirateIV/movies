@@ -135,14 +135,20 @@ function getMovieFullDetails(movie_id) {
     .then((response) => response.json())
     .then((response) => {
       let mov_detail = response;
-      const { budget, revenue, tagline, homepage, runtime } = mov_detail;
+      const {
+        budget,
+        revenue,
+        tagline,
+        homepage,
+        runtime
+      } = mov_detail;
       console.log(mov_detail);
     })
     .catch((err) => console.warn(err.message));
 
   fetch(
-    `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
-  )
+      `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
+    )
     .then((vidResponse) => vidResponse.json())
     .then((vidResponse) => {
       console.log(vidResponse.results[0].key);
@@ -156,6 +162,7 @@ function getMovieFullDetails(movie_id) {
 }
 
 const videoContainer = document.getElementById("video-container");
+
 function viewTrailer(videoKey) {
   videoContainer.innerHTML = `
   <iframe class="responsive-iframe" 
@@ -320,6 +327,7 @@ async function updateHeader() {
     console.error(error.message);
   }
 }
+
 function getRatings(vote) {
   if (vote >= 8) {
     return "text-success";
@@ -339,8 +347,14 @@ async function getPopular() {
     console.log(movieContent);
     topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
-      const { id, vote_average, poster_path, title, release_date } =
-        movieContent[i];
+      const {
+        id,
+        vote_average,
+        poster_path,
+        title,
+        release_date
+      } =
+      movieContent[i];
       topRatedMovies.innerHTML += `
         <div class="list mx-3 " id="list">
           <div class="position-relative overflow-hidden ">
@@ -379,6 +393,7 @@ async function getPopular() {
     console.log(error.message);
   }
 }
+
 function updateVotesAverage(vote) {
   if (vote >= 75) {
     return "green";
@@ -397,14 +412,19 @@ function votesPercentage(percentage) {
   return `${borderLength} ${circumference - borderLength}`;
 }
 
-function updateHomeMoviesList(movieContents){
+function updateHomeMoviesList(movieContents) {
   console.log(movieContents)
 
-  // const cardMov = document.getElementById('cardMov')
   // cardMov.style.backgroundImage = `url(${})`
-  movieContents.forEach((movies, index) => {
+  movieContents.forEach((movie, index) => {
     movieList.innerHTML += `
-     <img src="${img_path + movies.poster_path}" class="col-3 bg-gradient border border-secondary" id="cardMov" style="height: 200px;">
+     <img src="${img_path + movie.poster_path}" loading="lazy"  class="col-3 bg-gradient border border-secondary" id="cardMov" style="height: 200px;">
     `
+    const cardMov = document.querySelectorAll('#cardMov')
+    cardMov.forEach(card => {
+      card.addEventListener('click', (e) => {
+        console.log(movieContents[index], index)
+      })
+    })
   })
 }
