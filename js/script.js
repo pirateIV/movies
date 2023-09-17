@@ -26,7 +26,7 @@ async function getGenres() {
   const genreData = await res.json();
 }
 const selectedMovieDisplay = document.getElementById("selectedMovieDisplay");
-const searchMov = document.getElementById('searchMov')
+const movieList = document.getElementById('movieList')
 // Get Movie Details
 async function getMovieDetails(movieContent, index) {
   const movContent = movieContent[index];
@@ -59,7 +59,7 @@ async function getMovieDetails(movieContent, index) {
     });
   });
 
-  updateHomeMoviesList(movContent)
+  // updateHomeMoviesList(movContent)
 
   // Update Movie Details
   selectedMovieDisplay.innerHTML = `
@@ -224,11 +224,13 @@ async function getMovies(url, minResults) {
       fetchedMoviesArr = fetchedMoviesArr.concat(data.results);
       totalResults = data.total_results;
       currentPage++;
+
       if (currentPage > data.total_pages) {
         // stop fetching if there are no more pages
         break;
       }
     }
+    updateHomeMoviesList(fetchedMoviesArr)
     return fetchedMoviesArr.slice(130, minResults);
   } catch (error) {
     console.log(error.message);
@@ -397,4 +399,12 @@ function votesPercentage(percentage) {
 
 function updateHomeMoviesList(movieContents){
   console.log(movieContents)
+
+  // const cardMov = document.getElementById('cardMov')
+  // cardMov.style.backgroundImage = `url(${})`
+  movieContents.forEach((movies, index) => {
+    movieList.innerHTML += `
+     <img src="${img_path + movies.poster_path}" class="col-3 bg-gradient border border-secondary" id="cardMov" style="height: 200px;">
+    `
+  })
 }

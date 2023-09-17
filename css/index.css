@@ -303,4 +303,5 @@ input[type="number"] {
 .card {
   background-image: url(../loader.gif);
   background-position: center;
+  background-size: cover;
 }
