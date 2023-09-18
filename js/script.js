@@ -67,7 +67,7 @@ async function getMovieDetails(movieContent, index) {
    <i class="fas fa-times text-danger position-absolute fs-3 close-btn"></i>  
     <img src="${
       img_path + poster_path
-    }" alt="" class="img-fluid" style="width: 31%"> 
+    }" alt="" class="img-fluid" loading="lazy" style="width: 31%"> 
     <div>
       <h1 class="text-white">${title}</h1>
       <section class="mt-5 d-flex justify-content-center flex-column">
