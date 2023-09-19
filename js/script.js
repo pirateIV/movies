@@ -50,8 +50,8 @@ async function getMovieDetails(movieContent, index) {
   // Get genres according to specific id
   const datas = await getGenres(api_url_genres);
   genre_ids.forEach((item) => {
-    console.log(item);
-
+    // console.log(item);
+// 
     datas.genres.filter((data) => {
       if (data.id === item) {
         results.push(data.name);
@@ -142,22 +142,22 @@ function getMovieFullDetails(movie_id) {
         homepage,
         runtime
       } = mov_detail;
-      console.log(mov_detail);
+      // console.log(mov_detail);
     })
-    .catch((err) => console.warn(err.message));
+    // .catch((err) => console.warn(err.message));
 
   fetch(
       `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
     )
     .then((vidResponse) => vidResponse.json())
     .then((vidResponse) => {
-      console.log(vidResponse.results[0].key);
+      // console.log(vidResponse.results[0].key);
       video_key = vidResponse.results[currentTrailerIndex].key;
       // -------------------------- For Later ----------------------- //
       viewTrailer(video_key);
     })
     .catch((err) => {
-      console.log(err.message);
+      // console.log(err.message);
     });
 }
 
@@ -240,7 +240,7 @@ async function getMovies(url, minResults) {
     updateHomeMoviesList(fetchedMoviesArr)
     return fetchedMoviesArr.slice(130, minResults);
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
   }
 }
 // function for header / first page
@@ -259,7 +259,7 @@ async function updateHeader() {
       backdrop_path,
       genre_ids,
     } = movie;
-    console.log(movie);
+    // console.log(movie);
 
     const data = await getGenres(api_url_genres);
     // Genre List
@@ -313,7 +313,7 @@ async function updateHeader() {
           </div>
         </div>
         </div>
-        <img class="mov-img br-30 shd btn position-absolute" style="right: 60px; top: 90px" src="${
+        <img loading="lazy" class="mov-img br-30 shd btn position-absolute" style="right: 60px; top: 90px" src="${
           img_path + poster_path
         }" width="450" alt="" />
       `;
@@ -324,7 +324,7 @@ async function updateHeader() {
       rgba(${0}, ${0}, ${0}, ${0.8})),
       url(${img_path + backdrop_path})`;
   } catch (error) {
-    console.error(error.message);
+    // console.error(error.message);
   }
 }
 
@@ -344,7 +344,7 @@ async function getPopular() {
   try {
     movList.style.gridTemplateColumns = `repeat(${popularMoviesLength}, ${1}fr)`;
     const movieContent = movieContents;
-    console.log(movieContent);
+    // console.log(movieContent);
     topRatedMovies.innerHTML = "";
     for (let i = 0; i <= popularMoviesLength; i++) {
       const {
@@ -390,7 +390,7 @@ async function getPopular() {
       });
     }
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
   }
 }
 
@@ -415,16 +415,17 @@ function votesPercentage(percentage) {
 function updateHomeMoviesList(movieContents) {
   console.log(movieContents)
 
-  // cardMov.style.backgroundImage = `url(${})`
   movieContents.forEach((movie, index) => {
     movieList.innerHTML += `
-     <img src="${img_path + movie.poster_path}" loading="lazy"  class="col-3 bg-gradient border border-secondary" id="cardMov" style="height: 200px;">
-    `
-    const cardMov = document.querySelectorAll('#cardMov')
-    cardMov.forEach(card => {
-      card.addEventListener('click', (e) => {
-        console.log(movieContents[index], index)
-      })
-    })
-  })
+      <img src="${img_path + movie.poster_path}" loading="lazy" class="col-3 bg-gradient border border-secondary cardMov" style="height: 200px;">
+    `;
+  });
+  
+  const cardMovElements = document.querySelectorAll('.cardMov');
+  cardMovElements.forEach((card, index) => {
+    card.addEventListener('click', (e) => {
+      console.log(movieContents[index], index);
+    });
+  });
+  
 }
