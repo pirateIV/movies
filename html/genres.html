@@ -1,23 +1,79 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style></style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
 
+      h1,
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      #genre-list {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #movie-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 20px 0;
+      }
+
+      #movie-list div {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        width: 200px;
+      }
+
+      @media (max-width: 768px) {
+        #movie-list div {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <h1>Movie Genres</h1>
     <div id="genre-list">
-        <!-- Genre buttons will be displayed here -->
+      <!-- Genre buttons will be displayed here -->
     </div>
     <h2>Movies in Selected Genre</h2>
     <div id="movie-list">
-        <!-- Movies will be displayed here -->
+      <!-- Movies will be displayed here -->
     </div>
 
-  
-  <!-- <script src="../js/script.js"></script> -->
-  <script src="../js/genre.js"></script>
-</body>
+    <!-- <script src="../js/script.js"></script> -->
+    <script src="../js/genre.js"></script>
+  </body>
 </html>
