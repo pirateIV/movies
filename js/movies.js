@@ -3,6 +3,10 @@
 // // https://api.themoviedb.org/3/movie/298618/credits?api_key=5e750355564957a2353604d8a9344e94
 
 // ----- Enter search query----------------------------//
+window.addEventListener('DOMContentLoaded', ()=> {
+  document.body.style.display = 'block'
+})
+
 const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 const api_mov_details = `
@@ -14,6 +18,7 @@ const youtube_watch = `https://www.youtube.com/watch?v=`;
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
+
 
 let currentIndex = 22;
 
@@ -89,8 +94,6 @@ async function displayMovie(movie) {
               <small class="text-white">${convertRuntime(data.runtime)}</small>
           </div>
           </div>
-          <i class="fas fa-chevron-left  fs-5 text-warning text-end position-absolute start-0"></i>
-          <i class="fas fa-chevron-right fs-5 text-warning text-end position-absolute end-0"></i>
         </div>
 
       </div>
@@ -145,7 +148,7 @@ async function getMovieDetails(mov_detail_id) {
   console.log(crew, cast);
 
   // find the director for each movie
-  const director = crew.find((member) => member.job === "Director");
+  const director = crew.find((member) => member.job === "Director") || null
 
   const formattedRevenue = formatNumber(revenue);
 
@@ -191,7 +194,7 @@ async function getMovieDetails(mov_detail_id) {
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-white">Director</span>
-                <span class="">${director.name}</span>
+                <span class="">${''} </span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-light">Revenue</span>

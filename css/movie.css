@@ -2,7 +2,13 @@
 
 body {
   background-color: black !important;
-}
+  display: none;
+  background: url(../img/pexels-ksenia-chernaya-5691695.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow-y: scroll;
+  }
 
 a {
   text-decoration: none !important;
@@ -106,6 +112,7 @@ section.casts::-webkit-scrollbar {
   height: 60vh;
   display: flex;
   align-items: center;
+ 
   background-size: contain !important;
   background-position: right !important;
   background-repeat: no-repeat !important;
@@ -132,6 +139,7 @@ section.casts::-webkit-scrollbar {
 }
 
 .main-section .ratings .rate-count {
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
@@ -142,7 +150,8 @@ section.casts::-webkit-scrollbar {
   height: calc(100vh + 800px);
   position: relative;
   overflow: hidden;
-  background: linear-gradient (rgb(31, 0, 42), rgb(0, 0, 0));
+  /* background-color: linear-gradient (rgb(31, 0, 42), rgb(0, 0, 0)); */
+  background-attachment: fixed;
 }
 
 .main-about::before {
@@ -267,9 +276,9 @@ article #text-details::-webkit-scrollbar-thumb {
     height: 150px;
   }
   article #text-details {
-    height: 75px!important;
+    height: 75px !important;
   }
-  article #text-details small{
+  article #text-details small {
     font-size: 10px;
   }
 }
@@ -299,7 +308,7 @@ article #text-details::-webkit-scrollbar-thumb {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .modal-content {
@@ -321,13 +330,10 @@ article #text-details::-webkit-scrollbar-thumb {
 }
 
 /* Add any other styles as needed */
-i.fas.fa-chevron-left, i.fas.fa-chevron-right {
+i.fas.fa-chevron-left,
+i.fas.fa-chevron-right {
   padding: 20px;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  /* transform: translateY(50%); */
+  background-color: rgba(0, 0, 0, 0.7);
   height: 60vh;
 }
-/* i.fas.fa-chevron-right {
-  margin
-} */
