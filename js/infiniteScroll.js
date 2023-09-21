@@ -3,8 +3,8 @@
 // note - The Intersection Observer API provides a way to asynchronously observe changes
 //        in the intersection of a target element with an ancestor element or with a top-level document's viewport.
 
+const scrollContainer = document.querySelector(".scroll-container");
 document.addEventListener("DOMContentLoaded", () => {
-  const scrollContainer = document.querySelector(".scroll-container");
   const apiKey = "5e750355564957a2353604d8a9344e94";
   // const baseUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`;
   const baseUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}`;
@@ -57,3 +57,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   loadMovies(); // Initial loading of movies
 });
+
+// loadMovies()

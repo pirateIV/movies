@@ -312,7 +312,7 @@ header {
   left: 0 !important;
 }
 /* Infinite scoll section */
-.scroll-container {
+/* .scroll-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -332,7 +332,7 @@ header {
 }
 .scroll-container::-webkit-scrollbar {
   width: 10px;
-}
+} */
 .movie {
   width: 200px;
   border: 1px solid #ccc;
