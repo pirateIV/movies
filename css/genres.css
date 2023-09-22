@@ -10,7 +10,6 @@ nav {
 h1,
 h2 {
   text-align: center;
-  color: #333;
 }
 
 #genre-list {
@@ -19,7 +18,7 @@ h2 {
 }
 
 button {
-  background-color: #007bff;
+  background-color: #111213;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -30,7 +29,7 @@ button {
 }
 
 button:hover {
-  background-color: #111213;
+  background-color: #1c1d1e;
 }
 
 #movie-list {
