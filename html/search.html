@@ -20,97 +20,9 @@
 <body class="bg-000">
   <main class="position-relative">
     
-      
-      
-
-      <section class="search d-flex justify-content-center flex-column align-items-center position-relative"
-        id="section-search">
-        <h1 class="fs-1 text-white">Search and Discover</h1>
-        <small class="small text-danger">the unknown</small>
-        <div class="d-flex align-items-center justify-content-center flex-column  mt-2 gap-3">
-          <form class="search-box d-flex gap-3" id="search-form">
-            <input type="text" id="search" class="form-control" placeholder="Search for movies...">
-            <a class="btn btn-danger" href="#searchSection"><i class="fas fa-search"></i></a>
-          </form>
-        </div>
-        <div class="header-mt-5">
-          <ul class="d-flex gap-2 text-nowrap align-items-center justify-content-between gap-5">
-            <a class="text-danger fs-4 d-lg-block d-none">@Search Movie</a>
-          </ul>
-        </div>
-      </section>
-
-      <div class="filter-section mt-5" id="filter-section">
-
-        <div class="container ps-3 ">
-          <i class="fas fa-filter fs-2 bg-danger p-3 rounded-circle text-white" id="filterToggle"></i>
-          <p class="text-white">Use the filter icon to customize your search...</p>
-        </div>
-
-        <form action="" class="filter-container d-flex flex-column position-fixed top-0 z-3 h-100 end-0"
-          id="filterContainer">
-          <div class="d-flex justify-content-between w-100 ">
-            <label for="includeAdult">Include Adult:</label>
-            <input type="checkbox" class="form-check" id="includeAdult" checked>
-          </div>
-          <div>
-            <label for="language">Language:</label>
-
-            <select name="language" id="languageSelect" class="form-select bg-secondary">
-              <option value="" selected disabled>Language</option>
-              <!-- Add more language options here -->
-            </select>
-          </div>
-
-          <div>
-            <label for="genre">Genre: </label>
-
-            <select name="genre" id="genreSelect" class="form-select bg-secondary">
-              <option value="" selected disabled>Genre</option>
-              <!-- Fetch the available genres from TMDB -->
-            </select>
-          </div>
-          <div>
-            <label for="sortBy">Sort By:</label>
-            <select id="sortBy" class="form-select bg-secondary">
-              <option value="" disabled>Sort By</option>
-              <option value="vote_count" selected>Vote Count</option>
-              <option value="popularity_asc">Popularity (Ascending)</option>
-              <option value="popularity_desc">Popularity (Descending)</option>
-              <option value="revenue_asc">Revenue (Ascending)</option>
-              <option value="revenue_desc">Revenue (Descending)</option>
-              <option value="release_date_asc">Release Date (Ascending)</option>
-              <option value="release_date_desc">Release Date (Descending)</option>
-            </select>
-          </div>
-          <div>
-            <label for="releaseYear">Release Year:</label>
-            <input type="number" role="searchbox" class="form-control" id="releaseYear" min="1900" max="2099"
-              placeholder="curr - 2023">
-          </div>
-
-          <button class="btn btn-danger" id="applyFilters">Apply Filters</button>
-        </form>
-      </div>
-      <div class="section-mov-card m-auto container  p-5 mt-5 rounded mb-5" id="searchSection">
-        <div class="section-mov-card m-auto container p-5 mt-5 rounded mb-5" id="searchSection"
-          style="background-color: white;">
-
-          <div class="text-center p-5 m-5" id="spinalDiv">
-            <div class="spinner-border text-primary text-center" role="status">
-              <span class="sr-only text-center">Loading...</span>
-            </div>
-          </div>
-        </div>
-        <div class="position-fixed top-0 movContainer" id="movContainer"
-          style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.4);">
-          <div class="selected-mov-detail bg-000 text-white position-fixed p-3" id="selectedMovieDisplay">
-          </div>
-        </div>
   </main>
   
 
-  <script src="../js/header.js"></script>
   <script src="../js/footer.js"></script>
   <script src="../js/search.js"></script>
   <script src="../js/utils.js"></script>
