@@ -57,6 +57,7 @@ button:hover {
   width: 250px;
   justify-self: center;
   position: relative;
+  display: inline-block;
 }
 
 
@@ -66,19 +67,36 @@ button:hover {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(17, 17, 17, 1);
+  
+  background-size: cover;
+  background-position: center;
+}
+/* #movie-list div img {
+  position: relative;
+  display: inline-block;
+} */
+#movie-list div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0.8));
+  z-index: 1;
 }
 
 
-#movieList div article:hover {
-  transform: scale(1.05);
-  background-color: red;
+#movieList div  img {
+  transition: opacity 0.3s ease;
 }
 
 #movie-list div mov-title {
   position: absolute;
   bottom: 10px;
   left: 0;
+  text-shadow: 1px 2px 2px 2px #000;
 }
 
 @media (max-width: 768px) {

@@ -6,7 +6,7 @@
 const genreListContainer = document.getElementById("genre-list");
 const movieListContainer = document.getElementById("movie-list");
 const resultsPerPage = 20; // Number of results per page
-const totalResultsToFetch = 100; // Total results you want to fetch
+const totalResultsToFetch = 10; // Total results you want to fetch
 
 const moviesArr = [
   '',
@@ -64,14 +64,17 @@ function fetchMoviesByGenre(genreId, page) {
       console.log(movies)
 
       // Display movies
-      movies.forEach(movie => {
+      movies.forEach((movie, index) => {
         movieListContainer.innerHTML += `
         <div>
-        <article>
-        </article>
-        <mov-title class="text-white w-100">${movie.title}</mov-title>
-      </div>
+          <article class="genre-img overflow-hidden">
+            <img loading="lazy" class="img-fluid position-relative h-100 w-100" src="${img_path + movie.poster_path}" alt="${movie.title}">
+          </article>
+          <mov-title class="text-warning w-100">${movie.title}</mov-title>
+        </div>
         `
+        // const genreImg = document.querySelectorAll('.genre-img')[index]
+        // genreImg.style.backgroundImage = `url(${img_path + movie.poster_path})`
       });
 
       // Check if we need to fetch more results
