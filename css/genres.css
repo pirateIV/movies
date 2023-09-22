@@ -34,9 +34,14 @@ button:hover {
 }
 
 #movie-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(350px, 1fr)
+  ); /* Responsive grid with minimum item width of 200px */
+  gap: 20px;
+  flex-direction: column;
+  justify-self: center;
   align-items: flex-start;
   margin: 20px 0;
 }

@@ -2,6 +2,7 @@
 
 // const genreOption = `https://api.themoviedb.org/3/discover/movie?api_key=###&with_genres=`
 const api_key = "5e750355564957a2353604d8a9344e94";
+const img_path = "https://image.tmdb.org/t/p/w1280";
 const genreListContainer = document.getElementById("genre-list");
 const movieListContainer = document.getElementById("movie-list");
 const resultsPerPage = 20; // Number of results per page
@@ -15,12 +16,16 @@ function fetchMoviesByGenre(genreId, page) {
     .then(response => response.json())
     .then(data => {
       const movies = data.results;
+      console.log(movies)
 
       // Display movies
       movies.forEach(movie => {
-        const movieItem = document.createElement("div");
-        movieItem.textContent = movie.title;
-        movieListContainer.appendChild(movieItem);
+        movieListContainer.innerHTML += `
+          <div>
+            <h4>${movie.title}</h4>
+            <img width="300" src="${img_path + movie.backdrop_path}" loading="lazy"> 
+          </div>
+        `
       });
 
       // Check if we need to fetch more results
