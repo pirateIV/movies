@@ -37,24 +37,49 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(350px, 1fr)
+    minmax(240px, 1fr)
   ); /* Responsive grid with minimum item width of 200px */
-  gap: 20px;
+  /* gap: 5px; */
   flex-direction: column;
   justify-self: center;
   align-items: flex-start;
-  margin: 20px 0;
+  /* margin: 20px 0; */
 }
 
 #movie-list div {
   background-color: #fff;
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: 3px solid #111;
+  /* padding: 10px; */
+  height: 350px;
   margin: 10px;
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  width: 200px;
+  width: 250px;
+  justify-self: center;
+  position: relative;
+}
+
+
+#movie-list div article {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(17, 17, 17, 1);
+}
+
+
+#movieList div article:hover {
+  transform: scale(1.05);
+  background-color: red;
+}
+
+#movie-list div mov-title {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
 }
 
 @media (max-width: 768px) {

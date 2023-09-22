@@ -8,6 +8,55 @@ const movieListContainer = document.getElementById("movie-list");
 const resultsPerPage = 20; // Number of results per page
 const totalResultsToFetch = 100; // Total results you want to fetch
 
+const moviesArr = [
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+]
+
+moviesArr.forEach(item => {
+  movieListContainer.innerHTML += `
+    <div>
+      <article>
+      </article>
+      <mov-title class="text-white w-100">The Guardians of the Galaxy - Holiday special</mov-title>
+    </div>
+  `
+})
+
 // Function to fetch and display movies by genre
 function fetchMoviesByGenre(genreId, page) {
   fetch(
@@ -23,7 +72,7 @@ function fetchMoviesByGenre(genreId, page) {
         movieListContainer.innerHTML += `
           <div>
             <h4>${movie.title}</h4>
-            <img width="300" src="${img_path + movie.backdrop_path}" loading="lazy"> 
+            <img width="300" src="${img_path + movie.poster_path}" loading="lazy"> 
           </div>
         `
       });
