@@ -94,9 +94,18 @@ button:hover {
 
 #movie-list div mov-title {
   position: absolute;
+  left: 0;
   bottom: 10px;
+  text-shadow: 1px 2px 2px 2px #000;
+  transition: 0.3s ease;
+
+}
+#movie-list div:hover mov-title {
+  position: absolute;
+  /* bottom: 10px; */
   left: 0;
   text-shadow: 1px 2px 2px 2px #000;
+  transform: translateY(-290px);
 }
 
 @media (max-width: 768px) {
