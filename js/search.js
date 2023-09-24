@@ -101,7 +101,6 @@ applyFilterBtn.addEventListener("click", async (e) => {
   filterMovies(data);
 });
 
-// filter ends
 
 // displaying movie
 let searchResArr;
