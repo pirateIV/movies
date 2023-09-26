@@ -34,7 +34,7 @@ const headerElement = `
 
   <ul class="nav-icons nav gap-3 align-items-center flex-nowrap order-md-3 order-3">
     <li class="position-relative">
-      <a href="html/search.html"><i class="fas fa-search text-white"></i></a>
+      <a href="html/genres.html#searchSection"><i class="fas fa-search text-white"></i></a>
 
       <div class="search-bar d-none bg-white br-30 position-absolute p-5" style="z-index: 40">
 

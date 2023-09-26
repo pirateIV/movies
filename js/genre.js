@@ -5,8 +5,8 @@
 // const img_path = "https://image.tmdb.org/t/p/w1280";
 const genreListContainer = document.getElementById("genre-list");
 const movieListContainer = document.getElementById("movie-list");
-const resultsPerPage = 20; // Number of results per page
-const totalResultsToFetch = 10; // Total results you want to fetch
+const resultsPerPage = 10; // Number of results per page
+const totalResultsToFetch = 100; // Total results you want to fetch
 
 const moviesArr = [
   '',
