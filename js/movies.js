@@ -3,7 +3,7 @@
 // // https://api.themoviedb.org/3/movie/298618/credits?api_key=5e750355564957a2353604d8a9344e94
 
 // ----- Enter search query----------------------------//
-window.addEventListener('DOMContentLoaded', ()=> {
+window.addEventListener('DOMContentLoaded', () => {
   document.body.style.display = 'block'
 })
 
@@ -35,7 +35,7 @@ async function getMovies(url) {
     const movies = data.results;
     allMovies = allMovies.concat(movies);
 
-    if (allMovies.length >= 200) {
+    if (allMovies.length >= 20) {
       break;
     }
   }
