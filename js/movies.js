@@ -35,7 +35,7 @@ async function getMovies(url) {
     const movies = data.results;
     allMovies = allMovies.concat(movies);
 
-    if (allMovies.length >= 20) {
+    if (allMovies.length >= 200) {
       break;
     }
   }
