@@ -122,7 +122,7 @@ function filterMovies(data) {
     } = searchResArr;
     searchResArr.forEach(item => {
       searchSection.innerHTML += `
-      <div class="movie-card mt-4 d-flex rounded-3 pt-4 bg-dark flex-column shadow align-items-center justify-content-center position-relative">
+      <div class="movie-card mt-4 d-flex rounded-3 m-1 pt-4 bg-dark flex-column shadow align-items-center justify-content-center position-relative">
       <small class="small rounded-circle d-flex align-items-center justify-content-center position-absolute text-white"
        style="width: 25px; height: 25px; top: 10px; right: 20px; border: 2px solid ${randomBorder()};
         background: rgb(0,0,0); box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);">${
