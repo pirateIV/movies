@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -100,8 +101,8 @@
             <p class="text-white">Use the filter icon to customize your search...</p>
           </div>
   
-          <!-- <form action="" class="filter-container d-flex flex-column position-fixed top-0 h-100 end-0"
-            id="filterContainer" style="z-index: 100;">
+          <form action="" class="filter-container d-flex flex-column position-fixed top-0 h-100 end-0"
+            id="filterContainer" style="z-index: 100; transform: translateX(350px) ;">
             <div class="d-flex justify-content-between w-100 ">
               <label for="includeAdult">Include Adult:</label>
               <input type="checkbox" class="form-check" id="includeAdult" checked>
@@ -143,23 +144,10 @@
             </div>
   
             <button class="btn btn-danger" id="applyFilters">Apply Filters</button>
-          </form> -->
+          </form>
         </div>
         <div class="section-mov-card m-auto container  p-5 mt-5 rounded mb-5" id="searchSection">
-          <div class="section-mov-card m-auto container p-5 mt-5 rounded mb-5" id="searchSection"
-            style="background-color: white;">
-  
-            <div class="text-center p-5 m-5" id="spinalDiv">
-              <div class="spinner-border text-primary text-center" role="status">
-                <span class="sr-only text-center">Loading...</span>
-              </div>
-            </div>
-          </div>
-          <div class="position-fixed top-0 movContainer" id="movContainer"
-            style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.4);">
-            <div class="selected-mov-detail bg-000 text-white position-fixed p-3" id="selectedMovieDisplay">
-            </div>
-          </div>
+          
         </div>
       </section>
     </main>
@@ -168,6 +156,5 @@
     <script src="../js/search.js"></script>
     <script src="../js/genre.js"></script>
     <script src="../js/footer.js"></script>
-    <script src=".."></script>
   </body>
 </html>

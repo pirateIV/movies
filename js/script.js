@@ -413,7 +413,7 @@ function votesPercentage(percentage) {
 }
 
 function updateHomeMoviesList(movieContents) {
-  console.log(movieContents)
+  // console.log(movieContents)
 
   movieContents.forEach((movie, index) => {
     movieList.innerHTML += `

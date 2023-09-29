@@ -284,12 +284,6 @@ searchSection.addEventListener("click", event => {
 
 // Exit Movie Details
 
-movContainer.addEventListener("click", event => {
-  const clickedElement = event.target;
-  if (clickedElement.id === "close-btn") {
-    movContainer.style.transform = `scale(0)`;
-  }
-});
 
 function updateVotesAverage(vote) {
   if (vote >= 75) {
@@ -312,6 +306,7 @@ filterToggle.addEventListener("click", e => {
   displayFilter();
   console.log(123);
 });
+filterContainer.style.transform = `translateX(${350}px)`
 function displayFilter() {
   if (filterContainer.style.transform === `translateX(${0}px)`) {
     filterContainer.style.transform = `translateX(${350}px)`;

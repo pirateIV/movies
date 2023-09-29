@@ -76,7 +76,7 @@ section.search input {
   max-width: 900px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
