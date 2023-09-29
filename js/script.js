@@ -259,7 +259,7 @@ async function updateHeader() {
       backdrop_path,
       genre_ids,
     } = movie;
-    // console.log(movie);
+    console.log(movie);
 
     const data = await getGenres(api_url_genres);
     // Genre List
