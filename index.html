@@ -14,6 +14,10 @@
 
   <link rel="shortcut icon" href="../movies-sm.webp" type="image/x-icon">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-bY3qkHs8p7MUbQoyK1FjNd3NF5N6nPIBdaUYnr6USzRjLNU4b1rWny+KGyP8F0BInDTh9UvBDzeaBFsZUx4Qw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +34,7 @@
 
 </head>
 
-<body class="bg-000">
+<body class="bg-dark">
   <main class="position-relative" role="application">
     <header id="header" role="heading">
       <section class="w-100">
@@ -82,12 +86,47 @@
           </ul>
         </nav>
         <section id="moviesHeader" class="info-mov mt-90">
-          
+          <div class="container-mov content-container m-auto" id="content-info"></div>
+          <img class="br-30" src="" alt="" />
         </section>
       </section>
     </header>
+<!-- 
+    <section class="search-mov" id="searchMov">
+      <div class="search-header">
+          <aside class="curr-search-title">
+            <aside class="row">
+              <div class="col-6 search-cards">
+                <aside>
+                  <div class="row gap-3 ms-5 justify-content-center" id="movieList">
+                  </div>
+                </aside>
+              </div>
+              <div class="col-5 search-card-desc bg-gradient rounded-2">
+                <aside>
+                  <div class="top w-100 rounded-2 mt-1">
 
-    
+                  </div>
+
+                  <div class="pt-2">
+                    <h3 class="text-warning">The Hidden Treasure</h3>
+                    <p class="text-muted">Lorem ipsum dolor sit amet.</p>
+                    <blockquote>
+                      <small class="text-white-50">
+                        oribus rsed error, est ab harum nisi? Ad aperiam perferendis culpa, ipsa numquam repudiandae
+                        officiis provident sit corporis labore! Molestias, ipsa doloribus soluta reprehenderit animi
+                        vel?
+                        Ipsum consequatur odit aliquid dignissimos id eligendi deserunt recusandae accusamus veniam ea
+                        officiis beatae repellendus non quod unde labore mollitia sequi obcae
+                      </small>
+                    </blockquote>
+                  </div>
+                </aside>
+              </div>
+            </aside>
+          </aside>
+      </div>
+    </section> -->
 
     <div class="top_rated_mov bg-000" style="height: calc(100vh + 100px);">
       <div class="container top-rated pt-5 ">
@@ -107,18 +146,55 @@
       style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.4);">
       <div class="selected-mov-detail bg-000 text-white position-fixed p-3" id="selectedMovieDisplay"></div>
     </div>
-    <!-- <div class="video-container" id="video-container">
+    <div class="video-container" id="video-container">
       <div class="next-prev-btns">
         <i class="fas fa-chevron-left"></i>
         <i class="fas fa-chevron-right"></i>
       </div>
-    </div> -->
+    </div>
   </main>
-  
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <h4>About Us</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id nunc vel ex blandit interdum.</p>
+          <ul class="social-icons">
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://github.com/ben64103/movie-database"><i class="fab fa-github"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4>Quick Links</h4>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="html/movies.html">Movies</a></li>
+            <li><a href="html/search.html">Search</a></li>
+            <li><a href="#">Upcoming</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4>Contact Us</h4>
+          <p>Email: info@moviewebsite.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="text-center">© 2023 Movie Website. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/script.js"></script>
-  <script src="js/footer.js"></script>
   <script src="js/utils.js"></script>
+  <!-- <script src="js/movies.js"></script> -->
+  <script src="js/main.js"></script>
 </body>
 
 </html>

@@ -132,7 +132,7 @@ function filterMovies(data) {
           img_path + item.poster_path
         }" alt="Movie Poster" class="movie-poster rounded-3">
         <div class="movie-details">
-            <h6 class="movie-title text-light w-100 text-center p-2 text-center">${
+            <h6 class="movie-title text-warning w-100 text-center p-2 text-center">${
               item.title
             }</h6>
             <p class="movie-release-year text-light text-center">${
