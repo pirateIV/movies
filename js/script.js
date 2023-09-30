@@ -412,20 +412,20 @@ function votesPercentage(percentage) {
   return `${borderLength} ${circumference - borderLength}`;
 }
 
-function updateHomeMoviesList(movieContents) {
-  // console.log(movieContents)
+// function updateHomeMoviesList(movieContents) {
+//   // console.log(movieContents)
 
-  movieContents.forEach((movie, index) => {
-    movieList.innerHTML += `
-      <img src="${img_path + movie.poster_path}" loading="lazy" class="col-3 bg-gradient border border-secondary cardMov" style="height: 200px;">
-    `;
-  });
+//   movieContents.forEach((movie, index) => {
+//     movieList.innerHTML += `
+//       <img src="${img_path + movie.poster_path}" loading="lazy" class="col-3 bg-gradient border border-secondary cardMov" style="height: 200px;">
+//     `;
+//   });
   
-  const cardMovElements = document.querySelectorAll('.cardMov');
-  cardMovElements.forEach((card, index) => {
-    card.addEventListener('click', (e) => {
-      console.log(movieContents[index], index);
-    });
-  });
+//   const cardMovElements = document.querySelectorAll('.cardMov');
+//   cardMovElements.forEach((card, index) => {
+//     card.addEventListener('click', (e) => {
+//       console.log(movieContents[index], index);
+//     });
+//   });
   
-}
+// }
