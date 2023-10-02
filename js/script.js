@@ -392,3 +392,33 @@ function votesPercentage(percentage) {
 
   return `${borderLength} ${circumference - borderLength}`;
 }
+const trailerContainer = document.getElementById("trailerFrame");
+const prevTrailerBtn = document.getElementById("prevTrailerBtn");
+const nextTrailerBtn = document.getElementById("nextTrailerBtn");
+
+let currentTraileIndex = 0;
+let trailerKeys = []; // Store trailer keys
+
+// Function to update the trailer iframe source
+function loadTrailer(videoKey) {
+  trailerContainer.src = `https://www.youtube.com/embed/${videoKey}?autoplay=0`;
+}
+
+// Function to display the next trailer
+function nextTrailer() {
+  if (trailerKeys.length === 0) {
+    return; // No trailers available
+  }
+  currentTraileIndex = (currentTraileIndex + 1) % trailerKeys.length;
+  loadTrailer(trailerKeys[currentTraileIndex]);
+}
+
+// Function to display the previous trailer
+function prevTrailer() {
+  if (trailerKeys.length === 0) {
+    return; // No trailers available
+  }
+  currentTraileIndex =
+    (currentTraileIndex - 1 + trailerKeys.length) % trailerKeys.length;
+  loadTrailer(trailerKeys[currentTraileIndex]);
+}
