@@ -1,8 +1,4 @@
-// let genre_id = 28;
 
-// const genreOption = `https://api.themoviedb.org/3/discover/movie?api_key=###&with_genres=`
-// const api_key = "5e750355564957a2353604d8a9344e94";
-// const img_path = "https://image.tmdb.org/t/p/w1280";
 const genreListContainer = document.getElementById("genre-list");
 const movieListContainer = document.getElementById("movie-list");
 const resultsPerPage = 10; // Number of results per page
@@ -29,8 +25,6 @@ function fetchMoviesByGenre(genreId, page) {
           <mov-title class="text-warning w-100">${movie.title}</mov-title>
         </div>
         `
-        // const genreImg = document.querySelectorAll('.genre-img')[index]
-        // genreImg.style.backgroundImage = `url(${img_path + movie.poster_path})`
       });
 
       // Check if we need to fetch more results

@@ -464,26 +464,49 @@ async function searchPerson(name) {
   const personData = await nameSearcheResp.json();
 }
 
-const apiKey = "YOUR_TMDB_API_KEY";
-const movieContainer = document.getElementById("movie-container");
-const modal = document.getElementById("modal");
-const closeModal = document.getElementById("close-modal");
-const trailerVideo = document.getElementById("trailer-video");
-
 async function getMovieTrailers(movie_id) {
-  try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
-    );
-    const data = await response.json();
-    console.log(data.results);
-      let trailerKey = `${youtube_watch}${data.results[0].key}`
+  const trailerFrame = document.getElementById('trailerFrame')
+  const trailerTitle = document.getElementById('trailerTitle');
+  const prevTrailerBtn = document.getElementById('prevTrailerBtn');
+  const nextTrailerBtn = document.getElementById('nextTrailerBtn');
+  let currentTrailerIndex = 0;
+  let trailerData = []; // Store trailer data here
 
-    trailerFrame.src = trailerKey
-    // data.results.forEach((trailer) => {
-    //   console.log(trailerKey)
-    // })
-  } catch {
-    console.error("Error   data:", error);
+  // Function to display the current trailer
+  function showTrailer(index) {
+    if (trailerData.length > 0 && index >= 0 && index < trailerData.length) {
+      const trailer = trailerData[index];
+      const trailerKey = `${youtube_watch}${trailer.key}`;
+      trailerFrame.src = trailerKey;
+      trailerTitle.innerHTML = `<p class="text-warning mt-5 text-center">${trailer.name}</p>`;
+    }
   }
+
+  // Event listener for previous trailer button
+  prevTrailerBtn.addEventListener('click', function () {
+    currentTrailerIndex = (currentTrailerIndex - 1 + trailerData.length) % trailerData.length;
+    showTrailer(currentTrailerIndex);
+  });
+
+  // Event listener for next trailer button
+  nextTrailerBtn.addEventListener('click', function () {
+    currentTrailerIndex = (currentTrailerIndex + 1) % trailerData.length;
+    showTrailer(currentTrailerIndex);
+  });
+
+  // Function to fetch movie trailers
+  async function getMovieTrailers(movie_id) {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
+      );
+      const data = await response.json();
+      console.log(data.results);
+      trailerData = data.results;
+      showTrailer(currentTrailerIndex);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  }
+  getMovieTrailers(movie_id)
 }
