@@ -59,8 +59,14 @@
 
         
       </section>
+      
       <section class="main-about position-relative" id="mainAbout"></section>
         <div class="scroll-container"></div>  
+        <div class="trailer-container bg-000 position-relative" style="height: 70vh;">
+          <iframe class="responsive-iframe position-relative" id="trailerFrame" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <button class="prev-trailer-btn" id="prevTrailerBtn" onclick="prevTrailer()">Previous Trailer</button>
+          <button class="next-trailer-btn" id="nextTrailerBtn" onclick="nextTrailer()">Next Trailer</button>
+        </div>
 
       <div class="movie-similar" id="movieSimilar">
         <h2 class="display 2 text-center text-white" role="heading">Similar Movies</h2>

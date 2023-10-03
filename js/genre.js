@@ -8,50 +8,6 @@ const movieListContainer = document.getElementById("movie-list");
 const resultsPerPage = 10; // Number of results per page
 const totalResultsToFetch = 20; // Total results you want to fetch
 
-const moviesArr = [
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-  '',
-]
-
-moviesArr.forEach(item => {
-  movieListContainer.innerHTML += `
-    
-  `
-})
 
 // Function to fetch and display movies by genre
 function fetchMoviesByGenre(genreId, page) {

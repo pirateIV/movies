@@ -165,6 +165,25 @@ function viewTrailer(videoKey) {
     allowfullscreen
   ></iframe>
 `;
+fetch(
+  `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${api_key}`
+)
+  .then((vidResponse) => vidResponse.json())
+  .then((vidResponse) => {
+    trailerKeys = vidResponse.results
+      .filter((result) => result.site === "YouTube" && result.type === "Trailer")
+      .map((result) => result.key);
+
+    if (trailerKeys.length > 0) {
+      loadTrailer(trailerKeys[currentTrailerIndex]);
+      // Enable or disable navigation buttons based on trailer count
+      prevTrailerBtn.disabled = currentTrailerIndex === 0;
+      nextTrailerBtn.disabled = currentTrailerIndex === trailerKeys.length - 1;
+    }
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 }
 
 let genres = [];

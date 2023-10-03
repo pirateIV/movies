@@ -3,7 +3,7 @@
 body {
   background-color: black !important;
   display: none;
-  background: url(../img/pexels-ksenia-chernaya-5691695.jpg);
+  /* background: url(../img/pexels-ksenia-chernaya-5691695.jpg); */
   background-size: cover;
   background-attachment: fixed;
   height: 100vh;

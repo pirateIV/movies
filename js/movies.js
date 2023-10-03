@@ -3,22 +3,20 @@
 // // https://api.themoviedb.org/3/movie/298618/credits?api_key=5e750355564957a2353604d8a9344e94
 
 // ----- Enter search query----------------------------//
-window.addEventListener('DOMContentLoaded', () => {
-  document.body.style.display = 'block'
-})
+window.addEventListener("DOMContentLoaded", () => {
+  document.body.style.display = "block";
+});
 
 const api_key = "5e750355564957a2353604d8a9344e94";
 const api_url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${api_key}`;
 const api_mov_details = `
 https://api.themoviedb.org/3/movie/{movie_id}`;
 const img_path = "https://image.tmdb.org/t/p/w1280";
-const youtube_watch = `https://www.youtube.com/watch?v=`;
-
+const youtube_watch = `https://www.youtube.com/embed/`;
 
 const mainSection = document.getElementById("mainSection");
 const mainAbout = document.getElementById("mainAbout");
 const similarMov = document.getElementById("similar-mov");
-
 
 let currentIndex = 22;
 
@@ -43,7 +41,7 @@ async function getMovies(url) {
   displayMovie(allMovies[currentIndex]);
 
   console.log(allMovies);
-  window.addEventListener("click", (e) => {
+  window.addEventListener("click", e => {
     // currentIndex++
     // console.log(currentIndex)
     // displayMovie(allMovies[currentIndex]);
@@ -66,6 +64,7 @@ async function getMovies(url) {
 async function displayMovie(movie) {
   const data = await getMoviesId(movie.id);
   console.log(data, "get-movies");
+  getMovieTrailers(movie.id)
 
   mainSection.style.background = ` linear-gradient(to right, rgba(0, 0, 0, 1) 43%, rgba(0,0,0,0.1)) , url(${
     img_path + movie.backdrop_path
@@ -104,7 +103,7 @@ async function displayMovie(movie) {
   // Get Similar movies
   getSimilarMovies(movie.id);
   // Get Movie trailers
-  getMovieTrailers(movie.id)
+  getMovieTrailers(movie.id);
 }
 async function getMovieDetails(mov_detail_id) {
   // const resp = await fetch(`
@@ -143,26 +142,18 @@ async function getMovieDetails(mov_detail_id) {
   console.log(creditData.cast);
   console.log(creditData.cast);
 
-  const cast = creditData.cast.filter((cst) => cst.profile_path !== null);
-  const crew = creditData.crew.filter((cst) => cst.profile_path !== null);
+  const cast = creditData.cast.filter(cst => cst.profile_path !== null);
+  const crew = creditData.crew.filter(cst => cst.profile_path !== null);
   console.log(crew, cast);
 
   // find the director for each movie
-  const director = crew.find((member) => member.job === "Director") || null
+  const director = crew.find(member => member.job === "Director") || null;
 
   const formattedRevenue = formatNumber(revenue);
 
   console.log(formattedRevenue);
 
-
-  const {
-    profile_path,
-    character,
-    cast_id,
-    gender,
-    order,
-    name
-  } = creditData;
+  const { profile_path, character, cast_id, gender, order, name } = creditData;
 
   // console.log(data);
 
@@ -190,11 +181,13 @@ async function getMovieDetails(mov_detail_id) {
             <ul class="list-unstyled">
               <li class="d-flex justify-content-between">
                 <span class="text-white">Released</span>
-                <span class="text-white">${release_date.split("-").join("/")}</span>
+                <span class="text-white">${release_date
+                  .split("-")
+                  .join("/")}</span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-white">Director</span>
-                <span class="">${''} </span>
+                <span class="">${""} </span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-light">Revenue</span>
@@ -219,7 +212,9 @@ async function getMovieDetails(mov_detail_id) {
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-white">Spoken Languages</span>
-                <span class="text-white">${spoken_languages.map((item) => item.english_name).join(", ")}</span>
+                <span class="text-white">${spoken_languages
+                  .map(item => item.english_name)
+                  .join(", ")}</span>
               </li>
               <li class="d-flex justify-content-between">
                 <span class="text-light">Production companies</span>
@@ -243,9 +238,9 @@ async function getMovieDetails(mov_detail_id) {
         <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
          <div class="d-flex flex-row gap-4 text-center">
          ${cast
-            .map(
-              (cst, index) =>
-                `<div class="cast-img rounded-2">
+           .map(
+             (cst, index) =>
+               `<div class="cast-img rounded-2">
                     <div>
                       ${`<img src="${
                         img_path + cst.profile_path
@@ -258,8 +253,8 @@ async function getMovieDetails(mov_detail_id) {
                       <small class="d-block opacity-50">${cst.character}</small>
                   </div>
                 </div>`
-            )
-            .join(" ")}
+           )
+           .join(" ")}
           </div>
        </section>
       </div>
@@ -297,7 +292,7 @@ async function getMovieDetails(mov_detail_id) {
   const castImg = document.querySelectorAll("#castImg");
   const crewImg = document.querySelectorAll("#crewImg");
   castImg.forEach((cstImg, index) => {
-    cstImg.addEventListener("click", async (e) => {
+    cstImg.addEventListener("click", async e => {
       let castid = creditData.cast[index].id;
       console.log(castid);
 
@@ -317,7 +312,7 @@ async function getMovieDetails(mov_detail_id) {
 
   // Data for Each crew
   crewImg.forEach((crwImg, index) => {
-    crwImg.addEventListener("click", async (e) => {
+    crwImg.addEventListener("click", async e => {
       let crewId = creditData.crew[index].id;
       console.log(crewId);
 
@@ -357,9 +352,9 @@ async function getSimilarMovies(similar_id) {
   const data = await resp.json();
 
   console.log(data.results);
-  const movieSimilar = document.getElementById('movieSimilar')
+  const movieSimilar = document.getElementById("movieSimilar");
   if (data.results.length === 0) {
-    movieSimilar.style.display = 'none'
+    movieSimilar.style.display = "none";
   }
   data.results.filter((item, index) => {
     if (item.poster_path !== null) {
@@ -406,8 +401,6 @@ async function getPersonMovieCredits(person_id) {
   const personData = await personCreditRes.json();
 }
 
-
-
 function convertRuntime(runtime) {
   let hourToMins = 60;
   let mins = runtime % hourToMins;
@@ -431,7 +424,7 @@ function filterNull(production_companies) {
   return prod_companies
     .map(
       (company, idx) =>
-      `<img class="filterNull" width="100" src="${
+        `<img class="filterNull" width="100" src="${
           img_path + company.logo_path
         }">`
     )
@@ -471,11 +464,11 @@ async function searchPerson(name) {
   const personData = await nameSearcheResp.json();
 }
 
-const apiKey = 'YOUR_TMDB_API_KEY';
-const movieContainer = document.getElementById('movie-container');
-const modal = document.getElementById('modal');
-const closeModal = document.getElementById('close-modal');
-const trailerVideo = document.getElementById('trailer-video');
+const apiKey = "YOUR_TMDB_API_KEY";
+const movieContainer = document.getElementById("movie-container");
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("close-modal");
+const trailerVideo = document.getElementById("trailer-video");
 
 async function getMovieTrailers(movie_id) {
   try {
@@ -484,32 +477,13 @@ async function getMovieTrailers(movie_id) {
     );
     const data = await response.json();
     console.log(data.results);
+      let trailerKey = `${youtube_watch}${data.results[0].key}`
 
-
-    // const movies = data.results;
-
-    // movies.forEach((movie) => {
-    //   const movieCard = document.createElement('div');
-    //   movieCard.classList.add('movie-card');
-    //   movieCard.innerHTML = `
-    //             <img class="movie-poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title} Poster">
-    //             <h2 class="movie-title">${movie.title}</h2>
-    //             <p class="movie-description">${movie.overview}</p>
-    //             <button class="watch-trailer" data-id="${movie_id}">Watch Trailer</button>
-    //         `;
-    //   movieContainer.appendChild(movieCard);
-    // });
-
-    // // Add event listeners for opening and closing the modal
-    // const watchButtons = document.querySelectorAll('.watch-trailer');
-    // watchButtons.forEach((button) => {
-    //   button.addEventListener('click', () => {
-    //     openModal(button.getAttribute('data-id'));
-    //   });
-    // });
-    // closeModal.addEventListener('click', closeModalHandler);
-    // window.addEventListener('click', outsideClickHandler);
-  } catch (error) {
-    console.error('Error fetching data:', error);
+    trailerFrame.src = trailerKey
+    // data.results.forEach((trailer) => {
+    //   console.log(trailerKey)
+    // })
+  } catch {
+    console.error("Error   data:", error);
   }
 }
