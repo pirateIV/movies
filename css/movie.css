@@ -396,3 +396,7 @@ i.fas.fa-chevron-right {
 .button-29:disabled {
   background-image: linear-gradient(to bottom, rgba(13, 201, 234, 0.5), rgb(13, 120, 234, 0.5));
 }
+
+span, small, .small {
+  text-shadow: 2px 2px 2px 1px white !important;
+}

@@ -46,19 +46,6 @@ async function getMovies(url) {
     // console.log(currentIndex)
     // displayMovie(allMovies[currentIndex]);
   });
-
-  // console.log(data.results)
-  // getMovieDetails(data.results[0].id);
-  // getMovieCredits(data.results[0].id);
-  // getSimilarMovies(data.results[0].id);
-
-  // Call the updateStars function to update the stars based on the rating
-  // updateStars(rating);
-
-  // Example usage: Update stars with a rating of 5
-  // updateStars(data.results[0].overview);
-
-  // });
 }
 
 async function displayMovie(movie) {
@@ -106,9 +93,6 @@ async function displayMovie(movie) {
   getMovieTrailers(movie.id);
 }
 async function getMovieDetails(mov_detail_id) {
-  // const resp = await fetch(`
-  // https://api.themoviedb.org/3/movie/${mov_detail_id}?api_key=${api_key}`);
-  // const data = await resp.json();
 
   // const details = data;
   const data = await getMoviesId(mov_detail_id);
@@ -222,7 +206,7 @@ async function getMovieDetails(mov_detail_id) {
                   ${production_companies
                     .map(
                       (comp, index) =>
-                        `<li class="ms-5 text-warning fw-bold ff-roboto genreBtn">${comp.name}</li>`
+                        `<li class="ms-5 genreBtn border-0 bg-dark rounded-1 text-warning fw-bold p-1 px-3 m-1">${comp.name}</li>`
                     )
                     .join(" ")}
                 </ul>
@@ -234,7 +218,7 @@ async function getMovieDetails(mov_detail_id) {
     </div>
     <div class="row mt-5">
       <div class="col">
-        <h1 class="text-white">Cast</h1>
+        <h3 class="text-white display-3">Cast</h3>
         <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
          <div class="d-flex flex-row gap-4 text-center">
          ${cast
@@ -261,7 +245,7 @@ async function getMovieDetails(mov_detail_id) {
     </div>
     <div class="row mt-5">
       <div class="col">
-        <h1 class="text-white">Crew</h1>
+        <h3 class="text-white display-3">Crew</h3>
         <section class="casts d-flex gap-5 overflow-scroll overflow-hidden position-relative" style="width: 90vw; height: 50vh">
           <div class="d-flex flex-row gap-4 text-center">
             ${crew
@@ -326,22 +310,7 @@ async function getMovieDetails(mov_detail_id) {
       // -------------------- navigate to page  ------------------------ //
       window.location.href = "../html/pages.html";
     });
-  });
-  // --- creditData - array that contains both cast and the crew for current movie
-  // const compImg = document.querySelectorAll("#compImg");
-  // const compName = document.getElementById("compName");
-  // compName.addEventListener("mouseover", (e) => {
-  //   compImg.forEach((img) => {
-  //     img.classList.remove("d-none");
-  //     img.classList.add("d-block");
-  //   });
-  // });
-  // compName.addEventListener("mouseleave", (e) => {
-  //   compImg.forEach((img) => {
-  //     img.classList.remove("d-block");
-  //     img.classList.add("d-none");
-  //   });
-  // });
+  })
   movPoster.style.backgroundImage = `url(${img_path + poster_path})`;
 }
 
