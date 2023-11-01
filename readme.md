@@ -7,4 +7,3 @@
   <li><img src="https://img.shields.io/badge/Bootstrap-5.3-purple.svg" alt="Bootstrap"></li>
 </ul>
 
-<img src="">
