@@ -1,145 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="movies-sm.webp" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Movie app with TMDB API, access to vast collection of movies and so much more..."
+    />
+    <meta name="description" content="Author: Benjamin Abolade" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/media.css">
-  <link rel="shortcut icon" href="../movies-sm.webp" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-bY3qkHs8p7MUbQoyK1FjNd3NF5N6nPIBdaUYnr6USzRjLNU4b1rWny+KGyP8F0BInDTh9UvBDzeaBFsZUx4Qw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
-    integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="bootstrap.min.css" />
-</head>
-
-<body class="bg-dark">
-  <main class="position-relative" role="application">
-    <header id="header" role="heading">
-      <section class="w-100">
-        <nav class="d-flex pt-4 pe-5 align-items-center justify-content-between w-100 flex-nowrap">
-          <a href="./index.html" class="header-logo order-lg-0 order-1" href="index.html">
-            <img class="navbar-brand ms-9" width="160" src="img/logo.png" /></a>
-
-          <i class="fas fa-bars text-white ps-4  d-lg-none d-flex order-lg-0" id="nav-toggle"></i>
-          <ul class="nav-links nav align-items-center gap-0 gap-lg-4 order-lg-0">
-            <li>
-              <a class="text-uppercase text-decoration-none text-danger active" href="./index.html">Home
-                <i class="fas fa-angle-down"></i>
-              </a>
-            </li>
-            <li>
-              <a class="text-uppercase text-decoration-none text-white" href="./html/genres.html">Genres
-                <i class="fas fa-angle-down"></i>
-              </a>
-            </li>
-            <li>
-              <a class="text-uppercase text-decoration-none text-white" href="./html/movie.html">Movies
-                <!-- <i class="fas fa-angle-down"></i> -->
-              </a>
-            </li>
-         
-            <li class="d-none">
-              <a class="text-uppercase text-decoration-none text-white" href="./html/news.html">News
-              </a>
-            </li>
-            <li>
-              <a class="text-uppercase text-decoration-none text-white" href="./html/contact.html">Contact</a>
-            </li>
-          </ul>
-
-          <ul class="nav-icons nav gap-3 align-items-center flex-nowrap order-md-3 order-3">
-            <li class="position-relative">
-              <a href="html/search.html"><i class="fas fa-search text-white"></i></a>
-
-              <div class="search-bar d-none bg-white br-30 position-absolute p-5" style="z-index: 40">
-
-              </div>
-            </li>
-            <li>
-              <a href=""><i class="fas fa-bell text-white"></i></a>
-            </li>
-            <li>
-              <a href=""><img src="img/user.png" width="30" alt="user" /></a>
-            </li>
-          </ul>
-        </nav>
-        <section id="moviesHeader" class="info-mov mt-90">
-          <div class="container-mov content-container m-auto" id="content-info"></div>
-          <img class="br-30" src="" alt="" />
-        </section>
-      </section>
-    </header>
-    <div class="top_rated_mov bg-000" style="height: calc(100vh + 100px);">
-      <div class="container top-rated pt-5 ">
-        <h2 class="text-light text-center mt-4 ">Top Rated Movies</h2>
-          <small class="text-muted pt-3">Welcome to our Top Rated Movies section! Here, we've curated a list of some of the
-            most beloved and critically acclaimed movies of all time. These cinematic masterpieces have captivated
-            audiences and left a lasting impact on the world of cinema. Take a journey through the finest stories,
-            exceptional performances, and breathtaking cinematography that make these movies truly extraordinary.
-          </small>
-          <div class="pop-movies">
-            <div class="mov-list w-100 overflow-hidden " id="topRatedMovies"></div>
-          </div>
-      </div>
-    </div>
-    <div class="position-fixed top-0 movContainer" id="movContainer"
-      style="width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, 0.4);">
-      <div class="selected-mov-detail bg-000 text-white position-fixed p-3" id="selectedMovieDisplay"></div>
-    </div>
-    <div class="video-container" id="video-container"></div>
-  </main>
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <h4>About Us</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id nunc vel ex blandit interdum.</p>
-          <ul class="social-icons">
-            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://github.com/ben64103/movie-database"><i class="fab fa-github"></i></a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <h4>Quick Links</h4>
-          <ul class="list-unstyled">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="html/movies.html">Movies</a></li>
-            <li><a href="html/search.html">Search</a></li>
-            <li><a href="#">Upcoming</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <h4>Contact Us</h4>
-          <p>Email: info@moviewebsite.com</p>
-          <p>Phone: +1 (123) 456-7890</p>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-12">
-          <p class="text-center">© 2023 Movie Website. All rights reserved.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/utils.js"></script>
-  <script src="js/script.js"></script>
-</body>
-
+    <title>React Movies</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
