@@ -50,29 +50,34 @@ const MediaList = ({ mediaItems, mediaList }) => {
                 mediaItems?.airing_today.map((item) => (
                   <MediaItem key={item?.id} item={item} itemType={media.type} />
                 ))}
-              <MediaLink media={media}>
-                <div className="media-item">
-                  <div
-                    className={twMerge(
-                      "flex flex-col items-center justify-around",
-                      "opacity-40 translate-y-1/2",
-                    )}
-                    aria-hidden={true}
-                  >
+
+              {Array.from(
+                Array(Object.values(mediaItems) > 0 ? 1 : 20).keys(),
+              ).map(() => (
+                <MediaLink media={media}>
+                  <div className="media-item">
                     <div
                       className={twMerge(
-                        media.type === "movie"
-                          ? "i-ph-film-strip"
-                          : "i-ph-television-simple",
-                        "text-lg sm:text-2xl lg:text-4xl`",
+                        "flex flex-col items-center justify-around",
+                        "opacity-40 translate-y-1/2",
                       )}
-                    ></div>
-                    <div className="text-xl sm:text-base">
-                      {t("Explore more")}
+                      aria-hidden={true}
+                    >
+                      <div
+                        className={twMerge(
+                          media.type === "movie"
+                            ? "i-ph-film-strip"
+                            : "i-ph-television-simple",
+                          "text-lg sm:text-2xl lg:text-4xl`",
+                        )}
+                      ></div>
+                      <div className="text-xl sm:text-base">
+                        {t("Explore more")}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </MediaLink>
+                </MediaLink>
+              ))}
             </div>
           </div>
         </div>

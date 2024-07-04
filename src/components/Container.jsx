@@ -48,7 +48,7 @@ const Container = ({ children }) => {
     <div id="app-scroller">
       <div>
         {!location.pathname.includes("search") && (
-            <HeroMedia type={selectedMediaType} item={heroMedia} />
+          <HeroMedia type={selectedMediaType} item={heroMedia} />
         )}
         {!location.pathname.includes("search") &&
           !location.pathname.includes(movieId || tvId) && (

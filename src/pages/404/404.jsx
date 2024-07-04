@@ -14,7 +14,7 @@ const NotFound = () => {
 
         <div className="my-5">
           <div onClick={() => navigate(-1)} className="text-blue-600">
-            <span>Back to home</span> 👈🏿
+            <span>Go back</span> 👈🏿
           </div>
         </div>
       </div>

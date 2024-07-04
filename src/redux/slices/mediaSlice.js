@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { listMedia, getMedia } from "services/tmdbAPI";
+import { listMedia, getMedia, getMediaRecommended } from "services/tmdbAPI";
 
 export const fetchMediaCollection = createAsyncThunk(
   "media/fetchCollection",
@@ -20,17 +20,26 @@ export const fetchHeroMedia = createAsyncThunk(
   },
 );
 
+export const fetchRecommendedMovies = createAsyncThunk(
+  "media/fetchRecommendedMovies",
+  async ({ movieId }) => {
+    const response = await getMediaRecommended("movie", movieId);
+    return response.data.results;
+  },
+);
+
 const mediaSlice = createSlice({
   name: "media",
   initialState: {
     heroMedia: null,
     mediaCollection: { movies: [], tv: [] },
     selectedMovie: null,
+    recommended: null,
     loading: false,
     error: null,
   },
   reducers: {
-    getSelectedMedia(state, action) {
+    getSelectedMedia(state, _) {
       return state.heroMedia;
     },
   },
@@ -54,10 +63,21 @@ const mediaSlice = createSlice({
       .addCase(fetchHeroMedia.fulfilled, (state, action) => {
         state.loading = false;
         state.heroMedia = action.payload;
+      })
+      .addCase(fetchRecommendedMovies.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error;
+        console.log(state.error);
+      })
+      .addCase(fetchRecommendedMovies.fulfilled, (state, action) => {
+        state.loading = false;
+        console.log(action.payload);
+        state.recommended = action.payload;
       });
   },
 });
 
 export const getHeroMedia = (state) => state.media.heroMedia;
+export const getRecommendedMedia = (state) => state.media.recommended;
 
 export default mediaSlice.reducer;
