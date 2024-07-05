@@ -12,6 +12,7 @@ const MediaLink = ({ children, media }) => {
         `${media.type}/category/${media.query}`,
         `/${media.type}/category/${media.query}`,
       )}
+      aria-label={`Go to ${media.query}`}
     >
       {children}
     </Link>

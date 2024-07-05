@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Imgix from "react-imgix";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -8,41 +8,54 @@ import StarRatings from "components/StarRatings";
 
 const HeroMedia = ({ item, type }) => {
   const { t } = useTranslation();
+  const [delayedItem, setDelayedItem] = useState(item);
 
   const buildURL = (imagePath) =>
     `https://image.tmdb.org/t/p/w780/${imagePath}`;
 
-  const reviews = item?.vote_count ? (
+  useEffect(() => {
+    const delay = 500;
+    const timer = setTimeout(() => {
+      setDelayedItem(item);
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [item]);
+
+  const reviews = delayedItem?.vote_count ? (
     <div id="reviews">
       <span> · </span>
-      {formatNumber(item?.vote_count)} Reviews
+      {formatNumber(delayedItem?.vote_count)} Reviews
     </div>
   ) : null;
 
-  const runtime = item?.runtime ? (
+  const runtime = delayedItem?.runtime ? (
     <div className="runtime">
       <span> · </span>
-      {formatTime(item?.runtime)}
+      {formatTime(delayedItem?.runtime)}
     </div>
   ) : null;
 
-  const release_date = item?.release_date ? (
+  const release_date = delayedItem?.release_date ? (
     <div id="release-date">
       <span> · </span>
-      {item?.release_date.substring(0, 4)}
+      {delayedItem?.release_date.substring(0, 4)}
     </div>
   ) : null;
 
-  const vote_average = item?.vote_average ? (
-    <div id="vote-average">{item?.vote_average.toFixed(1)}</div>
+  const vote_average = delayedItem?.vote_average ? (
+    <div id="vote-average">{delayedItem?.vote_average.toFixed(1)}</div>
   ) : null;
 
   const renderMetaInfo = () => {
-    if (!item) return null;
+    if (!delayedItem) return null;
 
     return (
       <div className="flex items-center gap-2 *:opacity-60 *:inset-y-0">
-        <StarRatings className="aspect-11/2" votes={item?.vote_average} />
+        <StarRatings
+          className="aspect-11/2"
+          votes={delayedItem?.vote_average}
+        />
         {vote_average}
         {reviews}
         {release_date}
@@ -52,7 +65,7 @@ const HeroMedia = ({ item, type }) => {
   };
 
   const renderImage = () => {
-    if (!item?.backdrop_path) return null;
+    if (!delayedItem?.backdrop_path) return null;
 
     return (
       <motion.div
@@ -62,12 +75,12 @@ const HeroMedia = ({ item, type }) => {
         className="w-full h-full"
       >
         <Imgix
-          src={buildURL(item.backdrop_path)}
+          src={buildURL(delayedItem.backdrop_path)}
           sizes="(max-width: 800px) 100vw, 800px"
           className="w-full h-full object-cover"
           imgixParams={{ auto: "compress,format", fit: "crop", w: 800, q: 80 }}
           htmlAttributes={{ width: 800, height: 450 }}
-          alt={item.title}
+          alt={delayedItem.title}
         />
       </motion.div>
     );
@@ -76,8 +89,8 @@ const HeroMedia = ({ item, type }) => {
   return (
     <Link
       id="featured"
-      to={`${type}/${item?.id}`}
-      aria-label={item?.title || "link to movie"}
+      to={`${type}/${delayedItem?.id}`}
+      aria-label={delayedItem?.title || "link to movie"}
     >
       <div className="featured-container aspect-3/2 lg:aspect-25/9">
         <div className="featured-content">
@@ -90,11 +103,11 @@ const HeroMedia = ({ item, type }) => {
             </button>
           </div>
 
-          <h1>{item?.title || item?.name}</h1>
-          {item && (
+          <h1>{delayedItem?.title || delayedItem?.name}</h1>
+          {delayedItem && (
             <>
               {renderMetaInfo()}
-              <p>{item?.overview}</p>
+              <p>{delayedItem?.overview}</p>
 
               <button title="Watch Trailer" id="watch_trailer">
                 <div className="i-ph-play"></div>
