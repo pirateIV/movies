@@ -25,10 +25,15 @@ export function formatNumber(num) {
 }
 
 export function formatDate(dateString) {
-  const [year, month, day] = dateString.split("-");
+  console.log(dateString);
+  const [year, month, day] = dateString?.split("-");
   return `${parseInt(month)}/${parseInt(day)}/${parseInt(year)}`;
 }
 
 export function numberWithCommas(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return number?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+export function findPerson(mediaDetails, job) {
+  return mediaDetails?.credits?.crew.find((person) => person?.job === job);
 }
