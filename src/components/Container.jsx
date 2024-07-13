@@ -15,46 +15,34 @@ const Container = ({ children }) => {
   const { movieId, tvId } = useParams();
   const { heroMedia, mediaCollection } = useSelector((state) => state.media);
 
-  const [selectedMediaType, setSelectedMediaType] = useState("movie");
-
-  const determineQueries = () => {
-    if (location.pathname.includes("movie")) {
-      return [initialQueries[0]];
-    } else if (location.pathname.includes("tv")) {
-      return [initialQueries[1]];
-    }
-    return initialQueries;
-  };
-
-  const currentQueries = determineQueries();
-
   useEffect(() => {
     dispatch(fetchMediaCollection());
   }, [dispatch]);
 
   useEffect(() => {
-    if (!location.pathname.includes("tv")) {
-      const selectedMovieId = movieId ? movieId : mediaCollection.movies[0]?.id;
-      dispatch(fetchHeroMedia({ type: "movie", id: selectedMovieId }));
-      setSelectedMediaType("movie");
-    } else if (location.pathname.includes("tv")) {
-      const selectedTvId = tvId ? tvId : mediaCollection.tv[0]?.id;
-      dispatch(fetchHeroMedia({ type: "tv", id: selectedTvId }));
-      setSelectedMediaType("tv");
-    }
+    // if (!location.pathname.includes("tv")) {
+    const id = movieId ? movieId : mediaCollection.movies[0]?.id;
+    dispatch(fetchHeroMedia({ type: "movie", id: id }));
+    // }
+    // else if (location.pathname.includes("tv")) {
+    //   const selectedTvId = tvId ? tvId : mediaCollection.tv[0]?.id;
+    //   dispatch(fetchHeroMedia({ type: "tv", id: selectedTvId }));
+    //   setSelectedMediaType("tv");
+    // }
   }, [dispatch, location, movieId, tvId, mediaCollection]);
 
   return (
     <div id="app-scroller">
       <div>
-        {!location.pathname.includes("search") && (
-          <HeroMedia type={selectedMediaType} item={heroMedia} />
-        )}
+        {!location.pathname.includes("search") &&
+          !location.pathname.includes("tv") && (
+            <HeroMedia type={"movie"} item={heroMedia} />
+          )}
         {!location.pathname.includes("search") &&
           !location.pathname.includes(movieId || tvId) && (
             <MediaList
               mediaItems={mediaCollection}
-              mediaList={currentQueries}
+              mediaList={initialQueries}
             />
           )}
         {children}

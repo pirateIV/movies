@@ -14,7 +14,6 @@ body {
 
   #app-scroller {
     @apply max-h-[calc(100vh-60px)] lg:max-h-screen flex-1 overflow-y-auto overflow-x-hidden order-2 lg:order-1;
-    background: linear-gradient(to right, #111, 60%, #000);
   }
 
   aside {

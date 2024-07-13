@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { QUERY_LIST } from "constants/lists";
 import MediaList from "components/media/List";
 import { listMedia } from "services/tmdbAPI";
+import HeroMedia from "components/media/HeroMedia";
+import { useSelector } from "react-redux";
 
 const queries = [QUERY_LIST.tv[1], QUERY_LIST.tv[2]];
 
@@ -10,6 +12,7 @@ const TV = () => {
     top_rated: [],
     airing_today: [],
   });
+  const { heroMedia } = useSelector((state) => state.media);
 
   useEffect(() => {
     const getTVShows = async () => {
@@ -28,7 +31,12 @@ const TV = () => {
     };
     getTVShows();
   }, []);
-  return <MediaList mediaItems={tvLists} mediaList={queries} />;
+  return (
+    <>
+      <HeroMedia type={"tv"} item={heroMedia} />
+      <MediaList mediaItems={tvLists} mediaList={queries} />
+    </>
+  );
 };
 
 export default TV;

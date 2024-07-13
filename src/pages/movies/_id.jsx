@@ -7,14 +7,10 @@ import {
   getHeroMedia,
   getRecommendedMedia,
 } from "redux/slices/mediaSlice";
-import {
-  CastDetails,
-  MovieDetails,
-  RecommendedMovies,
-  TabButtons,
-  buttonTabs,
-} from ".";
+import { RecommendedMovies, TabButtons, buttonTabs } from ".";
 import "./movies.css";
+import Info from "components/media/Info";
+import Cast from "components/media/Cast";
 
 const Movie = () => {
   const { movieId } = useParams();
@@ -35,8 +31,8 @@ const Movie = () => {
   return (
     <>
       <TabButtons activeTab={activeTab} setActiveTab={setActiveTab} />
-      <MovieDetails mediaDetails={mediaDetails} />
-      <CastDetails mediaDetails={mediaDetails} />
+      <Info />
+      <Cast />
       <RecommendedMovies recommendedMovies={recommendedMovies} />
     </>
   );
