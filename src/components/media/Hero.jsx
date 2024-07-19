@@ -7,7 +7,7 @@ import useHead from "@/hooks/useHead";
 import Transition from "./Transition";
 import MediaItem from "./Item";
 
-const buildURL = (imagePath) => `https://image.tmdb.org/t/p/w780/${imagePath}`;
+const buildURL = (imagePath) => `https://image.tmdb.org/t/p/w1280/${imagePath}`;
 
 const params = {
   auto: "compress,format",
