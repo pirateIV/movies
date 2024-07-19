@@ -1,20 +1,6 @@
-import Imgix from "react-imgix";
 import { Link } from "react-router-dom";
-import { imgBaseURL } from "@/config/tmdbAPI";
 import { useRef } from "react";
-import StarsRate from "../StarsRate";
-import { formatVote } from "@/utils/filter";
-
-const buildURL = (imagePath, size) =>
-  `${imgBaseURL}/f_webp&s_${size}/tmdb/${imagePath}`;
-
-const params = {
-  auto: "compress,format",
-  fm: "webp",
-  fit: "crop",
-  w: 400,
-  q: 100,
-};
+import MediaCard from "../media/Card";
 
 const CarouselBase = ({ media, query }) => {
   const scrollEl = useRef(null);
@@ -44,45 +30,8 @@ const CarouselBase = ({ media, query }) => {
       <div className="relative">
         <div className="overflow-y-auto" ref={scrollEl}>
           <div className="flex gap-2 w-max p-2 px-10">
-            {media?.map((item) => (
-              <Link
-                to={`/${query.type}/${item?.id}`}
-                className="pb-2 flex-1 w-40 md:w-60"
-              >
-                <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
-                  {item?.poster_path ? (
-                    <Imgix
-                      width="400"
-                      height="600"
-                      className="object-cover h-full"
-                      src={buildURL(item.poster_path, "400x600")}
-                      imgixParams={params}
-                      srcSet={
-                        (`${buildURL(item.poster_path, "400x600")}1x`,
-                        `${buildURL(item.poster_path, "800x1200")} 2x`)
-                      }
-                      alt={item?.title || item?.name}
-                      htmlAttributes={{
-                        style: {
-                          display: item.poster_path ? "block" : "none",
-                          viewTransitionName: item - `${item?.id}`,
-                        },
-                      }}
-                    />
-                  ) : (
-                    <div className="h-full op10 flex justify-center items-center">
-                      <div className="i-ph:question ma text-4xl"></div>
-                    </div>
-                  )}
-                </div>
-                <div className="mt-2">{item?.name || item?.title}</div>
-                <div className="flex items-center gap-2">
-                  <StarsRate value={item?.vote_average} width="w-20" />
-                  <span className="text-sm opacity-50">
-                    {formatVote(item?.vote_average)}
-                  </span>
-                </div>
-              </Link>
+            {media?.map((item, i) => (
+              <MediaCard key={i} item={item} query={query} />
             ))}
           </div>
         </div>

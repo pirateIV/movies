@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "@/App";
 import Movies from "@/pages/genre/[no]/movie";
 import TVShows from "@/pages/genre/[no]/tv";
+import MediaType from "@/pages/[type]/[id]";
 import Search from "@/pages/search";
 
 const router = createBrowserRouter([
@@ -20,9 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/movie/:id",
+        element: <MediaType />,
       },
       {
         path: "/tv/:id",
+        element: <MediaType />,
       },
       {
         path: "/movie/category/:query",

@@ -1,7 +1,7 @@
-import HeroMedia from "@/components/media/Hero";
+import Media from "@/pages/[type]";
 
 const Movies = () => {
-  return <div></div>;
+  return <Media />;
 };
 
 export default Movies;

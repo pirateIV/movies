@@ -1,7 +1,7 @@
-import HeroMedia from "@/components/media/Hero";
+import Media from "@/pages/[type]";
 
 const TVShows = () => {
-  return <div></div>;
+  return <Media />;
 };
 
 export default TVShows;

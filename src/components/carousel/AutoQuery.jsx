@@ -1,9 +1,8 @@
 import CarouselBase from "./Base";
 
 const CarouselAutoQuery = ({ media, queries }) => {
-  return queries.map((query, i) => (
-    <CarouselBase media={media[query.type]} query={query} />
-  ));
+  console.log(media);
+  return queries.map((query, i) => <CarouselBase key={i} query={query} />);
 };
 
 export default CarouselAutoQuery;

@@ -24,13 +24,13 @@ const HeroMedia = ({ item }) => {
         {item?.backdrop_path && (
           <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
             <Imgix
+              width={800}
+              height={450}
               imgixParams={params}
               src={buildURL(item?.backdrop_path)}
               sizes="(max-width: 800px) 100vw, 800px"
               className="w-full h-full object-cover"
               htmlAttributes={{
-                width: 800,
-                height: 450,
                 title: item?.title || item?.name,
               }}
               alt={item?.title || item?.name}
