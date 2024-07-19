@@ -1,4 +1,8 @@
+import useHead from "@/hooks/useHead";
+
 const Search = () => {
+  useHead("Search");
+
   return (
     <div>
       <div className="flex bg-[#9ca3af1a] items-center px-6 py-4 gap-3 sticky">

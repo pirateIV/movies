@@ -5,6 +5,7 @@ import Movies from "@/pages/genre/[no]/movie";
 import TVShows from "@/pages/genre/[no]/tv";
 import MediaType from "@/pages/[type]/[id]";
 import Search from "@/pages/search";
+import MediaQuery from "@/pages/[type]/category/[query]";
 
 const router = createBrowserRouter([
   {
@@ -29,9 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/movie/category/:query",
+        element: <MediaQuery />,
       },
       {
         path: "/tv/category/:query",
+        element: <MediaQuery />,
       },
       {
         path: "/search",
