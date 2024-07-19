@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import App from "@/App";
-import Movies from "@/pages/[type]/movie";
-import TVShows from "@/pages/[type]/tv";
+import Movies from "@/pages/genre/[no]/movie";
+import TVShows from "@/pages/genre/[no]/tv";
+import Search from "@/pages/search";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/search",
-        element: "",
+        element: <Search />,
       },
     ],
   },

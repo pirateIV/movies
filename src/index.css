@@ -8,9 +8,24 @@
   }
 }
 
-/* @layer base {
-  :root {
-    color-scheme: dark light;
-    background-color: #111;
+@layer base {
+  #hero-info {
+    background-image: linear-gradient(
+      to top,
+      rgb(0 0 0 / 1) 0%,
+      rgb(0 0 0 / 1) 50%,
+      transparent 100%
+    );
   }
-} */
+
+  @media (min-width: 1024px) {
+    #hero-info {
+      background-image: linear-gradient(
+        to right,
+        rgb(0 0 0 / 1) 0%,
+        rgb(0 0 0 / 1) 50%,
+        transparent 100%
+      );
+    }
+  }
+}

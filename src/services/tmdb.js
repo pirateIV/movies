@@ -12,5 +12,9 @@ export async function listMedia(type, query, page = 1) {
 }
 
 export async function getMedia(type, id) {
-  return fetchTMDB(`${type}/${id}`);
+  return fetchTMDB(`${type}/${id}`, {
+    append_to_response:
+      "videos,credits,images,external_ids,release_dates,combined_credits",
+    include_image_language: "en",
+  });
 }

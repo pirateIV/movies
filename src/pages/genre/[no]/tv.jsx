@@ -1,4 +1,4 @@
-import React from "react";
+import HeroMedia from "@/components/media/Hero";
 
 const TVShows = () => {
   return <div></div>;
