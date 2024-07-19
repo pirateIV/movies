@@ -7,8 +7,8 @@ A React Movies application using [The Movie Database (TMDb)](https://developers.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/pirateIV/react.movies.git
-   cd react-movies
+   git clone https://github.com/pirateIV/movies.git
+   cd movies or cd custom-path
    ```
 
 2. **Create and configure the environment file:**
