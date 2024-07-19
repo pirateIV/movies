@@ -1,7 +1,7 @@
-import Media from "@/pages/[type]";
+import MediaComponent from "@/pages";
 
 const TVShows = () => {
-  return <Media />;
+  return <MediaComponent />;
 };
 
 export default TVShows;

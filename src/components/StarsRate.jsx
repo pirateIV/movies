@@ -1,13 +1,11 @@
-const StarsRate = (props) => {
+const StarsRate = ({ value, width = "w-25" }) => {
   return (
-    <div
-      className={`relative aspect-11/2 w-25 hue-rotate-[320deg] ${props.width}`}
-    >
+    <div className={`relative aspect-11/2 hue-rotate-[320deg] ${width}`}>
       <img src="/stars.webp" className="absolute inset-0" aria-hidden="true" />
       <img
         src="/stars-filled.webp"
         style={{
-          clipPath: `inset(0 ${(10 - props.value) * 10}% 0 0)`,
+          clipPath: `inset(0 ${(10 - value) * 10}% 0 0)`,
         }}
         aria-hidden="true"
       />

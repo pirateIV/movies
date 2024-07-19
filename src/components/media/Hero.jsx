@@ -1,11 +1,11 @@
 import Imgix from "react-imgix";
 import { Link } from "react-router-dom";
-import StarsRate from "../StarsRate";
-import { formatTime, formatVote } from "@/utils/filter";
-import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
+import { useTranslation } from "react-i18next";
+import { formatTime, formatVote } from "@/utils/filter";
+import StarsRate from "../StarsRate";
 
-const buildURL = (imagePath) => `https://image.tmdb.org/t/p/w1280/${imagePath}`;
+const buildURL = (imagePath) => `https://image.tmdb.org/t/p/w780/${imagePath}`;
 
 const params = {
   auto: "compress,format",
@@ -15,11 +15,11 @@ const params = {
   q: 100,
 };
 
-const HeroMedia = ({ item }) => {
+const HeroMedia = ({ type, item }) => {
   const { t } = useTranslation();
 
   return (
-    <Link to={`/movie/${item?.id}`}>
+    <Link to={`/${type}/${item?.id}`}>
       <div className="bg-black relative aspect-3/2 lg:aspect-25/9">
         {item?.backdrop_path && (
           <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
