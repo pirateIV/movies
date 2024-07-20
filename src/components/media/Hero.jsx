@@ -17,10 +17,7 @@ const params = {
   q: 100,
 };
 
-const HeroMedia = ({ type, item }) => {
-  useHead(item?.title || item?.name || "");
-  const { t } = useTranslation();
-
+const HeroMedia = ({ item }) => {
   return (
     <div className="bg-black relative aspect-3/2 lg:aspect-25/9">
       {item?.backdrop_path && (
@@ -48,11 +45,11 @@ const HeroMedia = ({ type, item }) => {
         ])}
       >
         {item && (
-          <div>
+          <Transition>
             <h1 className="text-2xl sm:text-3xl lg:text-5xl line-clamp-2">
               {item?.title || item?.name}
             </h1>
-            <Transition>
+            <div className="flex gap-2 ">
               <MediaItem value={item?.vote_average}>
                 <StarsRate value={item?.vote_average} />
                 <div className="opacity-50 hidden md:block">
@@ -75,7 +72,7 @@ const HeroMedia = ({ type, item }) => {
                 <span className="opacity-50">·</span>
                 <div className="opacity-50">{formatTime(item?.runtime)}</div>
               </MediaItem>
-            </Transition>
+            </div>
             <p
               className={twMerge([
                 "mt-2 leading-5 md:text-start opacity-80 line-clamp-3",
@@ -95,7 +92,7 @@ const HeroMedia = ({ type, item }) => {
                 <span>Watch Trailer</span>
               </button>
             </div>
-          </div>
+          </Transition>
         )}
       </div>
       <div className="absolute p-10 top-0 md:left-0 right-0 lg:hidden sm:right-0">

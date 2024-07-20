@@ -10,22 +10,62 @@
 
 @layer base {
   #hero-info {
-    background-image: linear-gradient(
-      to top,
-      rgb(0 0 0 / 1) 0%,
-      rgb(0 0 0 / 1) 50%,
-      transparent 100%
-    );
+    background-image: linear-gradient(to top,
+        rgb(0 0 0 / 1) 0%,
+        rgb(0 0 0 / 1) 50%,
+        transparent 100%);
   }
 
   @media (min-width: 1024px) {
     #hero-info {
-      background-image: linear-gradient(
-        to right,
-        rgb(0 0 0 / 1) 0%,
-        rgb(0 0 0 / 1) 50%,
-        transparent 100%
-      );
+      background-image: linear-gradient(to right,
+          rgb(0 0 0 / 1) 0%,
+          rgb(0 0 0 / 1) 50%,
+          transparent 100%);
     }
   }
+
+  .slide-top {
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+  }
+
+  @-webkit-keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(60px);
+      transform: translateY(60px);
+      opacity: 0;
+    }
+
+    20% {
+      opacity: 0.5;
+    }
+
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-top {
+    0% {
+      -webkit-transform: translateY(60px);
+      transform: translateY(60px);
+      opacity: 0;
+    }
+
+    20% {
+      opacity: 0.5;
+    }
+
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
 }

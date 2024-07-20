@@ -23,7 +23,7 @@ const MediaCard = ({ item, query }) => {
     >
       <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
         {item?.poster_path ? (
-          <img
+          <Imgix
             width={400}
             height={600}
             className="object-cover h-full"
@@ -33,12 +33,11 @@ const MediaCard = ({ item, query }) => {
               (`${buildURL(item.poster_path, "400x600")}1x`,
               `${buildURL(item.poster_path, "800x1200")} 2x`)
             }
-            alt={item?.title || item?.name}
             htmlAttributes={{
-              style: {
-                viewTransitionName: `item - ${item?.id}`,
-              },
+              style: { viewTransitionName: `item-${item?.id}` },
+              loading: "lazy",
             }}
+            alt={item?.title || item?.name}
           />
         ) : (
           <div className="h-full op10 flex justify-center items-center">
