@@ -23,7 +23,7 @@ const MediaCard = ({ item, query }) => {
     >
       <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
         {item?.poster_path ? (
-          <Imgix
+          <img
             width={400}
             height={600}
             className="object-cover h-full"

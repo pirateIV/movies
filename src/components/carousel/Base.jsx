@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import MediaCard from "../media/Card";
 
 const CarouselBase = ({ media, query }) => {
@@ -27,7 +27,7 @@ const CarouselBase = ({ media, query }) => {
           Explore more
         </Link>
       </div>
-      <div className="relative">
+      <div className="relative lg:min-h-[480px]">
         <div className="overflow-y-auto" ref={scrollEl}>
           <div className="flex gap-2 w-max p-2 px-10">
             {media?.map((item, i) => (

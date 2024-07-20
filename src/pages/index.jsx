@@ -49,8 +49,6 @@ const MediaComponent = ({ isRoot = false }) => {
     }
   }, [media, isRoot]);
 
-  let link = undefined;
-
   return (
     <>
       <Link
