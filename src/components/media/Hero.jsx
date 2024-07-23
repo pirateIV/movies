@@ -7,14 +7,16 @@ import StarsRate from "../StarsRate";
 import Transition from "./Transition";
 import MediaItem from "./Item";
 
-const buildURL = (imagePath) => `https://image.tmdb.org/t/p/w1280/${imagePath}`;
+const buildURL = (imagePath) =>
+  `https://movies-proxy.vercel.app/ipx/f_webp&amp;s_1220x659/tmdb/${imagePath}`;
 
 const params = {
   auto: "compress,format",
   fm: "webp",
   fit: "crop",
-  w: 800,
-  q: 100,
+  w: 659,
+  q: 20,
+  lossless: true,
 };
 
 const HeroMedia = ({ item }) => {
@@ -28,11 +30,11 @@ const HeroMedia = ({ item }) => {
       {imageURL && (
         <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
           <Imgix
-            width={1280}
-            height={720}
+            width={1220}
+            height={659}
             imgixParams={params}
             src={imageURL}
-            sizes="(max-width: 800px) 100vw, 800px"
+            sizes="(max-width: 400px) 50vw, 400px"
             className="w-full h-full object-cover"
             htmlAttributes={{
               title: item?.title || item?.name,
