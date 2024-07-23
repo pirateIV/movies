@@ -1,49 +1,48 @@
-import React from "react";
-import Imgix from "react-imgix";
+import React, { useState, useEffect, useMemo } from "react";
+import PropTypes from "prop-types";
 import { twMerge } from "tailwind-merge";
-import { formatTime, formatVote } from "@/utils/filter";
+import { convertImageToWebP, formatTime, formatVote } from "@/utils/filter";
 import usePreloadImage from "@/hooks/usePreloadImage";
 import StarsRate from "../StarsRate";
 import Transition from "./Transition";
 import MediaItem from "./Item";
 
-const buildURL = (imagePath) =>
-  `https://movies-proxy.vercel.app/ipx/f_webp&amp;s_1220x659/tmdb/${imagePath}`;
-
-const params = {
-  auto: "compress,format",
-  fm: "webp",
-  fit: "crop",
-  w: 659,
-  q: 20,
-  lossless: true,
-};
+const buildURL = (imagePath) => `https://image.tmdb.org/t/p/w1280/${imagePath}`;
 
 const HeroMedia = ({ item }) => {
-  const imageURL = item?.backdrop_path ? buildURL(item.backdrop_path) : null;
+  const [webpURL, setWebpURL] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const imageURL = useMemo(
+    () => (item?.backdrop_path ? buildURL(item.backdrop_path) : null),
+    [item?.backdrop_path],
+  );
 
-  // Preload the image
-  usePreloadImage(imageURL);
+  useEffect(() => {
+    if (imageURL) {
+      convertImageToWebP(imageURL, (url) => {
+        setWebpURL(url);
+        console.log(url);
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
+    }
+  }, [imageURL]);
 
   return (
     <div className="bg-black relative aspect-3/2 lg:aspect-25/9">
-      {imageURL && (
+      {webpURL && (
         <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
-          <Imgix
+          <img
             width={1220}
             height={659}
-            imgixParams={params}
-            src={imageURL}
+            src={webpURL}
             sizes="(max-width: 400px) 50vw, 400px"
             className="w-full h-full object-cover"
-            htmlAttributes={{
-              title: item?.title || item?.name,
-            }}
             alt={item?.title || item?.name}
           />
         </div>
       )}
-
       <div
         id="hero-info"
         className={twMerge([
@@ -89,7 +88,7 @@ const HeroMedia = ({ item }) => {
               {item?.overview}
             </p>
 
-            <div className="py5 display-none lg:block">
+            <div className="py-5 hidden lg:block">
               <button
                 type="button"
                 title="Watch Trailer"
