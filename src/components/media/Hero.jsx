@@ -1,9 +1,9 @@
+import React from "react";
 import Imgix from "react-imgix";
 import { twMerge } from "tailwind-merge";
-import { useTranslation } from "react-i18next";
 import { formatTime, formatVote } from "@/utils/filter";
+import usePreloadImage from "@/hooks/usePreloadImage";
 import StarsRate from "../StarsRate";
-import useHead from "@/hooks/useHead";
 import Transition from "./Transition";
 import MediaItem from "./Item";
 
@@ -18,15 +18,20 @@ const params = {
 };
 
 const HeroMedia = ({ item }) => {
+  const imageURL = item?.backdrop_path ? buildURL(item.backdrop_path) : null;
+
+  // Preload the image
+  usePreloadImage(imageURL);
+
   return (
     <div className="bg-black relative aspect-3/2 lg:aspect-25/9">
-      {item?.backdrop_path && (
+      {imageURL && (
         <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
           <Imgix
-            width={800}
-            height={450}
+            width={1280}
+            height={720}
             imgixParams={params}
-            src={buildURL(item?.backdrop_path)}
+            src={imageURL}
             sizes="(max-width: 800px) 100vw, 800px"
             className="w-full h-full object-cover"
             htmlAttributes={{
