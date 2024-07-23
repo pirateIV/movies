@@ -16,9 +16,9 @@ export const { format: formatVote } = Intl.NumberFormat("en-GB", {
   maximumFractionDigits: 1,
 });
 
-export const convertImageToWebP = (imageURL, callback) => {
+export const convertImageToWebP = async (imageURL, callback) => {
   const img = new Image();
-  img.crossOrigin = "Anonymous"; // This is important for cross-origin images
+  img.crossOrigin = "Anonymous";
   img.src = imageURL;
 
   img.onload = () => {

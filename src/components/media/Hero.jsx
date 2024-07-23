@@ -1,48 +1,16 @@
-import React, { useState, useEffect, useMemo } from "react";
-import PropTypes from "prop-types";
 import { twMerge } from "tailwind-merge";
-import { convertImageToWebP, formatTime, formatVote } from "@/utils/filter";
-import usePreloadImage from "@/hooks/usePreloadImage";
+import { formatTime, formatVote } from "@/utils/filter";
 import StarsRate from "../StarsRate";
 import Transition from "./Transition";
 import MediaItem from "./Item";
-
-const buildURL = (imagePath) => `https://image.tmdb.org/t/p/w1280/${imagePath}`;
+import Image from "../Image";
 
 const HeroMedia = ({ item }) => {
-  const [webpURL, setWebpURL] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const imageURL = useMemo(
-    () => (item?.backdrop_path ? buildURL(item.backdrop_path) : null),
-    [item?.backdrop_path],
-  );
-
-  useEffect(() => {
-    if (imageURL) {
-      convertImageToWebP(imageURL, (url) => {
-        setWebpURL(url);
-        console.log(url);
-        setLoading(false);
-      });
-    } else {
-      setLoading(false);
-    }
-  }, [imageURL]);
-
   return (
     <div className="bg-black relative aspect-3/2 lg:aspect-25/9">
-      {webpURL && (
-        <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
-          <img
-            width={1220}
-            height={659}
-            src={webpURL}
-            sizes="(max-width: 400px) 50vw, 400px"
-            className="w-full h-full object-cover"
-            alt={item?.title || item?.name}
-          />
-        </div>
-      )}
+      <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
+        <Image item={item} />
+      </div>
       <div
         id="hero-info"
         className={twMerge([
