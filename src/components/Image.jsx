@@ -1,5 +1,8 @@
 import Imgix from "react-imgix";
+import { imgBaseURL } from "@/config/tmdbAPI";
 
+// const buildURL = (imagePath) =>
+//   ` ${imgBaseURL}/f_webp&s_1220x659/tmdb/${imagePath}`;
 const buildURL = (imagePath) => `http://image.tmdb.org/t/p/w1280${imagePath}`;
 
 const Image = ({ item }) => {
