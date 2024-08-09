@@ -11,42 +11,32 @@ const MediaComponent = ({ isRoot = false }) => {
   const [item, setItem] = useState(null);
   const [media, setMedia] = useState([]);
 
-  const type = useMemo(
-    () => (pathname.includes("tv") ? "tv" : "movie"),
-    [pathname],
-  );
+  const type = pathname.includes("tv") ? "tv" : "movie";
+  const queries = isRoot
+    ? [QUERY_LIST.movie[0], QUERY_LIST.tv[0]]
+    : QUERY_LIST[type];
 
-  const queries = useMemo(() => {
-    return isRoot ? [QUERY_LIST.movie[0], QUERY_LIST.tv[0]] : QUERY_LIST[type];
-  }, [isRoot, type]);
-
-  const getMediaList = useCallback(async () => {
+  const getMediaList = async () => {
     const mediaList = await Promise.all(
       queries.map((query) => listMedia(query.type, query.query, 1)),
     );
     setMedia(mediaList.map((media) => [...media.data.results]));
-  }, [queries]);
+  };
 
   useEffect(() => {
     getMediaList();
   }, [getMediaList]);
 
-  const getHeroMedia = useCallback(
-    async (id) => {
-      if (media.length && media[0].length) {
-        const heroMedia = await getMedia(type, id);
-        setItem(heroMedia.data);
-      }
-    },
-    [media, type],
-  );
-
+  const getHeroMedia = async (id) => {
+    const heroMedia = await getMedia(type, id);
+    setItem(heroMedia.data);
+  };
   useEffect(() => {
     if (media.length && media[0].length) {
       const id = media[0][0]?.id;
       getHeroMedia(id);
     }
-  }, [media, isRoot, getHeroMedia]);
+  }, [media, isRoot]);
 
   return (
     <>
