@@ -1,0 +1,65 @@
+{
+  "Popular Movies": "Filmes populares",
+  "Top Rated Movies": "Filmes com melhor classificação",
+  "Upcoming Movies": "Filmes a estrear em breve",
+  "Now Playing Movies": "Filmes em exibição",
+  "Popular TV Shows": "Séries populares",
+  "Top Rated TV Shows": "Séries com melhor classificação",
+  "TV Shows Airing Today": "Séries emitidas hoje",
+
+  "Watch Trailer": "Ver trailer",
+  "Explore more": "Explorar tudo",
+
+  "Overview": "Visão geral",
+  "Videos": "Vídeos",
+  "Media Photos": "Imagens",
+
+  "Cast": "Elenco",
+  "More like this": "Títulos semelhantes",
+
+  "Storyline": "Sinopse",
+  "Release Date": "Data de lançamento",
+  "Runtime": "Duração",
+  "Director": "Realização",
+  "Budget": "Orçamento",
+  "Revenue": "Bilheteira",
+  "Genre": "Género",
+  "Status": "Estado",
+  "Language": "Idioma",
+  "Production": "Produção",
+
+  "Backdrops": "Imagens de fundo",
+  "Posters": "Cartazes",
+
+  "Known For": "Reconhecido(a) por",
+  "Credits": "Créditos conhecidos",
+  "Person Photos": "Fotos",
+  "(no biography)": "(sem biografia)",
+  "Known for": "Reconhecido(a) por",
+  "Place of birth": "Local de nascimento",
+  "Birthday": "Nasceu em",
+
+  "Acting Credits": "Créditos de Atuação",
+  "Production Credits": "Créditos de Produção",
+
+  "Type to search...": "Pesquisar...",
+  "Type something to search...": "Escreve algo para pesquisar...",
+
+  "{numberOfReviews} Reviews": "{numberOfReviews} Críticas",
+
+  "{numberOfImages} Images": "{numberOfImages} Imagens",
+  "{numberOfVideos} Videos": "{numberOfVideos} Vídeos",
+
+  "as {character}": "como {character}",
+
+  "{count} items": "{count} itens",
+  "Search result for: {currentSearch}": "Resultados da pesquisa: {currentSearch}",
+
+  "Error occurred on fetching": "Ocorreu um erro na pesquisa",
+  "Retry": "Tentar novamente",
+
+  "Home": "Início",
+  "Movies": "Filmes",
+  "TV Shows": "Programas de TV",
+  "Search": "Pesquisar"
+}

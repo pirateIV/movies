@@ -1,10 +1,18 @@
+@import url("https://movies.nuxt.space/_nuxt/entry.B_5N0RSL.css");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 @layer reset {
     [h-100vh] {
         height: 100vh;
+    }
+
+    body {
+      overflow: hidden;
     }
 }
 

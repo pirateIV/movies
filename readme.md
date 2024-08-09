@@ -6,38 +6,38 @@ A React Movies application using [The Movie Database (TMDb)](https://developers.
 
 1. **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/pirateIV/movies.git
-    cd movies or cd custom-path
-    ```
+   ```bash
+   git clone https://github.com/pirateIV/movies.git
+   cd movies or cd custom-path
+   ```
 
 2. **Create and configure the environment file:**
 
-    - Rename your `.env.sample` file to `.env`.
+   - Rename your `.env.sample` file to `.env`.
 
 3. **Obtain API keys:**
 
-    - Get your [TMDb API key](https://developers.themoviedb.org/3/getting-started/introduction).
-    - (Optional) Get your [YouTube API key](https://developers.google.com/youtube/v3/getting-started) for video data.
+   - Get your [TMDb API key](https://developers.themoviedb.org/3/getting-started/introduction).
+   - (Optional) Get your [YouTube API key](https://developers.google.com/youtube/v3/getting-started) for video data.
 
 4. **Enter the API keys into the `.env` file:**
-    ```env
-    VITE_TMDB_API_KEY=your_tmdb_api_key
-    VITE_YOUTUBE_API_KEY=your_youtube_api_key
-    ```
+   ```env
+   VITE_TMDB_API_KEY=your_tmdb_api_key
+   VITE_YOUTUBE_API_KEY=your_youtube_api_key
+   ```
 
 ## Running the Application
 
 1. **Install dependencies:**
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 2. **Start the development server at `localhost:5173`:**
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
 ## Project Structure
 
@@ -62,22 +62,22 @@ react-movies/
 
 ## Available Scripts
 
--   `npm run dev`: Starts the development server.
+- `npm run dev`: Starts the development server.
 <!-- - `npm run build`: Builds the application for production.
--   `npm run lint`: Lints the code for errors and warnings.
--   `npm run test`: Runs the test suite. -->
+- `npm run lint`: Lints the code for errors and warnings.
+- `npm run test`: Runs the test suite. -->
 
 ## API Integration Overview
 
 ### TMDb API
 
--   **Base URL:** `https://api.themoviedb.org/3`
--   **Authentication:** API Key (stored in `.env` file)
+- **Base URL:** `https://api.themoviedb.org/3`
+- **Authentication:** API Key (stored in `.env` file)
 
 ### YouTube API (Optional)
 
--   **Base URL:** `https://www.googleapis.com/youtube/v3`
--   **Authentication:** API Key (stored in `.env` file)
+- **Base URL:** `https://www.googleapis.com/youtube/v3`
+- **Authentication:** API Key (stored in `.env` file)
 
 ## Contributing
 
