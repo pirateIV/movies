@@ -4,25 +4,25 @@ import { getMedia } from "@/services/tmdb";
 import HeroMedia from "@/components/media/Hero";
 
 const MediaType = () => {
-  const { id } = useParams();
-  const { pathname } = useLocation();
-  const [item, setItem] = useState(null);
+    const { id } = useParams();
+    const { pathname } = useLocation();
+    const [item, setItem] = useState(null);
 
-  const type = pathname.includes("tv") ? "tv" : "movie";
+    const type = pathname.includes("tv") ? "tv" : "movie";
 
-  useEffect(() => {
-    async function getMediaItem() {
-      const heroMedia = await getMedia(type, id);
-      setItem(heroMedia?.data);
-    }
-    getMediaItem();
-  }, []);
+    useEffect(() => {
+        async function getMediaItem() {
+            const heroMedia = await getMedia(type, id);
+            setItem(heroMedia?.data);
+        }
+        getMediaItem();
+    }, []);
 
-  return (
-    <>
-      <HeroMedia item={item} />
-    </>
-  );
+    return (
+        <>
+            <HeroMedia item={item} />
+        </>
+    );
 };
 
 export default MediaType;
