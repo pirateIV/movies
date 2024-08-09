@@ -9,10 +9,10 @@ const Image = ({ item }) => {
   const imageURL = buildURL(item?.backdrop_path) || null;
 
   return (
-    <Imgix
+    <img
       width={1280}
       height={720}
-      imgixParams={{ fm: "webp", auto: "compress,format" }}
+      // imgixParams={{ fm: "webp", auto: "compress,format" }}
       src={imageURL}
       className="w-full h-full object-cover"
       alt={item?.title || item?.name}
