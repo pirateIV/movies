@@ -35,7 +35,6 @@ const MediaCard = ({ item, query, customclass }) => {
                         }
                         htmlAttributes={{
                             style: { viewTransitionName: `item-${item?.id}` },
-                            loading: "lazy",
                         }}
                         alt={item?.title || item?.name}
                     />
