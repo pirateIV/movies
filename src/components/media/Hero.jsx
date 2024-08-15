@@ -20,7 +20,7 @@ const HeroMedia = ({ item }) => {
       >
         {item && (
           <Transition>
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl line-clamp-2">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl line-clamp-2">
               {item?.title || item?.name}
             </h1>
             <div className="flex gap-2 ">
@@ -56,11 +56,11 @@ const HeroMedia = ({ item }) => {
               {item?.overview}
             </p>
 
-            <div className="py-5 hidden lg:block">
+            <div className="py-5 hidden sm:block">
               <button
                 type="button"
                 title="Watch Trailer"
-                className="flex gap-2 items-center px-6 py-3 transition-colors duration-200 hover:bg-[#9ca3af26]"
+                className="flex gap-2 items-center px-6 py-3 transition duration-200 hover:bg-[#9ca3af26]"
               >
                 <div className="i-ph-play"></div>
                 <span>Watch Trailer</span>

@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import links from "@/constants/links";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -8,7 +8,7 @@ const NavBar = () => {
         <NavLink key={to} to={to} title={title}>
           {({ isActive }) => (
             <div
-              className={`text-2xl  ${isActive ? `${activeIcon} text-primary` : icon}`}
+              className={`text-2xl ${isActive ? `${activeIcon} text-primary` : icon}`}
             ></div>
           )}
         </NavLink>
