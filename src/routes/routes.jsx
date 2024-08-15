@@ -4,8 +4,8 @@ import App from "@/App";
 import Movies from "@/pages/genre/[no]/movie";
 import TVShows from "@/pages/genre/[no]/tv";
 import MediaType from "@/pages/[type]/[id]";
-import Search from "@/pages/search";
 import MediaQuery from "@/pages/[type]/category/[query]";
+import Search from "@/pages/search";
 
 const router = createBrowserRouter([
   {

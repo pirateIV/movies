@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
 import { getMedia } from "@/services/tmdb";
+import { useLocation, useParams } from "react-router-dom";
 import HeroMedia from "@/components/media/Hero";
 
 const MediaType = () => {

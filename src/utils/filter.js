@@ -16,18 +16,18 @@ export const { format: formatVote } = Intl.NumberFormat("en-GB", {
   maximumFractionDigits: 1,
 });
 
-export const convertImageToWebP = async (imageURL, callback) => {
-  const img = new Image();
-  img.crossOrigin = "Anonymous";
-  img.src = imageURL;
+// export const convertImageToWebP = async (imageURL, callback) => {
+//   const img = new Image();
+//   img.crossOrigin = "Anonymous";
+//   img.src = imageURL;
 
-  img.onload = () => {
-    const canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    const webpURL = canvas.toDataURL("image/webp");
-    callback(webpURL);
-  };
-};
+//   img.onload = () => {
+//     const canvas = document.createElement("canvas");
+//     canvas.width = img.width;
+//     canvas.height = img.height;
+//     const ctx = canvas.getContext("2d");
+//     ctx.drawImage(img, 0, 0);
+//     const webpURL = canvas.toDataURL("image/webp");
+//     callback(webpURL);
+//   };
+// };

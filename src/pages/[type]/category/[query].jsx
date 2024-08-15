@@ -1,8 +1,7 @@
-import { useLocation, useParams } from "react-router-dom";
-import MediaAutoLoadGrid from "@/components/media/AutoLoadGrid";
-import useHead from "@/hooks/useHead";
 import { useEffect, useState } from "react";
 import { listMedia } from "@/services/tmdb";
+import { useLocation, useParams } from "react-router-dom";
+import MediaAutoLoadGrid from "@/components/media/AutoLoadGrid";
 
 const MediaQuery = () => {
   const { query } = useParams();

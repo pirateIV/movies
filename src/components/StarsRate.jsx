@@ -1,7 +1,6 @@
 const StarsRate = ({ value, width = "w-25" }) => {
   return (
     <div aspect="11/2" className={`relative hue-rotate-[320deg] ${width}`}>
-      {/* Empty star background */}
       <img
         src="/stars.webp"
         height={16}
@@ -10,7 +9,6 @@ const StarsRate = ({ value, width = "w-25" }) => {
         aria-hidden="true"
         alt=""
       />
-      {/* Filled star overlay */}
       <img
         src="/stars-filled.webp"
         height={16}
