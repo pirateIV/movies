@@ -19,11 +19,9 @@ const MediaQuery = () => {
 
   const fetchMediaPages = async (pageNum) => {
     setLoading(true);
-
     try {
       const res = await listMedia(type, query, pageNum);
       const data = await res.data;
-      console.log(data?.results);
 
       if (data?.results.length === 0) {
         setHasMore(false); // No more data to fetch
@@ -33,7 +31,9 @@ const MediaQuery = () => {
     } catch (error) {
       console.log("Error occured fetching media", error);
     } finally {
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
     }
   };
 
@@ -73,6 +73,13 @@ const MediaQuery = () => {
         <span className="capitalize">{query.replace(/_/g, " ")}</span>
         <span>{pathname.includes("tv") ? "TV Shows" : "Movies"}</span>
       </MediaAutoLoadGrid>
+      {loading && (
+        <div
+          animate-spin=""
+          i-carbon:circle-dash=""
+          className="m-auto text-5xl"
+        ></div>
+      )}
     </AppScroller>
   );
 };
