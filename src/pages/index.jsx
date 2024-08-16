@@ -5,6 +5,7 @@ import { getMedia, listMedia } from "@/services/tmdb";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { QUERY_LIST } from "@/constants/lists";
 import TheFooter from "@/components/TheFooter";
+import AppScroller from "@/components/AppScroller";
 
 const MediaComponent = ({ isRoot = false }) => {
   const { pathname } = useLocation();
@@ -40,15 +41,17 @@ const MediaComponent = ({ isRoot = false }) => {
 
   return (
     <>
-      <Link
-        to={`/${type}/${item?.id || ""}`}
-        className={!item?.id ? "hover:cursor-not-allowed" : ""}
-        onClick={(e) => !item?.id && e.preventDefault()}
-      >
-        <HeroMedia type={type} item={item} />
-      </Link>
-      <CarouselAutoQuery media={media} queries={queries} />
-      <TheFooter />
+      <AppScroller>
+        <Link
+          to={`/${type}/${item?.id || ""}`}
+          className={!item?.id ? "hover:cursor-not-allowed" : ""}
+          onClick={(e) => !item?.id && e.preventDefault()}
+        >
+          <HeroMedia type={type} item={item} />
+        </Link>
+        <CarouselAutoQuery media={media} queries={queries} />
+        <TheFooter />
+      </AppScroller>
     </>
   );
 };

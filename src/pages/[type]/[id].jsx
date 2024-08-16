@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getMedia } from "@/services/tmdb";
 import { useLocation, useParams } from "react-router-dom";
 import HeroMedia from "@/components/media/Hero";
+import AppScroller from "@/components/AppScroller";
 
 const MediaType = () => {
   const { id } = useParams();
@@ -20,7 +21,9 @@ const MediaType = () => {
 
   return (
     <>
-      <HeroMedia item={item} />
+      <AppScroller>
+        <HeroMedia item={item} />
+      </AppScroller>
     </>
   );
 };

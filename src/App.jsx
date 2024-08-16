@@ -10,14 +10,7 @@ const App = () => {
 
   return (
     <div className="font-sans h-full w-full grid grid-rows-[1fr,max-content] lg:grid-rows-none lg:grid-cols-[max-content,1fr]">
-      <div
-        id="app-scroller"
-        className="lg:order-2 overflow-x-hidden overflow-y-auto"
-      >
-        <div>
-          {pathname === "/" ? <MediaComponent isRoot={true} /> : <Outlet />}
-        </div>
-      </div>
+      {pathname === "/" ? <MediaComponent isRoot={true} /> : <Outlet />}
       <NavBar />
     </div>
   );
