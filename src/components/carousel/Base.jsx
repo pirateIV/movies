@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import MediaCard from "../media/Card";
 
-const CarouselBase = ({ media, query }) => {
+const CarouselBase = ({ children, query }) => {
   const scrollEl = useRef(null);
 
   const scrollLeft = () => {
@@ -21,19 +21,18 @@ const CarouselBase = ({ media, query }) => {
   return (
     <>
       <div className="flex py-3 px-10 items-center mt-5 ">
-        <div className="text-2xl">{query.title}</div>
+        <div className="text-2xl">{query?.title}</div>
         <div className="flex-auto"></div>
-        <Link to={`/${query.type}/category/${query.query}`} className="n-link">
-          Explore more
+        <Link
+          to={`/${query?.type}/category/${query?.query}`}
+          className="n-link"
+        >
+          {query.type ? "Explore more" : ""}
         </Link>
       </div>
       <div className="relative lg:min-h-[480px]">
         <div className="overflow-y-auto" ref={scrollEl}>
-          <div className="flex gap-2 w-max p-2 px-10">
-            {media?.map((item, i) => (
-              <MediaCard key={i} item={item} query={query} />
-            ))}
-          </div>
+          <div className="flex gap-2 w-max p-2 px-10">{children}</div>
         </div>
 
         <button

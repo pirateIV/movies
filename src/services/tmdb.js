@@ -18,3 +18,8 @@ export async function getMedia(type, id) {
     include_image_language: "en",
   });
 }
+
+export async function getRecommendations(type, id, page = 1) {
+  const r = await fetchTMDB(`${type}/${id}/recommendations`, { page });
+  return r.data.results;
+}

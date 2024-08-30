@@ -659,6 +659,10 @@
   font-family: DM Sans, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji
 }
 
+.pointer-link {
+  @apply inline-block px-2 py-1 bg-[#9ca3af1a]/10 hover:bg-[#9ca3af1a]/20 text-xs shadow-sm rounded-md;
+}
+
 .tab {
   -moz-tab-size: 4;
   -o-tab-size: 4;
