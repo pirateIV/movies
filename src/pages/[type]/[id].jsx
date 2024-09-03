@@ -4,12 +4,11 @@ import { getMedia, getRecommendations } from "@/services/tmdb";
 import HeroMedia from "@/components/media/Hero";
 import TheFooter from "@/components/TheFooter";
 import AppScroller from "@/components/AppScroller";
-import CarouselAutoQuery from "@/components/carousel/AutoQuery";
 import CarouselBase from "@/components/carousel/Base";
 import MediaCard from "@/components/media/Card";
-import PersonCard from "@/components/person/Card";
-import CreditsList from "@/components/person/CreditsList";
-import MediaInfo from "@/components/media/Info";
+import Overview from "@/components/media/Overview";
+import Photos from "@/components/media/Photos";
+import Videos from "@/components/media/Videos";
 
 const MediaType = () => {
   const { id } = useParams();
@@ -53,22 +52,23 @@ const MediaType = () => {
           </button>
           <button
             n-tab=""
-            onClick={() => setActiveTab("photos")}
-            className={activeTab === "photos" ? "n-tab-active" : ""}
-          >
-            Photos
-          </button>
-          <button
-            n-tab=""
             onClick={() => setActiveTab("videos")}
             className={activeTab === "videos" ? "n-tab-active" : ""}
           >
             Videos
           </button>
+          <button
+            n-tab=""
+            onClick={() => setActiveTab("photos")}
+            className={activeTab === "photos" ? "n-tab-active" : ""}
+          >
+            Photos
+          </button>
         </header>
 
-        <MediaInfo item={item} />
-        <CreditsList item={item} />
+        {activeTab === "overview" && <Overview item={item} />}
+        {activeTab === "videos" && <Videos item={item} />}
+        {activeTab === "photos" && <Photos item={item} />}
 
         <CarouselBase query={{ title: "More like this" }}>
           {similar?.map((item, i) => (

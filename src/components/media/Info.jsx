@@ -56,7 +56,7 @@ const MediaInfo = ({ item }) => {
         alt={`movie title: ${title}`}
         src={buildURL(posterPath, "400x600")}
         srcSet={`${buildURL(posterPath, "400x600")} 1x, ${buildURL(posterPath, "800x1200")} 2x`}
-        className="hidden w-[19.75rem] border-4 border-[#9ca3af1a] shadow-lg object-cover md:block"
+        className="hidden w-[19.75rem] border-4 bg-[#9ca3af1a] border-[#9ca3af1a] shadow-lg object-cover md:block"
       />
 
       <div className="flex flex-col gap-6 max-w-full md:p-4">
@@ -100,7 +100,11 @@ const MediaInfo = ({ item }) => {
               <span>{t("Genre")}</span>
               <span className="flex flex-wrap gap-2">
                 {genres?.map(({ id, name }) => (
-                  <Link to={`/genre/${id}/movie`} className="pointer-link">
+                  <Link
+                    key={id}
+                    to={`/genre/${id}/movie`}
+                    className="pointer-link"
+                  >
                     {name}
                   </Link>
                 ))}

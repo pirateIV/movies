@@ -1,4 +1,4 @@
-const buildURL = (imagePath) => `http://image.tmdb.org/t/p/w1280${imagePath}`;
+const buildURL = (imagePath) => `http://image.tmdb.org/t/p/w1280/${imagePath}`;
 
 const Image = ({ item }) => {
   const imageURL = buildURL(item?.backdrop_path) || null;
