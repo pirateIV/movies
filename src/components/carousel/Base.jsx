@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import MediaCard from "../media/Card";
 
 const CarouselBase = ({ children, query }) => {
   const scrollEl = useRef(null);

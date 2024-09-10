@@ -43,7 +43,7 @@ const MediaComponent = ({ isRoot = false }) => {
 
   const getHeroMedia = async (id) => {
     const heroMedia = await getMedia(type, id);
-    setItem(heroMedia.data);
+    setItem(heroMedia);
   };
   useEffect(() => {
     if (media.length && media[0].length) {

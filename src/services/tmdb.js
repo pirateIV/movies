@@ -33,5 +33,5 @@ export async function getMedia(type, id) {
 
 export async function getRecommendations(type, id, page = 1) {
   const r = await fetchTMDB(`${type}/${id}/recommendations`, { page });
-  return r.data.results;
+  return r.results;
 }

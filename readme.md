@@ -79,6 +79,10 @@ react-movies/
 - **Base URL:** `https://www.googleapis.com/youtube/v3`
 - **Authentication:** API Key (stored in `.env` file)
 
+### IPX Image Proxy (Currently Down)
+
+- Please note that the IPX image server proxy used for image optimization is currently down. Images may not load or display as expected until this issue is resolved.
+
 ## Contributing
 
 1. Fork the repository.

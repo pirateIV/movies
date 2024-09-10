@@ -24,7 +24,7 @@ const MediaType = () => {
   useEffect(() => {
     async function getMediaItem() {
       const heroMedia = await getMedia(type, id);
-      setItem(heroMedia?.data);
+      setItem(heroMedia);
     }
     getMediaItem();
 

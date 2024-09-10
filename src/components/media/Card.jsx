@@ -5,7 +5,7 @@ import { formatVote } from "@/utils/filter";
 import StarsRate from "../StarsRate";
 
 const buildURL = (imagePath, size) =>
-  `${imgBaseURL}/f_webp&s_${size}/tmdb/${imagePath}`;
+  `${imgBaseURL}/f_webp&s_${size}/tmdb${imagePath}`;
 
 const params = {
   auto: "compress,format",

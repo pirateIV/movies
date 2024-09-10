@@ -13,7 +13,7 @@ const MediaQuery = () => {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
-  const scrollerRef = useRef(null);
+  const scrollerref = useRef(null);
 
   const type = pathname.includes("tv") ? "tv" : "movie";
 
@@ -21,12 +21,12 @@ const MediaQuery = () => {
     setLoading(true);
     try {
       const res = await listMedia(type, query, pageNum);
-      const data = await res.data;
+      const data = await res.results;
 
-      if (data?.results.length === 0) {
+      if (data?.length === 0) {
         setHasMore(false); // No more data to fetch
       } else {
-        setMedia((prevMedia) => [...prevMedia, ...data?.results]);
+        setMedia((prevMedia) => [...prevMedia, ...data]);
       }
     } catch (error) {
       console.log("Error occured fetching media", error);
@@ -43,9 +43,9 @@ const MediaQuery = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (loading || !hasMore || !scrollerRef.current) return;
+      if (loading || !hasMore || !scrollerref.current) return;
 
-      const scroller = scrollerRef.current;
+      const scroller = scrollerref.current;
       const scrollTop = scroller.scrollTop;
       const scrollHeight = scroller.scrollHeight;
       const clientHeight = scroller.clientHeight;
@@ -55,7 +55,7 @@ const MediaQuery = () => {
       }
     };
 
-    const scroller = scrollerRef.current;
+    const scroller = scrollerref.current;
     if (scroller) {
       scroller.addEventListener("scroll", handleScroll);
     }
@@ -65,10 +65,10 @@ const MediaQuery = () => {
         scroller.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [loading, hasMore, scrollerRef]);
+  }, [loading, hasMore, scrollerref]);
 
   return (
-    <AppScroller scrollerRef={scrollerRef}>
+    <AppScroller ref={scrollerref}>
       <MediaAutoLoadGrid type={type} media={media}>
         <span className="capitalize">{query.replace(/_/g, " ")}</span>
         <span>{pathname.includes("tv") ? "TV Shows" : "Movies"}</span>
