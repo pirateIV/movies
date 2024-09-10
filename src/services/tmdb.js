@@ -1,10 +1,22 @@
-import axios from "axios";
 import { TMDB_API_PARAMS, TMDB_API_URL } from "@/config/tmdbAPI";
 
 async function fetchTMDB(url, params = {}) {
-  return axios.get(`${TMDB_API_URL}/${url}`, {
-    params: { ...TMDB_API_PARAMS, ...params },
+  const searchParams = new URLSearchParams({
+    ...TMDB_API_PARAMS,
+    ...params,
   });
+
+  try {
+    const response = await fetch(`${TMDB_API_URL}/${url}?${searchParams}`);
+
+    if (!response.ok) {
+      throw new Error(`HTTP Error!, status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Fetch error", error);
+  }
 }
 
 export async function listMedia(type, query, page = 1) {

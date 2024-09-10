@@ -6,11 +6,17 @@ import { useEffect, useState, useCallback, useMemo } from "react";
 import { QUERY_LIST } from "@/constants/lists";
 import TheFooter from "@/components/TheFooter";
 import AppScroller from "@/components/AppScroller";
+import AppLoader from "@/components/AppLoader";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { setLoadingState } from "@/features/loaderSlice";
 
 const MediaComponent = ({ isRoot = false }) => {
   const { pathname } = useLocation();
   const [item, setItem] = useState(null);
   const [media, setMedia] = useState([]);
+
+  const dispatch = useAppDispatch();
+  const isLoading = useAppSelector((state) => state.loader.loading);
 
   const type = pathname.includes("tv") ? "tv" : "movie";
   const queries = isRoot
@@ -18,15 +24,22 @@ const MediaComponent = ({ isRoot = false }) => {
     : QUERY_LIST[type];
 
   const getMediaList = async () => {
-    const mediaList = await Promise.all(
-      queries.map((query) => listMedia(query.type, query.query, 1)),
-    );
-    setMedia(mediaList.map((media) => [...media.data.results]));
+    dispatch(setLoadingState(true));
+    try {
+      const mediaList = await Promise.all(
+        queries.map((query) => listMedia(query.type, query.query, 1)),
+      );
+      setMedia(mediaList.map((media) => [...media.results]));
+    } catch (error) {
+      console.error("Error fetching media list", error);
+    } finally {
+      dispatch(setLoadingState(false));
+    }
   };
 
   useEffect(() => {
     getMediaList();
-  }, [getMediaList]);
+  }, []);
 
   const getHeroMedia = async (id) => {
     const heroMedia = await getMedia(type, id);
@@ -41,6 +54,7 @@ const MediaComponent = ({ isRoot = false }) => {
 
   return (
     <>
+      <AppLoader />
       <AppScroller>
         <Link
           to={`/${type}/${item?.id || ""}`}
