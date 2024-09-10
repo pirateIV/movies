@@ -4,3 +4,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body,
+html {
+  color: #fff;
+  background: #111;
+  color-scheme: dark;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}

@@ -5,8 +5,8 @@ const Image = ({ item }) => {
 
   return (
     <img
-      width={1280}
-      height={720}
+      width="1220"
+      height="659"
       src={imageURL}
       className="w-full h-full object-cover"
       alt={item?.title || item?.name}

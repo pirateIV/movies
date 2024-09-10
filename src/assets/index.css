@@ -358,67 +358,7 @@
   transition-timing-function: cubic-bezier(.4, 0, .2, 1)
 }
 
-.absolute,
-[absolute=""] {
-  position: absolute
-}
 
-.fixed,
-[fixed=""] {
-  position: fixed
-}
-
-.relative,
-[relative=""] {
-  position: relative
-}
-
-.sticky,
-[sticky=""] {
-  position: sticky
-}
-
-.inset-0,
-[inset-0=""] {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0
-}
-
-.bottom-0,
-[bottom-0=""] {
-  bottom: 0
-}
-
-.bottom-2,
-[bottom-2=""] {
-  bottom: .5rem
-}
-
-.left-0,
-[left-0=""] {
-  left: 0
-}
-
-.left-1\/3 {
-  left: 33.3333333333%
-}
-
-.right-0,
-[right-0=""] {
-  right: 0
-}
-
-.right-1,
-[right-1=""] {
-  right: .25rem
-}
-
-.top-0,
-[top-0=""] {
-  top: 0
-}
 
 .top-1,
 [top-1=""] {
@@ -433,22 +373,6 @@
   color: rgba(64, 193, 173, 1);
 }
 
-.line-clamp-2,
-[line-clamp-2=""] {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3
-}
 
 .aspect-10\/16,
 [aspect~="10/16"] {
@@ -473,66 +397,6 @@
 
 [aspect~="3/4"] {
   aspect-ratio: 3/4
-}
-
-.max-w-300,
-[max-w-300=""] {
-  max-width: 75rem
-}
-
-.max-w-full,
-[max-w-full=""] {
-  max-width: 100%
-}
-
-.w-2\/3 {
-  width: 66.6666666667%
-}
-
-.w-20,
-[w-20=""] {
-  width: 5rem
-}
-
-.w-25,
-[w-25=""] {
-  width: 6.25rem
-}
-
-.w-40,
-[w-40=""] {
-  width: 10rem
-}
-
-.w-50,
-[w-50=""] {
-  width: 12.5rem
-}
-
-.w-70,
-[w-70=""] {
-  width: 17.5rem
-}
-
-.w-79,
-[w-79=""] {
-  width: 19.75rem
-}
-
-[hover~=scale-102]:hover {
-  --xx-scale-x: 1.02;
-  --xx-scale-y: 1.02;
-  transform: translate(var(--xx-translate-x)) translateY(var(--xx-translate-y)) translateZ(var(--xx-translate-z)) rotate(var(--xx-rotate)) rotateX(var(--xx-rotate-x)) rotateY(var(--xx-rotate-y)) rotate(var(--xx-rotate-z)) skew(var(--xx-skew-x)) skewY(var(--xx-skew-y)) scaleX(var(--xx-scale-x)) scaleY(var(--xx-scale-y)) scaleZ(var(--xx-scale-z))
-}
-
-[hover~=scale-105]:hover {
-  --xx-scale-x: 1.05;
-  --xx-scale-y: 1.05;
-  transform: translate(var(--xx-translate-x)) translateY(var(--xx-translate-y)) translateZ(var(--xx-translate-z)) rotate(var(--xx-rotate)) rotateX(var(--xx-rotate-x)) rotateY(var(--xx-rotate-y)) rotate(var(--xx-rotate-z)) skew(var(--xx-skew-x)) skewY(var(--xx-skew-y)) scaleX(var(--xx-scale-x)) scaleY(var(--xx-scale-y)) scaleZ(var(--xx-scale-z))
-}
-
-.transform {
-  transform: translate(var(--xx-translate-x)) translateY(var(--xx-translate-y)) translateZ(var(--xx-translate-z)) rotate(var(--xx-rotate)) rotateX(var(--xx-rotate-x)) rotateY(var(--xx-rotate-y)) rotate(var(--xx-rotate-z)) skew(var(--xx-skew-x)) skewY(var(--xx-skew-y)) scaleX(var(--xx-scale-x)) scaleY(var(--xx-scale-y)) scaleZ(var(--xx-scale-z))
 }
 
 @keyframes pulse {
@@ -565,53 +429,6 @@
 .animate-spin,
 [animate-spin=""] {
   animation: spin 1s linear infinite
-}
-
-.bg-black,
-[bg-black=""] {
-  --xx-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--xx-bg-opacity))
-}
-
-.bg-black\:30,
-[bg-black\:30=""] {
-  background-color: #0000004d
-}
-
-.bg-black\:50,
-[bg-black\:50=""] {
-  background-color: #00000080
-}
-
-.bg-black\:60,
-[bg-black\:60=""] {
-  background-color: #0009
-}
-
-.bg-black\:90,
-[bg-black\:90=""] {
-  background-color: #000000e6
-}
-
-.bg-gray4\:10,
-.bg-gray\:10,
-[bg-gray4\:10=""],
-[bg-gray\:10=""],
-[bg~="gray/10"] {
-  background-color: #9ca3af1a
-}
-
-.bg-gray\:5,
-[bg-gray\:5=""] {
-  background-color: #9ca3af0d
-}
-
-[bg~="gray/15"] {
-  background-color: #9ca3af26
-}
-
-[bg~="hover:gray/20"]:hover {
-  background-color: #9ca3af33
 }
 
 .from-black,
@@ -647,12 +464,6 @@
   --xx-gradient: var(--xx-gradient-shape), var(--xx-gradient-stops);
   background-image: linear-gradient(var(--xx-gradient))
 }
-
-[stroke~="#5E5E5E"] {
-  --xx-stroke-opacity: 1;
-  stroke: rgb(94 94 94 / var(--xx-stroke-opacity))
-}
-
 
 .font-sans,
 [font-sans=""] {
@@ -781,15 +592,4 @@
 
 .view-transition-name {
   view-transition-name: name
-}
-
-body,
-html {
-  color: #fff;
-  background: #111;
-  color-scheme: dark;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
 }
