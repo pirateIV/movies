@@ -1,11 +1,9 @@
 import AppScroller from "@/components/AppScroller";
-import useHead from "@/hooks/useHead";
 
 const Search = () => {
-  useHead("Search");
-
   return (
     <AppScroller>
+      <title>Search · React Movies</title>
       <div>
         <div className="flex bg-[#9ca3af1a] items-center px-6 py-4 gap-3 sticky">
           <div className="i-ph-magnifying-glass text-xl opacity-50"></div>

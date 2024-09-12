@@ -13,8 +13,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "dotenv": "^16.4.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "19.0.0-rc-d6cb4e77-20240911",
+    "react-dom": "19.0.0-rc-d6cb4e77-20240911",
     "react-i18next": "^15.0.0",
     "react-imgix": "^9.8.1",
     "react-intl": "^6.6.8",

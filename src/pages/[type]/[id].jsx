@@ -40,6 +40,8 @@ const MediaType = () => {
   return (
     <>
       <AppScroller ref={scrollerRef}>
+        <title>{`${item ? item?.title || item?.name : "React Movies"} · React Movies`}</title>
+
         <HeroMedia item={item} />
 
         <header className="flex items-center justify-center gap-8 py-6">

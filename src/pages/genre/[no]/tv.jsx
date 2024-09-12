@@ -1,9 +1,12 @@
-import useHead from "@/hooks/useHead";
 import MediaComponent from "@/pages";
 
 const TVShows = () => {
-  useHead("TV Shows");
-  return <MediaComponent />;
+  return (
+    <>
+      <title> TV Shows · React Movies</title>
+      <MediaComponent />
+    </>
+  );
 };
 
 export default TVShows;

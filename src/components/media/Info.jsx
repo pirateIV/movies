@@ -1,6 +1,5 @@
 import { imgBaseURL } from "@/config/tmdbAPI";
 import languages from "@/constants/languages";
-import useHead from "@/hooks/useHead";
 import {
   findPerson,
   formatDate,
@@ -29,8 +28,6 @@ const MediaInfo = ({ item }) => {
     production_companies: productionCompanies,
     poster_path: posterPath,
   } = item || {};
-
-  useHead(title);
 
   const releaseDateFormatted = formatDate(releaseDate);
   const runtimeFormatted = formatTime(runtime);
