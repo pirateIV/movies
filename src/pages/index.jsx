@@ -54,7 +54,7 @@ const MediaComponent = ({ isRoot = false }) => {
 
   return (
     <>
-      <AppLoader />
+      {/* <AppLoader /> */}
       <AppScroller>
         <Link
           to={`/${type}/${item?.id || ""}`}

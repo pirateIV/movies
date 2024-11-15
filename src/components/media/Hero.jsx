@@ -20,7 +20,7 @@ const HeroMedia = ({ item }) => {
       >
         {item && (
           <Transition>
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl line-clamp-2">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl line-clamp-2 tracking-tighter">
               {item?.title || item?.name}
             </h1>
             <div className="flex gap-2 ">
