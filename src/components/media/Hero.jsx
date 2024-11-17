@@ -9,7 +9,7 @@ const HeroMedia = ({ item }) => {
   return (
     <div className="bg-black relative aspect-3/2 lg:aspect-25/9">
       <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
-        <Image item={item} />
+        {/* <Image item={item} /> */}
       </div>
       <div
         id="hero-info"
