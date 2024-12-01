@@ -6,6 +6,7 @@ import TVShows from "@/pages/genre/[no]/tv";
 import MediaType from "@/pages/[type]/[id]";
 import MediaQuery from "@/pages/[type]/category/[query]";
 import Search from "@/pages/search";
+import NotFoundPage from "@/pages/error";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         element: <Search />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ]);
 
