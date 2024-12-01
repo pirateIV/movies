@@ -9,6 +9,8 @@ async function fetchTMDB(url, params = {}) {
   try {
     const response = await fetch(`${TMDB_API_URL}/${url}?${searchParams}`);
 
+    console.log(`${TMDB_API_URL}/${url}?${searchParams}`);
+
     if (!response.ok) {
       throw new Error(`HTTP Error!, status: ${response.status}`);
     }
@@ -34,4 +36,14 @@ export async function getMedia(type, id) {
 export async function getRecommendations(type, id, page = 1) {
   const r = await fetchTMDB(`${type}/${id}/recommendations`, { page });
   return r.results;
+}
+
+export async function getMoviesByQuery(query, page = 1) {
+  const r = await fetchTMDB(`search/multi`, {
+    query,
+    include_adult: false,
+    language: "en-US",
+    page,
+  });
+  return r;
 }
