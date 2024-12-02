@@ -1,5 +1,5 @@
 import Imgix from "react-imgix";
-import { Link } from "react-router-dom";
+import { Link, unstable_useViewTransitionState } from "react-router-dom";
 import { imgBaseURL } from "@/config/tmdbAPI";
 import { formatVote } from "@/utils/filter";
 import StarsRate from "../StarsRate";
@@ -16,10 +16,13 @@ const params = {
 };
 
 const MediaCard = ({ item, query, customclass }) => {
+  const to = `/${query?.type}/${item?.id}`;
+  const isTransitioning = unstable_useViewTransitionState(to);
   return (
     <Link
-      to={`/${query?.type}/${item?.id}`}
+      to={to}
       className={` ${customclass} pb-2 flex-1 w-40 md:w-60`}
+      unstable_viewTransition
     >
       <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
         {item?.poster_path ? (
@@ -30,6 +33,9 @@ const MediaCard = ({ item, query, customclass }) => {
             src={buildURL(item.poster_path, "400x600")}
             gi
             alt={item?.title || item?.name}
+            style={{
+              viewTransitionName: isTransitioning ? `item-${item?.id}` : "none",
+            }}
           />
         ) : (
           <div className="h-full op10 flex justify-center items-center">

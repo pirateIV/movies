@@ -29,3 +29,8 @@ html {
   margin: 0;
   padding: 0;
 }
+
+::view-transition-group(*) {
+  animation-duration: .5s;
+  animation-timing-function: var(--ease-5);
+}

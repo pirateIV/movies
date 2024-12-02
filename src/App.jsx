@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { Outlet, useLocation, useNavigation } from "react-router-dom";
+import {
+  Outlet,
+  UNSAFE_ViewTransitionContext,
+  useLocation,
+  useNavigation,
+} from "react-router-dom";
 
 import MediaComponent from "@/pages";
 import NavBar from "@/components/NavBar";
