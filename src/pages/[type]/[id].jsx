@@ -37,6 +37,16 @@ const MediaType = () => {
     scrollerRef.current.scrollTo({ top: 0 });
   }, [id]);
 
+  const handleChangeTab = (current) => {
+    if (document.startViewTransition) {
+      // document.startViewTransition(() => {
+      setActiveTab(current);
+      // });
+    } else {
+      setActiveTab(current);
+    }
+  };
+
   return (
     <>
       <AppScroller ref={scrollerRef}>
@@ -47,22 +57,25 @@ const MediaType = () => {
         <header className="flex items-center justify-center gap-8 py-6">
           <button
             n-tab=""
-            onClick={() => setActiveTab("overview")}
+            onClick={() => handleChangeTab("overview")}
             className={activeTab === "overview" ? "n-tab-active" : ""}
+            style={{ viewTransitionName: "tab-1" }}
           >
             Overview
           </button>
           <button
             n-tab=""
-            onClick={() => setActiveTab("videos")}
+            onClick={() => handleChangeTab("videos")}
             className={activeTab === "videos" ? "n-tab-active" : ""}
+            style={{ viewTransitionName: "tab-2" }}
           >
             Videos
           </button>
           <button
             n-tab=""
-            onClick={() => setActiveTab("photos")}
+            onClick={() => handleChangeTab("photos")}
             className={activeTab === "photos" ? "n-tab-active" : ""}
+            style={{ viewTransitionName: "tab-3" }}
           >
             Photos
           </button>

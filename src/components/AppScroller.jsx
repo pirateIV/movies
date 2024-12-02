@@ -1,4 +1,5 @@
 import React from "react";
+import { ScrollRestoration } from "react-router-dom";
 
 const AppScroller = React.forwardRef((props, ref) => {
   const { children, ...rest } = props;

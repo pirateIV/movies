@@ -30,7 +30,17 @@ html {
   padding: 0;
 }
 
-::view-transition-group(*) {
+/* ::view-transition-group(*) {
   animation-duration: .5s;
   animation-timing-function: var(--ease-5);
+} */
+
+/* ::view-transition-group(root)::view-transition-old(root),
+/* ::view-transition-group(root)::view-transition-new(root) {
+  opacity: 0.5;
+} */
+
+::view-transition(item) {
+  animation-duration: 3.9s;
+  opacity: 0.5;
 }

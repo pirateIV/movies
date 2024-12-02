@@ -48,11 +48,10 @@ const MediaInfo = ({ item }) => {
       <img
         width="400"
         height="600"
-        loading="lazy"
         id="mov-poster-detail"
         alt={`movie title: ${title}`}
         src={buildURL(posterPath, "400x600")}
-        srcSet={`${buildURL(posterPath, "400x600")} 1x, ${buildURL(posterPath, "800x1200")} 2x`}
+        // srcSet={`${buildURL(posterPath, "400x600")} 1x, ${buildURL(posterPath, "800x1200")} 2x`}
         style={{ viewTransitionName: `item-${item?.id}` }}
         className="hidden w-[19.75rem] border-4 bg-[#9ca3af1a] border-[#9ca3af1a] shadow-lg object-cover md:block"
       />
