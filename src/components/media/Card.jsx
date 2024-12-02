@@ -18,7 +18,11 @@ const MediaCard = ({ item, query, customclass }) => {
   const href = `/${query?.type}/${item?.id}`;
 
   return (
-    <Link to={href} className={` ${customclass} pb-2 flex-1 w-40 md:w-60`}>
+    <Link
+      to={href}
+      className={` ${customclass} pb-2 flex-1 w-40 md:w-60`}
+      viewTransition
+    >
       <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
         {item?.poster_path ? (
           <img
@@ -26,11 +30,8 @@ const MediaCard = ({ item, query, customclass }) => {
             height={600}
             className="object-cover h-full"
             src={buildURL(item.poster_path, "400x600")}
-            gi
             alt={item?.title || item?.name}
-            style={{
-              viewTransitionName: isTransitioning ? `item-${item?.id}` : "none",
-            }}
+            style={{ viewTransitionName: `item-${item?.id}` }}
           />
         ) : (
           <div className="h-full op10 flex justify-center items-center">
