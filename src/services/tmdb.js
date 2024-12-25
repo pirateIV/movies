@@ -9,8 +9,6 @@ async function fetchTMDB(url, params = {}) {
   try {
     const response = await fetch(`${TMDB_API_URL}/${url}?${searchParams}`);
 
-    console.log(`${TMDB_API_URL}/${url}?${searchParams}`);
-
     if (!response.ok) {
       throw new Error(`HTTP Error!, status: ${response.status}`);
     }

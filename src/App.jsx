@@ -11,8 +11,6 @@ import NavBar from "@/components/NavBar";
 
 const App = () => {
   const { pathname } = useLocation();
-  const navigation = useNavigation();
-  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="relative font-sans h-full w-full">

@@ -16,9 +16,9 @@ const MediaComponent = ({ isRoot = false }) => {
   const [media, setMedia] = useState([]);
 
   const dispatch = useAppDispatch();
-  const isLoading = useAppSelector((state) => state.loader.loading);
 
   const type = pathname.includes("tv") ? "tv" : "movie";
+
   const queries = isRoot
     ? [QUERY_LIST.movie[0], QUERY_LIST.tv[0]]
     : QUERY_LIST[type];
@@ -45,6 +45,7 @@ const MediaComponent = ({ isRoot = false }) => {
     const heroMedia = await getMedia(type, id);
     setItem(heroMedia);
   };
+
   useEffect(() => {
     if (media.length && media[0].length) {
       const id = media[0][0]?.id;

@@ -1,4 +1,6 @@
 import AppScroller from "@/components/AppScroller";
+import MediaAutoLoadGrid from "@/components/media/AutoLoadGrid";
+import MediaCard from "@/components/media/Card";
 import useHead from "@/hooks/useHead";
 import { getMoviesByQuery } from "@/services/tmdb";
 import { useEffect, useState } from "react";
@@ -7,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const Search = () => {
   useHead("Search");
   const navigate = useNavigate();
+
   const [searchQuery, setSearchQuery] = useState("");
   const [{ movies, totalResults }, setSearchResults] = useState({
     movies: [],
@@ -19,6 +22,7 @@ const Search = () => {
         await getMoviesByQuery(searchQuery);
       setSearchResults({ movies, totalResults });
     };
+
     handleSearch();
 
     if (searchQuery.length) {
@@ -27,6 +31,10 @@ const Search = () => {
       navigate("/search");
     }
   }, [searchQuery]);
+
+  const medias = movies.filter((media) => media?.media_type !== "person");
+
+  console.log(medias);
 
   return (
     <AppScroller>
@@ -53,11 +61,7 @@ const Search = () => {
               <p className="opacity-50">{totalResults} items</p>
             </div>
 
-            <div>
-              {movies.map((movie) => (
-                <div></div>
-              ))}
-            </div>
+            <MediaAutoLoadGrid media={medias} />
           </div>
         )}
       </div>

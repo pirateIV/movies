@@ -15,7 +15,7 @@ const params = {
 };
 
 const MediaCard = ({ item, query, customclass }) => {
-  const href = `/${query?.type}/${item?.id}`;
+  const href = `/${query?.type || item?.media_type}/${item?.id}`;
 
   return (
     <Link
