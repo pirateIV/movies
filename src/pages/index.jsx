@@ -1,13 +1,13 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+
 import HeroMedia from "@/components/media/Hero";
 import CarouselAutoQuery from "@/components/carousel/AutoQuery";
 import { getMedia, listMedia } from "@/services/tmdb";
-import { useEffect, useState, useCallback, useMemo } from "react";
 import { QUERY_LIST } from "@/constants/lists";
 import TheFooter from "@/components/TheFooter";
 import AppScroller from "@/components/AppScroller";
-import AppLoader from "@/components/AppLoader";
-import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { useAppDispatch } from "@/app/hooks";
 import { setLoadingState } from "@/features/loaderSlice";
 
 const MediaComponent = ({ isRoot = false }) => {
@@ -18,7 +18,6 @@ const MediaComponent = ({ isRoot = false }) => {
   const dispatch = useAppDispatch();
 
   const type = pathname.includes("tv") ? "tv" : "movie";
-
   const queries = isRoot
     ? [QUERY_LIST.movie[0], QUERY_LIST.tv[0]]
     : QUERY_LIST[type];
@@ -45,7 +44,6 @@ const MediaComponent = ({ isRoot = false }) => {
     const heroMedia = await getMedia(type, id);
     setItem(heroMedia);
   };
-
   useEffect(() => {
     if (media.length && media[0].length) {
       const id = media[0][0]?.id;
