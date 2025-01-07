@@ -1,14 +1,30 @@
-const buildURL = (imagePath) => `http://image.tmdb.org/t/p/w1280/${imagePath}`;
+import Imgix from "react-imgix";
+
+const buildURL = (imagePath, width) =>
+  `http://image.tmdb.org/t/p/${width}/${imagePath}`;
 
 const Image = ({ item }) => {
-  const imageURL = buildURL(item?.backdrop_path) || "";
-
   return (
     <img
-      width="1220"
-      height="659"
-      src={imageURL}
-      className="w-full h-full object-cover"
+      width="907"
+      height="490"
+      src={buildURL(item?.backdrop_path, "w1280")}
+      srcSet={`
+        ${buildURL(item?.backdrop_path, "w300")} 300w,
+        ${buildURL(item?.backdrop_path, "w780")} 780w,
+        ${buildURL(item?.backdrop_path, "w1280")} 1280w,
+        ${buildURL(item?.backdrop_path, "original")}`}
+      sizes="(max-width: 768px) 100vw,(max-width: 1200px) 85vw,1280px"
+      // htmlAttributes={{
+      //   srcSet: `
+      //     ${buildURL(item?.backdrop_path, "w300")} 300w,
+      //     ${buildURL(item?.backdrop_path, "w780")} 780w,
+      //     ${buildURL(item?.backdrop_path, "w1280")} 1280w,
+      //     ${buildURL(item?.backdrop_path, "original")}`,
+
+      // }}
+
+      className="w-full h-full object-cover aspect-video"
       alt={item?.title || item?.name}
       fetchpriority="high"
     />
