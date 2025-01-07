@@ -22,13 +22,29 @@ const MediaComponent = ({ isRoot = false }) => {
     ? [QUERY_LIST.movie[0], QUERY_LIST.tv[0]]
     : QUERY_LIST[type];
 
+  const getHeroMedia = async (id) => {
+    if (!id) return;
+    try {
+      const heroMedia = await getMedia(type, id);
+      setItem(heroMedia);
+    } catch (error) {
+      console.error("Error fetching hero media", error);
+    }
+  };
+
   const getMediaList = async () => {
-    dispatch(setLoadingState(true));
+    // dispatch(setLoadingState(true));
     try {
       const mediaList = await Promise.all(
         queries.map((query) => listMedia(query.type, query.query, 1)),
       );
-      setMedia(mediaList.map((media) => [...media.results]));
+      const mediaResults = mediaList.map((media) => [...media.results]);
+      setMedia(mediaResults);
+
+      const firstMediaId = mediaResults?.[0]?.[0]?.id;
+      if (firstMediaId) {
+        await getHeroMedia(firstMediaId);
+      }
     } catch (error) {
       console.error("Error fetching media list", error);
     } finally {
@@ -38,18 +54,7 @@ const MediaComponent = ({ isRoot = false }) => {
 
   useEffect(() => {
     getMediaList();
-  }, []);
-
-  const getHeroMedia = async (id) => {
-    const heroMedia = await getMedia(type, id);
-    setItem(heroMedia);
-  };
-  useEffect(() => {
-    if (media.length && media[0].length) {
-      const id = media[0][0]?.id;
-      getHeroMedia(id);
-    }
-  }, [media, isRoot]);
+  }, [isRoot]);
 
   return (
     <>

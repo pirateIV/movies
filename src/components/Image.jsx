@@ -10,7 +10,7 @@ const Image = ({ item }) => {
       src={imageURL}
       className="w-full h-full object-cover"
       alt={item?.title || item?.name}
-      // fetchPriority="high"
+      fetchpriority="high"
     />
   );
 };

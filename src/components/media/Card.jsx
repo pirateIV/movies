@@ -32,7 +32,7 @@ const MediaCard = ({ item, query, customclass }) => {
             src={buildURL(item.poster_path, "400x600")}
             alt={item?.title || item?.name}
             style={{ viewTransitionName: `item-${item?.id}` }}
-            fetchPriority="high"
+            fetchpriority="high"
           />
         ) : (
           <div className="h-full op10 flex justify-center items-center">
