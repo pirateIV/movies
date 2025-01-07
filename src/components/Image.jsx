@@ -1,6 +1,6 @@
 const buildURL = (imagePath, width) => {
   if (!imagePath) return;
-  return `http://image.tmdb.org/t/p/${width}${imagePath}`;
+  return `https://image.tmdb.org/t/p/${width}${imagePath}`;
 };
 const Image = ({ item }) => {
   return (
