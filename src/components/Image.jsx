@@ -1,8 +1,7 @@
-import Imgix from "react-imgix";
-
-const buildURL = (imagePath, width) =>
-  `http://image.tmdb.org/t/p/${width}/${imagePath}`;
-
+const buildURL = (imagePath, width) => {
+  if (!imagePath) return;
+  return `http://image.tmdb.org/t/p/${width}/${imagePath}`;
+};
 const Image = ({ item }) => {
   return (
     <img
