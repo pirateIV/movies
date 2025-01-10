@@ -29,3 +29,15 @@ html {
   margin: 0;
   padding: 0;
 }
+
+/* ::view-transition-group(root) {
+  animation;
+} */
+
+img {
+  view-transition-class: card;
+}
+
+::view-transition-group(*.card) {
+  animation: 500ms ease;
+}

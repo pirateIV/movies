@@ -13,7 +13,7 @@ const PersonCard = ({ item, query, customclass }) => {
     >
       <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
         {item?.profile_path ? (
-          <Imgix
+          <img
             width={500}
             height={800}
             className="object-cover h-full"
@@ -23,10 +23,11 @@ const PersonCard = ({ item, query, customclass }) => {
               (`${buildURL(item.profile_path, "400x600")}1x`,
               `${buildURL(item.profile_path, "800x1200")} 2x`)
             }
-            htmlAttributes={{
-              style: { viewTransitionName: `item-${item?.id}` },
-            }}
+            // htmlAttributes={{
+            //   style: { viewTransitionName: `item-${item?.id}` },
+            // }}
             alt={item?.title || item?.name}
+            fetchPriority="low"
           />
         ) : (
           <div className="h-full opacity-10 flex justify-center">

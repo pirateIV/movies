@@ -26,7 +26,7 @@ const MediaInfo = ({ item }) => {
     release_date: releaseDate,
     original_language: originalLanguage,
     production_companies: productionCompanies,
-    poster_path: posterPath,
+    // poster_path: posterPath,
   } = item || {};
 
   const releaseDateFormatted = formatDate(releaseDate);
@@ -50,10 +50,11 @@ const MediaInfo = ({ item }) => {
         height="600"
         id="mov-poster-detail"
         alt={`movie title: ${title}`}
-        src={buildURL(posterPath, "400x600")}
-        // srcSet={`${buildURL(posterPath, "400x600")} 1x, ${buildURL(posterPath, "800x1200")} 2x`}
+        src={buildURL(item?.poster_path, "400x600")}
+        srcSet={`${buildURL(item?.poster_path, "400x600")} 400w, ${buildURL(item?.poster_path, "800x1200")} 800w`}
         style={{ viewTransitionName: `item-${item?.id}` }}
         className="hidden w-[19.75rem] border-4 bg-[#9ca3af1a] border-[#9ca3af1a] shadow-lg object-cover md:block"
+        fetchPriority="high"
       />
 
       <div className="flex flex-col gap-6 max-w-full md:p-4">
