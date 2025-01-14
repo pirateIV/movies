@@ -16,6 +16,7 @@ const Image = ({ item }) => {
       sizes="(max-width: 768px) 100vw,(max-width: 1200px) 85vw,1280px"
       className="w-full h-full object-cover aspect-video"
       alt={item?.title || item?.name}
+      style={{ aspectRatio: "16/9" }}
       fetchpriority="high"
     />
   );

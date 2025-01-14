@@ -8,12 +8,14 @@ import {
 } from "@/utils/filter";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const buildURL = (imagePath, size) =>
   `${imgBaseURL}/f_webp&s_${size}/tmdb/${imagePath}`;
 
 const MediaInfo = ({ item }) => {
   const { t } = useTranslation();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const {
     runtime,
@@ -45,17 +47,20 @@ const MediaInfo = ({ item }) => {
       id="mov-details"
       className="p-4 grid grid-cols-[max-content_1fr] items-center gap-8 m-auto max-w-[75rem]"
     >
-      <img
-        width="400"
-        height="600"
-        id="mov-poster-detail"
-        alt={`movie title: ${title}`}
-        src={buildURL(item?.poster_path, "400x600")}
-        srcSet={`${buildURL(item?.poster_path, "400x600")} 400w, ${buildURL(item?.poster_path, "800x1200")} 800w`}
-        style={{ viewTransitionName: `item-${item?.id}` }}
-        className="hidden w-[19.75rem] border-4 bg-[#9ca3af1a] border-[#9ca3af1a] shadow-lg object-cover md:block"
-        fetchPriority="high"
-      />
+      <div className="relative">
+        <div className={`absolute inset-0 bg-gray-800 `} />
+        <img
+          width="400"
+          height="600"
+          id="mov-poster-detail"
+          alt={`movie title: ${title}`}
+          src={buildURL(item?.poster_path, "400x600")}
+          srcSet={`${buildURL(item?.poster_path, "400x600")} 400w, ${buildURL(item?.poster_path, "800x1200")} 800w`}
+          style={{ viewTransitionName: `item-${item?.id}` }}
+          className="hidden w-[19.75rem] border-4 bg-[#9ca3af1a] border-[#9ca3af1a] shadow-lg object-cover md:block"
+          fetchPriority="high"
+        />
+      </div>
 
       <div className="flex flex-col gap-6 max-w-full md:p-4">
         <div>

@@ -31,7 +31,10 @@ const MediaCard = ({ item, query, customclass }) => {
             className="object-cover h-full"
             src={buildURL(item.poster_path, "400x600")}
             alt={item?.title || item?.name}
-            style={{ viewTransitionName: `item-${item?.id}` }}
+            style={{
+              viewTransitionName: `item-${item?.id}`,
+              aspectRatio: "2/3",
+            }}
             fetchpriority="high"
           />
         ) : (
