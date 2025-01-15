@@ -18,16 +18,12 @@ const PersonCard = ({ item, query, customclass }) => {
             height={800}
             className="object-cover h-full"
             src={buildURL(item.profile_path, "400x600")}
-            // imgixParams={params}
             srcSet={
               (`${buildURL(item.profile_path, "400x600")}1x`,
               `${buildURL(item.profile_path, "800x1200")} 2x`)
             }
-            // htmlAttributes={{
-            //   style: { viewTransitionName: `item-${item?.id}` },
-            // }}
             alt={item?.title || item?.name}
-            fetchPriority="low"
+            fetchpriority="low"
           />
         ) : (
           <div className="h-full opacity-10 flex justify-center">

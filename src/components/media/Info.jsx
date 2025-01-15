@@ -57,8 +57,8 @@ const MediaInfo = ({ item }) => {
           src={buildURL(item?.poster_path, "400x600")}
           srcSet={`${buildURL(item?.poster_path, "400x600")} 400w, ${buildURL(item?.poster_path, "800x1200")} 800w`}
           style={{ viewTransitionName: `item-${item?.id}` }}
-          className="hidden w-[19.75rem] border-4 bg-[#9ca3af1a] border-[#9ca3af1a] shadow-lg object-cover md:block"
-          fetchPriority="high"
+          className="hidden w-[19.75rem] border-4 bg-[#1e1e1e1a] border-[#2222221a] shadow-lg object-cover md:block"
+          fetchpriority="high"
         />
       </div>
 
