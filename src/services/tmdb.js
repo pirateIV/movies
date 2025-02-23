@@ -46,3 +46,7 @@ export async function getMoviesByQuery(query, page = 1) {
   });
   return r;
 }
+
+export async function getPerson(id) {
+  return await fetchTMDB(`person/${id}`);
+}

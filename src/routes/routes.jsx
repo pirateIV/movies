@@ -7,6 +7,7 @@ import MediaType from "@/pages/[type]/[id]";
 import MediaQuery from "@/pages/[type]/category/[query]";
 import Search from "@/pages/search";
 import NotFoundPage from "@/pages/error";
+import Person from "@/pages/person";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/tv/category/:query",
         element: <MediaQuery />,
+      },
+      {
+        path: "/person/:id",
+        element: <Person />,
       },
       {
         path: "/search",
