@@ -2,18 +2,24 @@
 /* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap'); */
 
 @font-face {
-  font-family: "DM Sans";
-  src: url(/src/assets/fonts/DMSans-Regular.ttf);
+  font-family: "InterVar";
+  src: url(/fonts/InterVariable/Inter-Regular.woff2);
   font-weight: 400;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "DM Sans";
-  src: url(/src/assets/fonts/DMSans-Medium.ttf);
+  font-family: "InterVar";
+  src: url(/fonts/InterVariable/Inter-Medium.woff2);
   font-weight: 500;
   font-display: swap;
 }
+@font-face {
+  font-family: "InterVar";
+  src: url(/fonts/InterVariable/Inter-SemiBold.woff2);
+  font-weight: 600;
+  font-display: swap;
+}
+
 
 @tailwind base;
 @tailwind components;
@@ -30,9 +36,9 @@ html {
   padding: 0;
 }
 
-/* ::view-transition-group(root) {
-  animation;
-} */
+:root {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss02";
+}
 
 img {
   view-transition-class: card;

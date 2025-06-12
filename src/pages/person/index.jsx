@@ -1,7 +1,6 @@
 import { imgBaseURL } from "@/config/tmdbAPI";
 import { getPerson } from "@/services/tmdb";
 import { useEffect, useState } from "react";
-import Imgix from "react-imgix";
 import { useParams } from "react-router-dom";
 
 const Person = () => {

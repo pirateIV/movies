@@ -11,7 +11,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["DM Sans", "sans-serif", ...defaultTheme.fontFamily.sans],
+        sans: ["InterVar", "sans-serif", ...defaultTheme.fontFamily.sans],
       },
       aspectRatio: {
         "3/2": "3/2",
