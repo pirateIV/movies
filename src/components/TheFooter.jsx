@@ -4,7 +4,7 @@ import IconTMDB from "./icon/IconTMDB";
 
 const TheFooter = () => {
   return (
-    <footer className="p-[3.75rem] flex flex-col gap-4">
+    <footer className="p-15 flex flex-col gap-4">
       <div className="flex flex-row gap-2 items-center my-2">
         <img src="/movies-sm.webp" width="25" height="25" alt="Logo" />
         <div className="text-xl">React Movies</div>

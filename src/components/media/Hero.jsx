@@ -18,7 +18,7 @@ const HeroMedia = ({ item }) => {
 
   return (
     <>
-      <div className="bg-black relative aspect-3/2 lg:aspect-25/9">
+      <div className="bg-black relative max-lg:aspect-3/2 aspect-25/9">
         <div className="absolute top-0 right-0 bottom-0 lg:left-1/3">
           <Image item={item} />
         </div>
@@ -26,7 +26,7 @@ const HeroMedia = ({ item }) => {
           id="hero-info"
           className={twMerge([
             "flex flex-col justify-center absolute top-0 bottom-0",
-            "left-0 right-0 px-10 lg:px-[6.25rem] lg:w-2/3",
+            "left-0 right-0 px-10 lg:px-25 lg:w-2/3",
           ])}
         >
           {item && (

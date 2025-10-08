@@ -10,11 +10,11 @@ const Photos = ({ item }) => {
           {item?.images.backdrops.length} images
         </div>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,_minmax(20rem,_1fr))] gap-4">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-4">
         {item?.images.backdrops.map((image, i) => (
           <button
             key={i}
-            className="relative w-full overflow-hidden aspect-[16/9] transition duration-300 hover:scale-[1.02] z-10"
+            className="relative w-full overflow-hidden aspect-video transition duration-300 hover:scale-[1.02] z-10"
             title="View Photo"
           >
             <img
@@ -32,11 +32,11 @@ const Photos = ({ item }) => {
           {item?.images.posters.length} images
         </div>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fill,_minmax(10rem,_1fr))] gap-4 lg:grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))]">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-4 lg:grid-cols-[repeat(auto-fill,minmax(15rem,1fr))]">
         {item?.images.posters.map((image, i) => (
           <button
             key={i}
-            className="text-left block aspect-[9/16] transition duration-300 hover:scale-[1.02] z-10"
+            className="text-left block aspect-9/16 transition duration-300 hover:scale-[1.02] z-10"
             title="View Photo"
           >
             <img

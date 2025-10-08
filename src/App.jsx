@@ -27,7 +27,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <DialogProvider>
         <div className="relative font-sans h-full w-full">
-          <div className="h-full w-full grid grid-rows-[1fr,max-content] lg:grid-rows-none lg:grid-cols-[max-content,1fr]">
+          <div className="h-full w-full grid grid-rows-[1fr_max-content] lg:grid-rows-none lg:grid-cols-[max-content_1fr]">
             <title>React Movies</title>
             {pathname === "/" ? <MediaComponent isRoot={true} /> : <Outlet />}
             <NavBar />

@@ -9,9 +9,9 @@ const PersonCard = ({ item, query, customclass }) => {
   return (
     <Link
       to={`/${query.type}/${item?.id}`}
-      className={` ${customclass} pb-2 flex-1 w-[12.5rem]`}
+      className={` ${customclass} pb-2 flex-1 w-50`}
     >
-      <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
+      <div className="block aspect-10/16 p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
         {item?.profile_path ? (
           <img
             width={500}

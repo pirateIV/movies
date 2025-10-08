@@ -45,7 +45,7 @@ const MediaInfo = ({ item }) => {
   return (
     <div
       id="mov-details"
-      className="p-4 grid grid-cols-[max-content_1fr] items-center gap-8 m-auto max-w-[75rem]"
+      className="p-4 grid grid-cols-[max-content_1fr] items-center gap-8 m-auto max-w-300"
     >
       <div className="relative">
         <div className={`absolute inset-0 bg-gray-800 `} />
@@ -57,7 +57,7 @@ const MediaInfo = ({ item }) => {
           src={buildURL(item?.poster_path, "400x600")}
           srcSet={`${buildURL(item?.poster_path, "400x600")} 400w, ${buildURL(item?.poster_path, "800x1200")} 800w`}
           style={{ viewTransitionName: `item-${item?.id}` }}
-          className="hidden w-[19.75rem] border-4 bg-[#1e1e1e1a] border-[#2222221a] shadow-lg object-cover md:block"
+          className="hidden w-79 border-4 bg-[#1e1e1e1a] border-[#2222221a] shadow-lg object-cover md:block"
           fetchpriority="high"
         />
       </div>

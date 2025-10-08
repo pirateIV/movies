@@ -23,7 +23,7 @@ const MediaCard = ({ item, query, customclass }) => {
       className={` ${customclass || ""} pb-2 flex-1 w-40 md:w-60`}
       viewTransition
     >
-      <div className="block aspect-[10/16] p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
+      <div className="block aspect-10/16 p-1 bg-[#9ca3af1a] duration-300 hover:scale-105">
         {item?.poster_path ? (
           <img
             width={400}

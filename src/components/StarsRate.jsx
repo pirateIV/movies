@@ -1,6 +1,6 @@
 const StarsRate = ({ value, width = "w-25" }) => {
   return (
-    <div aspect="11/2" className={`relative hue-rotate-[320deg] ${width}`}>
+    <div aspect="11/2" className={`relative hue-rotate-320 ${width}`}>
       <img
         src="/stars.webp"
         height={16}

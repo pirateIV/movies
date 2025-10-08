@@ -17,14 +17,14 @@ const Person = () => {
   }, [params]);
 
   return (
-    <div className="max-w-[75rem] mx-auto order-first lg:order-last">
-      <div className="grid grid-cols-[auto,1fr] p-4">
+    <div className="max-w-300 mx-auto order-first lg:order-last">
+      <div className="grid grid-cols-[auto_1fr] p-4">
         {/* <div> */}
         <img
           src={`${imgBaseURL}f_webp&s-400x600/tmdb/${person?.profile_path}`}
           width="400"
           height="600"
-          className="aspect-[3/4]"
+          className="aspect-3/4"
           alt={person?.name + "'s avatar"}
         />
         {/* </div> */}
