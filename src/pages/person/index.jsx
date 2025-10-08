@@ -20,7 +20,7 @@ const Person = () => {
   }, [params]);
 
   return (
-    <div className="max-w-[1200px] h-dvh mx-auto order-first lg:order-last">
+    <div className="max-w-[1200px] w-full h-dvh mx-auto flex order-first lg:order-last">
       <div className="grid grid-cols-[400px_1fr] gap-4 p-4">
         {/* Person Image */}
         <div className="block aspect-3/4 bg-[#9ca3af1a]">
