@@ -1,17 +1,17 @@
 const imgBaseURL = "https://movies-proxy.vercel.app/ipx/f_webp&s_400x600/tmdb/";
 
 const Photos = ({ item }) => {
-  console.log(item);
+  const backdrops = item?.images?.backdrops ?? [];
+  const posters = item?.images?.posters ?? [];
+
   return (
     <div className="flex flex-col px-4 py-8 gap-6 md:px-16">
       <div className="flex gap-2 items-baseline">
         <div className="text-2xl">Backdrops </div>
-        <div className="text-sm opacity-50">
-          {item?.images.backdrops.length} images
-        </div>
+        <div className="text-sm opacity-50">{backdrops.length} images</div>
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(20rem,1fr))] gap-4">
-        {item?.images.backdrops.map((image, i) => (
+        {backdrops.map((image, i) => (
           <button
             key={i}
             className="relative w-full overflow-hidden aspect-video transition duration-300 hover:scale-[1.02] z-10"
@@ -28,12 +28,10 @@ const Photos = ({ item }) => {
       </div>
       <div className="flex gap-2 items-baseline">
         <div className="text-2xl">Posters </div>
-        <div className="text-sm opacity-50">
-          {item?.images.posters.length} images
-        </div>
+        <div className="text-sm opacity-50">{posters.length} images</div>
       </div>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-4 lg:grid-cols-[repeat(auto-fill,minmax(15rem,1fr))]">
-        {item?.images.posters.map((image, i) => (
+        {posters.map((image, i) => (
           <button
             key={i}
             className="text-left block aspect-9/16 transition duration-300 hover:scale-[1.02] z-10"

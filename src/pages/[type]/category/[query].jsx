@@ -21,21 +21,26 @@ const MediaQuery = () => {
     setLoading(true);
     try {
       const res = await listMedia(type, query, pageNum);
-      const data = await res.results;
+      const data = res?.results ?? [];
 
-      if (data?.length === 0) {
-        setHasMore(false); // No more data to fetch
+      if (data.length === 0) {
+        setHasMore(false);
       } else {
         setMedia((prevMedia) => [...prevMedia, ...data]);
       }
     } catch (error) {
-      console.log("Error occured fetching media", error);
+      console.error("Error occurred fetching media", error);
+      setHasMore(false);
     } finally {
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
+      setLoading(false);
     }
   };
+
+  useEffect(() => {
+    setPage(1);
+    setMedia([]);
+    setHasMore(true);
+  }, [query, type]);
 
   useEffect(() => {
     fetchMediaPages(page);
@@ -65,7 +70,7 @@ const MediaQuery = () => {
         scroller.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [loading, hasMore, scrollerref]);
+  }, [loading, hasMore]);
 
   return (
     <AppScroller ref={scrollerref}>
