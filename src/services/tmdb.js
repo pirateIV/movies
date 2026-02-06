@@ -6,9 +6,10 @@ async function fetchTMDB(url, params = {}) {
     ...params,
   });
 
+  const requestUrl = `${TMDB_API_URL}/${url}?${searchParams}`;
+
   try {
-    const response = await fetch(`${TMDB_API_URL}/${url}?${searchParams}`);
-    console.log(`${TMDB_API_URL}/${url}?${searchParams}`);
+    const response = await fetch(requestUrl);
 
     if (!response.ok) {
       throw new Error(`HTTP Error!, status: ${response.status}`);
@@ -16,7 +17,9 @@ async function fetchTMDB(url, params = {}) {
 
     return await response.json();
   } catch (error) {
-    console.error("Fetch error", error);
+    throw new Error(`Failed to fetch TMDB resource: ${requestUrl}`, {
+      cause: error,
+    });
   }
 }
 
@@ -48,5 +51,5 @@ export async function getMoviesByQuery(query, page = 1) {
 }
 
 export async function getPerson(id) {
-  return await fetchTMDB(`person/${id}`);
+  return fetchTMDB(`person/${id}`);
 }

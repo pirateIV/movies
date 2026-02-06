@@ -7,17 +7,31 @@ const buildURL = (imagePath, size) =>
   `${imgBaseURL}/f_webp&s_${size}/tmdb/${imagePath}`;
 
 const Person = () => {
-  const params = useParams();
+  const { id } = useParams();
   const [person, setPerson] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     const getPersonDetails = async () => {
-      const data = await getPerson(params.id);
-      setPerson(data);
-      console.log(data);
+      try {
+        const data = await getPerson(id);
+        if (isMounted) {
+          setPerson(data);
+        }
+      } catch (error) {
+        console.error("Error fetching person details", error);
+      }
     };
-    getPersonDetails();
-  }, [params]);
+
+    if (id) {
+      getPersonDetails();
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
 
   return (
     <div className="max-w-[1200px] w-full h-dvh mx-auto flex order-first lg:order-last">
@@ -32,7 +46,7 @@ const Person = () => {
               src={buildURL(person.profile_path, "400x600")}
               srcSet={`${buildURL(person.profile_path, "400x600")} 1x, ${buildURL(person.profile_path, "800x1200")} 2x`}
               alt={person?.name + "'s avatar"}
-              fetchpriority="low"
+              fetchPriority="low"
             />
           ) : (
             <div className="h-full flex items-center justify-center opacity-20">
@@ -45,7 +59,9 @@ const Person = () => {
         <div className="p-4">
           <h1 className="text-3xl mb-4">{person?.name}</h1>
           <div className="mb-2">
-            <strong className="opacity-70">{person?.known_for_department}</strong>
+            <strong className="opacity-70">
+              {person?.known_for_department}
+            </strong>
           </div>
           <div className="leading-relaxed opacity-80 whitespace-pre-line">
             {person?.biography || "Biography not available."}

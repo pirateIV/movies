@@ -57,7 +57,7 @@ const MediaContent = ({ isRoot = false }) => {
 
   useEffect(() => {
     getMediaList();
-  }, [isRoot]);
+  }, [isRoot, pathname]);
 
   useEffect(() => {
     if (isTrailerOpen && modalRef.current) {
