@@ -35,7 +35,7 @@ const MediaCard = ({ item, query, customclass }) => {
               viewTransitionName: `item-${item?.id}`,
               aspectRatio: "2/3",
             }}
-            fetchpriority="high"
+            fetchPriority="high"
           />
         ) : (
           <div className="h-full op10 flex justify-center items-center">

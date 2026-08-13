@@ -17,7 +17,7 @@ const Image = ({ item }) => {
       className="w-full h-full object-cover aspect-video"
       alt={item?.title || item?.name}
       style={{ aspectRatio: "16/9" }}
-      fetchpriority="high"
+      fetchPriority="high"
     />
   );
 };

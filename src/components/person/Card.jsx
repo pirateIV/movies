@@ -23,7 +23,7 @@ const PersonCard = ({ item, query, customclass }) => {
               `${buildURL(item.profile_path, "800x1200")} 2x`)
             }
             alt={item?.title || item?.name}
-            fetchpriority="low"
+            fetchPriority="low"
           />
         ) : (
           <div className="h-full opacity-10 flex justify-center">
