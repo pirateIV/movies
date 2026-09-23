@@ -1,39 +1,14 @@
 export function formatTime(minutes) {
-  const seconds = minutes * 60;
-  let secondsLeft = seconds;
-
-  const hours = Math.floor(secondsLeft / 3600);
-  secondsLeft = secondsLeft % 3600;
-
-  const mins = Math.floor(secondsLeft / 60);
-  secondsLeft = secondsLeft % 60;
-
-  return `${hours ? `${hours}h` : ""} ${mins}min`;
+  if (!minutes || isNaN(minutes)) return "";
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  return `${hours ? `${hours}h ` : ""}${mins}min`;
 }
 
 export const { format: formatVote } = Intl.NumberFormat("en-GB", {
   notation: "compact",
   maximumFractionDigits: 1,
 });
-
-/**
- * Format minutes into hours and mins
- */
-// export function formatTime(minutes) {
-//   // seconds
-//   const seconds = minutes * 60;
-//   let secondsLeft = seconds;
-
-//   // hours
-//   const hours = Math.floor(secondsLeft / 3600);
-//   secondsLeft = secondsLeft % 3600;
-
-//   // mins
-//   const mins = Math.floor(secondsLeft / 60);
-//   secondsLeft = secondsLeft % 60;
-
-//   return `${hours ? `${hours}h` : ""} ${mins}min`;
-// }
 
 export function formatNumber(num) {
   if (num >= 1000) {
@@ -57,7 +32,7 @@ export function numberWithCommas(number) {
 }
 
 export function findPerson(mediaDetails, job) {
-  return mediaDetails?.credits?.crew.find((person) => person?.job === job);
+  return mediaDetails?.credits?.crew?.find((person) => person?.job === job);
 }
 
 // export const convertImageToWebP = async (imageURL, callback) => {

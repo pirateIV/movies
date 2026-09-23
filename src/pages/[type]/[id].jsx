@@ -22,29 +22,37 @@ const MediaType = () => {
   const scrollerRef = useRef(null);
 
   useEffect(() => {
+    let isCurrent = true;
+
     async function getMediaItem() {
-      const heroMedia = await getMedia(type, id);
-      setItem(heroMedia);
+      try {
+        const heroMedia = await getMedia(type, id);
+        if (isCurrent) setItem(heroMedia);
+      } catch (err) {
+        console.error("Failed to fetch media item", err);
+      }
     }
     getMediaItem();
 
     async function getSimilar() {
-      const similarMedia = await getRecommendations(type, id, 1);
-      setSimilar(similarMedia);
+      try {
+        const similarMedia = await getRecommendations(type, id, 1);
+        if (isCurrent) setSimilar(similarMedia || []);
+      } catch (err) {
+        console.error("Failed to fetch recommendations", err);
+      }
     }
     getSimilar();
 
-    scrollerRef.current.scrollTo({ top: 0 });
-  }, [id]);
+    scrollerRef.current?.scrollTo({ top: 0 });
+
+    return () => {
+      isCurrent = false;
+    };
+  }, [id, type]);
 
   const handleChangeTab = (current) => {
-    if (document.startViewTransition) {
-      // document.startViewTransition(() => {
-      setActiveTab(current);
-      // });
-    } else {
-      setActiveTab(current);
-    }
+    setActiveTab(current);
   };
 
   return (
@@ -52,7 +60,7 @@ const MediaType = () => {
       <AppScroller ref={scrollerRef}>
         <title>{`${item ? item?.title || item?.name : "React Movies"} · React Movies`}</title>
 
-        <HeroMedia item={item} />
+        <HeroMedia item={item} type={type} />
 
         <header className="flex items-center justify-center gap-8 py-6">
           <button
@@ -85,9 +93,9 @@ const MediaType = () => {
         {activeTab === "videos" && <Videos item={item} />}
         {activeTab === "photos" && <Photos item={item} />}
 
-        <CarouselBase query={{ title: "More like this" }}>
-          {similar?.map((item, i) => (
-            <MediaCard key={i} item={item} query={{ type }} />
+        <CarouselBase query={{ title: "More like this", type }}>
+          {similar?.map((simItem, i) => (
+            <MediaCard key={simItem.id || i} item={simItem} query={{ type }} />
           ))}
         </CarouselBase>
 

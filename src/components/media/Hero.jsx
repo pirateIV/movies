@@ -4,17 +4,19 @@ import StarsRate from "../StarsRate";
 import Transition from "./Transition";
 import MediaItem from "./Item";
 import Image from "../Image";
-import { useEffect, useRef } from "react";
 import { useDialog } from "@/context/DialogContext";
 
-const HeroMedia = ({ item }) => {
+const HeroMedia = ({ item, type }) => {
   const { openTrailerDialog } = useDialog();
 
   const handleOpenTrailer = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    openTrailerDialog(item);
+    openTrailerDialog(item, null, type || (item?.title ? "movie" : "tv"));
   };
+
+  const releaseYear =
+    item?.release_date?.slice(0, 4) || item?.first_air_date?.slice(0, 4);
 
   return (
     <>
@@ -34,7 +36,7 @@ const HeroMedia = ({ item }) => {
               <h1 className="text-2xl sm:text-4xl lg:text-5xl line-clamp-2 tracking-tighter">
                 {item?.title || item?.name}
               </h1>
-              <div className="flex gap-2 ">
+              <div className="flex gap-2 items-center flex-wrap">
                 <MediaItem value={item?.vote_average}>
                   <StarsRate value={item?.vote_average} />
                   <div className="opacity-50 hidden md:block">
@@ -47,16 +49,20 @@ const HeroMedia = ({ item }) => {
                     {formatVote(item?.vote_count)} Reviews
                   </div>
                 </MediaItem>
-                <MediaItem value={item?.release_date}>
-                  <span className="opacity-50">·</span>
-                  <div className="opacity-50">
-                    {item?.release_date ? item?.release_date.slice(0, 4) : null}
-                  </div>
-                </MediaItem>
-                <MediaItem value={item?.runtime}>
-                  <span className="opacity-50">·</span>
-                  <div className="opacity-50">{formatTime(item?.runtime)}</div>
-                </MediaItem>
+                {releaseYear && (
+                  <MediaItem value={releaseYear}>
+                    <span className="opacity-50">·</span>
+                    <div className="opacity-50">{releaseYear}</div>
+                  </MediaItem>
+                )}
+                {item?.runtime > 0 && (
+                  <MediaItem value={item?.runtime}>
+                    <span className="opacity-50">·</span>
+                    <div className="opacity-50">
+                      {formatTime(item?.runtime)}
+                    </div>
+                  </MediaItem>
+                )}
               </div>
               <p
                 className={twMerge([
@@ -71,7 +77,7 @@ const HeroMedia = ({ item }) => {
                 <button
                   type="button"
                   title="Watch Trailer"
-                  className="flex gap-2 items-center px-6 py-3 transition duration-200 hover:bg-[#9ca3af26]"
+                  className="flex gap-2 items-center px-6 py-3 transition duration-200 hover:bg-[#9ca3af26] rounded-lg border border-white/10"
                   onClick={handleOpenTrailer}
                 >
                   <div className="i-ph-play"></div>

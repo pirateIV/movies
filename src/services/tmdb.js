@@ -51,5 +51,7 @@ export async function getMoviesByQuery(query, page = 1) {
 }
 
 export async function getPerson(id) {
-  return fetchTMDB(`person/${id}`);
+  return fetchTMDB(`person/${id}`, {
+    append_to_response: "combined_credits,external_ids,images",
+  });
 }

@@ -1,15 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  Outlet,
-  UNSAFE_ViewTransitionContext,
-  useLocation,
-  useNavigation,
-} from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import MediaComponent from "@/pages";
 import NavBar from "@/components/NavBar";
 import { DialogProvider } from "./context/DialogContext";
+import TrailerModal from "@/components/media/TrailerModal";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +28,7 @@ const App = () => {
             <NavBar />
           </div>
         </div>
+        <TrailerModal />
       </DialogProvider>
     </QueryClientProvider>
   );
