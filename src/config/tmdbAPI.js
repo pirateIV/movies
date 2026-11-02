@@ -1,11 +1,13 @@
 /**
  * API url
  */
-const TMDB_API_URL = "https://api.themoviedb.org/3";
+// Requests are routed through the server-side proxy so the TMDB API key
+// never gets bundled into client-side JavaScript (Vite inlines VITE_* vars
+// into the shipped bundle, which would leak the key to any visitor).
+const TMDB_API_URL = "https://movies-proxy.vercel.app/tmdb";
 const imgBaseURL = "https://movies-proxy.vercel.app/ipx";
 
 const TMDB_API_PARAMS = {
-  api_key: import.meta.env.VITE_TMDB_API_KEY,
   language: "en",
 };
 
